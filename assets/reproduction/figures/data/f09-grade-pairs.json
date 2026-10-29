@@ -1,0 +1,218 @@
+{
+  "fixture": "f09a-grade-pairs-v1",
+  "source": "chapters/09-targets-actions-laws.qmd#sec-grade-actions",
+  "units": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "pair_order": [
+    "AB",
+    "AC",
+    "AD",
+    "BC",
+    "BD",
+    "CD"
+  ],
+  "orientation": "Smaller nonempty canonical grade label means higher reported priority.",
+  "reports": [
+    {
+      "id": "g1222",
+      "units": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "grades": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "blocks_high_priority_first": [
+        [
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "D"
+        ]
+      ],
+      "G": 2,
+      "M": 6,
+      "N": 3,
+      "withheld_pairs": 3,
+      "disclosure_fraction": "1/2",
+      "pairs": [
+        {
+          "pair": "AB",
+          "unit_i": "A",
+          "unit_j": "B",
+          "g_i": 1,
+          "g_j": 2,
+          "x_i_above_j": 1,
+          "x_j_above_i": 0,
+          "disclosed": true,
+          "direction": "A>B"
+        },
+        {
+          "pair": "AC",
+          "unit_i": "A",
+          "unit_j": "C",
+          "g_i": 1,
+          "g_j": 2,
+          "x_i_above_j": 1,
+          "x_j_above_i": 0,
+          "disclosed": true,
+          "direction": "A>C"
+        },
+        {
+          "pair": "AD",
+          "unit_i": "A",
+          "unit_j": "D",
+          "g_i": 1,
+          "g_j": 2,
+          "x_i_above_j": 1,
+          "x_j_above_i": 0,
+          "disclosed": true,
+          "direction": "A>D"
+        },
+        {
+          "pair": "BC",
+          "unit_i": "B",
+          "unit_j": "C",
+          "g_i": 2,
+          "g_j": 2,
+          "x_i_above_j": 0,
+          "x_j_above_i": 0,
+          "disclosed": false,
+          "direction": "hold"
+        },
+        {
+          "pair": "BD",
+          "unit_i": "B",
+          "unit_j": "D",
+          "g_i": 2,
+          "g_j": 2,
+          "x_i_above_j": 0,
+          "x_j_above_i": 0,
+          "disclosed": false,
+          "direction": "hold"
+        },
+        {
+          "pair": "CD",
+          "unit_i": "C",
+          "unit_j": "D",
+          "g_i": 2,
+          "g_j": 2,
+          "x_i_above_j": 0,
+          "x_j_above_i": 0,
+          "disclosed": false,
+          "direction": "hold"
+        }
+      ]
+    },
+    {
+      "id": "g1122",
+      "units": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "grades": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "blocks_high_priority_first": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "G": 2,
+      "M": 6,
+      "N": 4,
+      "withheld_pairs": 2,
+      "disclosure_fraction": "2/3",
+      "pairs": [
+        {
+          "pair": "AB",
+          "unit_i": "A",
+          "unit_j": "B",
+          "g_i": 1,
+          "g_j": 1,
+          "x_i_above_j": 0,
+          "x_j_above_i": 0,
+          "disclosed": false,
+          "direction": "hold"
+        },
+        {
+          "pair": "AC",
+          "unit_i": "A",
+          "unit_j": "C",
+          "g_i": 1,
+          "g_j": 2,
+          "x_i_above_j": 1,
+          "x_j_above_i": 0,
+          "disclosed": true,
+          "direction": "A>C"
+        },
+        {
+          "pair": "AD",
+          "unit_i": "A",
+          "unit_j": "D",
+          "g_i": 1,
+          "g_j": 2,
+          "x_i_above_j": 1,
+          "x_j_above_i": 0,
+          "disclosed": true,
+          "direction": "A>D"
+        },
+        {
+          "pair": "BC",
+          "unit_i": "B",
+          "unit_j": "C",
+          "g_i": 1,
+          "g_j": 2,
+          "x_i_above_j": 1,
+          "x_j_above_i": 0,
+          "disclosed": true,
+          "direction": "B>C"
+        },
+        {
+          "pair": "BD",
+          "unit_i": "B",
+          "unit_j": "D",
+          "g_i": 1,
+          "g_j": 2,
+          "x_i_above_j": 1,
+          "x_j_above_i": 0,
+          "disclosed": true,
+          "direction": "B>D"
+        },
+        {
+          "pair": "CD",
+          "unit_i": "C",
+          "unit_j": "D",
+          "g_i": 2,
+          "g_j": 2,
+          "x_i_above_j": 0,
+          "x_j_above_i": 0,
+          "disclosed": false,
+          "direction": "hold"
+        }
+      ]
+    }
+  ],
+  "scope": "Deterministic reporting examples; no latent target values,probability law,risk or optimality is instantiated. Grade ties withhold directions,not assert equality."
+}

@@ -1,0 +1,271 @@
+{
+  "status": "pass",
+  "tau_grid": [
+    "1/20",
+    "1/10",
+    "3/20",
+    "1/5",
+    "1/4",
+    "3/10",
+    "7/20",
+    "2/5",
+    "9/20",
+    "1/2"
+  ],
+  "laws": [
+    {
+      "name": "tie_free",
+      "n": 3,
+      "K": 2,
+      "reports": 13,
+      "identity_pairs": [],
+      "total_distinct_mass": "3"
+    },
+    {
+      "name": "partial_equalities",
+      "n": 3,
+      "K": 2,
+      "reports": 13,
+      "identity_pairs": [],
+      "total_distinct_mass": "2"
+    },
+    {
+      "name": "identity_pair",
+      "n": 3,
+      "K": 2,
+      "reports": 13,
+      "identity_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "total_distinct_mass": "2"
+    },
+    {
+      "name": "all_identical",
+      "n": 3,
+      "K": 2,
+      "reports": 13,
+      "identity_pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "total_distinct_mass": "0"
+    },
+    {
+      "name": "four_unit_counterexample",
+      "n": 4,
+      "K": 2,
+      "reports": 75,
+      "identity_pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "total_distinct_mass": "7/2"
+    }
+  ],
+  "assertion_counts": {
+    "all_withhold_nonzero_coefficient_error": 1,
+    "co_primary_withholding_does_not_cancel": 1,
+    "coefficient_geometry_bound": 130,
+    "coherent_distinct_mass_radius": 1,
+    "coherent_uniform_bound": 130,
+    "counterexample_disclosure_counts": 2,
+    "counterexample_exact_risk": 2,
+    "counterexample_family_counts": 1,
+    "counterexample_total_mass": 1,
+    "counterexample_unguarded_minimum": 2,
+    "counterexample_unique_guarded_minimum": 2,
+    "distinct_mass_counterexample_increases": 1,
+    "distinct_mass_expression": 1270,
+    "enumeration": 3,
+    "exact_G_can_be_infeasible_with_guard": 1,
+    "fixed_family_mass_monotonicity": 288,
+    "guard_existence_not_all_minimizers": 1,
+    "guard_preserves_optimum": 160,
+    "payoff_affine_relation": 1270,
+    "perturbed_selection": 1,
+    "perturbed_selection_regret_bound": 1,
+    "raw_disclosure_not_monotone": 1,
+    "raw_vs_coefficients": 1270,
+    "reverse_relation": 36,
+    "weak_comparison_withholding_does_cancel": 1,
+    "weak_minus_neutral_identity": 1270,
+    "zero_tie_reduction": 130
+  },
+  "total_assertions": 5977,
+  "four_unit_minima": [
+    {
+      "tau": "1/10",
+      "grade": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "risk": "1/60",
+      "raw_disclosed_pairs": 4,
+      "distinct_disclosed_mass": "5/2"
+    },
+    {
+      "tau": "3/10",
+      "grade": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "risk": "1/24",
+      "raw_disclosed_pairs": 3,
+      "distinct_disclosed_mass": "3"
+    }
+  ],
+  "four_unit_guarded_binary_table": [
+    {
+      "grade": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "wrong_mass": 0,
+      "withheld_distinct_mass": "7/2",
+      "raw_disclosed_pairs": 0,
+      "distinct_disclosed_mass": 0
+    },
+    {
+      "grade": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "wrong_mass": "29/10",
+      "withheld_distinct_mass": "1/2",
+      "raw_disclosed_pairs": 3,
+      "distinct_disclosed_mass": "3"
+    },
+    {
+      "grade": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "wrong_mass": "3/5",
+      "withheld_distinct_mass": "2",
+      "raw_disclosed_pairs": 3,
+      "distinct_disclosed_mass": "3/2"
+    },
+    {
+      "grade": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "wrong_mass": "5/2",
+      "withheld_distinct_mass": "1",
+      "raw_disclosed_pairs": 4,
+      "distinct_disclosed_mass": "5/2"
+    },
+    {
+      "grade": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "wrong_mass": "0",
+      "withheld_distinct_mass": "1",
+      "raw_disclosed_pairs": 4,
+      "distinct_disclosed_mass": "5/2"
+    },
+    {
+      "grade": [
+        2,
+        2,
+        1,
+        2
+      ],
+      "wrong_mass": "9/10",
+      "withheld_distinct_mass": "2",
+      "raw_disclosed_pairs": 3,
+      "distinct_disclosed_mass": "3/2"
+    },
+    {
+      "grade": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "wrong_mass": "1/10",
+      "withheld_distinct_mass": "1/2",
+      "raw_disclosed_pairs": 3,
+      "distinct_disclosed_mass": "3"
+    }
+  ],
+  "co_primary_target_comparison": [
+    {
+      "grade": [
+        1,
+        1
+      ],
+      "criterion_risk": "1/4",
+      "composite_risk": "0"
+    },
+    {
+      "grade": [
+        1,
+        2
+      ],
+      "criterion_risk": "1/2",
+      "composite_risk": "0"
+    },
+    {
+      "grade": [
+        2,
+        1
+      ],
+      "criterion_risk": "1/2",
+      "composite_risk": "0"
+    }
+  ],
+  "coefficient_error_example": {
+    "Delta_b": "1/10",
+    "Delta_d": "1/10",
+    "all_withhold_discrepancy_at_tau_1_4": "1/40",
+    "positive_selection_regret": "1/100"
+  },
+  "input_laws_sha256": "9c9b3fe34a2cee7280249e72868270664923db9c37e075bf6ed5adcc9837b381",
+  "exact_results_sha256": "e4412ea0722dd04174e333a0d438574ff5911afd21a5964a43becd3774600768",
+  "execution": {
+    "at_utc": "2026-10-27T12:56:11.902804+00:00",
+    "python": "3.13.2",
+    "script_name": "12-12-independent-checks.py",
+    "script_sha256": "35b89b44685aeb140b4c2c30fb9ebe1133ff8a4eb4fba685e8ae10cd30786193",
+    "arithmetic": "fractions.Fraction; no floating-point risks or randomized draws",
+    "execution_scope": "One evaluation of the bounded finite checks; no package or solver import",
+    "limitations": [
+      "Finite examples do not prove general propositions.",
+      "Guard preservation is checked only for fixed at-most-G families without extra restrictions.",
+      "Distinct-mass monotonicity holds for each fixed law, weight vector, guard and action family.",
+      "The two target objectives use the same fixed family; no law-derived guard is transferred.",
+      "No empirical validity, model calibration, runtime or scalability conclusion is drawn."
+    ]
+  }
+}

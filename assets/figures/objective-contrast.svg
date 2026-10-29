@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='864.00pt' height='388.80pt' viewBox='0 0 864.00 388.80'>
+ <metadata><rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><cc:Work><dc:creator><cc:Agent><dc:title>JoonHo Lee (jlee296@ua.edu)</dc:title></cc:Agent></dc:creator></cc:Work></rdf:RDF></metadata>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw4NjQuMDB8MC4wMHwzODguODA='>
+    <rect x='0.00' y='0.00' width='864.00' height='388.80' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHwzODguODA=)'>
+</g>
+<defs>
+  <clipPath id='cpMC4wMHw0ODMuODR8MC4wMHwzODguODA='>
+    <rect x='0.00' y='0.00000000000013' width='483.84' height='388.80' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw0ODMuODR8MC4wMHwzODguODA=)'>
+<rect x='-0.000000000000064' y='0.00000000000011' width='483.84' height='388.80' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
+</g>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHwzODguODA=)'>
+</g>
+<defs>
+  <clipPath id='cpNDQuOTJ8NDY3LjkwfDQ2LjQ4fDMwNy4wMQ=='>
+    <rect x='44.92' y='46.48' width='422.98' height='260.54' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDQuOTJ8NDY3LjkwfDQ2LjQ4fDMwNy4wMQ==)'>
+<polyline points='44.92,295.17 467.90,295.17 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='44.92,247.80 467.90,247.80 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='44.92,200.43 467.90,200.43 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='44.92,153.06 467.90,153.06 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='44.92,105.69 467.90,105.69 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='44.92,58.32 467.90,58.32 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='64.15,307.01 64.15,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='192.32,307.01 192.32,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='320.50,307.01 320.50,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='448.67,307.01 448.67,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='64.15,295.17 320.50,247.80 448.67,200.43 ' style='stroke-width: 1.92; stroke: #176A70; stroke-linecap: butt;' />
+<polyline points='64.15,295.17 320.50,184.64 448.67,74.11 ' style='stroke-width: 1.92; stroke: #B36B35; stroke-dasharray: 10.24,10.24; stroke-linecap: butt;' />
+<circle cx='64.15' cy='295.17' r='3.16' style='stroke-width: 0.77; stroke: #176A70; fill: #176A70;' />
+<circle cx='320.50' cy='247.80' r='3.16' style='stroke-width: 0.77; stroke: #176A70; fill: #176A70;' />
+<circle cx='448.67' cy='200.43' r='3.16' style='stroke-width: 0.77; stroke: #176A70; fill: #176A70;' />
+<circle cx='64.15' cy='295.17' r='3.16' style='stroke-width: 0.77; stroke: #B36B35; fill: #B36B35;' />
+<circle cx='320.50' cy='184.64' r='3.16' style='stroke-width: 0.77; stroke: #B36B35; fill: #B36B35;' />
+<circle cx='448.67' cy='74.11' r='3.16' style='stroke-width: 0.77; stroke: #B36B35; fill: #B36B35;' />
+</g>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHwzODguODA=)'>
+<text x='39.54' y='298.61' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>0.0</text>
+<text x='39.54' y='251.24' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>0.3</text>
+<text x='39.54' y='203.87' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>0.6</text>
+<text x='39.54' y='156.50' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>0.9</text>
+<text x='39.54' y='109.13' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>1.2</text>
+<text x='39.54' y='61.76' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='13.33px' lengthAdjust='spacingAndGlyphs'>1.5</text>
+<text x='64.15' y='319.27' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='192.32' y='319.27' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='320.50' y='319.27' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='448.67' y='319.27' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='256.41' y='333.00' text-anchor='middle' style='font-size: 12.00px; font-family: "Helvetica";' textLength='190.06px' lengthAdjust='spacingAndGlyphs'>Expected number of disclosed pairs</text>
+<text transform='translate(20.57,176.74) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Helvetica";' textLength='118.70px' lengthAdjust='spacingAndGlyphs'>Expected wrong count</text>
+<line x1='149.32' y1='362.23' x2='163.15' y2='362.23' style='stroke-width: 1.92; stroke: #176A70; stroke-linecap: butt;' />
+<circle cx='156.23' cy='362.23' r='3.16' style='stroke-width: 0.77; stroke: #176A70; fill: #176A70;' />
+<line x1='261.68' y1='362.23' x2='275.51' y2='362.23' style='stroke-width: 1.92; stroke: #B36B35; stroke-dasharray: 10.24,10.24; stroke-linecap: butt;' />
+<circle cx='268.59' cy='362.23' r='3.16' style='stroke-width: 0.77; stroke: #B36B35; fill: #B36B35;' />
+<text x='170.85' y='365.67' style='font-size: 9.60px; font-family: "Helvetica";' textLength='83.12px' lengthAdjust='spacingAndGlyphs'>All coherent reports</text>
+<text x='283.21' y='365.67' style='font-size: 9.60px; font-family: "Helvetica";' textLength='82.02px' lengthAdjust='spacingAndGlyphs'>Mean-order reports</text>
+<text x='44.92' y='38.28' style='font-size: 10.00px; font-family: "Helvetica";' textLength='262.92px' lengthAdjust='spacingAndGlyphs'>Vertices are complete reports; segments mix whole reports.</text>
+<text x='44.92' y='22.03' style='font-size: 14.00px; font-weight: bold; font-family: "Helvetica";' textLength='265.95px' lengthAdjust='spacingAndGlyphs'>A. Disclosure under one conditional law</text>
+</g>
+<defs>
+  <clipPath id='cpNDgzLjg0fDg2NC4wMHwwLjAwfDM4OC44MA=='>
+    <rect x='483.84' y='0.00000000000013' width='380.16' height='388.80' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNDgzLjg0fDg2NC4wMHwwLjAwfDM4OC44MA==)'>
+<rect x='483.84' y='0.00000000000011' width='380.16' height='388.80' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
+</g>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHwzODguODA=)'>
+</g>
+<defs>
+  <clipPath id='cpNTM0LjYyfDg0OC4wNnw0Ni40OHwzNDguMjA='>
+    <rect x='534.62' y='46.48' width='313.44' height='301.73' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTM0LjYyfDg0OC4wNnw0Ni40OHwzNDguMjA=)'>
+<polyline points='534.62,328.18 848.06,328.18 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='534.62,265.12 848.06,265.12 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='534.62,202.07 848.06,202.07 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='534.62,139.01 848.06,139.01 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='534.62,75.95 848.06,75.95 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='572.61,348.20 572.61,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='651.76,348.20 651.76,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='730.92,348.20 730.92,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='810.07,348.20 810.07,46.48 ' style='stroke-width: 1.16; stroke: #EBEBEB; stroke-linecap: butt;' />
+<circle cx='810.07' cy='233.60' r='3.59' style='stroke-width: 0.77; stroke: #176A70; fill: #176A70;' />
+<circle cx='651.76' cy='107.48' r='3.59' style='stroke-width: 0.77; stroke: #176A70; fill: #176A70;' />
+<circle cx='572.61' cy='328.18' r='3.59' style='stroke-width: 0.77; stroke: #176A70; fill: #176A70;' />
+<text x='810.07' y='226.66' text-anchor='middle' style='font-size: 11.38px;fill: #173F45; font-family: "Helvetica";' textLength='7.59px' lengthAdjust='spacingAndGlyphs'>A</text>
+<text x='651.76' y='100.54' text-anchor='middle' style='font-size: 11.38px;fill: #173F45; font-family: "Helvetica";' textLength='7.59px' lengthAdjust='spacingAndGlyphs'>B</text>
+<text x='572.61' y='321.24' text-anchor='middle' style='font-size: 11.38px;fill: #173F45; font-family: "Helvetica";' textLength='8.22px' lengthAdjust='spacingAndGlyphs'>C</text>
+<polygon points='727.33,170.54 730.92,166.95 734.50,170.54 730.92,174.13 ' style='stroke-width: 0.77; stroke: none; fill: #666666;' />
+<text x='730.92' y='164.49' text-anchor='middle' style='font-size: 9.39px;fill: #555555; font-family: "Helvetica";' textLength='40.66px' lengthAdjust='spacingAndGlyphs'>AB lottery</text>
+</g>
+<g clip-path='url(#cpMC4wMHw4NjQuMDB8MC4wMHwzODguODA=)'>
+<text x='529.24' y='331.62' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='13.86px' lengthAdjust='spacingAndGlyphs'>0%</text>
+<text x='529.24' y='268.57' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='19.19px' lengthAdjust='spacingAndGlyphs'>20%</text>
+<text x='529.24' y='205.51' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='19.19px' lengthAdjust='spacingAndGlyphs'>40%</text>
+<text x='529.24' y='142.45' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='19.19px' lengthAdjust='spacingAndGlyphs'>60%</text>
+<text x='529.24' y='79.40' text-anchor='end' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='19.19px' lengthAdjust='spacingAndGlyphs'>80%</text>
+<text x='572.61' y='360.46' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='651.76' y='360.46' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='730.92' y='360.46' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='810.07' y='360.46' text-anchor='middle' style='font-size: 9.60px;fill: #4D4D4D; font-family: "Helvetica";' textLength='5.33px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='691.34' y='374.19' text-anchor='middle' style='font-size: 12.00px; font-family: "Helvetica";' textLength='164.05px' lengthAdjust='spacingAndGlyphs'>Expected selected target value</text>
+<text transform='translate(504.41,197.34) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Helvetica";' textLength='188.72px' lengthAdjust='spacingAndGlyphs'>Probability of selecting the best unit</text>
+<text x='534.62' y='38.28' style='font-size: 10.00px; font-family: "Helvetica";' textLength='231.86px' lengthAdjust='spacingAndGlyphs'>A, B, C: singletons. AB lottery: uniform over A and B.</text>
+<text x='534.62' y='22.03' style='font-size: 14.00px; font-weight: bold; font-family: "Helvetica";' textLength='260.19px' lengthAdjust='spacingAndGlyphs'>B. A budget of one: different objectives</text>
+</g>
+</g>
+</svg>

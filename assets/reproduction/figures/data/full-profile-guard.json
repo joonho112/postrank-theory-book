@@ -1,0 +1,119 @@
+{
+  "scope": "Complete stipulated two-state T11 law and original pair multiplicities; no posterior fitting or new empirical data.",
+  "orientation": "Larger target values mean higher priority; smaller grade labels mean higher reported priority.",
+  "units": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "weights": [
+    "1/4",
+    "3/4"
+  ],
+  "states": [
+    {
+      "probability": "3/5",
+      "targets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "probability": "2/5",
+      "targets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "full_active_profile_classes": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "C"
+    ],
+    [
+      "D"
+    ]
+  ],
+  "partial_match_not_a_guard": [
+    "A",
+    "C"
+  ],
+  "pairs": [
+    {
+      "pair": "AB",
+      "weighted_distinct_delta": "0",
+      "guard_required": true
+    },
+    {
+      "pair": "AC",
+      "weighted_distinct_delta": "1/4",
+      "guard_required": false
+    },
+    {
+      "pair": "AD",
+      "weighted_distinct_delta": "1",
+      "guard_required": false
+    },
+    {
+      "pair": "BC",
+      "weighted_distinct_delta": "1/4",
+      "guard_required": false
+    },
+    {
+      "pair": "BD",
+      "weighted_distinct_delta": "1",
+      "guard_required": false
+    },
+    {
+      "pair": "CD",
+      "weighted_distinct_delta": "1",
+      "guard_required": false
+    }
+  ],
+  "original_M": 6,
+  "original_pair_multiplicities": {
+    "within_AB": 1,
+    "AB_to_C": 2,
+    "AB_to_D": 2,
+    "C_to_D": 1
+  },
+  "unweighted_three_class_pair_count": 3,
+  "sources": [
+    "assets/reproduction/tie-aware-checks.py:run_checks four_unit_counterexample",
+    "assets/reproduction/figures/data/t11-pairs.csv"
+  ],
+  "proof_boundary": "Existence of a guarded minimizer for full weighted at-most-G family with no extra restrictions, not every minimizer or arbitrary merging."
+}

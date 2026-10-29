@@ -1,0 +1,299 @@
+{
+  "id": "F11b-pair-loss-matrices",
+  "created_at_utc": "2026-10-27T17:58:51.027901+00:00",
+  "author": "JoonHo Lee (jlee296@ua.edu)",
+  "source": "chapters/11-multicriteria-loss.qmd: weak-error definition and sec-tie-aware-loss, prp-tie-aware-risk",
+  "scope": "Exact symbolic cost table for one unordered pair and one criterion, before weighting and division by M. Representative state values are witnesses for the three order relations, not an empirical target profile or plotted magnitude. No probability values are assigned.",
+  "parameter": {
+    "symbol": "tau",
+    "domain": "0 < tau <= 1/2"
+  },
+  "row_axis": "latent relation",
+  "column_axis": "reported pair action",
+  "states": [
+    {
+      "id": "strict_forward",
+      "label": "theta_i > theta_j",
+      "theta_i": 1,
+      "theta_j": 0,
+      "probability_symbol": "p_plus"
+    },
+    {
+      "id": "equality",
+      "label": "theta_i = theta_j",
+      "theta_i": 0,
+      "theta_j": 0,
+      "probability_symbol": "p_zero"
+    },
+    {
+      "id": "strict_reverse",
+      "label": "theta_i < theta_j",
+      "theta_i": -1,
+      "theta_j": 0,
+      "probability_symbol": "p_minus"
+    }
+  ],
+  "actions": [
+    {
+      "id": "forward",
+      "label": "i has greater priority than j"
+    },
+    {
+      "id": "hold",
+      "label": "withhold the comparison"
+    },
+    {
+      "id": "reverse",
+      "label": "j has greater priority than i"
+    }
+  ],
+  "weak_error": [
+    [
+      {
+        "constant": 0,
+        "tau_coefficient": 0,
+        "label": "0"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 1,
+        "label": "tau"
+      },
+      {
+        "constant": 1,
+        "tau_coefficient": 0,
+        "label": "1"
+      }
+    ],
+    [
+      {
+        "constant": 1,
+        "tau_coefficient": 0,
+        "label": "1"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 1,
+        "label": "tau"
+      },
+      {
+        "constant": 1,
+        "tau_coefficient": 0,
+        "label": "1"
+      }
+    ],
+    [
+      {
+        "constant": 1,
+        "tau_coefficient": 0,
+        "label": "1"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 1,
+        "label": "tau"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 0,
+        "label": "0"
+      }
+    ]
+  ],
+  "equality_neutral": [
+    [
+      {
+        "constant": 0,
+        "tau_coefficient": 0,
+        "label": "0"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 1,
+        "label": "tau"
+      },
+      {
+        "constant": 1,
+        "tau_coefficient": 0,
+        "label": "1"
+      }
+    ],
+    [
+      {
+        "constant": 0,
+        "tau_coefficient": 0,
+        "label": "0"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 0,
+        "label": "0"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 0,
+        "label": "0"
+      }
+    ],
+    [
+      {
+        "constant": 1,
+        "tau_coefficient": 0,
+        "label": "1"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 1,
+        "label": "tau"
+      },
+      {
+        "constant": 0,
+        "tau_coefficient": 0,
+        "label": "0"
+      }
+    ]
+  ],
+  "probability_symbols": {
+    "p_plus": "P(theta_i > theta_j | y)",
+    "p_zero": "P(theta_i = theta_j | y)",
+    "p_minus": "P(theta_i < theta_j | y)",
+    "constraint": "p_plus + p_zero + p_minus = 1; each is nonnegative",
+    "distinctness": "d = p_plus + p_minus = 1 - p_zero",
+    "geometry": "Any three event boxes must be labeled schematic; their sizes cannot encode unspecified probability masses."
+  },
+  "expected_pair_costs": {
+    "weak_error": {
+      "forward": "p_zero + p_minus",
+      "hold": "tau",
+      "reverse": "p_plus + p_zero"
+    },
+    "equality_neutral": {
+      "forward": "p_minus",
+      "hold": "tau * (p_plus + p_minus)",
+      "reverse": "p_plus"
+    }
+  },
+  "all_withhold_baseline": {
+    "one_pair_one_criterion": {
+      "weak_error": "tau",
+      "equality_neutral": "tau * d"
+    },
+    "full_book_normalization": {
+      "weak_error": "tau",
+      "equality_neutral": "tau * T_w^s / M",
+      "feasibility": "Interpret as an available report only when all-withhold belongs to the feasible action family."
+    }
+  },
+  "checks": [
+    {
+      "state": "strict_forward",
+      "action": "forward",
+      "weak_label": "0",
+      "neutral_label": "0",
+      "difference_coefficients": [
+        0,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "strict_forward",
+      "action": "hold",
+      "weak_label": "tau",
+      "neutral_label": "tau",
+      "difference_coefficients": [
+        0,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "strict_forward",
+      "action": "reverse",
+      "weak_label": "1",
+      "neutral_label": "1",
+      "difference_coefficients": [
+        0,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "equality",
+      "action": "forward",
+      "weak_label": "1",
+      "neutral_label": "0",
+      "difference_coefficients": [
+        1,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "equality",
+      "action": "hold",
+      "weak_label": "tau",
+      "neutral_label": "0",
+      "difference_coefficients": [
+        0,
+        1
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "equality",
+      "action": "reverse",
+      "weak_label": "1",
+      "neutral_label": "0",
+      "difference_coefficients": [
+        1,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "strict_reverse",
+      "action": "forward",
+      "weak_label": "1",
+      "neutral_label": "1",
+      "difference_coefficients": [
+        0,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "strict_reverse",
+      "action": "hold",
+      "weak_label": "tau",
+      "neutral_label": "tau",
+      "difference_coefficients": [
+        0,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    },
+    {
+      "state": "strict_reverse",
+      "action": "reverse",
+      "weak_label": "0",
+      "neutral_label": "0",
+      "difference_coefficients": [
+        0,
+        0
+      ],
+      "matches_definition_and_expected_difference": true
+    }
+  ],
+  "check_summary": {
+    "definition_cells": 18,
+    "paired_difference_checks": 9,
+    "result": "PASS tiny exact symbolic construction and literal-matrix readback; not independent figure acceptance"
+  },
+  "boundaries": [
+    "A reported hold does not assert latent equality.",
+    "Zero equality-neutral cost for a disclosed direction at equality does not certify strict superiority.",
+    "A smaller neutral risk is not an accuracy improvement under the different weak-error loss.",
+    "No fitted law, probability estimate, target difference, optimum, threshold or empirical claim is introduced."
+  ]
+}

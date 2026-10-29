@@ -1,0 +1,12 @@
+# References {.unnumbered #sec-references}
+
+The cited works support the statements, descriptions and relationships identified in the chapters. Our examination of their arguments, proofs, software and empirical results is confined to the material described there. The scope of the review is given in @sec-source-provenance.
+
+Page and theorem locators refer to the identified editions and publication years, distinguishing author copies, working papers, research reports and journal versions where necessary. Institutional sources describe the methods or rules at the dates examined, with proposed changes distinguished from adopted rules. Attribution to a particular version refers to the identified text as well as its DOI or repository entry.
+
+Definitions, reconstructions, illustrative calculations and recommendations developed here are distinguished from results taken from the sources. Citations to earlier work do not attribute our applications or numerical results to it, and applying an established method to a new reporting problem does not by itself establish priority. The relevant qualifications are given in the chapters and the proof guide in @sec-proofs.
+
+The two recent aggregation comparisons in @sec-current-weak-order-optimization use [arXiv:2511.19345v2, revised 28 July 2026](https://arxiv.org/abs/2511.19345v2), and [arXiv:2502.13769v1, posted 19 February 2025](https://arxiv.org/abs/2502.13769v1). The unversioned repository DOIs in their bibliography entries identify the works; the versioned links here identify the texts examined. Equivalence to later repository or publisher versions is not assumed.
+
+::: {#refs}
+:::

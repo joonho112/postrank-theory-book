@@ -1,0 +1,239 @@
+{
+  "scope": "Exact stipulated Chapter4/13/15 figures; not observed data",
+  "transformation_coefficients": {
+    "original_a": [
+      "1/2",
+      "1/2"
+    ],
+    "compensated_a": [
+      "1/2",
+      "5"
+    ],
+    "directional_w": [
+      "1/2",
+      "1/2"
+    ]
+  },
+  "transformation_rows": [
+    {
+      "unit": "A",
+      "targets": [
+        -2,
+        4
+      ],
+      "original": "1",
+      "rescaled_fixed_coefficients": "-4/5",
+      "rescaled_compensated_coefficients": "1",
+      "absolute_second_target": "1"
+    },
+    {
+      "unit": "B",
+      "targets": [
+        1,
+        0
+      ],
+      "original": "1/2",
+      "rescaled_fixed_coefficients": "1/2",
+      "rescaled_compensated_coefficients": "1/2",
+      "absolute_second_target": "1/2"
+    },
+    {
+      "unit": "C",
+      "targets": [
+        2,
+        -1
+      ],
+      "original": "1/2",
+      "rescaled_fixed_coefficients": "19/20",
+      "rescaled_compensated_coefficients": "1/2",
+      "absolute_second_target": "3/2"
+    }
+  ],
+  "pointmass_protection": {
+    "targets": {
+      "A": [
+        1,
+        0
+      ],
+      "B": [
+        0,
+        1
+      ]
+    },
+    "weights": [
+      "1",
+      "0"
+    ],
+    "q": [
+      "1/2",
+      "1/2"
+    ],
+    "rows": [
+      {
+        "action": "A>B",
+        "N": 1,
+        "criterion_errors": [
+          "0",
+          "1"
+        ],
+        "weighted_risk": "0",
+        "feasible_at_most2": false,
+        "feasible_exact2": false
+      },
+      {
+        "action": "B>A",
+        "N": 1,
+        "criterion_errors": [
+          "1",
+          "0"
+        ],
+        "weighted_risk": "1",
+        "feasible_at_most2": false,
+        "feasible_exact2": false
+      },
+      {
+        "action": "withhold",
+        "N": 0,
+        "criterion_errors": [
+          "0",
+          "0"
+        ],
+        "weighted_risk": "tau",
+        "feasible_at_most2": true,
+        "feasible_exact2": false
+      }
+    ]
+  },
+  "weight_sensitivity": {
+    "law": "Equal mass on (A,B)=((1,1),(0,0)) and((1,-1),(0,0))",
+    "tau": "1/4",
+    "omega_domain": [
+      "0",
+      "1"
+    ],
+    "lines": {
+      "A>B": {
+        "intercept": "1/2",
+        "slope": "-1/2",
+        "minimax": "1/2"
+      },
+      "B>A": {
+        "intercept": "1/2",
+        "slope": "1/2",
+        "minimax": "1"
+      },
+      "withhold": {
+        "intercept": "1/4",
+        "slope": "0",
+        "minimax": "1/4"
+      }
+    },
+    "included_minimax_criteria": [
+      1,
+      2
+    ]
+  },
+  "coefficient_protection": [
+    {
+      "t": "0",
+      "q": "1/20",
+      "epsilon": "1/10",
+      "inner_threshold": "-1/20",
+      "outer_threshold": "3/20",
+      "actions": [
+        {
+          "action": "withhold",
+          "N": 0,
+          "exact_error": "0",
+          "estimated_error": "0",
+          "exact_risk": "1/4",
+          "estimated_risk": "1/4",
+          "rate": null,
+          "inner": true,
+          "exact": true,
+          "nominal": true,
+          "outer": true
+        },
+        {
+          "action": "A>B",
+          "N": 1,
+          "exact_error": "1/10",
+          "estimated_error": "0",
+          "exact_risk": "1/10",
+          "estimated_risk": "0",
+          "rate": "1/10",
+          "inner": false,
+          "exact": false,
+          "nominal": true,
+          "outer": true
+        },
+        {
+          "action": "B>A",
+          "N": 1,
+          "exact_error": "9/10",
+          "estimated_error": "1",
+          "exact_risk": "9/10",
+          "estimated_risk": "1",
+          "rate": "9/10",
+          "inner": false,
+          "exact": false,
+          "nominal": false,
+          "outer": false
+        }
+      ]
+    },
+    {
+      "t": "1/5",
+      "q": "1/4",
+      "epsilon": "1/10",
+      "inner_threshold": "3/20",
+      "outer_threshold": "7/20",
+      "actions": [
+        {
+          "action": "withhold",
+          "N": 0,
+          "exact_error": "0",
+          "estimated_error": "0",
+          "exact_risk": "1/4",
+          "estimated_risk": "1/4",
+          "rate": null,
+          "inner": true,
+          "exact": true,
+          "nominal": true,
+          "outer": true
+        },
+        {
+          "action": "A>B",
+          "N": 1,
+          "exact_error": "3/10",
+          "estimated_error": "1/5",
+          "exact_risk": "3/10",
+          "estimated_risk": "1/5",
+          "rate": "3/10",
+          "inner": false,
+          "exact": false,
+          "nominal": true,
+          "outer": true
+        },
+        {
+          "action": "B>A",
+          "N": 1,
+          "exact_error": "7/10",
+          "estimated_error": "4/5",
+          "exact_risk": "7/10",
+          "estimated_risk": "4/5",
+          "rate": "7/10",
+          "inner": false,
+          "exact": false,
+          "nominal": false,
+          "outer": false
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Weak-error definitions for all displayed fixture losses; neutral branch has separate theory.",
+    "All silent fractions are null, not zero.",
+    "Exact-grade empty family is infeasibility, not an attained risk."
+  ]
+}

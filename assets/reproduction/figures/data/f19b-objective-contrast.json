@@ -1,0 +1,216 @@
+{
+  "id": "F19b",
+  "coordinate_kind": "Selected exact saved plotting fields from the three-unit construction; no new enumeration",
+  "source_identity": {
+    "path": "fixtures/objective-contrast.json",
+    "sha256": "803c1f0cc2966d22cfc608ae6521e425ef4871b4653c441d81cb31638b9a8de1",
+    "bytes": 9399
+  },
+  "canonical_identity": {
+    "path": "chapters/19-worked-examples.qmd",
+    "sha256": "3bcc6390e9aa1ec7883056fad881702bf93e87b0624d6802f431d0dde4e6dd95",
+    "bytes": 19678
+  },
+  "original_plot_source": {
+    "path": "examples/plot-objective-contrast.R",
+    "sha256": "7b869f4f682af10148ea31693ff88508490ad3c37ca7e561b2a1d60e860faac5",
+    "bytes": 3470
+  },
+  "source_selectors": [
+    "families.unrestricted.hull",
+    "families.mean_order_ABC.hull",
+    "moments[*].unit,mean,top1_probability",
+    "selected_reports[g=[1,1,2]].added_top_grade_uniform_allocation"
+  ],
+  "units": [
+    "A",
+    "B",
+    "C"
+  ],
+  "n": 3,
+  "K": 2,
+  "M": 3,
+  "w": [
+    "3/5",
+    "2/5"
+  ],
+  "a": [
+    "3/4",
+    "1/4"
+  ],
+  "tau": "1/4",
+  "states": [
+    {
+      "probability": "3/10",
+      "theta": [
+        [
+          20,
+          20
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "probability": "7/10",
+      "theta": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    }
+  ],
+  "families": {
+    "unrestricted": {
+      "report_count": 13,
+      "hull": [
+        [
+          0,
+          "0"
+        ],
+        [
+          2,
+          "3/10"
+        ],
+        [
+          3,
+          "3/5"
+        ]
+      ]
+    },
+    "mean_order_ABC": {
+      "report_count": 4,
+      "hull": [
+        [
+          0,
+          "0"
+        ],
+        [
+          2,
+          "7/10"
+        ],
+        [
+          3,
+          "7/5"
+        ]
+      ]
+    }
+  },
+  "allocation_singletons": [
+    {
+      "unit": "A",
+      "expected_selected_value": "6",
+      "probability_select_best": "3/10"
+    },
+    {
+      "unit": "B",
+      "expected_selected_value": "4",
+      "probability_select_best": "7/10"
+    },
+    {
+      "unit": "C",
+      "expected_selected_value": "3",
+      "probability_select_best": "0"
+    }
+  ],
+  "added_AB_lottery": {
+    "report": [
+      1,
+      1,
+      2
+    ],
+    "units": [
+      "A",
+      "B"
+    ],
+    "probabilities": [
+      "1/2",
+      "1/2"
+    ],
+    "expected_selected_value": "5",
+    "probability_select_best": "1/2",
+    "randomization": "Select one of A/B uniformly independently of the latent state conditional on the available information. This is an additional allocation action, not information encoded by the report tie."
+  },
+  "panel_specs": {
+    "reporting": {
+      "title": "A. Disclosure under one conditional law",
+      "x_units": "Expected number of disclosed pairs",
+      "x_ticks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "y_units": "Expected wrong count",
+      "y_limits": [
+        "0",
+        "3/2"
+      ],
+      "y_ticks": [
+        "0",
+        "3/10",
+        "3/5",
+        "9/10",
+        "6/5",
+        "3/2"
+      ],
+      "segment_interpretation": "Randomize whole reports; not a deterministic report at every horizontal coordinate."
+    },
+    "allocation": {
+      "title": "B. A budget of one: different objectives",
+      "x_units": "Expected selected target value",
+      "x_limits": [
+        "27/10",
+        "63/10"
+      ],
+      "x_ticks": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "y_units": "Probability of selecting the best unit",
+      "y_limits": [
+        "-1/50",
+        "17/20"
+      ],
+      "y_ticks": [
+        "0",
+        "1/5",
+        "2/5",
+        "3/5",
+        "4/5"
+      ],
+      "singleton_marker": "circle",
+      "added_AB_lottery_marker": "diamond"
+    }
+  },
+  "qualifications": [
+    "Correct controlling fixture has three units and two perfectly dependent identical criteria; do not substitute the separate two-unit predecessor fixture.",
+    "Conditional target uncertainty is heterogeneous; no sampling-standard-error manipulation or fitted empirical Bayes prior is asserted.",
+    "Full13-report and fixed mean-order4-report hulls belong to the same supplied law and targets, with distinct feasible families.",
+    "Hull segments randomize complete coherent reports independently of latent state.",
+    "Mean-order final hull slope7/10 lies beyond primarytau<=1/2; the full hull does not extend the policy interval.",
+    "The budget-one scatter evaluates a separate selection action: expected selected value and chance of selecting highest target are different objectives.",
+    "AB lottery is an explicit added independent selection rule for report112; a reported tie does not itself allocate.",
+    "No causal intervention effect, empirical policy benefit, posterior fitting, simulation, solver or package claim."
+  ],
+  "extractor": "JoonHo Lee (jlee296@ua.edu)",
+  "extracted_at_utc": "2026-10-27T19:25:01.418072+00:00",
+  "copy_scope": "Exact selected fields copied; no hull construction or report enumeration. Original desktop SVG must remain byte-identical."
+}

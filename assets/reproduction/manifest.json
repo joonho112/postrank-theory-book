@@ -1,0 +1,14 @@
+{
+  "snapshot_date": "2026-10-27",
+  "status": "author_review_candidate",
+  "archive": "p1-small-examples.zip",
+  "bytes": 30689,
+  "sha256": "f799908b80ffa6e4f2bf352c95ef5d77fd66c3a49e0b5df0ef3729bb5739727b",
+  "archive_files": 16,
+  "scientific_files": 10,
+  "inventory": "checksums.json inside archive",
+  "validation": "PASS: one extraction, integrity verification of15suppliedfiles andfourfinitePythonchecks on27October2026; no archiveorfixtureoverwrite.",
+  "license": "Author selection pending; see RIGHTS.md inside archive.",
+  "verification_environment": "CPython3.13.2, existingmacOSarm64host; notnewOSimageordependencyinstallation.",
+  "packaging_note": "Author headers and rights attribution normalized for the public source copy; scientific inputs and calculations unchanged."
+}

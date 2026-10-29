@@ -1,0 +1,130 @@
+{
+  "scope": "Exact known-truth co-primary-target comparison, no estimation uncertainty.",
+  "theta_AB": [
+    [
+      1,
+      -1
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "a": [
+    "1/2",
+    "1/2"
+  ],
+  "w": [
+    "1/2",
+    "1/2"
+  ],
+  "composite_AB": [
+    "0",
+    "0"
+  ],
+  "M": 1,
+  "costs": [
+    {
+      "loss": "weak",
+      "target": "composite",
+      "action": "A>B",
+      "intercept": "1",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "1"
+    },
+    {
+      "loss": "weak",
+      "target": "composite",
+      "action": "hold",
+      "intercept": "0",
+      "tau_coefficient": "1",
+      "at_tau_1_4": "1/4"
+    },
+    {
+      "loss": "weak",
+      "target": "composite",
+      "action": "B>A",
+      "intercept": "1",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "1"
+    },
+    {
+      "loss": "weak",
+      "target": "criterion",
+      "action": "A>B",
+      "intercept": "1/2",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "1/2"
+    },
+    {
+      "loss": "weak",
+      "target": "criterion",
+      "action": "hold",
+      "intercept": "0",
+      "tau_coefficient": "1",
+      "at_tau_1_4": "1/4"
+    },
+    {
+      "loss": "weak",
+      "target": "criterion",
+      "action": "B>A",
+      "intercept": "1/2",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "1/2"
+    },
+    {
+      "loss": "neutral",
+      "target": "composite",
+      "action": "A>B",
+      "intercept": "0",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "0"
+    },
+    {
+      "loss": "neutral",
+      "target": "composite",
+      "action": "hold",
+      "intercept": "0",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "0"
+    },
+    {
+      "loss": "neutral",
+      "target": "composite",
+      "action": "B>A",
+      "intercept": "0",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "0"
+    },
+    {
+      "loss": "neutral",
+      "target": "criterion",
+      "action": "A>B",
+      "intercept": "1/2",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "1/2"
+    },
+    {
+      "loss": "neutral",
+      "target": "criterion",
+      "action": "hold",
+      "intercept": "0",
+      "tau_coefficient": "1",
+      "at_tau_1_4": "1/4"
+    },
+    {
+      "loss": "neutral",
+      "target": "criterion",
+      "action": "B>A",
+      "intercept": "1/2",
+      "tau_coefficient": "0",
+      "at_tau_1_4": "1/2"
+    }
+  ],
+  "sources": [
+    "Chapter12 sec-tie-aware-estimands exact two-unit construction",
+    "assets/reproduction/tie-aware-checks-results.json:co_primary_target_comparison"
+  ],
+  "isocomposite_line": "theta2=-theta1 implies c=(theta1+theta2)/2=0",
+  "assumptions": "Same state, units, action family and tau; weak and neutral losses evaluated separately."
+}

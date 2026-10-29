@@ -1,0 +1,104 @@
+{
+  "id": "F20-archived-common-actions",
+  "schema_version": 1,
+  "scope": "Only the two accepted Chapter20 aggregate actions. Plotting does not reconstruct firm identities, fit posteriors, choose boundaries or rerun the historical consumer.",
+  "source": {
+    "chapter": "chapters/20-krw-illustration.qmd",
+    "anchor": "tbl-krw-reused-common-actions",
+    "chapter_sha256": "a0ab35e78f80f3f0ff79ab76337c63b956300cbb6d4726bffcc5d7f0df860344",
+    "attribution": "Kline, Rose and Walters (2024) supplied separate scalar report cards and baseline inputs; these common race-gender actions are an analyst-constructed extension."
+  },
+  "n": 97,
+  "M": 4656,
+  "directional_weights": {
+    "race": "1/2",
+    "gender": "1/2"
+  },
+  "signed_targets": {
+    "race": "White-name contact advantage",
+    "gender": "male-name contact advantage"
+  },
+  "orientation": "Larger signed targets have higher reported priority; grade1 is highest and lies at the left of a ribbon.",
+  "family": "Two archived contiguous cut patterns on the same reconstructed weighted-row-sum order; both have an at-most-four nonempty-grade cap.",
+  "coefficient_convention": "Historical completion: retain raw upper-triangle strict-superiority entries and replace the opposite entry by its complement. Error coefficients follow the completed reverse entry. This is not a validated exact weak-event posterior law.",
+  "metrics_definition": {
+    "disclosure": "N/M",
+    "wrong_race": "D_R/N",
+    "wrong_gender": "D_G/N",
+    "normalized_risk": "[(D_R+D_G)/2+tau*(M-N)]/M"
+  },
+  "precision": "Sizes, N and M are integers. Coefficient-error sums retain the finite decimal tokens from the accepted array reevaluation. Printed disclosure/error fractions use three decimals and risk four; these are coefficient-based conditional summaries, not observed error rates or calibrated posterior guarantees.",
+  "rows": [
+    {
+      "action_id": "tau025",
+      "tau": "1/4",
+      "tau_printed": "0.25",
+      "grade_cap": 4,
+      "occupied_grades": 3,
+      "grade_sizes_highest_first": [
+        6,
+        90,
+        1
+      ],
+      "cumulative_firm_boundaries": [
+        0,
+        6,
+        96,
+        97
+      ],
+      "disclosed_pairs": 636,
+      "withheld_pairs": 4020,
+      "disclosure_fraction": "53/388",
+      "coefficient_error_sums": {
+        "race": "124.82487452",
+        "gender": "150.9908603"
+      },
+      "printed_metrics": {
+        "disclosure": "0.137",
+        "wrong_race": "0.196",
+        "wrong_gender": "0.237",
+        "normalized_risk": "0.2455"
+      }
+    },
+    {
+      "action_id": "tau045",
+      "tau": "9/20",
+      "tau_printed": "0.45",
+      "grade_cap": 4,
+      "occupied_grades": 4,
+      "grade_sizes_highest_first": [
+        16,
+        37,
+        30,
+        14
+      ],
+      "cumulative_firm_boundaries": [
+        0,
+        16,
+        53,
+        83,
+        97
+      ],
+      "disclosed_pairs": 3344,
+      "withheld_pairs": 1312,
+      "disclosure_fraction": "209/291",
+      "coefficient_error_sums": {
+        "race": "1044.21356252",
+        "gender": "1125.1032003"
+      },
+      "printed_metrics": {
+        "disclosure": "0.718",
+        "wrong_race": "0.312",
+        "wrong_gender": "0.336",
+        "normalized_risk": "0.3598"
+      }
+    }
+  ],
+  "limits": [
+    "Do not invent names, firm identities, posterior intervals or assignments from these aggregates.",
+    "Two tau values define different losses; their risk difference is not common-loss improvement or deterioration.",
+    "Two archived actions are not a frontier or an optimality certificate.",
+    "Marginal race/gender arrays suffice only for this additive expected criterion-error calculation; no composite or simultaneous-correctness claim.",
+    "The current accepted read-only reconstruction pins source arrays, but does not establish every detail of the original-run environment."
+  ]
+}

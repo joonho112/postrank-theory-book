@@ -1,0 +1,100 @@
+{
+  "scope": "Observed existing environment for final figure plotting. This is an environment record, not an installation lock or a promise of identical bytes on every platform.",
+  "python": {
+    "python_version": "3.13.2",
+    "implementation": "CPython",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "direct_plotting_dependencies": [
+    "matplotlib (shared figstyle and source patch/ticker modules)",
+    "numpy (explicit final F16c import and Matplotlib dependency)"
+  ],
+  "graphics_dependency_versions": [
+    {
+      "module": "matplotlib",
+      "distribution": "matplotlib",
+      "installed_version": "3.10.8",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "numpy",
+      "distribution": "numpy",
+      "installed_version": "2.4.2",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "PIL",
+      "distribution": "Pillow",
+      "installed_version": "12.1.1",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "contourpy",
+      "distribution": "contourpy",
+      "installed_version": "1.3.3",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "cycler",
+      "distribution": "cycler",
+      "installed_version": "0.12.1",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "fontTools",
+      "distribution": "fonttools",
+      "installed_version": "4.61.1",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "kiwisolver",
+      "distribution": "kiwisolver",
+      "installed_version": "1.4.9",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "packaging",
+      "distribution": "packaging",
+      "installed_version": "24.2",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "pyparsing",
+      "distribution": "pyparsing",
+      "installed_version": "3.3.2",
+      "actual_import_probe": "PASS"
+    },
+    {
+      "module": "dateutil",
+      "distribution": "python-dateutil",
+      "installed_version": "2.9.0.post0",
+      "actual_import_probe": "PASS"
+    }
+  ],
+  "native_backend_imports": {
+    "matplotlib.backends.backend_agg": "PASS",
+    "matplotlib.backends.backend_svg": "PASS",
+    "matplotlib.backends.backend_pdf": "PASS",
+    "matplotlib.font_manager": "PASS",
+    "matplotlib.mathtext": "PASS"
+  },
+  "fonts": {
+    "family": "DejaVu Sans and bundled Mathtext",
+    "source": "Matplotlib mpl-data bundle",
+    "downloaded": false
+  },
+  "style": {
+    "SVG_text": "outlined paths for new figures",
+    "PDF_text": "embedded fonts",
+    "SVG_hash_salt": "P1-figure-program-v1",
+    "export_metadata_dates": "omitted"
+  },
+  "not_required_for_plotting": [
+    "R or a fitted package model",
+    "Gurobi or HiGHS",
+    "TeX or external fonts",
+    "original source PDFs",
+    "private audit contracts, logs or canonical QMDs"
+  ],
+  "Quarto": "Needed to render the book, separately from plotting; authoring environment Quarto1.9.37."
+}

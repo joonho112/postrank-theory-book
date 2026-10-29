@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "coordinate_file": "markov-bound-coordinates.csv",
+  "coordinate_sha256": "747ed17216234e903890b5e4c8d4e4e4612a8f733fd446aaf46abcf8a35400e3",
+  "source": {
+    "path": "chapters/15-numerical-uncertainty.qmd",
+    "sha256": "1968575001b280626fca6b1374bb6489cbbab4af56e6d225a9ef65cfc407f9fd",
+    "anchors": [
+      "sec-markov-dependence-example",
+      "sec-tie-aware-error",
+      "prp-tie-aware-perturbation"
+    ]
+  },
+  "series": {
+    "stationary_markov": {
+      "figure": "F15b",
+      "law": "Stationary two-state chain on strict comparison indicatorX in{0,1}, invariant probabilities1/2,1/2; stay99/100, switch1/100; initial state stationary.",
+      "S_grid": [
+        1,
+        2,
+        5,
+        10,
+        20,
+        50,
+        100,
+        200,
+        500
+      ],
+      "lag_correlation": "49/50",
+      "variance_formula": "[S+2*sum_{h=1}^{S-1}(S-h)*(49/50)^h]/(4*S^2)",
+      "no_switch_formula": "(99/100)^(S-1)",
+      "iid_variance_formula": "1/(4*S)",
+      "finite_equivalent_formula": "(1/4)/Var(meanX)",
+      "asymptotic_equivalent_formula": "S*(1-r)/(1+r)=S/99, where r=49/50",
+      "S100": {
+        "variance": "0.141245895597107265",
+        "iid_variance": "0.0025",
+        "finite_equivalent": "1.76996293551145165",
+        "asymptotic_equivalent": "1.01010101010101010",
+        "no_switch": "0.369729637649726773"
+      },
+      "S100_iid_radius_comparison": {
+        "alpha": "1/20",
+        "formula": "sqrt(log(80)/200)",
+        "value": "0.14802071873007983",
+        "interpretation": "IID comparison only; invalid as a tail certificate for this Markov chain."
+      },
+      "units": "Probability, variance of a sample proportion, and equivalent number of independent Bernoulli observations as separately named.",
+      "not_to_claim": [
+        "No Monte Carlo path was simulated.",
+        "Finite and asymptotic equivalent counts are not estimated ESS.",
+        "The asymptotic count is not an exact finite-S variance identity.",
+        "Neither equivalent count may be automatically substituted into an IID tail bound.",
+        "No-switch is a lower bound on the relevant failure probability at S100, not its complete distribution."
+      ]
+    },
+    "neutral_coefficient_envelope": {
+      "figure": "F15c",
+      "law": "Algebraic bound for the equality-neutral loss under fixed supplied law, targets, weights and feasible family; illustrative radii are stipulated.",
+      "loss": "Equality-neutral strict-reversal error; withholding costtau on target distinctness.",
+      "parameters": {
+        "tau": "1/4",
+        "Delta_b": "1/10",
+        "Delta_d": "1/5",
+        "eta": "0",
+        "zeta": "1/10",
+        "uniform_regret_ceiling": "1/5"
+      },
+      "x": "disclosure_fraction=N/M, denotedr only locally; distinct from the Markov lag correlation.",
+      "x_grid": [
+        "0",
+        "1/10",
+        "1/5",
+        "3/10",
+        "2/5",
+        "1/2",
+        "3/5",
+        "7/10",
+        "4/5",
+        "9/10",
+        "1"
+      ],
+      "formula": "r*Delta_b+(1-r)*tau*Delta_d, bounded byzeta=max(Delta_b,tau*Delta_d)",
+      "component_units": "Normalized risk-error bounds per possible unordered pair.",
+      "coherent_radius_relation": "Delta_d=2*Delta_b andtau<=1/2, so the coarser uniform radiusDelta_b is compatible with coherent reverse-pair construction. This does not assert all component bounds are simultaneously sharp.",
+      "endpoint_law_example": "Two units, one criterion: law0 always equal; law1 forward/reverse strict orders each mass1/10 and equality4/5. At r0 absolute all-hold risk difference1/20; at r1 either direction difference1/10.",
+      "not_to_claim": [
+        "Interior grid values are an algebraic envelope, not an attained deterministic action path; for the endpoint two-unit example only r0 or1 is possible.",
+        "The plotted envelope is not observed estimation error, model calibration, a sampling confidence band or a trajectory of an optimizer.",
+        "The constant2*zeta+eta is a conditional uniform regret ceiling under the proposition assumptions, not attained regret."
+      ],
+      "endpoint_common_family": "For the two-unit endpoint illustration, evaluate the same three canonical reports under both coefficient arrays without changing the family to a law-specific structural-equality guard. These are fixed-action loss differences, not optimization or guarded-family claims."
+    }
+  },
+  "precision": "Exact rational computation for coordinates and cross-checks; CSV values rounded to18significant decimal digits. IID square-root/log comparison uses Python float and is separately identified.",
+  "reproduction": "Coordinate derivation is recorded in the private fixture receipt. Future public source packaging must include a portable derivation or declare that plotting regenerates from this accepted coordinate table.",
+  "empty_cells": "Fields belonging to the other series are blank, not zero."
+}

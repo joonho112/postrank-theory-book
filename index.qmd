@@ -1,0 +1,41 @@
+# Preface {.unnumbered #sec-preface}
+
+Institutions often use several indicators to assign units to priority tiers. The indicators may differ in precision and give conflicting orderings [@goldstein_league_1996, pp. 385–390; @papay2011different, pp. 172–179]. A tiered report makes some comparisons and leaves others unresolved: a unit in an earlier tier has higher priority, whereas units in the same tier are not ordered by the report. Constructing such a report therefore requires a definition of priority, a representation of uncertainty and a way of weighing erroneous comparisons against withheld distinctions.
+
+We study how to choose common grades by evaluating the comparisons they imply and the losses from errors. For P1, a proposed paper comparing posterior grading with specified reporting rules in practice, we develop the institutional context, literature, assumptions, proofs and examples, including alternative objectives that may lead to different actions.
+
+A comparative report can inform eligibility, selection and allocation decisions, but these also depend on institutional rules and resource constraints. Predicting who would benefit most from an intervention requires causal information beyond an accurate ordering of current outcomes. In @sec-education-access and @sec-institutional-practice, we describe the procedures and dates, distinguish established practice from analytical proposals, and identify the decisions that a common-grade report would leave to the institution.
+
+We represent a report as an ordered partition of the units into nonempty grades, with Grade 1 having the highest priority. Units in different grades are ordered, while comparisons within a grade are withheld. A shared grade therefore leaves latent equality, practical equivalence and equal entitlement unspecified. Withholding may reflect uncertain evidence, conflicting criteria, preferences or the requirement that the reported comparisons form a coherent ordering. A coarser report makes fewer comparisons, so we consider its error count together with its disclosure.
+
+We evaluate grades against two co-primary targets: the ordering of a scalar composite on specified scales, and a weighted sum of criterion-specific directional errors. Composite coefficients and error weights have different interpretations even when they take the same numerical values. As discussed in @sec-measurement-values, this choice of target precedes model fitting and optimization. Increasing the precision of the evidence cannot resolve the underlying choice of values.
+
+Our immediate foundation is the scalar report-card construction of Kline, Rose, and Walters, in which coherent grades are chosen by trading off correct and incorrect comparisons [@kline_discrimination_2024, pp. 2477–2482]. We relate this construction to Bayesian ranking, compound decisions, uncertainty statements, rank aggregation, multicriteria methods and selective error control. We distinguish our extensions from these earlier results and state their assumptions. Similarity of the output or software implementation alone establishes neither novelty nor the applicability of a source theorem.
+
+## Research questions and the argument of the book {#sec-research-questions}
+
+For P1, we ask how many comparisons implied by commonly used rules are wrong for a specified target, and how posterior grading changes these errors at comparable disclosure. We propose to examine the total difference between rules and its descriptive components, the conditions affecting that difference, losses under competing objectives and the calibration of reported errors. The formal results in @sec-p1-evaluation-bridge inform these empirical questions, which remain to be investigated.
+
+With the probability law, expected-loss objective and feasible action family fixed, an exact optimizer has no greater expected loss than another feasible report. The size and institutional relevance of these differences require empirical investigation. Changing the target, action family or evaluation law can also change the comparison, as illustrated by the specified finite laws in @sec-worked-examples. In the historical KRW illustration in @sec-krw-illustration we evaluate reconstructed reports; this exercise establishes neither general superiority nor the validity of the procedure supplying posterior probabilities or the optimality of an allocation.
+
+## Reading guide {#sec-reading-routes}
+
+### Applied readers {#for-an-applied-reader}
+
+Applied readers may begin with @sec-public-decisions and the institutional cases. The target and valuation choices are developed in @sec-measurement-values, and @sec-worked-examples illustrates what common reports assert and withhold. Competing purposes are considered in @sec-rules-objectives, the limits of self-reported uncertainty in @sec-misspecification-calibration, and institutional interpretation in @sec-governance-communication. The discussion concludes in @sec-synthesis-agenda. The mathematical development can be revisited once the reporting question is clear.
+
+### Mathematical readers {#for-a-mathematical-reader}
+
+The definitions in @sec-target-definitions and @sec-targets-actions-laws specify the target, equality convention, action domain and probability law. They lead to @sec-krw-foundation, @sec-multicriteria-loss, @sec-conflict-estimands and @sec-protections-preferences. The computational representations, restricted algorithms and certificates are given in @sec-computing-grades, followed by the treatment of input approximation in @sec-numerical-uncertainty. Performance comparisons are developed in @sec-evaluation-frontiers and @sec-misspecification-calibration. The guide in @sec-proofs locates the statements and proofs; @sec-notation collects the notation.
+
+### Readers of P1 {#for-a-p1-reader-checking-a-claim}
+
+The connection to P1 is developed in @sec-synthesis-agenda. Related literature and attribution are discussed in @sec-literature-contribution-synthesis, the two target comparisons in @sec-two-estimands, and empirical interpretation in @sec-p1-evaluation-bridge. Software correspondence is documented in @sec-package-correspondence. The linked mathematical statements give the domain and numerical conditions needed for each claim, including the limits of the accompanying illustrations.
+
+The equality-neutral `postrank_tie_*` extension is introduced in @sec-tie-aware-loss and developed in @sec-tie-aware-estimands, @sec-tie-aware-frontier and @sec-tie-aware-error. It changes the treatment of exact latent equality, while the weak-error results retain their original convention. Implementation and further mathematical extensions are described in @sec-package-tie-aware; the proofs are listed in @sec-tie-aware-proof-guide.
+
+## Acknowledgments {#sec-acknowledgments}
+
+The research underlying this monograph was supported primarily by the National Academy of Education and the Spencer Foundation through the 2025 National Academy of Education/Spencer Postdoctoral Fellowship.
+
+The research reported here was supported by the Institute of Education Sciences, U.S. Department of Education, through Grant R305D240078 to The University of Alabama. The opinions expressed are those of the authors and do not represent views of the Institute or the U.S. Department of Education.

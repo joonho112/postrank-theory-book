@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "To cite this book, use the preferred citation and identify the manuscript version consulted."
+title: "Decisions from Noisy Multidimensional Indicators: Theory, Evidence, and Posterior Grading"
+authors:
+  - family-names: Lee
+    given-names: JoonHo
+    email: jlee296@ua.edu
+    orcid: "https://orcid.org/0009-0006-4019-8703"
+version: "v3"
+repository-code: "https://github.com/joonho112/postrank-theory-book"
+abstract: "A Quarto book on decisions from noisy multidimensional indicators: theory, evidence, and posterior grading"
+keywords:
+  - posterior grading
+  - Bayesian decision theory
+  - multicriteria decisions
+  - ordered grades
+  - uncertainty
+preferred-citation:
+  type: book
+  authors:
+    - family-names: Lee
+      given-names: JoonHo
+      email: jlee296@ua.edu
+      orcid: "https://orcid.org/0009-0006-4019-8703"
+  title: "Decisions from Noisy Multidimensional Indicators: Theory, Evidence, and Posterior Grading"
+  year: 2026
+  version: "v3"
+  url: "https://github.com/joonho112/postrank-theory-book"
+  notes: "Manuscript version v3; publication review copy."

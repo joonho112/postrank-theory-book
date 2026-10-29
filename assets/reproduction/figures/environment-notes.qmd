@@ -1,0 +1,14 @@
+---
+title: "Figure generation environment"
+author: "JoonHo Lee (jlee296@ua.edu)"
+---
+
+The figure program uses Python 3.13 with Matplotlib 3.10 and NumPy 2.4 in the recorded authoring environment. SVG, PDF and PNG exports use Matplotlib's native backends. DejaVu Sans and its bundled math fonts supply text without downloading fonts. Run individual generators from their own directories or from the repository root; their project-relative paths locate the supplied coordinate files.
+
+A typical selective command is `python -B assets/reproduction/figures/generators/F09c/generate.py`. Figure sources read accepted small coordinates or explicit analytical constructions; they do not refit empirical models or call a package optimizer. Book rendering reads the generated assets with execution disabled. Environment identity and actual replay scope are recorded separately in the private execution receipts. The monograph's licensing decision is deferred.
+
+SVG glyphs are stored as vector paths so display does not depend on locally installed fonts; the figure alt text and caption supply accessible descriptions. PDFs retain embedded searchable fonts. The underlying geometry and plotting coordinates remain identical across formats.
+
+Use Python’s `-B` flag for selective regeneration to avoid writing bytecode caches. Generated `__pycache__` and `.pyc` files are excluded from the public resource selection.
+
+All required scientific plotting inputs are the supplied public coordinates, public drawing code and public style. Chapter names retained as provenance references do not require canonical QMD files. Optional existing own receipts or guarded audit hashes supply bookkeeping only and cannot be required to draw the figure. See `README.qmd`, `environment.json` and `manifest.json` for the complete final entry-point map and retained-original exceptions.

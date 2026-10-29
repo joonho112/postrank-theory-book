@@ -1,0 +1,106 @@
+project:
+  type: book
+  output-dir: _book
+  post-render:
+    - python3 tools/remove-legacy-polyfill.py
+  render:
+    - index.qmd
+    - chapters/*.qmd
+    - appendices/*.qmd
+    - references.qmd
+  resources:
+    - assets/**
+    - '!log/**'
+    - '!evidence/**'
+    - '!registry/**'
+    - '!contracts/**'
+    - '!reviews/**'
+    - '!scripts/**'
+    - '!release/**'
+    - '!backups/**'
+    - '!**/.DS_Store'
+    - '!**/__pycache__/**'
+    - '!**/*.pyc'
+
+book:
+  title: "Decisions from Noisy Multidimensional Indicators"
+  subtitle: "Theory, Evidence, and Posterior Grading (v3)"
+  author:
+    - name: JoonHo Lee
+      email: jlee296@ua.edu
+      orcid: 0009-0006-4019-8703
+  date: "2026-10-29"
+  date-format: "D MMMM YYYY"
+  repo-url: "https://github.com/joonho112/postrank-theory-book"
+  site-url: "https://joonho112.github.io/postrank-theory-book/"
+  search: true
+  sidebar:
+    style: docked
+    collapse-level: 1
+  chapters:
+    - index.qmd
+    - part: "Part I — Public decisions and measurement"
+      chapters:
+        - chapters/01-public-decisions.qmd
+        - chapters/02-education-access.qmd
+        - chapters/03-institutional-practice.qmd
+        - chapters/04-measurement-values.qmd
+    - part: "Part II — Intellectual lineages"
+      chapters:
+        - chapters/05-bayesian-ranking.qmd
+        - chapters/06-uncertainty-ordering.qmd
+        - chapters/07-aggregation-mcda.qmd
+        - chapters/08-selection-abstention.qmd
+    - part: "Part III — Mathematical foundations"
+      chapters:
+        - chapters/09-targets-actions-laws.qmd
+        - chapters/10-krw-foundation.qmd
+        - chapters/11-multicriteria-loss.qmd
+        - chapters/12-conflict-estimands.qmd
+        - chapters/13-protections-preferences.qmd
+    - part: "Part IV — Computation and uncertainty"
+      chapters:
+        - chapters/14-computing-grades.qmd
+        - chapters/15-numerical-uncertainty.qmd
+    - part: "Part V — Evaluation and comparison"
+      chapters:
+        - chapters/16-evaluation-frontiers.qmd
+        - chapters/17-rules-objectives.qmd
+        - chapters/18-misspecification-calibration.qmd
+    - part: "Part VI — Interpretation and research use"
+      chapters:
+        - chapters/19-worked-examples.qmd
+        - chapters/20-krw-illustration.qmd
+        - chapters/21-governance-communication.qmd
+        - chapters/22-synthesis-agenda.qmd
+  appendices:
+    - appendices/A-proofs.qmd
+    - appendices/B-notation.qmd
+    - appendices/C-source-provenance.qmd
+    - appendices/D-package-correspondence.qmd
+    - appendices/E-reproduction.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: assets/apa.csl
+lang: en
+language:
+  title-block-published: "Draft date"
+format:
+  html:
+    template-partials:
+      - _partials/_title-meta-author.html
+    theme: [cosmo, styles/offline.scss]
+    css: styles/book.css
+    toc: true
+    toc-depth: 3
+    toc-expand: true
+    number-sections: true
+    code-copy: true
+    link-external-newwindow: true
+    html-math-method:
+      method: mathjax
+      url: assets/mathjax/tex-chtml-full.js
+execute:
+  enabled: false
+

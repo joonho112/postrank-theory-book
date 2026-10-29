@@ -1,0 +1,236 @@
+# Common rules and competing objectives {#sec-rules-objectives}
+
+## Comparator definitions and scope {#sec-fair-comparator-framework}
+
+Reporting rules can summarize estimated magnitudes, place units in a reference distribution, classify evidence against a benchmark or apply eligibility and compensation restrictions. Their comparison with posterior grading therefore depends on the purpose of the rule. We specify each rule's operations and evaluate its reports against stated targets. The institutional cases in @sec-education-access and @sec-institutional-practice show how similar ordered labels can arise from different decision problems.
+
+We use three types of comparator. A documented practice follows a dated institutional procedure supported by the inspected source. A methodological recommendation is an analytical proposal or result for a specified model and objective. A constructed comparator combines operations to answer a controlled research question. Combining documented ingredients does not establish that the resulting procedure is used in practice. Likewise, theoretical justification of a posterior method provides no evidence by itself of adoption or improved downstream outcomes.
+
+### Measurement and institutional meaning of a rule {#preserve-the-rules-measurement-and-institutional-meaning}
+
+Official procedures differ in both their statistical operations and institutional purposes. IMD25 ranks and exponentially transforms domain scores before combining them, then reports relative deprivation ranks and deciles. Its estimation also uses empirical Bayes shrinkage for many components. A comparator consisting of an unadjusted weighted average and four tiers is therefore a simplified research construction, not a replication of that index [@mclennan2025imdtechnical, §§3.4, 3.6–3.7; @noble2025imdresearch, §3.2.1]. Percentile positions, their exponential transformations and cardinal measurements retain different information, with meanings determined by their reference population and direction.
+
+The 2026 CMS hospital procedure standardizes measures, combines available information using specified weights, clusters scores into five categories within peer groups and applies a safety cap. Its k-means iterations are documented, but the source does not certify a global squared-error partition optimum. Exact one-dimensional clustering can isolate the effect of a boundary criterion; omitting peer grouping or the safety cap nevertheless gives a simplified analytical comparator rather than a replication [@CMSHospitalStars2026, pp. 14–24].
+
+Standardization itself has several meanings. Subtracting a reference mean and dividing by a cross-unit standard deviation differs from dividing an estimate by its standard error. Tennessee's documented growth categories use the latter kind of evidence index, together with shrinkage and student-assignment and year weights. Their meaning cannot be reproduced simply by averaging raw educational effects [@sas2019tvaas, pp. 16, 26, 34–39]. A locally adopted weighting schedule similarly requires its own evidence. Federal Head Start provisions require locally established selection criteria but supply no universal numerical weighting vector [@hhsHeadStartEligibilitySelection2026, §1302.14]. A generic local-weight algorithm would consequently be an analyst construction rather than a standard practice established by these sources.
+
+Threshold policies depend on the rule for combining criteria. California's assistance criteria use student-group and priority-area patterns, rather than a count of interchangeable adverse indicators [@cde2023lcff, pp. 2–5]. An “any threshold exceeded” rule, a weighted exceedance count or a weighted significance-flag score can be useful for a specified research comparison. Each uses selected policy ingredients without reproducing the complete policy.
+
+### Operations defining the analytical comparators {#define-the-analytical-comparators-through-their-operations}
+
+For observed-score tiers, first define the indicator or composite. A common-scale composite is $u_i=\sum_k a_kt_{ik}$, where $t_{ik}$ is the specified transformation of the observed input. Its coefficients $a$ express cardinal tradeoffs and differ in interpretation from directional-error weights $w$, even if their numerical values are aligned. A data-standardized version recalculates reference means and standard deviations for the declared population, so that operation varies across datasets. Constant indicators, missing values, reference populations and winsorization also require explicit conventions; otherwise software defaults silently determine part of the rule.
+
+A fixed-tier comparator applies a declared number of position-based categories to that score order. To make the present constructed family concrete, equal scores share their minimum rank position,
+
+$$
+p_i=1+\#\{j:u_j>u_i\},\qquad
+t_i=1+\left\lfloor\frac{(p_i-1)G_b}{n}\right\rfloor,
+\qquad 1\le G_b\le n.
+$$
+
+Canonicalizing the occupied labels gives the grade report. A score-tie block may produce unequal category sizes or fewer than $G_b$ occupied grades, so $G_b$ is a nominal tier count. Assigning a grade to every distinct score instead gives the full score ordering. Clustering the ordered scores uses yet another boundary criterion. These choices define different comparators.
+
+A reference-evidence comparator uses quantities such as $(y_{ik}-r_k)/s_{ik}$ and declared positive and negative cutoffs, while an absolute-threshold comparator compares inputs with declared policy levels. The reference $r_k$ may itself be estimated; treating it as fixed is then a modeling convention. A population-quantile policy threshold held fixed across datasets is different from recomputing an empirical percentile in each dataset. Combining criterion flags into a common grade is a constructed extension unless the particular combination is documented. Equal flag scores share a grade, and the actual number of grades can differ from a nominal reporting cap.
+
+For posterior comparators, let the latent composite be $c_i=\sum_k a_k\theta_{ik}$ and its supplied-law mean be $\bar c_i=E_s[c_i\mid y]$. Applying the same fixed-tier rule to $\bar c$ isolates estimation only if the observed and latent scales, information, transformations and weights agree. Posterior-mean ranking provides a familiar starting point, although its suitability depends on the loss: classical work distinguishes parameter estimation, rank estimation and selection [@laird1989ranking, pp. 31–35; @lin2006ranking, pp. 916–920]. The composite-plus-tiers rule is therefore a literature-motivated baseline, without a universal optimality claim.
+
+Holding the $\bar c$ order fixed, we can optimize boundaries using either composite-direction loss with its composite pair probabilities or criterion-weighted loss with $\bar e^s_{ij}$. Both versions retain score-tie blocks and use the stated capped or exact-count family. They compare boundary objectives at a common order. Exactness requires optimization over that entire family; adding criterion protections requires a constrained algorithm or certificate beyond ordinary additive dynamic programming.
+
+Another constructed rule orders units by $r_i=1+\sum_{j\ne i}\bar e^s_{ij}$ and then selects directional-loss boundaries. When every positively weighted criterion is tie-free, this score is the weighted expected descending rank. With latent ties it instead requires an explicit rank-tie interpretation. The order reflects comparison uncertainty, but exact selection of its cuts does not imply that the order itself is globally optimal.
+
+Finally, unrestricted composite-loss grading and unrestricted criterion-weighted grading optimize orders and boundaries jointly over the declared family. The former is the natural scalar-composite application of the report-card decision problem; equivalence to the original KRW loss requires the accepted common-law, domain and equality qualifications in @sec-krw-foundation. Its definition as a composite-loss optimizer remains valid with the monograph's explicit weak-error convention [@kline_discrimination_2024, pp. 2477–2480]. The latter is the criterion-weighted construction developed in this book. Protection constraints change the feasible family, whereas a minimax variant changes the objective; both define further methods.
+
+### Evaluation under both co-primary targets {#evaluate-every-report-against-both-co-primary-targets}
+
+The table gives selection guarantees under the supplied law, a common cost and the stated feasible domain. Where no general guarantee is available, performance remains open. We can evaluate every report under both co-primary losses and under a separate true evaluation law. The supplied-law guarantee transfers if the relevant risks agree, with correctness of the complete law providing one sufficient condition.
+
+| Rule | Evidentiary role | Composite loss (a) | Directional loss (b) | Eligible comparison |
+|---|---|---|---|---|
+| Observed score, fixed tiers | Constructed practice representative | No general guarantee | No general guarantee | Same declared report evaluated under either target |
+| Standardized evidence or threshold-pattern grades | Constructed rule with documented ingredients | No general guarantee | No general guarantee | Preserve its reference, threshold and combination |
+| Posterior mean composite, fixed tiers | Literature-motivated constructed baseline | No general guarantee | No general guarantee | Same tiers and tie policy as the observed-score baseline |
+| Posterior mean order, composite-loss cuts | Constructed restricted optimizer | Exact within its family | No general guarantee | Feasible reports preserving that score order |
+| Posterior mean order, directional-loss cuts | Constructed restricted optimizer | No general guarantee | Exact within its family | Feasible reports preserving that score order |
+| Expected-rank order, directional-loss cuts | Constructed restricted optimizer | No general guarantee | Exact within its family | Feasible reports preserving that rank-score order |
+| Unrestricted composite-loss grades | Scalar report-card adaptation | Exact within its family | No general guarantee | All reports satisfying its declared restrictions |
+| Unrestricted weighted-directional grades | Criterion-weighted construction | No general guarantee | Exact within its family | All reports satisfying its declared restrictions |
+
+: Conditional optimality guarantees by reporting rule and co-primary estimand under the supplied law. Exact claims require exact coefficients, feasible actions and optimization over the entire stated family. {#tbl-comparator-estimands}
+
+For example, the posterior-mean fixed-tier report is eligible for the corresponding boundary optimization if its grade count, score-tie convention and protections are admitted. Each optimizer then weakly improves its own conditional risk. An observed-score report may lie outside an expected-rank family, leaving that comparison without a sign guarantee even under a correct posterior. Unrestricted optimization covers either report only if it satisfies the actual cap, exact-count and protection requirements. Consequently, the composite and directional optimizers can each be best under their own target.
+
+### Information sets and reporting comparisons {#match-information-and-the-reporting-question}
+
+A rule's information includes measurements, standard errors, sample sizes, covariates, repeated observations and inputs to prior estimation. Additional years or known population parameters give a rule different information. Supplying the same beliefs to all posterior rules isolates the subsequent reporting decision; comparing belief producers addresses a separate question. The scales must also agree. Raw proportions and latent logit-scale composites can disagree in the absence of noise, so equal numerical weights on those scales do not isolate estimation.
+
+Eligibility and missingness determine the comparison population. Suppressing a unit leaves its comparisons unreported, whereas placing it in the lowest grade asserts adverse directions. The latter is an additional analytical choice. Changing the population also changes $M$, percentile references and pairwise claims, all of which must be considered when interpreting an apparent gain.
+
+At fixed $\tau$, reports use the same error–withholding tradeoff for evaluation but may disclose different amounts; score-tier rules need not use $\tau$ in selection. At matched expected $N$, a verified frontier mixture supplies a randomized wrong-count comparison with a common denominator. Matching the exact grade count, with or without matching block sizes, imposes a different restriction. An upper cap alone guarantees none of these matches. The comparison must identify which conditions of @sec-matched-disclosure-frontier are imposed.
+
+For the score-based rules defined here, score ties remain intact unless the design explicitly specifies randomization over whole reports. Unit identifiers should not manufacture scientific distinctions. Unrestricted grading imposes no external score order. Score-tie blocks or protections may be incompatible with an exact grade count, in which case the procedure is infeasible. Multiple minimizing reports also require a recorded selection convention and disclosure counts. For an incumbent, restricted optimum or sparse candidate envelope, the applicable guarantee is the one established by its certificate, which need not describe the exact frontier.
+
+The appropriate comparison consequently depends on the decision being made. Fixed-budget selection, threshold classification and downstream allocation can favor other actions and losses. Their benchmarks require their own utility and information statements; superiority in reporting accuracy alone does not settle those decisions.
+
+## Benchmarks for selection, classification, and stability {#sec-selection-benchmarks}
+
+Selection assigns attention, follow-up or a limited resource and must resolve a budget boundary within a grade. Under the same posterior, maximizing expected value, identifying members of a leading group and identifying units above a threshold can yield different choices. We derive additive-utility benchmarks for these objectives, treating their statistical utilities as stipulated rather than established policy consequences.
+
+### Exact budgets and two selection utilities {#an-exact-budget-and-two-distinct-values-of-selection}
+
+Fix $Y=y$, a supplied conditional law $\Pi_s$, and $n$ eligible units. An exact budget $b\in\{0,\ldots,n\}$ permits every subset $S$ with $|S|=b$. Define a measurable utility $u_i(\Theta)$ for selecting unit $i$, with finite absolute posterior expectation. Write $s_i=E_s[u_i(\Theta)\mid y]$. The selected total is additive:
+
+$$
+U(S,\Theta)=\sum_{i\in S}u_i(\Theta),
+\qquad E_s[U(S,\Theta)\mid y]=\sum_{i\in S}s_i.
+$$
+
+::: {#prp-additive-selection-benchmarks}
+### Exact-budget additive selection
+
+Over all subsets of cardinality $b$, a set containing $b$ largest conditional mean utilities maximizes expected total utility. No randomization over complete cardinality-$b$ sets, independent of $\Theta$ conditional on $y$, has larger expected utility.
+
+For composite utility $u_i=c_i=\sum_k a_k\theta_{ik}$, the scores are posterior mean composites $\bar c_i$. For a measurable target set $T_b(\Theta)$ of exactly $b$ units, using $u_i=\mathbf1\{i\in T_b(\Theta)\}$ gives membership scores $p_i^s(b)=\Pi_s\{i\in T_b(\Theta)\mid y\}$ and maximizes expected overlap $E_s[|S\cap T_b|\mid y]$.
+:::
+
+**Proof.** Exchanging a selected unit with a lower conditional mean utility for an unselected unit with a higher one increases the expected sum. Repeated exchanges give a largest-score set. Every randomized set has expected utility equal to an average of deterministic set values, each bounded by that maximum. $\square$
+
+The expected-sum identity requires no independence across unit targets. Dependence may nevertheless be needed to calculate the scores: a top-$b$ membership probability involves relative positions throughout the latent collection and is not determined by unitwise posterior means. For a cardinality-$b$ target, maximizing overlap also minimizes symmetric-difference loss, since $|S\triangle T_b|=2b-2|S\cap T_b|$. This is the fixed-top-set decision considered by Lin and colleagues under the stated action and loss [@lin2006ranking, pp. 919–920]. The correspondence does not extend to magnitude estimation or pairwise reporting loss.
+
+To handle latent ties, define the top-composite $T_b$ by descending latent composites with a prespecified label order for exact equalities. This gives a measurable set of exactly $b$ units without asserting a scientific difference between equal values. Another tie convention changes the target. Equal posterior decision scores at the selection boundary pose a separate issue: a uniform lottery over exactly enough tied-score units preserves expected-utility optimality. Independent unitwise randomization would generally violate the exact budget.
+
+The guarantee applies to the stated information and feasible subsets. An at-most budget, eligibility filter, geographic constraint or unequal resource cost changes the family, and the largest $b$ scores may cease to solve the problem. Giving a rule more information likewise changes its conditional problem. A supplied-law optimum transfers to the evaluation model if the relevant conditional expected utilities agree; equal conditional laws are sufficient for that agreement. Fitted beliefs alone do not establish true expected utility.
+
+### Additional allocation rules for grade reports {#turning-a-report-into-an-allocation-requires-another-rule}
+
+One explicit grade-to-budget convention selects from higher grades first. When the budget reaches a boundary grade, it chooses a uniformly random subset of the required size from that whole block. If $a$ units lie above a boundary block of size $m$, set $r=b-a$. Each boundary member then has inclusion probability $r/m$, and the expected additive utility is
+
+$$
+\sum_{i\text{ above}}s_i+\frac rm\sum_{i\text{ in boundary}}s_i.
+$$
+
+The procedure selects exactly $b$ units in every realization, including when a whole boundary grade fits. Empty and full budgets select none and all, respectively. Other conventions, such as a second score within the boundary grade, define different allocation procedures and use additional decision information. Choosing the allocation convention requires an addition to the reporting action.
+
+The lottery randomizes within the benchmark's family of complete sets, so its expected utility cannot exceed the exact-budget maximum. It may be smaller because a reporting tie can group units with different mean values or top-set probabilities. Low reporting loss therefore need not imply optimal allocation. Moreover, maximizing expected selected value need not maximize top-set overlap, and neither objective generally minimizes either co-primary reporting loss.
+
+### Three decision objectives under one posterior {#sec-selection-objective-example}
+
+At fixed observed data, consider two units and one criterion, with $a=w=1$. The target vector $(\theta_A,\theta_B)$ equals $(20,4)$ with probability $3/10$ and $(0,4)$ with probability $7/10$. Both states are tie-free. Suppose exactly one unit must be selected and its stipulated utility is its target value. Then
+
+$$
+E_s[\theta_A]=6>4=E_s[\theta_B],\qquad
+\Pi_s(A\text{ is top})=3/10<7/10=\Pi_s(B\text{ is top}).
+$$
+
+Selecting $A$ maximizes expected additive utility, while selecting $B$ maximizes expected top-one overlap. The distinction reflects the size of $A$'s infrequent high value; top membership records which unit is higher rather than the magnitude of that advantage.
+
+The three coherent grade reports also have different allocation consequences. Select the unit in the higher grade; if the report ties the units, choose one uniformly, independently of the latent state. This lottery adds an allocation rule. Exact evaluation gives:
+
+| Report | $N$ | Reporting risk, $\tau=1/4$ | Reporting risk, $\tau=2/5$ | Expected selected value | Expected top-one overlap |
+|---|---:|---:|---:|---:|---:|
+| Withhold the comparison | 0 | $1/4$ | $2/5$ | $5$ | $1/2$ |
+| Report $A$ above $B$ | 1 | $7/10$ | $7/10$ | $6$ | $3/10$ |
+| Report $B$ above $A$ | 1 | $3/10$ | $3/10$ | $4$ | $7/10$ |
+
+: Exact reporting risks and allocation consequences of three reports under one stipulated posterior and an explicit one-place allocation rule. {#tbl-selection-objective-example}
+
+At $\tau=1/4$, reporting-loss minimization withholds the comparison. The resulting allocation lottery has expected utility five, below the attainable six, and expected top-one overlap one half, below the attainable seven tenths. At $\tau=2/5$, the best directional report places $B$ above $A$, still contrary to the expected-value selection rule. These are two operating costs within one example, not different probability models.
+
+The all-tie report makes no comparison and has an undefined disclosed-error fraction, yet the specified lottery still allocates one place. Grade labels alone therefore do not identify the resource decision. The stipulated utilities illustrate this distinction without estimating a causal intervention effect.
+
+A need, performance or merit composite does not automatically measure intervention benefit. Maximizing expected selected need is well defined, but maximizing gains caused by a service requires an effect target, treatment and resource assumptions, and a justified utility. These additional inputs are needed to evaluate institutional outcomes; improved reporting alone cannot supply them.
+
+### Asymmetric costs in threshold classification {#threshold-classification-prices-another-kind-of-error}
+
+For a declared event $H_i=\mathbf1\{c_i>t_i\}$, let $v_i=\Pi_s(H_i=1\mid y)$. Suppose a false positive costs $\ell_{\rm FP}\ge0$ and a false negative costs $\ell_{\rm FN}\ge0$, with $\ell_{\rm FP}+\ell_{\rm FN}>0$. With unrestricted binary declarations, the conditional costs of declaring positive and negative are $\ell_{\rm FP}(1-v_i)$ and $\ell_{\rm FN}v_i$. Declare positive when
+
+$$
+v_i>\frac{\ell_{\rm FP}}{\ell_{\rm FP}+\ell_{\rm FN}}.
+$$
+
+Either declaration minimizes loss at equality; choosing positive makes the rule single-valued. This is the asymmetric-count-loss calculation developed in @sec-selection-abstention, not an additional ranking theorem [@MullerParmigianiRice2006, working-paper pp. 5–6]. A capacity restriction couples the declarations and may change the optimum.
+
+The event being classified must be distinguished from the decision cutoff. A fixed substantive threshold, a model-derived reference and membership in the largest $b$ latent values define different events. The posterior cutoff instead expresses error costs or a specified constraint. Classifying criteria separately and combining their flags into grades introduces a further reporting rule whose pairwise optimality is not established by the binary result. Two-sided reference flags also require a neutral category and cutoff convention of their own.
+
+### Population-tail constraints and their conditional adaptation
+
+Gu and Koenker define a population upper-tail event using a cutoff from the latent mixing distribution. Their constraints concern a marginal false-discovery ratio and expected selection capacity under the joint model, with boundary randomization allowed in the relaxed problem [@gu2023invidious, pp. 6–7, 10–13]. These differ from an exact budget and a posterior error restriction enforced on each dataset. The population-tail event also differs from membership among a fixed number of leading values in one finite collection, even when similar target-proportion notation is used.
+
+For the comparator design we also use a **constructed conditional prefix rule**. At fixed $y$, calculate $v_i$ for its declared population-tail event, sort the distinct probability levels from largest to smallest, and retain equal-probability blocks intact. Among complete-block prefixes of size at most $b$, choose the largest nonempty prefix satisfying
+
+$$
+\sum_{i\in S}(1-v_i)\le q_{\rm sel}|S|,
+\qquad q_{\rm sel}\in[0,1].
+$$
+
+Choose the empty set if no eligible prefix exists. There the count inequality is $0\le0$ and no fraction with a positive denominator is available. Capacity may remain unused. The rule maximizes size within the feasible prefix family, not among all constrained subsets, and does not inherit the Gu–Koenker asymptotic guarantee. Allowing arbitrary combinations of complete tie blocks would define another family. For a nonempty chosen prefix, the inequality bounds its supplied-law posterior expected false fraction for the stated event.
+
+The action must retain its selection flags and count. A two-category display of selected and unselected units becomes an all-tie grade both when all units and when no units are selected, so the grade vector alone cannot distinguish these actions. Adding a boundary lottery to fill unused capacity changes the selected set and requires a fresh error check. This conditional nonrandomized construction therefore retains its distinction from the source's marginal rule.
+
+### Repeated-data laws for stability {#stability-requires-its-own-repeated-data-law}
+
+Stability asks whether repeated information produces similar decisions, rather than whether a decision agrees with the latent target. For example, declare a joint law for two measurements of the same units and state, refit each producer using the information available at that measurement, and compare reports through
+
+$$
+E\!\left[\frac1M\sum_{i<j}
+\mathbf1\{r_{ij}(g^{(1)})\ne r_{ij}(g^{(2)})\}\right].
+$$
+
+The relation-change loss includes transitions to or from withholding as well as directional reversals. Restricting a reversal fraction to pairs disclosed twice changes the denominator and introduces its own no-disclosure case. The joint measurement law and coupling of auxiliary randomization must also be specified, since reusing random choices changes the stability question. A constant report is perfectly stable whatever its accuracy. We therefore evaluate stability together with accuracy and disclosure; minimizing reporting loss provides no guarantee for these additional stability measures.
+
+## Separate criterion cards as constructed comparators {#sec-separate-card-comparators}
+
+One optional comparison first constructs a posterior grade for each criterion, using a common declared supplied law and withholding cost, and a declared action family and exact or approximate solution method. Let $C_{ik}$ count units above unit $i$ on card $k$, and let $b_{ik}$ be its tie-block size. Assign the normalized midrank code $q_{ik}=[C_{ik}+(b_{ik}+1)/2]/n$. The inherited construction overrides an all-tie card with $q_{ik}=1$ for every unit. This override defines an additional combination convention rather than following from the midrank formula.
+
+Two resulting rules order $u_i=\sum_k w_kq_{ik}$ or $u_i=\max_k q_{ik}$ increasingly and assign one grade to each distinct score, preserving score ties. The sum uses declared nonnegative weights summing to one; the maximum includes every declared criterion and does not use those weights. The codes are invariant to relabeling occupied grades, but their numerical aggregation has no automatic cardinal-utility justification. An all-tie card contributes a constant to the sum and forces the maximum rule to tie everyone. The final report can exceed the per-card grade cap. The constructed combinations therefore require separate analysis of joint optimality and protection. Any comparison with a joint optimum must first verify that the combined report belongs to its family; constructing the cards separately also changes aggregation, not merely computation.
+
+@fig-vis-f17 gathers the comparator declarations into four native decision cards and one explicitly constructed adaptation. The comparison point and both co-primary evaluations remain part of the specification.
+
+::: {#fig-vis-f17}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/f17-a-fair-comparator-specification-mobile.svg">
+<img src="../assets/figures/f17-a-fair-comparator-specification.svg" class="img-fluid" alt="Four equally sized method cards distinguish score tiers, loss-specific report optimization, exact-budget selection and binary threshold classification. A shared header lists information, target and law, units, source role and ties or constraints. A separate strip combines criterion cards through a declared midrank sum or maximum into a new report and states that joint optimality, protection and caps do not automatically carry over. A final comparison strip distinguishes fixed cost, matched expected disclosure and exact grade count. Construction arrows do not transfer guarantees.">
+</picture>
+
+Information and decision definitions for comparisons of reporting methods. Each card identifies the native action and objective, while the shared specification records information, target and law, eligible units, evidence role and ties or restrictions. Reporting optimality belongs to the declared risk and full feasible family; exact-budget selection and binary classification solve different native decisions. Turning selected sets, criterion flags or separate cards into one grade report is a constructed adaptation requiring its own feasibility and loss checks. Fixed withholding price, matched expected disclosure, and exact grade count impose different operating-point restrictions. The resulting reports are evaluated against both co-primary targets under the declared law. A guarantee for the original output does not automatically apply to the converted report.
+:::
+
+## Descriptive decomposition and its noncausal interpretation {#sec-descriptive-decomposition}
+
+Interactions among the score order, grade boundaries and boundary loss can make a sequential decomposition depend on the order in which the changes are made. We evaluate their combinations and average each change's marginal contribution across all orders to allocate the total difference descriptively. This factorial comparison identifies no causal effects of estimation, uncertainty or intervention.
+
+Let $\mathcal J$ contain $p\ge1$ named factors. For every subset $S\subseteq\mathcal J$, define a complete procedure with those factors at their alternative levels and the others at their baseline levels. Let $m(S)$ be its finite, lower-is-better performance value under one declared evaluation metric and law. Put $v(S)=m(\varnothing)-m(S)$. The Shapley allocation to factor $f$ is [@shapley1952value, pp. 3, 7, 13]
+
+$$
+\phi_f=
+\sum_{S\subseteq\mathcal J\setminus\{f\}}
+\frac{|S|!\,(p-|S|-1)!}{p!}
+\{v(S\cup\{f\})-v(S)\}.
+$$
+
+The coefficient is the proportion of permutations of the $p$ factors in which exactly $S$ precedes $f$: the members of $S$ occupy the first $|S|$ positions in any order, followed by $f$, followed by the remaining factors in any order. In each permutation, summing the successive marginal changes telescopes from $v(\varnothing)=0$ to $v(\mathcal J)$. Averaging therefore gives
+
+$$
+\sum_{f\in\mathcal J}\phi_f
+=m(\varnothing)-m(\mathcal J).
+$$
+
+This identity allocates the entire contrast, but a contribution may be negative and depends on the baseline, factors, included combinations, metric and evaluation law. Splitting a factor can change the allocation. Its value is therefore neither an institutional preference weight nor an invariant measure of scientific importance. We apply the classical marginal-contribution formula to an author-defined comparison of procedures, without invoking the source's axiomatic uniqueness theorem or assigning a causal interpretation.
+
+Each cell must define a complete procedure and a comparable outcome. A boundary-loss factor, for instance, may have no effect when a fixed score-tier recipe determines boundaries. Such cells can intentionally represent the same procedure and yield zero marginal change for that transition. The factor can still have a nonzero contribution when it changes other cells. An undefined or infeasible cell cannot instead be assigned zero performance: doing so would invent an outcome. The design must be revised or the decomposition explicitly restricted before evaluation. Reporting the cell values alongside the allocations keeps interactions and adverse changes visible.
+
+### Common denominators in matched-disclosure decomposition {#preserve-the-denominator-of-a-matched-disclosure-decomposition}
+
+Suppose the cells use measurable rules for complete-action mixtures that all have the same conditional mean disclosure $\bar N(Y)\ge0$ on each dataset. Let $A_S(Y)$ be the corresponding measurable conditional expected wrong-count function under the same evaluation law, and assume $0<E[\bar N(Y)]<\infty$. For the normalized directional weights, $0\le A_S(Y)\le\bar N(Y)$, so the needed expectations are finite. All-silent datasets have $\bar N=0$ and all these expected counts zero.
+
+Apply the formula above at each dataset to the count improvements $A_{\varnothing}(Y)-A_S(Y)$, and call the result $\phi_f^A(Y)$. Finite linearity yields the Shapley allocation for the **pooled** error-rate differences:
+
+$$
+\operatorname{ERR}_S=\frac{E[A_S(Y)]}{E[\bar N(Y)]},
+\qquad
+\phi_f^{\operatorname{ERR}}
+=\frac{E[\phi_f^A(Y)]}{E[\bar N(Y)]}.
+$$
+
+The pooled allocation generally differs from the average of $\phi_f^A(Y)/\bar N(Y)$ over positive-disclosure datasets. In a finite collection of replications, summing each factor's conditional count allocation and dividing by the common sum of conditional mean disclosures produces exactly the Shapley allocation of these pooled conditional-count ratios, when that denominator is positive. Independently sampled reports can have different realized disclosure counts despite matching conditional means; the asserted finite identity uses the conditional quantities. The finite identity does not establish unbiased population estimation of the ratio. Its uncertainty calculation requires the paired whole-dataset replication structure in @sec-disclosed-error-estimands.
+
+If the cells have different disclosure denominators, the common-denominator simplification is unavailable. One can instead define the complete scalar cell values as their own explicitly chosen ratios and apply the original allocation formula to those values. That answers a different comparison. Matching grade counts alone does not establish the common $\bar N(Y)$ required here, and an all-zero pooled denominator leaves the pooled error-rate decomposition undefined. @sec-misspecification-calibration examines the further question of whether the supplied probabilities are credible under the evaluation law.

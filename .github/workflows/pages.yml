@@ -1,0 +1,99 @@
+name: Build book and optionally publish Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish the reviewed book to the configured GitHub Pages site"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: book-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out the selected revision
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Set up the reviewed Quarto version
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.9.37'
+
+      - name: Verify the portable example bundle and four finite cases
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          import sys
+          import tempfile
+          import zipfile
+
+          archive = Path('assets/reproduction/p1-small-examples.zip')
+          with tempfile.TemporaryDirectory(prefix='p1-finite-examples-') as tmp:
+              with zipfile.ZipFile(archive) as bundle:
+                  bundle.extractall(tmp)
+              example_root = Path(tmp) / 'p1-small-examples'
+              subprocess.run([sys.executable, 'verify.py'], cwd=example_root, check=True)
+              for name in (
+                  'fixed-order-dp', 'exact-common-grade',
+                  'objective-contrast', 'matched-disclosure',
+              ):
+                  subprocess.run(
+                      [sys.executable, f'examples/{name}.py', '--check'],
+                      cwd=example_root, check=True,
+                  )
+          PY
+
+      - name: Render the book
+        run: |
+          quarto --version
+          python --version
+          python3 --version
+          python3 -c 'import sys; assert sys.version_info[:2] == (3, 13)'
+          quarto render
+
+      # Build-only runs do not need an already-configured Pages destination.
+      - name: Read the configured GitHub Pages settings
+        if: ${{ inputs.publish }}
+        uses: actions/configure-pages@v5
+
+      - name: Upload only the rendered book
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _book
+
+  deploy:
+    if: ${{ inputs.publish }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the reviewed artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

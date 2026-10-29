@@ -1,0 +1,43 @@
+main { max-width: 950px; }
+h1 { letter-spacing: -.025em; }
+h2 { margin-top: 2.3rem; padding-top: .65rem; border-top: 1px solid #d9e1df; }
+h3 { margin-top: 1.6rem; }
+p { margin-bottom: .85rem; }
+code { overflow-wrap: anywhere; white-space: normal; }
+pre code { white-space: pre; }
+.table { font-size: .88rem; }
+.table td, .table th { vertical-align: top; }
+.table th { background: #eaf1ef; }
+#tbl-p1-evaluation-bridge th, #tbl-p1-evaluation-bridge td { text-align: left; }
+.quarto-title-meta { color: #56636a; }
+.sidebar-title { font-weight: 650; }
+#TOC > ul, #TOC ul ul { display: block; }
+#TOC { max-height: 88vh; overflow-y: auto; }
+.status-banner { padding: 1.2rem 1.4rem; margin: 1rem 0 1.4rem; background: #eaf1ef; border-left: 5px solid #145c63; border-radius: 4px; }
+.small-note { font-size: .91rem; color: #56636a; }
+@media (max-width: 720px) {
+  main { padding: 0 .2rem; }
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.45rem; }
+  .table { font-size: .8rem; }
+  main { min-width: 0; }
+  main table.table { display: block; max-width: 100%; overflow-x: auto; }
+}
+mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-block: .35rem; }
+
+/* Use dedicated stacked companions for the retained two-panel figures. */
+@media (max-width: 720px) {
+  #fig-matched-disclosure-frontier picture img,
+  #fig-objective-contrast picture img { width: 100%; min-width: 0; max-width: 100%; height: auto; }
+}
+
+/* Allow long scholarly cross-references and bibliography URLs to wrap. */
+main a.quarto-xref, main a.quarto-xref span { white-space: normal; }
+main .csl-entry a { overflow-wrap: anywhere; }
+
+/* Preserve complete tie-aware API names in the Appendix D comparison table. */
+.tie-aware-capability-table { max-width: 100%; overflow-x: auto; }
+.tie-aware-capability-table code { white-space: nowrap; overflow-wrap: normal; }
+@media (max-width: 720px) {
+  .tie-aware-capability-table table.table { display: table; min-width: 850px; }
+}

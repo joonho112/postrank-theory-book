@@ -1,0 +1,7 @@
+pair,unit_i,unit_j,distinct_probability_criterion_1,distinct_probability_criterion_2,weighted_distinct_delta,strict_error_i_above_j,strict_error_j_above_i,weight_criterion_1,weight_criterion_2,relation_CD_above_AB,relation_D_above_ABC,disclosed_CD_above_AB,disclosed_D_above_ABC
+AB,A,B,0,0,0,0,0,1/4,3/4,hold,hold,0,0
+AC,A,C,1,0,1/4,1/4,0,1/4,3/4,C>A,hold,1,0
+AD,A,D,1,1,1,1,0,1/4,3/4,D>A,D>A,1,1
+BC,B,C,1,0,1/4,1/4,0,1/4,3/4,C>B,hold,1,0
+BD,B,D,1,1,1,1,0,1/4,3/4,D>B,D>B,1,1
+CD,C,D,1,1,1,9/10,1/10,1/4,3/4,hold,D>C,0,1

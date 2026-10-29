@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="783.333333" viewBox="0 0 600 940" role="img" aria-labelledby="title description">
+ <metadata><rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><cc:Work><dc:creator><cc:Agent><dc:title>JoonHo Lee (jlee296@ua.edu)</dc:title></cc:Agent></dc:creator></cc:Work></rdf:RDF></metadata>
+  <title id="title">Inclusions among grade-report families</title>
+  <desc id="description">Every arrow points from a subset to its containing set. Coarsenings of the declared score-tie blocks with at most G grades are contained in fixed-order contiguous reports with at most G grades, which are contained in all reports with at most G grades, which are contained in all ordered partitions. Exactly G grades is a separate subset of at-most-G reports. There is no arrow asserting inclusion between the exact-G and fixed-order families. Assume one through n grades and an order refining the score order.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 1 1 L 11 6 L 1 11 z" fill="#24516d"/>
+    </marker>
+    <style>
+      text {font-family: Arial, Helvetica, sans-serif; fill: #162d3b; text-anchor: middle;}
+      .legend {font-size: 25px;}
+      .heading {font-size: 28px; font-weight: 600;}
+      .math {font-family: Georgia, 'Times New Roman', serif; font-size: 34px;}
+      .sub {font-size: 23px; baseline-shift: sub;}
+      .edge {fill: none; stroke: #24516d; stroke-width: 3; marker-end: url(#arrow);}
+      .subset {font-family: Georgia, 'Times New Roman', serif; font-size: 35px; fill: #24516d;}
+    </style>
+  </defs>
+  <rect width="600" height="940" fill="#ffffff"/>
+  <text class="legend" x="300" y="35">Arrows mean subset (⊆).</text>
+  <text class="legend" x="300" y="68">They point toward the larger set.</text>
+
+  <g id="unrestricted">
+    <rect x="40" y="105" width="440" height="95" rx="15" fill="#edf3f8" stroke="#24516d" stroke-width="2"/>
+    <text class="heading" x="260" y="141">All ordered partitions</text>
+    <text class="math" x="260" y="179">A<tspan class="sub">n</tspan></text>
+  </g>
+  <g id="capped">
+    <rect x="40" y="270" width="440" height="95" rx="15" fill="#edf3f8" stroke="#24516d" stroke-width="2"/>
+    <text class="heading" x="260" y="307">At most G grades</text>
+    <text class="math" x="260" y="345">A<tspan class="sub">≤G</tspan></text>
+  </g>
+  <g id="fixed-order">
+    <rect x="40" y="435" width="440" height="100" rx="15" fill="#eef7f2" stroke="#31705a" stroke-width="2"/>
+    <text class="heading" x="260" y="473">Fixed order ρ, at most G</text>
+    <text class="math" x="260" y="511">A<tspan class="sub">ρ</tspan><tspan baseline-shift="baseline"> ∩ A</tspan><tspan class="sub">≤G</tspan></text>
+  </g>
+  <g id="score-coarsenings">
+    <rect x="40" y="600" width="440" height="105" rx="15" fill="#eef7f2" stroke="#31705a" stroke-width="2"/>
+    <text class="heading" x="260" y="638">Coarsen score-tie blocks</text>
+    <text class="math" x="260" y="678">C<tspan class="sub">score, ≤G</tspan></text>
+  </g>
+  <g id="exact-grade">
+    <rect x="40" y="785" width="440" height="95" rx="15" fill="#fff5e6" stroke="#916522" stroke-width="2"/>
+    <text class="heading" x="260" y="822">Exactly G grades</text>
+    <text class="math" x="260" y="859">A<tspan class="sub">=G</tspan></text>
+  </g>
+
+  <path id="cap-to-all" class="edge" d="M260 270 L260 204"/>
+  <text class="subset" x="301" y="249">⊆</text>
+  <path id="fixed-to-cap" class="edge" d="M260 435 L260 369"/>
+  <text class="subset" x="301" y="414">⊆</text>
+  <path id="score-to-fixed" class="edge" d="M260 600 L260 539"/>
+  <text class="subset" x="301" y="579">⊆</text>
+  <path id="exact-to-cap" class="edge" d="M480 832 L548 832 L548 318 L484 318"/>
+  <text class="subset" x="574" y="580">⊆</text>
+  <text class="legend" x="300" y="925">Exact G is a separate restriction.</text>
+</svg>

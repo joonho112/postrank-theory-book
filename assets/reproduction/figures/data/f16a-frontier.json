@@ -1,0 +1,505 @@
+{
+  "id": "F16a",
+  "coordinate_kind": "Exact saved plotting extraction only; no new hull or report enumeration",
+  "source_identity": {
+    "path": "examples/matched-disclosure-results.json",
+    "sha256": "144f1346a603ffa16e2fb7e96c1a96ca344eeaa310c428808873d58c43aefb9d",
+    "bytes": 14148
+  },
+  "source_selectors": [
+    "all_reports[*].N,A (deduplicate exact coordinate pairs for gray points)",
+    "families.unrestricted.vertices",
+    "families.order_DCBA.vertices",
+    "families.sparse_endpoints.vertices",
+    "matched_N4",
+    "sparse_N5"
+  ],
+  "canonical_identity": {
+    "path": "chapters/16-evaluation-frontiers.qmd",
+    "sha256": "c5dddd437a2ff6c935804633f693153d95aa4c4cfbc3ba46fdb1fd480567648e",
+    "bytes": 56792
+  },
+  "original_plot_source": {
+    "path": "examples/plot-matched-disclosure.R",
+    "sha256": "71e9b9d64b22a73747674aac14f72781de3222d90a6dccc2a587f6e21f7a5df4",
+    "bytes": 3874
+  },
+  "n": 4,
+  "M": 6,
+  "weights": [
+    "3/5",
+    "2/5"
+  ],
+  "joint_belief": [
+    {
+      "probability": "3/4",
+      "descending_criterion_orders": [
+        "ABCD",
+        "ACBD"
+      ],
+      "theta_unit_by_criterion": [
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "probability": "1/4",
+      "descending_criterion_orders": [
+        "BACD",
+        "DCBA"
+      ],
+      "theta_unit_by_criterion": [
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    }
+  ],
+  "saved_source_report_count": 75,
+  "gray_distinct_coordinates": [
+    {
+      "N": 0,
+      "A": "0",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "3/10",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "9/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "5/4",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "7/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "8/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "7/4",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "51/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 3,
+      "A": "27/10",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 4,
+      "A": "7/10",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 4,
+      "A": "21/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 4,
+      "A": "37/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 4,
+      "A": "43/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 4,
+      "A": "59/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 4,
+      "A": "33/10",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "13/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "4/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "19/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "23/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 5,
+      "A": "29/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 5,
+      "A": "8/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "7/4",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "9/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "39/20",
+      "source_reports_at_coordinate": 4
+    },
+    {
+      "N": 5,
+      "A": "9/4",
+      "source_reports_at_coordinate": 3
+    },
+    {
+      "N": 5,
+      "A": "49/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "51/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "11/4",
+      "source_reports_at_coordinate": 3
+    },
+    {
+      "N": 5,
+      "A": "61/20",
+      "source_reports_at_coordinate": 4
+    },
+    {
+      "N": 5,
+      "A": "16/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "13/4",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "17/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "71/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 5,
+      "A": "77/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 5,
+      "A": "81/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "21/5",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 5,
+      "A": "87/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "21/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "5/4",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "31/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "37/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "41/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 6,
+      "A": "47/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 6,
+      "A": "51/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "53/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "57/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 6,
+      "A": "63/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 6,
+      "A": "67/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "69/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "73/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 6,
+      "A": "79/20",
+      "source_reports_at_coordinate": 2
+    },
+    {
+      "N": 6,
+      "A": "83/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "89/20",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "19/4",
+      "source_reports_at_coordinate": 1
+    },
+    {
+      "N": 6,
+      "A": "99/20",
+      "source_reports_at_coordinate": 1
+    }
+  ],
+  "families": {
+    "unrestricted": {
+      "report_count": 75,
+      "vertices": [
+        [
+          0,
+          "0"
+        ],
+        [
+          3,
+          "3/10"
+        ],
+        [
+          5,
+          "13/20"
+        ],
+        [
+          6,
+          "21/20"
+        ]
+      ],
+      "slopes": [
+        "1/10",
+        "7/40",
+        "2/5"
+      ]
+    },
+    "order_DCBA": {
+      "report_count": 8,
+      "vertices": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5,
+          "81/20"
+        ],
+        [
+          6,
+          "99/20"
+        ]
+      ],
+      "slopes": [
+        "81/100",
+        "9/10"
+      ]
+    },
+    "sparse_endpoints": {
+      "report_count": 2,
+      "vertices": [
+        [
+          0,
+          "0"
+        ],
+        [
+          6,
+          "21/20"
+        ]
+      ],
+      "slopes": [
+        "7/40"
+      ]
+    }
+  },
+  "matched_N4": {
+    "left_grade": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "left_N": 3,
+    "left_A": "3/10",
+    "right_grade": [
+      1,
+      2,
+      2,
+      3
+    ],
+    "right_N": 5,
+    "right_A": "13/20",
+    "right_action_probability": "1/2",
+    "mean_N": 4,
+    "mean_A": "19/40",
+    "ratio_expected_counts": "19/160",
+    "mean_fraction": "23/200",
+    "best_deterministic_A_at_N4": "7/10",
+    "best_deterministic_fraction_at_N4": "7/40"
+  },
+  "sparse_N5": {
+    "A": "7/8",
+    "exact_H": "13/20",
+    "gap": "9/40"
+  },
+  "panel_specs": {
+    "left": {
+      "title": "Same law, different feasible reports",
+      "families": [
+        "unrestricted",
+        "order_DCBA"
+      ],
+      "gray_points": true,
+      "y_units": "Expected weighted wrong-count A",
+      "range_note": "Left scale accommodates reversed-order endpoint99/20."
+    },
+    "right": {
+      "title": "Randomization and sparse-path limits",
+      "families": [
+        "unrestricted",
+        "sparse_endpoints"
+      ],
+      "gray_points": false,
+      "special_markers": [
+        {
+          "shape": "square",
+          "N": 4,
+          "A": "7/10",
+          "label": "Best deterministic report at N=4"
+        },
+        {
+          "shape": "diamond",
+          "N": 4,
+          "A": "19/40",
+          "label": "Whole-report mixture at mean N=4"
+        }
+      ],
+      "range_note": "Separate enlarged y scale; preserve explicit difference from left."
+    }
+  },
+  "qualifications": [
+    "Mix entire canonical reports independently of latent state conditional on observed information; no independent pair decisions.",
+    "Both axes use expected raw counts. Ratio of expected counts differs from expected report-specific fraction.",
+    "Distinct vertical scales must stay visible and stated.",
+    "Reverse order is deliberately imposed, not an expected-rank result.",
+    "Candidate endpoint hull may omit exact vertices and is not the unrestricted frontier.",
+    "DesktopSVG is retained unchanged; mobile companion changes layout and labeling only.",
+    "No causal policy effect, fitted model, simulated states, solver, current package support or new enumeration."
+  ],
+  "copy_scope": "All numeric values are copied from saved exact source fields. Gray points are exact-coordinate deduplication; source multiplicities are provenance counts and must not alter point size.",
+  "extractor": "JoonHo Lee (jlee296@ua.edu)",
+  "extracted_at_utc": "2026-10-27T19:22:20.938248+00:00"
+}

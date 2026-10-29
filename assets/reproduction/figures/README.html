@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="JoonHo Lee (jlee296@ua.edu)" />
+  <title>Reproducing the monograph’s figures</title>
+  <style>
+
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+  <style type="text/css">html{font-family:system-ui,sans-serif;color:#20333b;font-size:17px}body{max-width:960px;margin:2rem auto;padding:0 1rem;line-height:1.6}h1,h2{line-height:1.2}a{color:#126d76}pre{overflow:auto;padding:1rem;background:#edf3f2}code{font-size:.88em}table{display:block;max-width:100%;overflow:auto;border-collapse:collapse}th,td{padding:.5rem;text-align:left;vertical-align:top;border-bottom:1px solid #cad5d7}th{background:#edf3f2}nav{border-bottom:1px solid #cad5d7}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Reproducing the monograph’s figures</h1>
+<p class="author">JoonHo Lee (jlee296@ua.edu)</p>
+</header>
+<p>The figure collection contains 40 numbered explanatory figures. Each
+of the 22 main chapters and five appendices has at least one. The
+collection includes conceptual maps, exact small examples, mathematical
+mechanisms and a bounded historical aggregate illustration. Their
+captions identify the relevant target, probability law, loss and
+feasible family; the figures do not establish empirical calibration or
+policy benefits.</p>
+<h2 id="choose-the-reproduction-target">Choose the reproduction
+target</h2>
+<p>There are 39 plotting entry points. Thirty-seven produce six files
+each: SVG, PDF and PNG in wide and separately composed mobile layouts.
+Two entry points produce only three mobile companion files for retained
+desktop originals. One original inclusion diagram is retained without a
+plotting entry point. The three retained original SVGs are identified by
+their bytes in <code>manifest.json</code>.</p>
+<p>Replaying plots uses supplied small coordinates or literal symbolic
+labels. It does not refit a model, rerun KRW estimation, call an R
+package or optimize a report. Some producers check exact identities in
+the saved coordinates as part of plotting. Optional derivation programs
+and historical scientific archives have separate scopes and are not an
+implicit prerequisite to the selective commands below.</p>
+<h2 id="preserve-the-directory-layout">Preserve the directory
+layout</h2>
+<p>Run commands from a working root containing:</p>
+<pre class="text"><code>assets/
+  reproduction/figures/
+    figstyle.py
+    data/
+    generators/
+    manifest.json
+  figures/
+    [the three retained original SVGs, when reproducing their slots]</code></pre>
+<p>Use the supplied <code>assets/reproduction/figures</code> tree in
+full: producers may import a shared panel from another generator
+directory. Do not flatten the folders. The shared style locates the
+working root from this structure. Source chapter names in provenance
+metadata identify controlling text; the plotting chain does not require
+private contracts, working logs, source PDFs, original empirical inputs
+or canonical QMD files.</p>
+<p>The original SVGs can be copied from the rendered book’s
+<code>assets/figures/</code> directory using the retained-asset entries
+in the manifest. They are preserved inputs, not outputs regenerated by
+Python. An isolated replay should keep its own working tree rather than
+overwrite the manuscript’s accepted assets.</p>
+<h2 id="selective-commands">Selective commands</h2>
+<p>Use an existing Python environment with the dependencies recorded in
+<code>environment.json</code>. The recorded authoring/replay environment
+is a description of the environment tested here. Installing an
+environment, using another platform or changing dependency versions is a
+separate operation; matching bytes on every platform is not
+promised.</p>
+<p>For example, generate the analytical dependency map or the exact
+target-to-report illustration:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-B</span> assets/reproduction/figures/generators/F09c/generate.py</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-B</span> assets/reproduction/figures/generators/F19a/generate.py</span></code></pre></div>
+<p>The mathematical proof-route figure imports its public route panel
+automatically:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-B</span> assets/reproduction/figures/generators/FA/generate.py</span></code></pre></div>
+<p>For the retained frontier’s mobile companion, or the retained
+reporting-versus-selection example’s mobile companion, use their actual
+distinct entry points:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-B</span> assets/reproduction/figures/generators/F16a/generate.py</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-B</span> assets/reproduction/figures/generators/F19b-mobile/generate.py</span></code></pre></div>
+<p><code>manifest.json</code> lists the command and expected outputs for
+every slot. F14a is a retained SVG and has no generation command. Do not
+interpret a staged panel driver or a coordinate-derivation helper as
+another final figure.</p>
+<p>Use <code>-B</code> to avoid bytecode caches. Many producers refuse
+to overwrite outputs unless <code>--overwrite</code> is supplied; use
+that flag only for deliberate regeneration in your own working copy.
+Some early producers overwrite their named outputs directly. Keeping a
+separate replay tree is therefore the most reliable way to preserve
+accepted manuscript assets.</p>
+<h2 id="check-the-outputs-and-display">Check the outputs and
+display</h2>
+<p>The manifest records SHA-256 identities for the public sources,
+accepted plotting inputs and expected exports. Hash agreement identifies
+bytes. The distributed exports carry standardized author metadata;
+packaging metadata can change file hashes without changing plotted
+content. It does not prove the mathematics, validate the supplied
+probability law or certify an optimizer. A different environment can
+change rendering bytes without changing coordinates; inspect the
+declared quantities and actual images as well as file identities.</p>
+<p>New SVG text is outlined as paths for font portability. PDF exports
+retain embedded fonts, and PNGs provide raster previews. Captions and
+alt text in the Quarto book supply the accessible descriptions. The
+retained original SVGs keep their original representation and declared
+export exceptions.</p>
+<p>The book binds wide and mobile SVGs through responsive picture
+elements. Reproducing image files does not itself check the final
+caption, alt text, numbering, cross-reference, resource copying or
+mobile selection. A complete display check renders the book with
+scientific execution disabled and inspects both desktop and narrow
+contexts. Command records and visual checks are separate from the
+scientific plotting inputs.</p>
+<h2 id="scientific-and-availability-boundaries">Scientific and
+availability boundaries</h2>
+<p>Exact fixtures are stipulated illustrations under declared laws. The
+archived KRW figure uses accepted aggregate action summaries and does
+not rerun the original estimation. The weak-error theory and
+equality-neutral extension keep their separate events, denominators and
+feasible-family assumptions. Plotting a numerical error envelope does
+not turn it into an attained frontier or confidence guarantee.</p>
+<p>This source collection is separate from the scientific example
+archive and from any package-source snapshot. Original figure sources
+are authored by JoonHo Lee (jlee296@ua.edu). Rights status is described
+in the repository’s RIGHTS.md.</p>
+<h2 id="figure-and-command-index">Figure and command index</h2>
+<p>The machine-readable index is <code>manifest.json</code>. The
+reader-oriented table below links to each figure in the rendered
+book.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Figure</th>
+<th>Reader question</th>
+<th>Plot source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../../chapters/01-public-decisions.html#fig-vis-f01">1.1</a></td>
+<td>What is selected, and how can a grade enter an institutional
+decision?</td>
+<td><a href="generators/F01/generate.py">F01</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/02-education-access.html#fig-vis-f02">2.1</a></td>
+<td>Where do eligibility, selection, assistance and reporting enter
+three education cases?</td>
+<td><a href="generators/F02/generate.py">F02</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/03-institutional-practice.html#fig-vis-f03">3.1</a></td>
+<td>What are the unit, criteria, report and downstream action in four
+different fields?</td>
+<td><a href="generators/F03/generate.py">F03</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/04-measurement-values.html#fig-vis-f04">4.1</a></td>
+<td>Why can unadjusted rescaling reverse a composite while compensated
+coefficients preserve it?</td>
+<td><a href="generators/F04/generate.py">F04</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/05-bayesian-ranking.html#fig-vis-f05">5.1</a></td>
+<td>Why does a posterior not determine a universal ranking?</td>
+<td><a href="generators/F05/generate.py">F05</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/06-uncertainty-ordering.html#fig-vis-f06">6.1</a></td>
+<td>What probability statement and averaging law does each uncertainty
+display express?</td>
+<td><a href="generators/F06/generate.py">F06</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/07-aggregation-mcda.html#fig-vis-f07">7.1</a></td>
+<td>Which inputs, actions and uncertainty roles make a method a relevant
+comparator?</td>
+<td><a href="generators/F07/generate.py">F07</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/08-selection-abstention.html#fig-vis-f08">8.1</a></td>
+<td>How do realized fractions, posterior expectations and repeated-data
+error control differ?</td>
+<td><a href="generators/F08/generate.py">F08</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/09-targets-actions-laws.html#fig-vis-f09a">9.1</a></td>
+<td>Why do two two-grade reports disclose three versus four pairs?</td>
+<td><a href="generators/F09a/generate.py">F09a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/09-targets-actions-laws.html#fig-vis-f09b">9.2</a></td>
+<td>Why are unitwise marginals insufficient to determine a pair
+event?</td>
+<td><a href="generators/F09b/generate.py">F09b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/09-targets-actions-laws.html#fig-information-beliefs-laws">9.3</a></td>
+<td>Which inputs determine selection and which law determines
+evaluation?</td>
+<td><a href="generators/F09c/generate.py">F09c</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/10-krw-foundation.html#fig-vis-f10a">10.1</a></td>
+<td>How does tau price withholding relative to a directional error?</td>
+<td><a href="generators/F10a/generate.py">F10a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/10-krw-foundation.html#fig-vis-f10b">10.2</a></td>
+<td>Why do two local ties conflict with a disclosed endpoint
+comparison?</td>
+<td><a href="generators/F10b/generate.py">F10b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/11-multicriteria-loss.html#fig-vis-f11b">11.1</a></td>
+<td>How do all three pair actions behave in each of three latent
+states?</td>
+<td><a href="generators/F11b/generate.py">F11b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/11-multicriteria-loss.html#fig-vis-f11a">11.2</a></td>
+<td>What does the scalar mixture correspondence actually sample?</td>
+<td><a href="generators/F11a/generate.py">F11a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/11-multicriteria-loss.html#fig-vis-f11c">11.3</a></td>
+<td>Which profiles qualify for a same-grade guard, and what does
+imposing it preserve?</td>
+<td><a href="generators/F11c/generate.py">F11c</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/12-conflict-estimands.html#fig-vis-f12b">12.1</a></td>
+<td>Why can coherence and grade caps prevent the local bound from being
+attained?</td>
+<td><a href="generators/F12b/generate.py">F12b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/12-conflict-estimands.html#fig-vis-f12a">12.2</a></td>
+<td>Why can co-primary targets disagree even at known truth?</td>
+<td><a href="generators/F12a/generate.py">F12a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/13-protections-preferences.html#fig-vis-f13a">13.1</a></td>
+<td>What happens when both strict directions violate a protected
+criterion?</td>
+<td><a href="generators/F13a/generate.py">F13a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/13-protections-preferences.html#fig-vis-f13b">13.2</a></td>
+<td>What does the weight switch express, and how does it compare with
+minimax?</td>
+<td><a href="generators/F13b/generate.py">F13b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/14-computing-grades.html#fig-vis-f14b">14.1</a></td>
+<td>How does a prefix recurrence recover a globally best fixed-order
+segmentation?</td>
+<td><a href="generators/F14b/generate.py">F14b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/14-computing-grades.html#fig-action-space-inclusions">14.2</a></td>
+<td>Which optimized risks can be ordered from set inclusion alone?</td>
+<td>Retained SVG</td>
+</tr>
+<tr>
+<td><a href="../../../chapters/15-numerical-uncertainty.html#fig-vis-f15a">15.1</a></td>
+<td>Why can an estimated-feasible action violate the intended
+constraint?</td>
+<td><a href="generators/F15a/generate.py">F15a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/15-numerical-uncertainty.html#fig-vis-f15b">15.2</a></td>
+<td>How can many stationary draws still yield little precision?</td>
+<td><a href="generators/F15b/generate.py">F15b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/15-numerical-uncertainty.html#fig-vis-f15c">15.3</a></td>
+<td>Why can an all-withhold action have nonzero coefficient-error
+uncertainty?</td>
+<td><a href="generators/F15c/generate.py">F15c</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/16-evaluation-frontiers.html#fig-vis-f16b">16.1</a></td>
+<td>Why do pooled and per-report error summaries answer different
+questions?</td>
+<td><a href="generators/F16b/generate.py">F16b</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/16-evaluation-frontiers.html#fig-matched-disclosure-frontier">16.2</a></td>
+<td>What changes when mixing whole reports rather than interpolating
+deterministic counts?</td>
+<td><a href="generators/F16a/generate.py">F16a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/16-evaluation-frontiers.html#fig-tie-aware-distinct-disclosure">16.3</a></td>
+<td>Why can N fall while Q rises as tau increases?</td>
+<td><a href="generators/F16c/generate.py">F16c</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/17-rules-objectives.html#fig-vis-f17">17.1</a></td>
+<td>What information, objective and adaptation must be matched?</td>
+<td><a href="generators/F17/generate.py">F17</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/18-misspecification-calibration.html#fig-vis-f18">18.1</a></td>
+<td>Why does self-reported risk not establish external calibration?</td>
+<td><a href="generators/F18/generate.py">F18</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/19-worked-examples.html#fig-vis-f19a">19.1</a></td>
+<td>How is the exact example assembled and compared at matched
+disclosure?</td>
+<td><a href="generators/F19a/generate.py">F19a</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/19-worked-examples.html#fig-objective-contrast">19.2</a></td>
+<td>How can the leading expected target differ from the most likely best
+unit?</td>
+<td><a href="generators/F19b-mobile/generate.py">F19b-mobile</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/20-krw-illustration.html#fig-vis-f20">20.1</a></td>
+<td>What exactly is recoverable from two archived aggregate
+reports?</td>
+<td><a href="generators/F20/generate.py">F20</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/21-governance-communication.html#fig-vis-f21">21.1</a></td>
+<td>What should a reporting institution explain and make
+contestable?</td>
+<td><a href="generators/F21/generate.py">F21</a></td>
+</tr>
+<tr>
+<td><a href="../../../chapters/22-synthesis-agenda.html#fig-vis-f22">22.1</a></td>
+<td>Where do inherited results, author derivations, implementation and
+empirical questions stop?</td>
+<td><a href="generators/F22/generate.py">F22</a></td>
+</tr>
+<tr>
+<td><a href="../../../appendices/A-proofs.html#fig-vis-fa">A.1</a></td>
+<td>Which assumptions support the weak and neutral results, and how does
+refinement work?</td>
+<td><a href="generators/FA/generate.py">FA</a></td>
+</tr>
+<tr>
+<td><a href="../../../appendices/B-notation.html#fig-vis-fb">B.1</a></td>
+<td>Which quantities are realizations, expectations, normalized rates or
+API fields?</td>
+<td><a href="generators/FB/generate.py">FB</a></td>
+</tr>
+<tr>
+<td><a href="../../../appendices/C-source-provenance.html#fig-vis-fc">C.1</a></td>
+<td>Which claim can a source passage, proof, hash or recorded run
+establish?</td>
+<td><a href="generators/FC/generate.py">FC</a></td>
+</tr>
+<tr>
+<td><a href="../../../appendices/D-package-correspondence.html#fig-vis-fd">D.1</a></td>
+<td>How do the historical and tie-aware input-to-solution routes
+differ?</td>
+<td><a href="generators/FD/generate.py">FD</a></td>
+</tr>
+<tr>
+<td><a href="../../../appendices/E-reproduction.html#fig-vis-fe">E.1</a></td>
+<td>How do a declared fixture, accepted results and plotting code reach
+an HTML figure?</td>
+<td><a href="generators/FE/generate.py">FE</a></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

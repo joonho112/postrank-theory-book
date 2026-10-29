@@ -1,0 +1,2796 @@
+{
+  "title": "Monograph figure plotting sources and accepted export identities",
+  "scope": "39 selective plotting entry points for40 core figures. Saved small inputs/literal symbols; no empirical model refit, scientific archive rerun, package solving or publication/license grant.",
+  "schema_version": 1,
+  "generated_on": "2026-10-27",
+  "counts": {
+    "core_slots": 40,
+    "plotting_entrypoints": 39,
+    "generated_exports": 228,
+    "retained_original_SVGs": 3,
+    "expected_asset_files": 231,
+    "public_source_files_listed": 70
+  },
+  "root_layout": "Keep assets/reproduction/figures and assets/figures under one working root. Do not flatten generator/helper directories.",
+  "environment": "assets/reproduction/figures/environment.json",
+  "guide": "assets/reproduction/figures/README.html",
+  "figures": [
+    {
+      "id": "F01",
+      "figure_label": "fig-vis-f01",
+      "figure_kind": "conceptual",
+      "title": "From noisy indicators to a reporting decision",
+      "reader_question": "What is selected, and how can a grade enter an institutional decision?",
+      "chapter_HTML": "chapters/01-public-decisions.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F01/generate.py",
+        "sha256": "da667aeda481badff7db953bdbc7ba854745d880cd6d52ed72f928f7272db502",
+        "command": "python -B assets/reproduction/figures/generators/F01/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f01-from-noisy-indicators-to-a-reporting-decision.svg",
+          "sha256": "e7f121f86869452ee9c16f54ee1293755b8b8554de038c7d19700923fcaae8f1",
+          "bytes": 65790,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f01-from-noisy-indicators-to-a-reporting-decision.pdf",
+          "sha256": "1648d4c17359b2c3b317be636351b6d2da05b26c056b522d7b08e8a94fb20043",
+          "bytes": 21111,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f01-from-noisy-indicators-to-a-reporting-decision.png",
+          "sha256": "e490180419282d0a584f4bd0963237244e7a9f87e9c703d08b840169829d300b",
+          "bytes": 125571,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f01-from-noisy-indicators-to-a-reporting-decision-mobile.svg",
+          "sha256": "0549104eb294a6056b29ba4079ea28987ceeec1b2f2e6f4880508fe3aafe8a30",
+          "bytes": 54143,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f01-from-noisy-indicators-to-a-reporting-decision-mobile.pdf",
+          "sha256": "c159be343437b2a5d4c818b92c61bf8867bf3bb27680ff183d97a0792fe7cd3f",
+          "bytes": 19615,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f01-from-noisy-indicators-to-a-reporting-decision-mobile.png",
+          "sha256": "78e2c4950a85660472e24821f0256b77ae608185e7e292bf8db914ad6e71185e",
+          "bytes": 117612,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "figure_label": "fig-vis-f02",
+      "figure_kind": "conceptual",
+      "title": "Three institutional decision pipelines",
+      "reader_question": "Where do eligibility, selection, assistance and reporting enter three education cases?",
+      "chapter_HTML": "chapters/02-education-access.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F02/generate.py",
+        "sha256": "ef275fe0c4da534d5d98806e5ac4de90bb2998f496c323063d6bb1b73cc998c7",
+        "command": "python -B assets/reproduction/figures/generators/F02/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f02-three-institutional-decision-pipelines.svg",
+          "sha256": "71d49cbf04460fca3272f6fcffa635dcbf08c3ff34a9a2a927ed504a3572e43b",
+          "bytes": 106596,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f02-three-institutional-decision-pipelines.pdf",
+          "sha256": "8a610e4415f0585922588e3d836a98f8f93a5d4062ec5d6c9ed435896b91154c",
+          "bytes": 24337,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f02-three-institutional-decision-pipelines.png",
+          "sha256": "a1687c20f2eed69469ca5d31afd09a3e6284d148af1b34dcfbc240d274f9cf22",
+          "bytes": 198814,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f02-three-institutional-decision-pipelines-mobile.svg",
+          "sha256": "bea803c271bb5b37bb910aba011ccdf1d84a3f5efa189c2d20920f3f18635dce",
+          "bytes": 97915,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f02-three-institutional-decision-pipelines-mobile.pdf",
+          "sha256": "8f3ae744846adf923f246d95d1af3355160a4b2ed8a57874bce74146587859b6",
+          "bytes": 24304,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f02-three-institutional-decision-pipelines-mobile.png",
+          "sha256": "6535f8e445fe0e8ec8fd3dcad2ea68139cd6dd1b8ce0768c19117d8f5a0a2204",
+          "bytes": 202444,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "figure_label": "fig-vis-f03",
+      "figure_kind": "conceptual",
+      "title": "Shared comparison structure across institutions",
+      "reader_question": "What are the unit, criteria, report and downstream action in four different fields?",
+      "chapter_HTML": "chapters/03-institutional-practice.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F03/generate.py",
+        "sha256": "71f08d37f42b6c7b419c3e962af8648cd4a7459932a0d2ce932bcf29c9101a81",
+        "command": "python -B assets/reproduction/figures/generators/F03/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f03-shared-comparison-structure-across-institutions.svg",
+          "sha256": "e092bb3a4d1d7d6876eb3120e1471a738d5470eab9ba7831008b7e234c1c29aa",
+          "bytes": 131627,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f03-shared-comparison-structure-across-institutions.pdf",
+          "sha256": "cf0a6a1189b42b9613cfe5f6f4b7c9bcb12fb17c938411e9532e5efcdee9b5a3",
+          "bytes": 25689,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f03-shared-comparison-structure-across-institutions.png",
+          "sha256": "085f1b44d5465dfafe6e2822da0048b52ade806a08c26b1a0b5d4347557ebfef",
+          "bytes": 258024,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f03-shared-comparison-structure-across-institutions-mobile.svg",
+          "sha256": "65da90df9652b2630ce19f4e76101540191e2ffc7c0e5dc5e1da78068f07d3e7",
+          "bytes": 129943,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f03-shared-comparison-structure-across-institutions-mobile.pdf",
+          "sha256": "d7cd5d843d8be525eea0c333ba77171f2e190c917923570d772677aed0513662",
+          "bytes": 26079,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f03-shared-comparison-structure-across-institutions-mobile.png",
+          "sha256": "d87c377b13dbe0c524c9ce1b09862a68ef4610d502b25ca448214fb8a714099d",
+          "bytes": 318872,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "figure_label": "fig-vis-f04",
+      "figure_kind": "quantitative",
+      "title": "Units, transformations and target choice",
+      "reader_question": "Why can unadjusted rescaling reverse a composite while compensated coefficients preserve it?",
+      "chapter_HTML": "chapters/04-measurement-values.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F04/generate.py",
+        "sha256": "dab297d968366edfe05f464b762ac7651652ea27803988ab8445ffedf519c066",
+        "command": "python -B assets/reproduction/figures/generators/F04/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/transformations-protections.json",
+          "sha256": "ec7fe6e245a3627ecd84a7980a0422bd0a487f08b0cee982b81c79ffc336f361"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f04-units-transformations-and-target-choice.svg",
+          "sha256": "0d8676d16855d46a0952cb3fa2d7524fcabf49bf4ba63febe1368c6f0f8da034",
+          "bytes": 106186,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f04-units-transformations-and-target-choice.pdf",
+          "sha256": "a7683ee1c6534e6d96bd4a30f8f259678c35cba681c87fe6217dd910e7e72f7d",
+          "bytes": 27154,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f04-units-transformations-and-target-choice.png",
+          "sha256": "84761f6e1ef40b5ccf261d3d06bfa71a980dac6f945d9f95a0990c9c41094a3b",
+          "bytes": 134752,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f04-units-transformations-and-target-choice-mobile.svg",
+          "sha256": "13a17d67dad6fec9b8b98cbe7132d9ca7f1613635dea01cd91b8fddfada2a15c",
+          "bytes": 100547,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f04-units-transformations-and-target-choice-mobile.pdf",
+          "sha256": "a5ce59c08aaddf9b279000071d40f63c7c493bf60d48205c9506271cc174d202",
+          "bytes": 26823,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f04-units-transformations-and-target-choice-mobile.png",
+          "sha256": "853ac5a87531abaaaf518c2b480351882f7763091ea266470a8dfd11ac3c4b7d",
+          "bytes": 188445,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "figure_label": "fig-vis-f05",
+      "figure_kind": "conceptual",
+      "title": "One posterior, several decision problems",
+      "reader_question": "Why does a posterior not determine a universal ranking?",
+      "chapter_HTML": "chapters/05-bayesian-ranking.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F05/generate.py",
+        "sha256": "b083457afd0d74d53a288c8683a71df80453f195092089cf4bc4024187a0d327",
+        "command": "python -B assets/reproduction/figures/generators/F05/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f05-one-posterior-several-decision-problems.svg",
+          "sha256": "db6f0d2f7708692355095980fe302b71bd3d97b99b25eeaabe0719cfd26b8f85",
+          "bytes": 98754,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f05-one-posterior-several-decision-problems.pdf",
+          "sha256": "cbedb7420c3ba2e0546f674e1e2a288a874923182ef79db0d064d3c8e07043c3",
+          "bytes": 29041,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f05-one-posterior-several-decision-problems.png",
+          "sha256": "59cbaaac694f6440bb39de7120c66917a60c8822d452ee4b9fc032907b079996",
+          "bytes": 194788,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f05-one-posterior-several-decision-problems-mobile.svg",
+          "sha256": "1b56afa6a9c1bbe0d70f5cd3570b40089e5c585131030c8b1a9f5eb9394840ea",
+          "bytes": 91763,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f05-one-posterior-several-decision-problems-mobile.pdf",
+          "sha256": "70be2086db52907bfa3a0f307f50045c1953bafdb026e28567f2f67df7f170b4",
+          "bytes": 29680,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f05-one-posterior-several-decision-problems-mobile.png",
+          "sha256": "595e992a560a569852282318d8546e390de40426d7aa87eaa5137b784b1b636f",
+          "bytes": 203057,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "figure_label": "fig-vis-f06",
+      "figure_kind": "conceptual",
+      "title": "Four uncertainty statements about the same units",
+      "reader_question": "What probability statement and averaging law does each uncertainty display express?",
+      "chapter_HTML": "chapters/06-uncertainty-ordering.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F06/generate.py",
+        "sha256": "f2f0a7af7b5774ff635342db9825755ce0d64a47d78060d631ef3cddfc09e65d",
+        "command": "python -B assets/reproduction/figures/generators/F06/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f06-four-uncertainty-statements-about-the-same-units.svg",
+          "sha256": "0e80d5892489afd29abff6483362824019bc909dcb67909a02ab293f9ddc8122",
+          "bytes": 122034,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f06-four-uncertainty-statements-about-the-same-units.pdf",
+          "sha256": "cdba109c01a6f164071a526c7597f8e81ae20fae0551e55e95b7619656f053fd",
+          "bytes": 37794,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f06-four-uncertainty-statements-about-the-same-units.png",
+          "sha256": "90dd76dd8b0718c1a069e7155a1a3f6fba3a39f9d4bca2cc89f08da3eff1b368",
+          "bytes": 222415,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f06-four-uncertainty-statements-about-the-same-units-mobile.svg",
+          "sha256": "e2b63c33e9e38e24e9d2c869fea37e58d98b49c64ef159be8d4dd1757c71ee7d",
+          "bytes": 117497,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f06-four-uncertainty-statements-about-the-same-units-mobile.pdf",
+          "sha256": "60c4dc997374cabf99c279085a4c28731d20afe199b3a7a5a4f2dabe151cfa92",
+          "bytes": 37514,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f06-four-uncertainty-statements-about-the-same-units-mobile.png",
+          "sha256": "6566fb46c2a26572dd0b5cc37e7b01fba0f856ec927f071c14962c23183dd2e8",
+          "bytes": 217981,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "figure_label": "fig-vis-f07",
+      "figure_kind": "conceptual",
+      "title": "A task map of neighboring methods",
+      "reader_question": "Which inputs, actions and uncertainty roles make a method a relevant comparator?",
+      "chapter_HTML": "chapters/07-aggregation-mcda.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F07/generate.py",
+        "sha256": "51158ef8b3b5c270420f4b394bb8d0f9ef702d1e18b99d4108b5dac90759e9c5",
+        "command": "python -B assets/reproduction/figures/generators/F07/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f07-a-task-map-of-neighboring-methods.svg",
+          "sha256": "e96fe5993b0468ad16f53fa6268d7dd33aaf5df8e2eae1d69f25facf17e5f812",
+          "bytes": 112953,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f07-a-task-map-of-neighboring-methods.pdf",
+          "sha256": "d3b0574e234d7cea3950f2f0f95359555179c821460c575246de5f154752affa",
+          "bytes": 24210,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f07-a-task-map-of-neighboring-methods.png",
+          "sha256": "da660e2b67cba1a5a7093eff663c523876260df3bfa945fc3a2598d2c4e40075",
+          "bytes": 226642,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f07-a-task-map-of-neighboring-methods-mobile.svg",
+          "sha256": "d8ae937262baed02d97dc964b47cb2f983e19c483ae36494a242242816e57655",
+          "bytes": 114490,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f07-a-task-map-of-neighboring-methods-mobile.pdf",
+          "sha256": "b2e9b5f11e21c5ac514f77c27a06e40a8a95e2d0b96e9ede91e0c8f5b6707221",
+          "bytes": 24780,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f07-a-task-map-of-neighboring-methods-mobile.png",
+          "sha256": "6341b8b925699e74edc53667dd405eadd5da06b7d658a66ae291b15577f11a3a",
+          "bytes": 286667,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "figure_label": "fig-vis-f08",
+      "figure_kind": "conceptual",
+      "title": "The denominator and law determine the guarantee",
+      "reader_question": "How do realized fractions, posterior expectations and repeated-data error control differ?",
+      "chapter_HTML": "chapters/08-selection-abstention.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F08/generate.py",
+        "sha256": "57650bbf769cc9ad027acb5d6b3e38194641c8332ea0dbf2ac2be970f7e1bafe",
+        "command": "python -B assets/reproduction/figures/generators/F08/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f08-the-denominator-and-law-determine-the-guarantee.svg",
+          "sha256": "9a45bc9300e54cf66eb79a5ebb7227ba9ef2fa7d468af07adcf0e9acac83f815",
+          "bytes": 90376,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f08-the-denominator-and-law-determine-the-guarantee.pdf",
+          "sha256": "aa75f8333fdb09fe178189cfc6dcc70354ae1aeb8411cbe8bff3b3da64904bc3",
+          "bytes": 31351,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f08-the-denominator-and-law-determine-the-guarantee.png",
+          "sha256": "9666db02808e0c342d5163136b7c6ccf959551c95c6d3d141005c6fd8e6bdee4",
+          "bytes": 156545,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f08-the-denominator-and-law-determine-the-guarantee-mobile.svg",
+          "sha256": "f9640d35095b8b73d9e7a051bc21ea4dbcd5b787153a8dcf8b61045743955b53",
+          "bytes": 82717,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f08-the-denominator-and-law-determine-the-guarantee-mobile.pdf",
+          "sha256": "8e0093c6f845354d5f9fc5d8ec523427d81ba300516336da8c092b7de52d33f7",
+          "bytes": 30370,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f08-the-denominator-and-law-determine-the-guarantee-mobile.png",
+          "sha256": "d81d5f184a45e48b4241de9dab7787d36e1d64dcfbf22ca85f3fcb4ede2840e0",
+          "bytes": 167005,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F09a",
+      "figure_label": "fig-vis-f09a",
+      "figure_kind": "mixed",
+      "title": "An ordered partition as disclosed pairs",
+      "reader_question": "Why do two two-grade reports disclose three versus four pairs?",
+      "chapter_HTML": "chapters/09-targets-actions-laws.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F09a/generate.py",
+        "sha256": "1e96b8332a10fab3cb6c7184718e923c75fd6e4e4f86df3c5f97b66282a72411",
+        "command": "python -B assets/reproduction/figures/generators/F09a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f09-grade-pairs.json",
+          "sha256": "70964137e662dfa70cf5c838b9e5d263fbd9b61d9001de65275bf8e5bf1d21b4"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f09a-an-ordered-partition-as-disclosed-pairs.svg",
+          "sha256": "6817c97e97489f412a07e7a6f631e9aead7515bb0a990ac3d49fcb91654a7746",
+          "bytes": 76865,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09a-an-ordered-partition-as-disclosed-pairs.pdf",
+          "sha256": "f5da91ad834e720aec91a977d0bfcc067d01bb97dbe0fea3c6eebfd05de2eeb8",
+          "bytes": 24078,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09a-an-ordered-partition-as-disclosed-pairs.png",
+          "sha256": "c714f8b29d04cd2491110be5a2feb454d93c494fe8173a3f8256bf3d50ae6823",
+          "bytes": 109604,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09a-an-ordered-partition-as-disclosed-pairs-mobile.svg",
+          "sha256": "70425fbb6fdcb7baa88658010e01e5d1e00ceaa0b032268e482e8f1141c2a8a0",
+          "bytes": 71900,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09a-an-ordered-partition-as-disclosed-pairs-mobile.pdf",
+          "sha256": "e13a1324d0dafdfd8669b6e7727b1d57ae65f238314cc841b97ba06ab5aba8bc",
+          "bytes": 22556,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09a-an-ordered-partition-as-disclosed-pairs-mobile.png",
+          "sha256": "e10243c4212abc18dc67ffa439dc9d098d83ef18e1f216463d98e39f58ae877d",
+          "bytes": 110359,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F09b",
+      "figure_label": "fig-vis-f09b",
+      "figure_kind": "quantitative",
+      "title": "Equal marginals, different comparisons",
+      "reader_question": "Why are unitwise marginals insufficient to determine a pair event?",
+      "chapter_HTML": "chapters/09-targets-actions-laws.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F09b/generate.py",
+        "sha256": "d8a0686c9e4e5cce75b6cfc0fbaf4c375c9cf0eccc26bda8f78608bdc582c176",
+        "command": "python -B assets/reproduction/figures/generators/F09b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f09-couplings.csv",
+          "sha256": "9339748c42163ab6405c37ac31cad9aa6b9db48e906aafeb054864cc2a5c39d8"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f09-couplings-metadata.json",
+          "sha256": "3cb93c16415ee4156a3de518e9a8c89f5ffb1a86b9f5594d31db45bce9393c6b"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f09b-equal-marginals-different-comparisons.svg",
+          "sha256": "2d456a3bd0651b6924f640cac9f3b079ad49f9f52d38b369ec8cbbc1a7e6612f",
+          "bytes": 83600,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09b-equal-marginals-different-comparisons.pdf",
+          "sha256": "4ea727d110357d0474f15488c078e239cdf14f800688cbf2fe1abfa116a24319",
+          "bytes": 27972,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09b-equal-marginals-different-comparisons.png",
+          "sha256": "8ce9db521382a4cb28a420c8ecd9b33a4c5553d773717b8e2ae0afb20024170a",
+          "bytes": 139587,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09b-equal-marginals-different-comparisons-mobile.svg",
+          "sha256": "4b51714906945eaecf6767ad8d88b4b540b97a3d5e5ada01ccb96cd2d95c1b00",
+          "bytes": 75528,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09b-equal-marginals-different-comparisons-mobile.pdf",
+          "sha256": "3d578d24fe72b0d23329d26d90e919e3a670d2ce6f943d041455a11c61b9ad76",
+          "bytes": 27698,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f09b-equal-marginals-different-comparisons-mobile.png",
+          "sha256": "178fbb5c2401ba332615691060153cbd6c1217212ba54a74f68b003cf49249d3",
+          "bytes": 143428,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F09c",
+      "figure_label": "fig-information-beliefs-laws",
+      "figure_kind": "conceptual",
+      "title": "Information, beliefs and evaluation laws",
+      "reader_question": "Which inputs determine selection and which law determines evaluation?",
+      "chapter_HTML": "chapters/09-targets-actions-laws.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F09c/generate.py",
+        "sha256": "c24e4e02aefa0db66f986f2ec30d78addbc7ed40c763040825e9f647e2ef65d3",
+        "command": "python -B assets/reproduction/figures/generators/F09c/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/information-beliefs-laws.svg",
+          "sha256": "e7627d61324224a2a22250d5a4db48e5d9ddca1d7d468a809b830010448eaa5e",
+          "bytes": 64305,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/information-beliefs-laws.pdf",
+          "sha256": "a077ae72b6073ec8295a053d80c43c54487165944a19a0b1eb250b0be5053916",
+          "bytes": 27163,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/information-beliefs-laws.png",
+          "sha256": "823d1ed236bd368df5feb120eaec2c650a27d82a311318d266802b49d6013f57",
+          "bytes": 110598,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/information-beliefs-laws-mobile.svg",
+          "sha256": "0f55a10185194f770001b4035945d30238b3fadfefe7e4331e4f18b8ef7762e5",
+          "bytes": 63746,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/information-beliefs-laws-mobile.pdf",
+          "sha256": "5f82d44c982ce0c976a825a10566a29ca059124419984423c0d67bf961baeb2e",
+          "bytes": 27190,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/information-beliefs-laws-mobile.png",
+          "sha256": "1de5ef4e64810d21018beea69b0340448a5e6bbaa535963655380653bc5cd99b",
+          "bytes": 126155,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F10a",
+      "figure_label": "fig-vis-f10a",
+      "figure_kind": "quantitative",
+      "title": "The isolated-pair decision",
+      "reader_question": "How does tau price withholding relative to a directional error?",
+      "chapter_HTML": "chapters/10-krw-foundation.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F10a/generate.py",
+        "sha256": "05d7d117c2dcf44d8bb78a63683c8e255a5cca1df902b5c971eb8b1aa71e41c4",
+        "command": "python -B assets/reproduction/figures/generators/F10a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/scalar-and-common-grade.json",
+          "sha256": "d130a90fd2162c3cfa70bd68223e52ee4bd138b43354c86945004abf5eba1002"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f10a-the-isolated-pair-decision.svg",
+          "sha256": "ac48630e42fd0689cc3ba09a716ea01ac6343c1abe35579e981da2b0c502692c",
+          "bytes": 89564,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10a-the-isolated-pair-decision.pdf",
+          "sha256": "ca05895b4a508606e4f54ed3eca7b4b57206bfeac1c6510fabf0324cc1f5af66",
+          "bytes": 27539,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10a-the-isolated-pair-decision.png",
+          "sha256": "32ff53799a9c83c26f166e49e5947b6c5428995dea648475ce27497415547557",
+          "bytes": 182898,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10a-the-isolated-pair-decision-mobile.svg",
+          "sha256": "c83c54018aef3cd7b8921c79a4fdc4027d0454d78686c204d5cadc9ea1a28fda",
+          "bytes": 85853,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10a-the-isolated-pair-decision-mobile.pdf",
+          "sha256": "4116f6a183815ec2cb9067067a31256f61238de56e637798e036c9c1b4195036",
+          "bytes": 27752,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10a-the-isolated-pair-decision-mobile.png",
+          "sha256": "8597e32458ef081ab57718b46f42e44554a82dddc48652e7db30ec5bcdf0d6c9",
+          "bytes": 163067,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F10b",
+      "figure_label": "fig-vis-f10b",
+      "figure_kind": "mixed",
+      "title": "Locally attractive comparisons can be incoherent",
+      "reader_question": "Why do two local ties conflict with a disclosed endpoint comparison?",
+      "chapter_HTML": "chapters/10-krw-foundation.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F10b/generate.py",
+        "sha256": "bdf7c4f430f22fd8dcda5e5ad226a81fee1e118bff1c19632a7cd221b0406e75",
+        "command": "python -B assets/reproduction/figures/generators/F10b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/scalar-and-common-grade.json",
+          "sha256": "d130a90fd2162c3cfa70bd68223e52ee4bd138b43354c86945004abf5eba1002"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent.svg",
+          "sha256": "00f31b56df1b29412926df6daa8a67743136b4928d35e25d4e9326b4dced4aa0",
+          "bytes": 121219,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent.pdf",
+          "sha256": "167a3a08b3062b2485ce765154f77ddb1a30d6253c26f84c6201ebca611daa7d",
+          "bytes": 28519,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent.png",
+          "sha256": "118d06958997c8a61426fc8b5c4a1e276c5e07e1f302c1b04dd2daaf84e241b0",
+          "bytes": 202002,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent-mobile.svg",
+          "sha256": "85eef2e5702557659432e183ae052d0fdba00e24e05b81cc1f5a52167a8fcfd8",
+          "bytes": 114781,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent-mobile.pdf",
+          "sha256": "c3acdc32b27905a515ff1223fb739d907646f359a8d4702d4cc87316287e4297",
+          "bytes": 27313,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent-mobile.png",
+          "sha256": "e1ea5c9f4eefec97129d3023d3c7edaa4939e840a9044c07fca41aace90d1bb1",
+          "bytes": 234631,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F11a",
+      "figure_label": "fig-vis-f11a",
+      "figure_kind": "conceptual",
+      "title": "One selector chooses one whole criterion vector",
+      "reader_question": "What does the scalar mixture correspondence actually sample?",
+      "chapter_HTML": "chapters/11-multicriteria-loss.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F11a/generate.py",
+        "sha256": "6010b99b09675ad54e7d34037cdcb42fb8569d5ef4b08da7de3170bd4b22f6dc",
+        "command": "python -B assets/reproduction/figures/generators/F11a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector.svg",
+          "sha256": "caa9feb8ff1d5deba684523ff46c7e61d781dcdbb8e18ef57928a299370d4d28",
+          "bytes": 106452,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector.pdf",
+          "sha256": "0da7cad4f627713bacfd6bd8e3defbbe60136703b46a8dbcebe0ff5f0a4dec6f",
+          "bytes": 37042,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector.png",
+          "sha256": "7328a99bcb3903cf06cb37d54f3d1b215bb6e7e933c722e055ccbc952a741ec5",
+          "bytes": 176255,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector-mobile.svg",
+          "sha256": "48ca9ff868960706dc7b612b78e9bbe91a683c549d1257ec775880fde8e88bba",
+          "bytes": 103258,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector-mobile.pdf",
+          "sha256": "057920d256936e6115e0d5f848a07319129872a0389f42edd63b19710a975458",
+          "bytes": 36401,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector-mobile.png",
+          "sha256": "d23dadd9821859b41f28ad9ebcbebda3f8eb2ccfb460abc963458c3b778d6409",
+          "bytes": 208557,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F11b",
+      "figure_label": "fig-vis-f11b",
+      "figure_kind": "mixed",
+      "title": "Equality changes the loss and the baseline",
+      "reader_question": "How do all three pair actions behave in each of three latent states?",
+      "chapter_HTML": "chapters/11-multicriteria-loss.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F11b/generate.py",
+        "sha256": "bbf425fb11008d3d43c52ef7d8c93b643a76e7a6798bc1665369c2d469b22428",
+        "command": "python -B assets/reproduction/figures/generators/F11b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/pair-loss-matrices.json",
+          "sha256": "3df2c171dca08f241e30b6c36961bc1c4e8c7dbc313e0c98ef8c4b77e93c3454"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f11b-equality-changes-the-loss-and-the-baseline.svg",
+          "sha256": "e9ddcb0dc490447a37b9dc318fcb038d1583153a1183f0b1189bbfcb4fa1656f",
+          "bytes": 99741,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11b-equality-changes-the-loss-and-the-baseline.pdf",
+          "sha256": "ae98a57a75c3ca2ce3ce823fd68de910fe61898ba4c27319a8017a38a9332927",
+          "bytes": 31508,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11b-equality-changes-the-loss-and-the-baseline.png",
+          "sha256": "faaae9b127e2ab4068f3804009278791d7f658614b6c79c9c262f465c89451bd",
+          "bytes": 144235,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11b-equality-changes-the-loss-and-the-baseline-mobile.svg",
+          "sha256": "76a0d60e5a871b0bf85a6dddb970080312b085e7229e1be50ae68b982e5651f3",
+          "bytes": 99396,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11b-equality-changes-the-loss-and-the-baseline-mobile.pdf",
+          "sha256": "e70581b7b6e0bc12b17d3d3d08392a2ee4e9b86c6c6ddc80dcc9a3e0e9734fa7",
+          "bytes": 31579,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11b-equality-changes-the-loss-and-the-baseline-mobile.png",
+          "sha256": "b6f34b03781dbe0a903ab927e693f080499701146cf0fbb9fdf0b2e680f7859d",
+          "bytes": 175487,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F11c",
+      "figure_label": "fig-vis-f11c",
+      "figure_kind": "mixed",
+      "title": "A full-profile guard retains original multiplicities",
+      "reader_question": "Which profiles qualify for a same-grade guard, and what does imposing it preserve?",
+      "chapter_HTML": "chapters/11-multicriteria-loss.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F11c/generate.py",
+        "sha256": "da61d02cddbfe022569657055fbed95a7af68810928c259c17c623a436016086",
+        "command": "python -B assets/reproduction/figures/generators/F11c/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/full-profile-guard.json",
+          "sha256": "f03824e8c87f0dbdf527fbed927b8215aed63d894cc5b9138f30ca0c3fd37239"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities.svg",
+          "sha256": "07d438759f3c5306e4212d019f564cdf0f5f90603bb581ecbb092bbe97f344dd",
+          "bytes": 101567,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities.pdf",
+          "sha256": "84bfb6458b6141e4e4249b0a3ef9bd94a2fe9a35857b955dcc2330c0908083f3",
+          "bytes": 26527,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities.png",
+          "sha256": "768b21a484804157f6031187e2172d55fb0a52146ba77b074dd7796917c0aef0",
+          "bytes": 179174,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities-mobile.svg",
+          "sha256": "151abc18280ada41e628d8350205e10fcc53d40a2bd10ab840c3edc5c1f7c855",
+          "bytes": 100279,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities-mobile.pdf",
+          "sha256": "ccdbd932980c26c07368b7ebbfcaad354a900e217d85296210428e83314fbd84",
+          "bytes": 26635,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities-mobile.png",
+          "sha256": "d0ca20eb6742f932c53c445c08a654f3be1c8527b7dbdc88daabca2a4e8c3d9e",
+          "bytes": 182563,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F12a",
+      "figure_label": "fig-vis-f12a",
+      "figure_kind": "mixed",
+      "title": "Composite equality and criterion opposition",
+      "reader_question": "Why can co-primary targets disagree even at known truth?",
+      "chapter_HTML": "chapters/12-conflict-estimands.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F12a/generate.py",
+        "sha256": "ebb9ce1a1f523612711c3ebf503e53d383c94ef47fc4f24f44e89a1db27fca74",
+        "command": "python -B assets/reproduction/figures/generators/F12a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f12a-co-primary-targets.json",
+          "sha256": "ef97298db80a60718a40f6d5058ae01c0133008528d0aa92b81d53d4bc785f13"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f12a-composite-equality-and-criterion-opposition.svg",
+          "sha256": "da3cfe431b13d55518cda1888f659ea20f567f94548a2eb3a763ed283cde3717",
+          "bytes": 78122,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12a-composite-equality-and-criterion-opposition.pdf",
+          "sha256": "693673d7be4aad1c208d82ff6464932a1dbac7ae898414b11aa147aa29b4aa7f",
+          "bytes": 24126,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12a-composite-equality-and-criterion-opposition.png",
+          "sha256": "cbe6e10e3739bddd4dbaf1940ea5e002ba356b33f7dc5be973058e164237dc66",
+          "bytes": 131511,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12a-composite-equality-and-criterion-opposition-mobile.svg",
+          "sha256": "bf9a0dcebd78578e9eb839058bda8ae97ab4efd89cf0319d58fc0d0f51bde664",
+          "bytes": 74444,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12a-composite-equality-and-criterion-opposition-mobile.pdf",
+          "sha256": "dbded342252ca6be5ddc481880dfcd73732ec2c2507e7516a06110f2112ad29f",
+          "bytes": 23879,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12a-composite-equality-and-criterion-opposition-mobile.png",
+          "sha256": "44f65dfc59dada5c0403e5a7d6496bcbe9a88bd4b3310f8f31cd654afb4bb2c6",
+          "bytes": 134741,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F12b",
+      "figure_label": "fig-vis-f12b",
+      "figure_kind": "mixed",
+      "title": "Local lower bounds and attainable common grades",
+      "reader_question": "Why can coherence and grade caps prevent the local bound from being attained?",
+      "chapter_HTML": "chapters/12-conflict-estimands.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F12b/generate.py",
+        "sha256": "d969e8dbaddd679743cb7a34bd52634dc522546b354b2b430ef1e67270924415",
+        "command": "python -B assets/reproduction/figures/generators/F12b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f12b-cyclic-conflict.json",
+          "sha256": "bd8f49c9885cdb29b9480b70094b3bd87c98b73e90697017996bd3c286f568df"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f12b-local-lower-bounds-and-attainable-common-grades.svg",
+          "sha256": "a8e41ad863e0c6ce1b5446db87139284377e5b746c5eb128f24b65175eb25435",
+          "bytes": 110699,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12b-local-lower-bounds-and-attainable-common-grades.pdf",
+          "sha256": "8cb5837d5806e3324c10ce7f7fbfd4c2c97e3fb91e43d5faff3ddd01971c2616",
+          "bytes": 32390,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12b-local-lower-bounds-and-attainable-common-grades.png",
+          "sha256": "6c7d85acbdcb0ee7895e6ac4c9023b97ae1896a233f9b677de36462aaa9fb036",
+          "bytes": 212825,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12b-local-lower-bounds-and-attainable-common-grades-mobile.svg",
+          "sha256": "1adb5b25b4a4674d7cd8b1316de8ed8f93f60ce2a3aa017835786d796ef344e5",
+          "bytes": 104356,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12b-local-lower-bounds-and-attainable-common-grades-mobile.pdf",
+          "sha256": "26f6b7ef052d21a4e2de8165164d41edf32e96df5ba104287e02f5ba5f3f7d40",
+          "bytes": 31062,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f12b-local-lower-bounds-and-attainable-common-grades-mobile.png",
+          "sha256": "c963278a83c1e7ee097f27b0e8673eea1a696d98990d8e025b53af7b9f108a6c",
+          "bytes": 199600,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F13a",
+      "figure_label": "fig-vis-f13a",
+      "figure_kind": "mixed",
+      "title": "Protection can leave withholding or an empty family",
+      "reader_question": "What happens when both strict directions violate a protected criterion?",
+      "chapter_HTML": "chapters/13-protections-preferences.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F13a/generate.py",
+        "sha256": "a3f2e9ee82a763a521d4768e1abbc6f3f6fac0097f463c0a8a57db5ee8c6f77e",
+        "command": "python -B assets/reproduction/figures/generators/F13a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/transformations-protections.json",
+          "sha256": "ec7fe6e245a3627ecd84a7980a0422bd0a487f08b0cee982b81c79ffc336f361"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family.svg",
+          "sha256": "97135cec4ef967ed17985f5673fcf2b4aeb7a7301d0ccb80261f6e9884bb835e",
+          "bytes": 114028,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family.pdf",
+          "sha256": "d9f951773eab2424698c391b03fd99cd9a80815a9702b10c1303764c5835525d",
+          "bytes": 27151,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family.png",
+          "sha256": "8acdf6776f17cc3d3233b93d4640c6e00a8f3dd32463fb9d48c8d5117457e775",
+          "bytes": 184991,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family-mobile.svg",
+          "sha256": "0f7eaa1d50a18ed97d21d25e1ca9b0a769273f5b1404cf20aad0a1fc31aaef2a",
+          "bytes": 106754,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family-mobile.pdf",
+          "sha256": "199dac5ee8575388675feb79dafe26303dc38e3ebd1070842da1c7d47b57b83e",
+          "bytes": 27052,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family-mobile.png",
+          "sha256": "96b40bd2caca3175a13893aa8e15a47fe0fdbb44dbda909ba473147891609116",
+          "bytes": 221785,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F13b",
+      "figure_label": "fig-vis-f13b",
+      "figure_kind": "mixed",
+      "title": "Weights change an optimal reporting action",
+      "reader_question": "What does the weight switch express, and how does it compare with minimax?",
+      "chapter_HTML": "chapters/13-protections-preferences.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F13b/generate.py",
+        "sha256": "8807f8f4b545ec2d4cb8339f8f38ddd1de589fb7157afe89a1fbdc86f47c7418",
+        "command": "python -B assets/reproduction/figures/generators/F13b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/transformations-protections.json",
+          "sha256": "ec7fe6e245a3627ecd84a7980a0422bd0a487f08b0cee982b81c79ffc336f361"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f13b-weights-change-an-optimal-reporting-action.svg",
+          "sha256": "fc14acaa28a180939d9f4017c5bc25f4010fb1ae78af0538c2dab7d7297819ed",
+          "bytes": 89321,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13b-weights-change-an-optimal-reporting-action.pdf",
+          "sha256": "01ba6fd36b1011f6b5c19c6d03bb3bf1511f8d63ca4eb8ed463748a6077e883c",
+          "bytes": 25496,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13b-weights-change-an-optimal-reporting-action.png",
+          "sha256": "ea10a82586b5a20aa63b9e466698912151b3a72accf59272a9c3d4d5ea68cfdc",
+          "bytes": 166710,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13b-weights-change-an-optimal-reporting-action-mobile.svg",
+          "sha256": "3125f771984ee763823c63fdff55ffc18cc6fbf0599394f4e41a6bcf5e8724be",
+          "bytes": 88883,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13b-weights-change-an-optimal-reporting-action-mobile.pdf",
+          "sha256": "90cf6ab9e87e42d826e2fff21217f4c3668fce00d7835a1872569f8a781422d8",
+          "bytes": 25621,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f13b-weights-change-an-optimal-reporting-action-mobile.png",
+          "sha256": "50ba4bc454c54d263ef339a3c4d312e981244e70d120f608ff9807da67b62a2c",
+          "bytes": 175965,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F14a",
+      "figure_label": "fig-action-space-inclusions",
+      "figure_kind": "conceptual",
+      "title": "Action-family inclusions",
+      "reader_question": "Which optimized risks can be ordered from set inclusion alone?",
+      "chapter_HTML": "chapters/14-computing-grades.html",
+      "treatment": "retained_native_SVG_only",
+      "generator": null,
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/figures/action-space-inclusions.svg",
+          "sha256": "f765fc95a02bdf4e5aad6e325af5a1c5da164bcbd48e79584a4704f91d8c2cd2"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/action-space-inclusions.svg",
+          "sha256": "f765fc95a02bdf4e5aad6e325af5a1c5da164bcbd48e79584a4704f91d8c2cd2",
+          "bytes": 4055,
+          "role": "retained_original"
+        }
+      ]
+    },
+    {
+      "id": "F14b",
+      "figure_label": "fig-vis-f14b",
+      "figure_kind": "mixed",
+      "title": "A dynamic program chooses grade boundaries",
+      "reader_question": "How does a prefix recurrence recover a globally best fixed-order segmentation?",
+      "chapter_HTML": "chapters/14-computing-grades.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F14b/generate.py",
+        "sha256": "42c6a38d766edbc6fd14b951f9ed2c31432c3ed64ac67c8116dd248f2dbcf763",
+        "command": "python -B assets/reproduction/figures/generators/F14b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/generators/F14b-costs/cost_panel.py",
+          "sha256": "fc8c79cb60a2fe69a2d5cf88632ccc8913017370a9ae51615f593559bad4b414"
+        },
+        {
+          "path": "assets/reproduction/figures/data/fixed-order-dp.json",
+          "sha256": "e0c8a966c1c1eabdf2197d481396b3c249154a59f0d9c9d1f4a218dafb2faa0b"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/fixed-order-segmentation.svg",
+          "sha256": "99ff03f01c6b725e3a4baa8d752f42840092e2075828ddd1d6b358b03bb37039",
+          "bytes": 168832,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fixed-order-segmentation.pdf",
+          "sha256": "bb5214c50ae598d26518081d38fe731573852a6777dfc6c2e4d6b34e5d78d21e",
+          "bytes": 39976,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fixed-order-segmentation.png",
+          "sha256": "eb24eeca3e485b5e43225db9b90970172b4f9d542d6a7bf8c47d26023cb50ac0",
+          "bytes": 309345,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fixed-order-segmentation-mobile.svg",
+          "sha256": "c373a9a13b3593439b871a9ee54c5b7d803d0e0f2cf9825a084390922e8490c8",
+          "bytes": 164302,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fixed-order-segmentation-mobile.pdf",
+          "sha256": "88b3a70ce313c7e72080d475d00402516da8616c94b3749e1dbf3a57175a0cd5",
+          "bytes": 39735,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fixed-order-segmentation-mobile.png",
+          "sha256": "551c50c6ca7c8554427bb7d8f7f8ad9db69d27d2c7ecd013d33a2924372afa18",
+          "bytes": 308495,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F15a",
+      "figure_label": "fig-vis-f15a",
+      "figure_kind": "mixed",
+      "title": "Approximate and intended protection feasibility",
+      "reader_question": "Why can an estimated-feasible action violate the intended constraint?",
+      "chapter_HTML": "chapters/15-numerical-uncertainty.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F15a/generate.py",
+        "sha256": "e278c0bac0fff8806e1d0c4750fa2f3950fc1c19c0149d37da615536aa7eb6de",
+        "command": "python -B assets/reproduction/figures/generators/F15a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/transformations-protections.json",
+          "sha256": "ec7fe6e245a3627ecd84a7980a0422bd0a487f08b0cee982b81c79ffc336f361"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f15a-approximate-and-intended-protection-feasibility.svg",
+          "sha256": "ea3995eae464fdb582014826efcdca6be1cb7b1c3f28914b0df1597b6482684a",
+          "bytes": 117529,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15a-approximate-and-intended-protection-feasibility.pdf",
+          "sha256": "42d6d019c45c3479c325c4db8c0faa4f4c7559231c8bacae7ff7f6f3ff02da69",
+          "bytes": 32870,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15a-approximate-and-intended-protection-feasibility.png",
+          "sha256": "6fe77c0ed2ab724c249160f6ff5262c273b744b82ef794c3e2a441a7aa2824c8",
+          "bytes": 187142,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15a-approximate-and-intended-protection-feasibility-mobile.svg",
+          "sha256": "890e298f14e9aeb2e77026b7373a517c8d6ff5a93f1b13a487b367da59eec93c",
+          "bytes": 111246,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15a-approximate-and-intended-protection-feasibility-mobile.pdf",
+          "sha256": "1fdc487a4d4f9e1a1fbe7a74833f13479c24ab019ff095d7aeffd342275a667e",
+          "bytes": 32602,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15a-approximate-and-intended-protection-feasibility-mobile.png",
+          "sha256": "8dbb0c621fc2a625c4d0a47e057ac3bd5d87826d417b4aa96543fdc15e72f07d",
+          "bytes": 206714,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F15b",
+      "figure_label": "fig-vis-f15b",
+      "figure_kind": "mixed",
+      "title": "Stationarity does not supply IID precision",
+      "reader_question": "How can many stationary draws still yield little precision?",
+      "chapter_HTML": "chapters/15-numerical-uncertainty.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F15b/generate.py",
+        "sha256": "34dc4366909cd32bfe83f7d2cd88223e3ba2a5f988aedf40e0e3ce44acf48397",
+        "command": "python -B assets/reproduction/figures/generators/F15b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/markov-bound-coordinates.csv",
+          "sha256": "747ed17216234e903890b5e4c8d4e4e4612a8f733fd446aaf46abcf8a35400e3"
+        },
+        {
+          "path": "assets/reproduction/figures/data/markov-bound-metadata.json",
+          "sha256": "061e1b670c8e68dfd9bed8ae4b6e6095e8887ff084d630af7647e53599d78d88"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f15b-stationarity-does-not-supply-iid-precision.svg",
+          "sha256": "54fd83deb6ed02edba89a107ba134aa3572edc4a390749a3fd6696c33a1aaa50",
+          "bytes": 98787,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15b-stationarity-does-not-supply-iid-precision.pdf",
+          "sha256": "fa6fb77917163bcf962c61db627fdf7c02a7838715d9cd857bf228ab7049a87e",
+          "bytes": 28099,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15b-stationarity-does-not-supply-iid-precision.png",
+          "sha256": "02b848aba6dac9501ed581db119d71b95626873db14324eec0696ebf2a77f044",
+          "bytes": 203571,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15b-stationarity-does-not-supply-iid-precision-mobile.svg",
+          "sha256": "44d91d1dbd3bd418aa658149a0f37f0b1b84c50e0a00c6bc76b7644ae06a066f",
+          "bytes": 90374,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15b-stationarity-does-not-supply-iid-precision-mobile.pdf",
+          "sha256": "4e0c4c701b597fe85f8f446d7c615927d444f1f2d8c162f525494621c8769519",
+          "bytes": 27116,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15b-stationarity-does-not-supply-iid-precision-mobile.png",
+          "sha256": "d0a0de57b253154bb84375bb3cb40a88ef6f21ceebe7d48f408c6f03c8d9cd49",
+          "bytes": 192899,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F15c",
+      "figure_label": "fig-vis-f15c",
+      "figure_kind": "mixed",
+      "title": "Two coefficient uncertainties contribute to risk",
+      "reader_question": "Why can an all-withhold action have nonzero coefficient-error uncertainty?",
+      "chapter_HTML": "chapters/15-numerical-uncertainty.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F15c/generate.py",
+        "sha256": "f6a98616cfe84aafa0a5948e4400aa20c501870abfde3d29fe5e41a883f05380",
+        "command": "python -B assets/reproduction/figures/generators/F15c/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/markov-bound-coordinates.csv",
+          "sha256": "747ed17216234e903890b5e4c8d4e4e4612a8f733fd446aaf46abcf8a35400e3"
+        },
+        {
+          "path": "assets/reproduction/figures/data/markov-bound-metadata.json",
+          "sha256": "061e1b670c8e68dfd9bed8ae4b6e6095e8887ff084d630af7647e53599d78d88"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk.svg",
+          "sha256": "06c7e7b47cdbd1c887e6589c0f6cd629075c0f91db9304ed3a7b80b1d45db6b5",
+          "bytes": 127117,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk.pdf",
+          "sha256": "616eb685d855c54455b2d0cb7bc7383d1fa251082b130a17da3ff3e0685f6dc1",
+          "bytes": 35499,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk.png",
+          "sha256": "0cc75be50e781f73cd9091c47abd189496a182c906164b2a04e39a957969904b",
+          "bytes": 250158,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk-mobile.svg",
+          "sha256": "8e9588a4bbc7b26d4332d47f454614feae231bbf2549766757f25aeac0265b96",
+          "bytes": 109875,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk-mobile.pdf",
+          "sha256": "5f35b6be0b46c2625ef6e48db7888f6fec94332b9836aa29f93f2ae85edf3e20",
+          "bytes": 35050,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk-mobile.png",
+          "sha256": "0e005102a6b2dbf62d9f85d6c0a7cd746f74245af8b7a577c56943251c1e8de9",
+          "bytes": 237317,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F16a",
+      "figure_label": "fig-matched-disclosure-frontier",
+      "figure_kind": "mixed",
+      "title": "Matched-disclosure geometry",
+      "reader_question": "What changes when mixing whole reports rather than interpolating deterministic counts?",
+      "chapter_HTML": "chapters/16-evaluation-frontiers.html",
+      "treatment": "retained_desktop_plus_new_mobile_companion",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F16a/generate.py",
+        "sha256": "6b04e940dead1cf8e16042334e9c7fd90243cfc713a25ff161ece584d63d066e",
+        "command": "python -B assets/reproduction/figures/generators/F16a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f16a-frontier.json",
+          "sha256": "da859be26bf2d0968afa651c3b55d415385afb93bb29b8d9809458fe275b1cc3"
+        },
+        {
+          "path": "assets/figures/matched-disclosure-frontier.svg",
+          "sha256": "e2142c73904554c36930d81f063283c43e774dd1bf9d014c8cc86a024aa92391"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/matched-disclosure-frontier.svg",
+          "sha256": "e2142c73904554c36930d81f063283c43e774dd1bf9d014c8cc86a024aa92391",
+          "bytes": 20467,
+          "role": "retained_original"
+        },
+        {
+          "path": "assets/figures/matched-disclosure-frontier-mobile.svg",
+          "sha256": "61d264d997bfb2a686897297978954ae14ce249ca5b08aa9fa59f7bf607d62fb",
+          "bytes": 135586,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/matched-disclosure-frontier-mobile.pdf",
+          "sha256": "57edde2bcb68f2e3c1adca0b5ca1ca6a988f9641e508d7ee1fb34448b42c721f",
+          "bytes": 29548,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/matched-disclosure-frontier-mobile.png",
+          "sha256": "406e7225d9ac094c15d62d9a1eb57892b8abfc316a9a445222f93395854f8e7a",
+          "bytes": 319076,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F16b",
+      "figure_label": "fig-vis-f16b",
+      "figure_kind": "mixed",
+      "title": "Ratios average different things",
+      "reader_question": "Why do pooled and per-report error summaries answer different questions?",
+      "chapter_HTML": "chapters/16-evaluation-frontiers.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F16b/generate.py",
+        "sha256": "b1cf6322b770956849b5f84b077d43087d0757eebd44db73fca7483580e4f3a8",
+        "command": "python -B assets/reproduction/figures/generators/F16b/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f16b-disclosed-error-ratios.json",
+          "sha256": "561d15f2a0ac84cb41118f2998822323c5824a5e21a656fc16a3c1703b0837be"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f16b-ratios-average-different-things.svg",
+          "sha256": "6b9a846c0ae334c12b62bb29cba931a293841c5465c452280119176f47422dcf",
+          "bytes": 104130,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f16b-ratios-average-different-things.pdf",
+          "sha256": "d7100a0c35d33724d93dd2c57566275ba3ad20ba2112001785a97ff065ed2c56",
+          "bytes": 26411,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f16b-ratios-average-different-things.png",
+          "sha256": "91a56998fd0b1c114b9ed8380672bbf0637d4e2f77cc1aa95d998fc094f1b115",
+          "bytes": 184290,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f16b-ratios-average-different-things-mobile.svg",
+          "sha256": "f3a698c7efd363edb72d0865ce09f57c61c61c9eb5d55cce7de933c191ed4192",
+          "bytes": 92875,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f16b-ratios-average-different-things-mobile.pdf",
+          "sha256": "b5aee94f057d3a6a53c5c350401b0ab2f6bb0fe02e672ee6ac346fd24f108b16",
+          "bytes": 25915,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f16b-ratios-average-different-things-mobile.png",
+          "sha256": "3a9ff675a69a2f86cc7685256ac3db950d1022bd88f5f0bfe0c35dc1bb5bc10e",
+          "bytes": 197280,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F16c",
+      "figure_label": "fig-tie-aware-distinct-disclosure",
+      "figure_kind": "mixed",
+      "title": "Fewer claims can carry more distinct opportunity",
+      "reader_question": "Why can N fall while Q rises as tau increases?",
+      "chapter_HTML": "chapters/16-evaluation-frontiers.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F16c/generate.py",
+        "sha256": "5003c267f5d630159fe2cccebe11a2b7a8f019b9b865fd04c6a41e2b4d0158b3",
+        "command": "python -B assets/reproduction/figures/generators/F16c/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/generators/F16c/pair_panel.py",
+          "sha256": "ee0828d5dc380d5834a82ddc8be4850ea1e6b2bee55672e6e7013b0901072a74"
+        },
+        {
+          "path": "assets/reproduction/figures/data/t11-actions.csv",
+          "sha256": "ce4c4ab3585364ff112869afa7a86da0e0d1958c7dcaad9264d7b756d88137d6"
+        },
+        {
+          "path": "assets/reproduction/figures/data/t11-pairs.csv",
+          "sha256": "3681c43d91a33e3a2cb11320914dd46e48203a9ea33a2a626610ddd2cd62488f"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/tie-aware-distinct-disclosure.svg",
+          "sha256": "750506582c614e36432a583d4a18aa6991b16c14fe6d54113ad09295bced340c",
+          "bytes": 105704,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/tie-aware-distinct-disclosure.pdf",
+          "sha256": "ff28933f581036a18a4287fd1ca001fb195749e855da2751f25593a8d183e998",
+          "bytes": 32088,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/tie-aware-distinct-disclosure.png",
+          "sha256": "865fa549481995d5a4a0469c43cae3c56d7d10eadf3c9c2a108548514721c587",
+          "bytes": 193105,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/tie-aware-distinct-disclosure-mobile.svg",
+          "sha256": "6a8c17a94514b7d651bd899ecdb6911ccef6d545245476d8434613b9beca9acf",
+          "bytes": 104129,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/tie-aware-distinct-disclosure-mobile.pdf",
+          "sha256": "f26ea6b46b5bbab71379650a2181b03102176a07889a8bfe8a50d18462f43e46",
+          "bytes": 31281,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/tie-aware-distinct-disclosure-mobile.png",
+          "sha256": "f9a775223fe9cb72aa3569e38035da6fcf1f710e6022360cfbd04c140bc801ee",
+          "bytes": 197596,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F17",
+      "figure_label": "fig-vis-f17",
+      "figure_kind": "conceptual",
+      "title": "A fair comparator specification",
+      "reader_question": "What information, objective and adaptation must be matched?",
+      "chapter_HTML": "chapters/17-rules-objectives.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F17/generate.py",
+        "sha256": "b8becfb98b398c505ecda3b426a8fcd9970318195c86df7ff6cc799c42459038",
+        "command": "python -B assets/reproduction/figures/generators/F17/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f17-a-fair-comparator-specification.svg",
+          "sha256": "352b37f21c1e4fc2be13b545a3b7007f8cce79d6207dc7d2cf6d621154a8c4ed",
+          "bytes": 136506,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f17-a-fair-comparator-specification.pdf",
+          "sha256": "ba4ce20292cc25b8662459e175d4cb23a2a735bbf148d49d2d252ca1b9bea277",
+          "bytes": 34592,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f17-a-fair-comparator-specification.png",
+          "sha256": "250bf4f37dcc8c301698dea04b7f59b4a6cc0033b85b383253499abcdc52961a",
+          "bytes": 276080,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f17-a-fair-comparator-specification-mobile.svg",
+          "sha256": "b0e4d898f94ca9bfefae474e87ab1d77c037410488205c53ec73ec0fbfe76a8f",
+          "bytes": 129168,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f17-a-fair-comparator-specification-mobile.pdf",
+          "sha256": "79141c52ba90e3b2d6c578ec617319400e16837407a71e2f16630017d2686742",
+          "bytes": 34380,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f17-a-fair-comparator-specification-mobile.png",
+          "sha256": "e3b544016d2305052a08a0d5fd8bd41ef84056298411f26ffeb9afd306a1518d",
+          "bytes": 299279,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F18",
+      "figure_label": "fig-vis-f18",
+      "figure_kind": "conceptual",
+      "title": "Select under one law and evaluate under another",
+      "reader_question": "Why does self-reported risk not establish external calibration?",
+      "chapter_HTML": "chapters/18-misspecification-calibration.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F18/generate.py",
+        "sha256": "3f8b65f31a64f2ca0ebf854472105a937f13204632830bd5c656d6c2bad91a41",
+        "command": "python -B assets/reproduction/figures/generators/F18/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f18-select-under-one-law-and-evaluate-under-another.svg",
+          "sha256": "586c003295d7ff8dd972704abd8603ba3f1ea47ed664bcb70334f09983baee47",
+          "bytes": 136727,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f18-select-under-one-law-and-evaluate-under-another.pdf",
+          "sha256": "12437e234ae57a860969ac3382dab81864f101ee1d88ba25eed5e275e68c602d",
+          "bytes": 36810,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f18-select-under-one-law-and-evaluate-under-another.png",
+          "sha256": "bdfaf6ec8d8c52aecd7e0e7649a3a65e7ebc123c85716dcfe3925595d4a7656b",
+          "bytes": 269593,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f18-select-under-one-law-and-evaluate-under-another-mobile.svg",
+          "sha256": "03b6b65cdefea3e3f265049faff50ce50a3c9e8457ce7553b699917a441b61b5",
+          "bytes": 119194,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f18-select-under-one-law-and-evaluate-under-another-mobile.pdf",
+          "sha256": "6e7764101b2b65d36f7f87139fb45c6d674b6e1eee2c7cab37bd4247cf4ae331",
+          "bytes": 36409,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f18-select-under-one-law-and-evaluate-under-another-mobile.png",
+          "sha256": "57baff501cfb32c04884de7f91c9f259cd2ff02388323ecc14ae817d880742e1",
+          "bytes": 260812,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F19a",
+      "figure_label": "fig-vis-f19a",
+      "figure_kind": "mixed",
+      "title": "From target states to matrices to common grades",
+      "reader_question": "How is the exact example assembled and compared at matched disclosure?",
+      "chapter_HTML": "chapters/19-worked-examples.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F19a/generate.py",
+        "sha256": "31295b6fa98b97be1765f6737d6f651073a35340236bfb21202bdb67b4773ccd",
+        "command": "python -B assets/reproduction/figures/generators/F19a/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/scalar-and-common-grade.json",
+          "sha256": "d130a90fd2162c3cfa70bd68223e52ee4bd138b43354c86945004abf5eba1002"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f19a-from-target-states-to-matrices-to-common-grades.svg",
+          "sha256": "e6d803d9fabe05e7875d752b96c6923c170ac9f8304e1890c3cb4148b4f37ea6",
+          "bytes": 125674,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f19a-from-target-states-to-matrices-to-common-grades.pdf",
+          "sha256": "12d4e357504f333674b741297daed60d112e76d586c1558b0e4156885891f707",
+          "bytes": 33310,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f19a-from-target-states-to-matrices-to-common-grades.png",
+          "sha256": "0ce872c775775f02b7ee4551d8ad98bd38e0adb26b11bebef08d3b5957d7b0f8",
+          "bytes": 210752,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f19a-from-target-states-to-matrices-to-common-grades-mobile.svg",
+          "sha256": "31bcfa5a0b2b370366acab2747207e09cd457a34b710eb554f6f3e4c95cc1cdf",
+          "bytes": 125144,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f19a-from-target-states-to-matrices-to-common-grades-mobile.pdf",
+          "sha256": "27171e76407160e21bec715ed968cf76fcd796f1a19a1e472132910171926589",
+          "bytes": 33813,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f19a-from-target-states-to-matrices-to-common-grades-mobile.png",
+          "sha256": "0e12f3f7a2263b9b47dd4ed3000a7c4ed70641fdadcafc571d894a33143477f8",
+          "bytes": 234132,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F19b",
+      "figure_label": "fig-objective-contrast",
+      "figure_kind": "mixed",
+      "title": "Reporting and selection answer different objectives",
+      "reader_question": "How can the leading expected target differ from the most likely best unit?",
+      "chapter_HTML": "chapters/19-worked-examples.html",
+      "treatment": "retained_desktop_plus_new_mobile_companion",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F19b-mobile/generate.py",
+        "sha256": "f0b4c25d0db0440eee370c46044b8a5c89f1d7dd2a9c5dce01e409bb5b1c8465",
+        "command": "python -B assets/reproduction/figures/generators/F19b-mobile/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/f19b-objective-contrast.json",
+          "sha256": "5d1bca203a6da4ecb32e05aa15313b4e29d8ecd8b93e70c6180f75b594aba1ae"
+        },
+        {
+          "path": "assets/figures/objective-contrast.svg",
+          "sha256": "5cb224934e9fe4d19d3bbc7451969402b34dcd332af979c49bb3e992f8375894"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/objective-contrast.svg",
+          "sha256": "5cb224934e9fe4d19d3bbc7451969402b34dcd332af979c49bb3e992f8375894",
+          "bytes": 12726,
+          "role": "retained_original"
+        },
+        {
+          "path": "assets/figures/objective-contrast-mobile.svg",
+          "sha256": "b97911715788a8f2c41284927b25a1ce163187b7786294adbfdc98951dab1718",
+          "bytes": 98829,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/objective-contrast-mobile.pdf",
+          "sha256": "41c7f7d2a12c5b4c8a4ff68ae3f1f31b5e1d74180248f30f6127bd2c4db59b43",
+          "bytes": 26286,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/objective-contrast-mobile.png",
+          "sha256": "cf1b0ee784bb9e2f0212f005c62a104c6e28e1ceb64c406da23c673294c5c878",
+          "bytes": 206536,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F20",
+      "figure_label": "fig-vis-f20",
+      "figure_kind": "quantitative",
+      "title": "Two reconstructed KRW grade actions",
+      "reader_question": "What exactly is recoverable from two archived aggregate reports?",
+      "chapter_HTML": "chapters/20-krw-illustration.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F20/generate.py",
+        "sha256": "ee550f9f35ebf969772db3751b87ab03460e9c644ee942fe53d299a797230c54",
+        "command": "python -B assets/reproduction/figures/generators/F20/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/data/krw-common-actions.json",
+          "sha256": "91dd679b46d3ccc6b9c8681974609a30a50eea240940252133417ed43a800497"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f20-two-reconstructed-krw-grade-actions.svg",
+          "sha256": "71e49d6e4f6ceaf62a680ff8ba4a197bc39ff4bd6aeb1d29677a9ae1d6f69809",
+          "bytes": 119973,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f20-two-reconstructed-krw-grade-actions.pdf",
+          "sha256": "98acc1bf15c352e21f394d60f57b3072b65526df509a8e1dfc2cbe2733e7fe08",
+          "bytes": 25357,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f20-two-reconstructed-krw-grade-actions.png",
+          "sha256": "e8da2092fd13550a225a70347904d1ee3218413a20c378849ea421444e26a452",
+          "bytes": 220475,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f20-two-reconstructed-krw-grade-actions-mobile.svg",
+          "sha256": "76ced6549ca56d87231d36520e7b28c3320b6ada25687ef2f81b246b726839cf",
+          "bytes": 111308,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f20-two-reconstructed-krw-grade-actions-mobile.pdf",
+          "sha256": "3f160cad7ba3ccead5d51544ad2f2a936c47d9a77bb417f0aee8ed84082c0ef0",
+          "bytes": 24785,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f20-two-reconstructed-krw-grade-actions-mobile.png",
+          "sha256": "c6d83d92bbd12fbeb5ba063224dd7182b823e3b6403829ff8868b3abeaa2e143",
+          "bytes": 231270,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F21",
+      "figure_label": "fig-vis-f21",
+      "figure_kind": "conceptual",
+      "title": "A grade report a reader can inspect",
+      "reader_question": "What should a reporting institution explain and make contestable?",
+      "chapter_HTML": "chapters/21-governance-communication.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F21/generate.py",
+        "sha256": "0c76ca2ce93ee20c6c5c71045314ca78cecf245d15d9436b6621f8a503fd9875",
+        "command": "python -B assets/reproduction/figures/generators/F21/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f21-a-grade-report-a-reader-can-inspect.svg",
+          "sha256": "843081729401fc4aceac31c50868e8ad940fb199809a6d610c3ebe7158cf0ad1",
+          "bytes": 112939,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f21-a-grade-report-a-reader-can-inspect.pdf",
+          "sha256": "11cc6dc210a42ed38e31e811f51c8e2cb3c21bf67ac5be3af41cd0b26a2b98f2",
+          "bytes": 25740,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f21-a-grade-report-a-reader-can-inspect.png",
+          "sha256": "f81feb68838bf8083c99231823655a289f7d71dcac5edb6bf4e5183fe82764ab",
+          "bytes": 244184,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f21-a-grade-report-a-reader-can-inspect-mobile.svg",
+          "sha256": "b23292c298087242bd1c99f068d8e16ab0f9597968482b176a935a3b25071e56",
+          "bytes": 112447,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f21-a-grade-report-a-reader-can-inspect-mobile.pdf",
+          "sha256": "8d6fd69722f4487ce0786c2fd11c7db77cc3fb728eaa3980dbf65441d5dba57f",
+          "bytes": 25800,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f21-a-grade-report-a-reader-can-inspect-mobile.png",
+          "sha256": "cbf0512c6e90f8ca5b7d76138bd7ecb1fd87ec71eaac49c40c7b42e2295ee4bd",
+          "bytes": 272134,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "F22",
+      "figure_label": "fig-vis-f22",
+      "figure_kind": "conceptual",
+      "title": "Established results and the P1 research agenda",
+      "reader_question": "Where do inherited results, author derivations, implementation and empirical questions stop?",
+      "chapter_HTML": "chapters/22-synthesis-agenda.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/F22/generate.py",
+        "sha256": "25bc6ed3757f93a8b7d2f0450aaa4654ee629f4554c400e10836a6e4b1ff7dde",
+        "command": "python -B assets/reproduction/figures/generators/F22/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/f22-established-results-and-the-p1-research-agenda.svg",
+          "sha256": "b37f7977f9dd6cc738d85417e2cb17b7a5ca748360d9979a0de55f2ae6ae7914",
+          "bytes": 124241,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f22-established-results-and-the-p1-research-agenda.pdf",
+          "sha256": "78d8826c7c9a79cf65bfabf6e6a3fd674691170be5f75b64ba7c6097d88c7e9f",
+          "bytes": 24145,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f22-established-results-and-the-p1-research-agenda.png",
+          "sha256": "8f5b5d47e7cf068d32bfd3cc66634b8aaf3934afe2f06d18999f6f3d5b22a331",
+          "bytes": 300693,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f22-established-results-and-the-p1-research-agenda-mobile.svg",
+          "sha256": "abce4b35dc6c1b665dbe1af7bcf2d1e10bcd0c9fa6f2c747d0ea860e21ee5e50",
+          "bytes": 122053,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f22-established-results-and-the-p1-research-agenda-mobile.pdf",
+          "sha256": "0090c357d8fb5a1b7498ef072017d350c8a1c4caa0c4e2b053fad6be5a084bb1",
+          "bytes": 24079,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/f22-established-results-and-the-p1-research-agenda-mobile.png",
+          "sha256": "8d6e891a2cf5b5452f57ed88180a22171a0cf9b581e25a2b979b5d1b5b5e2263",
+          "bytes": 306388,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "FA",
+      "figure_label": "fig-vis-fa",
+      "figure_kind": "conceptual",
+      "title": "Proof routes and the half-cost refinement mechanism",
+      "reader_question": "Which assumptions support the weak and neutral results, and how does refinement work?",
+      "chapter_HTML": "appendices/A-proofs.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/FA/generate.py",
+        "sha256": "fd4ba136e32f1825cc3b1d9018a358aa3fd9d9a4e0c6edba7dc53393cb732a44",
+        "command": "python -B assets/reproduction/figures/generators/FA/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        },
+        {
+          "path": "assets/reproduction/figures/generators/FA-route/route_panel.py",
+          "sha256": "51b4a563cdb94b802d8dea7757c1576255b5ed19d7a59a61af321c39e8aedd51"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/proof-route-and-refinement.svg",
+          "sha256": "e898bf0362bfbcce3f860032bdb3efc8f46f7fac5106534bc97a8407155576a6",
+          "bytes": 198671,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/proof-route-and-refinement.pdf",
+          "sha256": "768eb8089da2bf75d2d414de2fc5d7815e4df51e09d40fb9fd21575096eae2d3",
+          "bytes": 46498,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/proof-route-and-refinement.png",
+          "sha256": "cb89ade80b14fa577853f8e97aff6c09c4659e241efc55d101e7f39df5132325",
+          "bytes": 406191,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/proof-route-and-refinement-mobile.svg",
+          "sha256": "afd135263966b5f4bc6714006d5257d28a1c648b8585f867fe8ab35176374efb",
+          "bytes": 198575,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/proof-route-and-refinement-mobile.pdf",
+          "sha256": "e6e15b1e9f3267805a156649827ba9bd30b5add5a97c1ac951103cdcf8e41345",
+          "bytes": 46153,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/proof-route-and-refinement-mobile.png",
+          "sha256": "8a8f4dbf32d7fa6d49d1142144c660fcc9a094a9a35f221691edda0e077e4647",
+          "bytes": 448131,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "FB",
+      "figure_label": "fig-vis-fb",
+      "figure_kind": "conceptual",
+      "title": "Counts, laws, denominators and the API crosswalk",
+      "reader_question": "Which quantities are realizations, expectations, normalized rates or API fields?",
+      "chapter_HTML": "appendices/B-notation.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/FB/generate.py",
+        "sha256": "b74295d257ebd901a13530eca6ea7ceaa43e12377aba6be91a5a1f1a9e065476",
+        "command": "python -B assets/reproduction/figures/generators/FB/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk.svg",
+          "sha256": "1c44ef1ed380404d2239ae22ac92330fbbbd60182fa46e21c0590388e2682c85",
+          "bytes": 173505,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk.pdf",
+          "sha256": "7062bd791cb5f0015c7a97287277770d5a1a664e16c7081fe0836b06874beb80",
+          "bytes": 48734,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk.png",
+          "sha256": "a14d1c19764ead66c132a176d116e3492fbd68c3249fadf66c0fe21d0d4fe8b7",
+          "bytes": 370332,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk-mobile.svg",
+          "sha256": "799f0c72ec2a07a357f0fec669fd9e8947b25d54feae114ea70969561b71c834",
+          "bytes": 167698,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk-mobile.pdf",
+          "sha256": "d83b07e7517b7724210f1133f832be88415202288fe59ee789b6fe7967419417",
+          "bytes": 46548,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk-mobile.png",
+          "sha256": "4a8f2ca7d365734c0635581ac0853b73019b0092c34a48f1fe4a2ff415132bc2",
+          "bytes": 387687,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "FC",
+      "figure_label": "fig-vis-fc",
+      "figure_kind": "conceptual",
+      "title": "What each evidence type supports",
+      "reader_question": "Which claim can a source passage, proof, hash or recorded run establish?",
+      "chapter_HTML": "appendices/C-source-provenance.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/FC/generate.py",
+        "sha256": "3a66f01a38b2938c47946c7fd56c17d1ffd255dff4a7280f1bb17c2e84be1b56",
+        "command": "python -B assets/reproduction/figures/generators/FC/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/fc-what-each-evidence-type-supports.svg",
+          "sha256": "c178a62daee5393a9ee72e8995245e6c2d0d7046d202f4bb04a5c7a5e56fc14e",
+          "bytes": 108084,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fc-what-each-evidence-type-supports.pdf",
+          "sha256": "ee5ed231c3fe6da8386faf1dd4a7e8f1d0525ea335914975f2de836f3c63ccde",
+          "bytes": 23038,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fc-what-each-evidence-type-supports.png",
+          "sha256": "8185b5128bb106ea94c168bd3823284c06a532e2f418847dd35ab162ed1a22f8",
+          "bytes": 271866,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fc-what-each-evidence-type-supports-mobile.svg",
+          "sha256": "cfc9e8ce0e447d391cc495b2bf9630ea22a25614551150781b35df501ed556e8",
+          "bytes": 114624,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fc-what-each-evidence-type-supports-mobile.pdf",
+          "sha256": "8d6db430003017d236c97423aa2bd7884f72ce94dbbc8d3243c06b0cd6638083",
+          "bytes": 23022,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fc-what-each-evidence-type-supports-mobile.png",
+          "sha256": "54ceacf6c743b30a407c1bfef7c8d8998f76fd163d71ed2756d156e20e370294",
+          "bytes": 313285,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "FD",
+      "figure_label": "fig-vis-fd",
+      "figure_kind": "conceptual",
+      "title": "Software domains and actual capabilities",
+      "reader_question": "How do the historical and tie-aware input-to-solution routes differ?",
+      "chapter_HTML": "appendices/D-package-correspondence.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/FD/generate.py",
+        "sha256": "30cbf568dc993909f8cee87545eb225f6fa503864f5fec2a693e1309eeb7a93f",
+        "command": "python -B assets/reproduction/figures/generators/FD/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/fd-software-domains-and-actual-capabilities.svg",
+          "sha256": "a6a4862f8f028c516147ef9adf0242d6eb88349a4dfd547bf7dd57d301d7d8e3",
+          "bytes": 180408,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fd-software-domains-and-actual-capabilities.pdf",
+          "sha256": "43d76a6d1da25e320b1a8b1aaabba768244c2c2daebcdbc95a638a706fdfbbe8",
+          "bytes": 34803,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fd-software-domains-and-actual-capabilities.png",
+          "sha256": "de18835807c6f327d5f9bf7f5f096c9c07fad2f0051c7215f1885840ac716172",
+          "bytes": 373398,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fd-software-domains-and-actual-capabilities-mobile.svg",
+          "sha256": "764b1ea57b0d916da3b321a2ccac00fd9e14135e761e5344de100aa9fd098c7f",
+          "bytes": 124449,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fd-software-domains-and-actual-capabilities-mobile.pdf",
+          "sha256": "877c9892f13b0da1670bfd151bc0deea470afbce38c4603d70b7931453c37a25",
+          "bytes": 25320,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fd-software-domains-and-actual-capabilities-mobile.png",
+          "sha256": "da2022d20459d079288bf524c389f634d594000370fd11360ff3a3bd2145e41b",
+          "bytes": 305135,
+          "role": "generated_export"
+        }
+      ]
+    },
+    {
+      "id": "FE",
+      "figure_label": "fig-vis-fe",
+      "figure_kind": "conceptual",
+      "title": "Reproduce one figure",
+      "reader_question": "How do a declared fixture, accepted results and plotting code reach an HTML figure?",
+      "chapter_HTML": "appendices/E-reproduction.html",
+      "treatment": "six_export_python_producer",
+      "generator": {
+        "path": "assets/reproduction/figures/generators/FE/generate.py",
+        "sha256": "c2e53bfa591cd00990c5324634ab12cf9ba347362bf0ae20904803a5bc0ac2ba",
+        "command": "python -B assets/reproduction/figures/generators/FE/generate.py"
+      },
+      "public_plotting_dependencies": [
+        {
+          "path": "assets/reproduction/figures/figstyle.py",
+          "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11"
+        }
+      ],
+      "expected_outputs": [
+        {
+          "path": "assets/figures/fe-reproduce-one-figure.svg",
+          "sha256": "f1e9f414253c91870d7be13aba97168181c12a313fc4d850f4d81ccdba407acd",
+          "bytes": 129099,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fe-reproduce-one-figure.pdf",
+          "sha256": "6eaa3b2fa45cd1f9f5e1bae6cea82cb20f9fb594289907fccc6f9b59706ae138",
+          "bytes": 25807,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fe-reproduce-one-figure.png",
+          "sha256": "08c7ed22b3f0f985fb432ca78ebaabf3e8ced2c2cfb3bd450905d0a34724a270",
+          "bytes": 272403,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fe-reproduce-one-figure-mobile.svg",
+          "sha256": "dd05435d8fdd021362bb7d175f9b98d04fca4e1ae3deb6d00cdcfd8e104b3bed",
+          "bytes": 116945,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fe-reproduce-one-figure-mobile.pdf",
+          "sha256": "de63ffd29ade641e70d1f8e3e9d79bd36adb7300469c0a198e487b2e79eed2b7",
+          "bytes": 25017,
+          "role": "generated_export"
+        },
+        {
+          "path": "assets/figures/fe-reproduce-one-figure-mobile.png",
+          "sha256": "cfc4f97c2912cd62d3586406326eb9b6181fce410a52eb9e6263673b59e096a8",
+          "bytes": 305371,
+          "role": "generated_export"
+        }
+      ]
+    }
+  ],
+  "retained_originals": [
+    {
+      "path": "assets/figures/action-space-inclusions.svg",
+      "sha256": "f765fc95a02bdf4e5aad6e325af5a1c5da164bcbd48e79584a4704f91d8c2cd2",
+      "bytes": 4055,
+      "role": "retained_original"
+    },
+    {
+      "path": "assets/figures/matched-disclosure-frontier.svg",
+      "sha256": "e2142c73904554c36930d81f063283c43e774dd1bf9d014c8cc86a024aa92391",
+      "bytes": 20467,
+      "role": "retained_original"
+    },
+    {
+      "path": "assets/figures/objective-contrast.svg",
+      "sha256": "5cb224934e9fe4d19d3bbc7451969402b34dcd332af979c49bb3e992f8375894",
+      "bytes": 12726,
+      "role": "retained_original"
+    }
+  ],
+  "public_source_files": [
+    {
+      "path": "assets/reproduction/figures/README.html",
+      "sha256": "35af49534f448e2b1f4f11912871feedf40714849155c29881e32c914c4f5467",
+      "bytes": 21181
+    },
+    {
+      "path": "assets/reproduction/figures/README.qmd",
+      "sha256": "0a6726225bc90448a0f79d91d3ffd807a6ef768d11c2517af08095cbe6e31ce8",
+      "bytes": 13514
+    },
+    {
+      "path": "assets/reproduction/figures/data/derive_f09_coordinates.py",
+      "sha256": "cc85f4f0d0ff654c61713a7307996ca37b96afb59603e8af8c05c2fc20121920",
+      "bytes": 6636
+    },
+    {
+      "path": "assets/reproduction/figures/data/derive_f16b_ratios.py",
+      "sha256": "bcc244d42f5e16c708c9a24e1bedf67ce4c47ee345755ebcda025d037a85a3eb",
+      "bytes": 4186
+    },
+    {
+      "path": "assets/reproduction/figures/data/f09-couplings-metadata.json",
+      "sha256": "3cb93c16415ee4156a3de518e9a8c89f5ffb1a86b9f5594d31db45bce9393c6b",
+      "bytes": 1892
+    },
+    {
+      "path": "assets/reproduction/figures/data/f09-couplings.csv",
+      "sha256": "9339748c42163ab6405c37ac31cad9aa6b9db48e906aafeb054864cc2a5c39d8",
+      "bytes": 544
+    },
+    {
+      "path": "assets/reproduction/figures/data/f09-grade-pairs.json",
+      "sha256": "70964137e662dfa70cf5c838b9e5d263fbd9b61d9001de65275bf8e5bf1d21b4",
+      "bytes": 4440
+    },
+    {
+      "path": "assets/reproduction/figures/data/f12a-co-primary-targets.json",
+      "sha256": "ef97298db80a60718a40f6d5058ae01c0133008528d0aa92b81d53d4bc785f13",
+      "bytes": 2689
+    },
+    {
+      "path": "assets/reproduction/figures/data/f12b-cyclic-conflict.json",
+      "sha256": "bd8f49c9885cdb29b9480b70094b3bd87c98b73e90697017996bd3c286f568df",
+      "bytes": 15423
+    },
+    {
+      "path": "assets/reproduction/figures/data/f16a-frontier.json",
+      "sha256": "da859be26bf2d0968afa651c3b55d415385afb93bb29b8d9809458fe275b1cc3",
+      "bytes": 9920
+    },
+    {
+      "path": "assets/reproduction/figures/data/f16b-disclosed-error-ratios.json",
+      "sha256": "561d15f2a0ac84cb41118f2998822323c5824a5e21a656fc16a3c1703b0837be",
+      "bytes": 4707
+    },
+    {
+      "path": "assets/reproduction/figures/data/f19b-objective-contrast.json",
+      "sha256": "5d1bca203a6da4ecb32e05aa15313b4e29d8ecd8b93e70c6180f75b594aba1ae",
+      "bytes": 5217
+    },
+    {
+      "path": "assets/reproduction/figures/data/fixed-order-dp.json",
+      "sha256": "e0c8a966c1c1eabdf2197d481396b3c249154a59f0d9c9d1f4a218dafb2faa0b",
+      "bytes": 15778
+    },
+    {
+      "path": "assets/reproduction/figures/data/full-profile-guard.json",
+      "sha256": "f03824e8c87f0dbdf527fbed927b8215aed63d894cc5b9138f30ca0c3fd37239",
+      "bytes": 2153
+    },
+    {
+      "path": "assets/reproduction/figures/data/krw-common-actions.json",
+      "sha256": "91dd679b46d3ccc6b9c8681974609a30a50eea240940252133417ed43a800497",
+      "bytes": 3896
+    },
+    {
+      "path": "assets/reproduction/figures/data/markov-bound-coordinates.csv",
+      "sha256": "747ed17216234e903890b5e4c8d4e4e4612a8f733fd446aaf46abcf8a35400e3",
+      "bytes": 2561
+    },
+    {
+      "path": "assets/reproduction/figures/data/markov-bound-metadata.json",
+      "sha256": "061e1b670c8e68dfd9bed8ae4b6e6095e8887ff084d630af7647e53599d78d88",
+      "bytes": 4972
+    },
+    {
+      "path": "assets/reproduction/figures/data/pair-loss-matrices.json",
+      "sha256": "3df2c171dca08f241e30b6c36961bc1c4e8c7dbc313e0c98ef8c4b77e93c3454",
+      "bytes": 7091
+    },
+    {
+      "path": "assets/reproduction/figures/data/scalar-and-common-grade.json",
+      "sha256": "d130a90fd2162c3cfa70bd68223e52ee4bd138b43354c86945004abf5eba1002",
+      "bytes": 40403
+    },
+    {
+      "path": "assets/reproduction/figures/data/t11-actions.csv",
+      "sha256": "ce4c4ab3585364ff112869afa7a86da0e0d1958c7dcaad9264d7b756d88137d6",
+      "bytes": 1130
+    },
+    {
+      "path": "assets/reproduction/figures/data/t11-pairs.csv",
+      "sha256": "3681c43d91a33e3a2cb11320914dd46e48203a9ea33a2a626610ddd2cd62488f",
+      "bytes": 520
+    },
+    {
+      "path": "assets/reproduction/figures/data/transformations-protections.json",
+      "sha256": "ec7fe6e245a3627ecd84a7980a0422bd0a487f08b0cee982b81c79ffc336f361",
+      "bytes": 5080
+    },
+    {
+      "path": "assets/reproduction/figures/environment-notes.qmd",
+      "sha256": "59e6e9f8d6607dffd7cb0f040679514b6f8884858fc61cb244d7cded42cdc114",
+      "bytes": 1859
+    },
+    {
+      "path": "assets/reproduction/figures/environment.json",
+      "sha256": "d54ded5eebf522b0db2a804b4b0f48e85b2938adfc94f42ba78b609a5bf4f0a7",
+      "bytes": 2902
+    },
+    {
+      "path": "assets/reproduction/figures/figstyle.py",
+      "sha256": "058c6728ab168cb72a9fe51351049de130c390a01f500d5c12b56f78c6bc4f11",
+      "bytes": 3871
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F01/generate.py",
+      "sha256": "da667aeda481badff7db953bdbc7ba854745d880cd6d52ed72f928f7272db502",
+      "bytes": 7723
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F02/generate.py",
+      "sha256": "ef275fe0c4da534d5d98806e5ac4de90bb2998f496c323063d6bb1b73cc998c7",
+      "bytes": 8172
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F03/generate.py",
+      "sha256": "71f08d37f42b6c7b419c3e962af8648cd4a7459932a0d2ce932bcf29c9101a81",
+      "bytes": 7518
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F04/generate.py",
+      "sha256": "dab297d968366edfe05f464b762ac7651652ea27803988ab8445ffedf519c066",
+      "bytes": 8445
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F05/generate.py",
+      "sha256": "b083457afd0d74d53a288c8683a71df80453f195092089cf4bc4024187a0d327",
+      "bytes": 8585
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F06/generate.py",
+      "sha256": "f2f0a7af7b5774ff635342db9825755ce0d64a47d78060d631ef3cddfc09e65d",
+      "bytes": 8499
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F07/generate.py",
+      "sha256": "51158ef8b3b5c270420f4b394bb8d0f9ef702d1e18b99d4108b5dac90759e9c5",
+      "bytes": 4602
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F08/generate.py",
+      "sha256": "57650bbf769cc9ad027acb5d6b3e38194641c8332ea0dbf2ac2be970f7e1bafe",
+      "bytes": 4290
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F09a/generate.py",
+      "sha256": "1e96b8332a10fab3cb6c7184718e923c75fd6e4e4f86df3c5f97b66282a72411",
+      "bytes": 9910
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F09b/generate.py",
+      "sha256": "d8a0686c9e4e5cce75b6cfc0fbaf4c375c9cf0eccc26bda8f78608bdc582c176",
+      "bytes": 9517
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F09c/generate.py",
+      "sha256": "c24e4e02aefa0db66f986f2ec30d78addbc7ed40c763040825e9f647e2ef65d3",
+      "bytes": 6621
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F10a/generate.py",
+      "sha256": "05d7d117c2dcf44d8bb78a63683c8e255a5cca1df902b5c971eb8b1aa71e41c4",
+      "bytes": 11152
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F10b/generate.py",
+      "sha256": "bdf7c4f430f22fd8dcda5e5ad226a81fee1e118bff1c19632a7cd221b0406e75",
+      "bytes": 14376
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F11a/generate.py",
+      "sha256": "6010b99b09675ad54e7d34037cdcb42fb8569d5ef4b08da7de3170bd4b22f6dc",
+      "bytes": 10425
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F11b/generate.py",
+      "sha256": "bbf425fb11008d3d43c52ef7d8c93b643a76e7a6798bc1665369c2d469b22428",
+      "bytes": 11085
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F11c/generate.py",
+      "sha256": "da61d02cddbfe022569657055fbed95a7af68810928c259c17c623a436016086",
+      "bytes": 6129
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F12a/generate.py",
+      "sha256": "ebb9ce1a1f523612711c3ebf503e53d383c94ef47fc4f24f44e89a1db27fca74",
+      "bytes": 10572
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F12b/generate.py",
+      "sha256": "d969e8dbaddd679743cb7a34bd52634dc522546b354b2b430ef1e67270924415",
+      "bytes": 12511
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F13a/generate.py",
+      "sha256": "a3f2e9ee82a763a521d4768e1abbc6f3f6fac0097f463c0a8a57db5ee8c6f77e",
+      "bytes": 11052
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F13b/generate.py",
+      "sha256": "8807f8f4b545ec2d4cb8339f8f38ddd1de589fb7157afe89a1fbdc86f47c7418",
+      "bytes": 12449
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F14b/generate.py",
+      "sha256": "42c6a38d766edbc6fd14b951f9ed2c31432c3ed64ac67c8116dd248f2dbcf763",
+      "bytes": 13147
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F14b-costs/cost_panel.py",
+      "sha256": "fc8c79cb60a2fe69a2d5cf88632ccc8913017370a9ae51615f593559bad4b414",
+      "bytes": 7078
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F14b-costs/generate.py",
+      "sha256": "41d8b0065221b920f99a46b26d32c28219127589516ff1875b503f5090a57205",
+      "bytes": 6152
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F15a/generate.py",
+      "sha256": "e278c0bac0fff8806e1d0c4750fa2f3950fc1c19c0149d37da615536aa7eb6de",
+      "bytes": 13073
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F15b/generate.py",
+      "sha256": "34dc4366909cd32bfe83f7d2cd88223e3ba2a5f988aedf40e0e3ce44acf48397",
+      "bytes": 11171
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F15c/generate.py",
+      "sha256": "f6a98616cfe84aafa0a5948e4400aa20c501870abfde3d29fe5e41a883f05380",
+      "bytes": 12341
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F16a/generate.py",
+      "sha256": "6b04e940dead1cf8e16042334e9c7fd90243cfc713a25ff161ece584d63d066e",
+      "bytes": 8021
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F16b/generate.py",
+      "sha256": "b1cf6322b770956849b5f84b077d43087d0757eebd44db73fca7483580e4f3a8",
+      "bytes": 10515
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F16c/generate.py",
+      "sha256": "5003c267f5d630159fe2cccebe11a2b7a8f019b9b865fd04c6a41e2b4d0158b3",
+      "bytes": 10232
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F16c/pair_panel.py",
+      "sha256": "ee0828d5dc380d5834a82ddc8be4850ea1e6b2bee55672e6e7013b0901072a74",
+      "bytes": 7984
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F17/generate.py",
+      "sha256": "b8becfb98b398c505ecda3b426a8fcd9970318195c86df7ff6cc799c42459038",
+      "bytes": 6288
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F18/generate.py",
+      "sha256": "3f8b65f31a64f2ca0ebf854472105a937f13204632830bd5c656d6c2bad91a41",
+      "bytes": 7043
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F19a/generate.py",
+      "sha256": "31295b6fa98b97be1765f6737d6f651073a35340236bfb21202bdb67b4773ccd",
+      "bytes": 13699
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F19b-mobile/generate.py",
+      "sha256": "f0b4c25d0db0440eee370c46044b8a5c89f1d7dd2a9c5dce01e409bb5b1c8465",
+      "bytes": 9361
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F20/generate.py",
+      "sha256": "ee550f9f35ebf969772db3751b87ab03460e9c644ee942fe53d299a797230c54",
+      "bytes": 10929
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F21/generate.py",
+      "sha256": "0c76ca2ce93ee20c6c5c71045314ca78cecf245d15d9436b6621f8a503fd9875",
+      "bytes": 7888
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F22/generate.py",
+      "sha256": "25bc6ed3757f93a8b7d2f0450aaa4654ee629f4554c400e10836a6e4b1ff7dde",
+      "bytes": 8016
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FA/generate.py",
+      "sha256": "fd4ba136e32f1825cc3b1d9018a358aa3fd9d9a4e0c6edba7dc53393cb732a44",
+      "bytes": 12748
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FA-route/generate.py",
+      "sha256": "0b941cd90f0797b02af8fcede1d65ca92296d0629ac2352e637b3c62b0042408",
+      "bytes": 3755
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FA-route/route_panel.py",
+      "sha256": "51b4a563cdb94b802d8dea7757c1576255b5ed19d7a59a61af321c39e8aedd51",
+      "bytes": 5549
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FB/generate.py",
+      "sha256": "b74295d257ebd901a13530eca6ea7ceaa43e12377aba6be91a5a1f1a9e065476",
+      "bytes": 12382
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FC/generate.py",
+      "sha256": "3a66f01a38b2938c47946c7fd56c17d1ffd255dff4a7280f1bb17c2e84be1b56",
+      "bytes": 7576
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FD/generate.py",
+      "sha256": "30cbf568dc993909f8cee87545eb225f6fa503864f5fec2a693e1309eeb7a93f",
+      "bytes": 7838
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FE/generate.py",
+      "sha256": "c2e53bfa591cd00990c5324634ab12cf9ba347362bf0ae20904803a5bc0ac2ba",
+      "bytes": 10463
+    },
+    {
+      "path": "assets/reproduction/figures/guide.css",
+      "sha256": "267fe7e46852921916be1165d46e6bf4bcfff774135883dd83a3346cb89ca6a8",
+      "bytes": 465
+    }
+  ],
+  "manifest_self_hash": "Excluded to avoid recursive identity. Export hashes identify the distributed files after author-metadata normalization; plotting content is unchanged.",
+  "replay_boundary": "A manifest is an identity map; actual replay and actual visual/scientific checks have separate scopes.",
+  "optional_stage_and_derive_programs": [
+    {
+      "path": "assets/reproduction/figures/data/derive_f09_coordinates.py",
+      "scope": "Optional coordinate derivation/check writer for F09a/F09b; final plots read accepted JSON/CSV, do not invoke this program. May write private review receipts; not a mandatory public plotting dependency."
+    },
+    {
+      "path": "assets/reproduction/figures/data/derive_f16b_ratios.py",
+      "scope": "Optional exact three-case coordinate derivation; F16b final producer reads accepted public JSON. Its canonical-source provenance hash belongs to this separate derivation operation."
+    },
+    {
+      "path": "assets/reproduction/figures/generators/F14b-costs/generate.py",
+      "scope": "Optional preproduction cost-panel stage renderer; final F14b imports cost_panel.py and accepted public data, not stage outputs."
+    },
+    {
+      "path": "assets/reproduction/figures/generators/FA-route/generate.py",
+      "scope": "Optional preproduction proof-route stage renderer; final FA imports route_panel.py, not stage outputs."
+    }
+  ],
+  "publication_metadata_and_licenses": "Deferred",
+  "packaging_author": "JoonHo Lee (jlee296@ua.edu)",
+  "public_packaging_date": "2026-10-29"
+}

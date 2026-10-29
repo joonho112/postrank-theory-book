@@ -1,0 +1,457 @@
+{
+  "package": "postrank",
+  "metadata_version": "0.9.0",
+  "inspection_date": "2026-10-27",
+  "scope": "DESCRIPTION, NAMESPACE and R source only; file identity is not a full-package or correctness audit.",
+  "files": [
+    {
+      "path": "DESCRIPTION",
+      "sha256": "da32fa9f62c0c715137235aa163d64cc90da471457c497a05d7a80eb870ee101",
+      "bytes": 2130
+    },
+    {
+      "path": "NAMESPACE",
+      "sha256": "757e25d1d98feb88dd0aa0a18e5e3e93c52e4ea4f3474f0d45d8d77981726815",
+      "bytes": 7178
+    },
+    {
+      "path": "R/accessors.R",
+      "sha256": "4bbb9e534f5a50f1ff504d1d7b1e07fda73e3f0793affb8fbc4bfea14cde88d2",
+      "bytes": 6234
+    },
+    {
+      "path": "R/as-postrank-posterior.R",
+      "sha256": "2c732684a3d06db94adf19c95088577b72b8e1925183088ce0e59660a038e65c",
+      "bytes": 12415
+    },
+    {
+      "path": "R/backend-availability.R",
+      "sha256": "604f0db68ed7f3f21ef0aadc0699693cb7d6d07cb921862583314004354b199a",
+      "bytes": 5163
+    },
+    {
+      "path": "R/backend-gurobi.R",
+      "sha256": "0c6bc2a7f81815ebd80761b2d78d472f6e9bc9f2e3599bd20e94188cb142b8c3",
+      "bytes": 8934
+    },
+    {
+      "path": "R/backend-highs.R",
+      "sha256": "e5ab7e38e355a86bbca0e4bad41d8199b5d1f6e80083eeec12a32a91614111e3",
+      "bytes": 7029
+    },
+    {
+      "path": "R/baselines.R",
+      "sha256": "b300ed3fa3b867a9dc600300ac3949b2239f34055f6d512a4ee8fe605fba2b1f",
+      "bytes": 18034
+    },
+    {
+      "path": "R/cache.R",
+      "sha256": "eaa7eee90606155e7c528868f4abffe348d4c9df4d8cd933c52f7226463403e0",
+      "bytes": 1788
+    },
+    {
+      "path": "R/canonical-grade.R",
+      "sha256": "3c01eef47a172f7a280df75d59bf1c51b6e7da76f500875be6af33d7878f73eb",
+      "bytes": 1601
+    },
+    {
+      "path": "R/coefficient-diagnostics.R",
+      "sha256": "64d8d12922c0ba7d64ee466661bc2bd1b684d8ebd6f75cf3dee05315ace165c5",
+      "bytes": 12657
+    },
+    {
+      "path": "R/coefficient-gaussian.R",
+      "sha256": "1e25c681897b8a093e0c5c6e8b8321c94cc85b3bce0900a6bca122c210f73906",
+      "bytes": 4635
+    },
+    {
+      "path": "R/coefficient-identity.R",
+      "sha256": "e4dd03a488f3b180572c6135b83de155ca9a3be294dd63247eb1ddbb772f3916",
+      "bytes": 3171
+    },
+    {
+      "path": "R/coefficient-mixture.R",
+      "sha256": "5af69fed3e6f611609404a2bc5fbcad60dba6a3d8d3f5945ef4a862e72d5a64a",
+      "bytes": 5756
+    },
+    {
+      "path": "R/coefficient-problem-adapter.R",
+      "sha256": "3271af94be572855d43d61cb99a258b0e5258199622ced4b1b140478e54dc608",
+      "bytes": 552
+    },
+    {
+      "path": "R/coefficient-validation.R",
+      "sha256": "cc24d33d0c0eb76b03a0ca2938c59287675b62c3c93001973ad8f01545e83300",
+      "bytes": 11809
+    },
+    {
+      "path": "R/compare.R",
+      "sha256": "d440251ba1dd60c034abb6b618d94e851b747af84d162d4c97440f3cef2b86cc",
+      "bytes": 17867
+    },
+    {
+      "path": "R/control.R",
+      "sha256": "306f1f66c4d2f0015bc7dbd5c9504a8d65b2afa335ab50b41c4039ac7c2aa975",
+      "bytes": 10098
+    },
+    {
+      "path": "R/data.R",
+      "sha256": "6f463430a10bed9b779734821d0462dfd5cb9095d96dc6f331abbc834f479011",
+      "bytes": 34054
+    },
+    {
+      "path": "R/decision-frontier.R",
+      "sha256": "29a87f38b5ea2d8dee48212d935df499a575be8b92e47846fbe219bece97fa71",
+      "bytes": 14614
+    },
+    {
+      "path": "R/decision-traces.R",
+      "sha256": "4f166f8297d3319e6eb1aac6a3eb1b793c352905858c63420eb87e3ec24e5db8",
+      "bytes": 4887
+    },
+    {
+      "path": "R/diagnose-mcmc.R",
+      "sha256": "cb0f333a5f59ac4bd0253165a825da734a6d1713ffdd073ebd35074ff25fd189",
+      "bytes": 3965
+    },
+    {
+      "path": "R/diagnose-regime.R",
+      "sha256": "b643bf4ef985bc5618034845ee62434e3d2d02dfab8eb4bcf915708c3c81cd11",
+      "bytes": 10960
+    },
+    {
+      "path": "R/diagnose-stability.R",
+      "sha256": "777c126ecb7c6e7307d9f87fd8e006b04bff996efb4e4471d1e00357d3eaab13",
+      "bytes": 15666
+    },
+    {
+      "path": "R/draws-builder.R",
+      "sha256": "0cad4d2e00053db788ebb3eb72ae0e0d5cccf52cd0acb7c78f2a082db45011e2",
+      "bytes": 11500
+    },
+    {
+      "path": "R/draws-class.R",
+      "sha256": "5e3f5bbdcc6736d01e3d97c68e6ef3602d1bf6e853aef6679d4a5f6114f91c32",
+      "bytes": 2862
+    },
+    {
+      "path": "R/draws-criterionwise.R",
+      "sha256": "3e3a8d737c4a2b045cc0a85bc7265e731e0f0491a73dc5cc2e1c8275be298280",
+      "bytes": 4305
+    },
+    {
+      "path": "R/draws-exact.R",
+      "sha256": "98563453a23e247c33709c3d45abe5e73ce69b2d6ce5228c1567ea7cc225ade2",
+      "bytes": 3390
+    },
+    {
+      "path": "R/draws-friendly.R",
+      "sha256": "fe72fcc25ec2f2a3a7918e0bcd88e4030c80e45136764b7e0c89c352ae138472",
+      "bytes": 20843
+    },
+    {
+      "path": "R/draws-joint.R",
+      "sha256": "de108adc08dbf08773cb0b62b70043c45f2822506feec54f8873f63ca592291a",
+      "bytes": 4131
+    },
+    {
+      "path": "R/draws-serialization.R",
+      "sha256": "29f9924f70aa43ccd724c37c66f69495d6f503f0f87fb67618b8b1b85e4a781e",
+      "bytes": 15960
+    },
+    {
+      "path": "R/draws-subset.R",
+      "sha256": "49ea2217b1a43fc687f1a863a03c33bb6f6a9fb0c5de80fa54d7c5fd7f93122d",
+      "bytes": 5732
+    },
+    {
+      "path": "R/engine-dp.R",
+      "sha256": "e7e61c680b6167fb038919a8b205c02b55bceba7dcc1a5ea891254b8aa8dd6c7",
+      "bytes": 5285
+    },
+    {
+      "path": "R/engine-local-search.R",
+      "sha256": "990ce054e9fc6638eacd1e59b109f405c55235c513a49840c10a826a30a63570",
+      "bytes": 4380
+    },
+    {
+      "path": "R/engine-lp.R",
+      "sha256": "b2982a884ebff0861cf86eab9552741a61ec3535a1f6866c31784fec411db2c4",
+      "bytes": 11491
+    },
+    {
+      "path": "R/engine-solve.R",
+      "sha256": "a4b2b2885c302ca71c9e13f51b7f0689c2e106c63c862d6306cbbce6bb8af8a1",
+      "bytes": 13978
+    },
+    {
+      "path": "R/engine-spec.R",
+      "sha256": "e56085dd063bca3a63d351f45184f60fe0d53a30263d9fff99074349897bc041",
+      "bytes": 4898
+    },
+    {
+      "path": "R/evaluate-grade.R",
+      "sha256": "f50ca03c0d13f89eefffe0482cf5087d1283e8e7e49a9016d1a169267c4ac5fb",
+      "bytes": 4832
+    },
+    {
+      "path": "R/guarantee-status.R",
+      "sha256": "db06242a4d3e47dcb069c2717dffe0852abb0cd7a851919f14e1a96c889e74f8",
+      "bytes": 1570
+    },
+    {
+      "path": "R/iid-coefficient-bounds.R",
+      "sha256": "4428b7bbc02dd080ae0cd752dbe4e0837ad70e8bbbe820a6e6435bee8bd941f5",
+      "bytes": 8063
+    },
+    {
+      "path": "R/mc-diagnostics.R",
+      "sha256": "ca2f50e666f628096a8ea44a84036ae2df5056936cbcd4398d3e9e11aff9801a",
+      "bytes": 20852
+    },
+    {
+      "path": "R/minimax-refine.R",
+      "sha256": "334a31a7dd1b31aff6f004160bbf38f8c48d781ab0ba98ac058fea49a153514f",
+      "bytes": 19842
+    },
+    {
+      "path": "R/normalize-solver-result.R",
+      "sha256": "28f5df9e93bccc4c9ca6de111420e45fa0cb8245f342f7ca072e1c43891c3b1a",
+      "bytes": 11776
+    },
+    {
+      "path": "R/options.R",
+      "sha256": "5ea66f18061606d98e89b7159c98cca42459f5a90c7a6b8baf393ec61d3a7c26",
+      "bytes": 1908
+    },
+    {
+      "path": "R/pairwise-blocks.R",
+      "sha256": "b9c79b872d759c5dfe6ceab891c11fe28816d8795f70aba3b036910007a29671",
+      "bytes": 1127
+    },
+    {
+      "path": "R/pairwise-dispatch.R",
+      "sha256": "6068c10d4c9cd6af2fab71fa78bc66fc48439706defe5e1f4ce3f38c189f3c6b",
+      "bytes": 2258
+    },
+    {
+      "path": "R/pairwise-exact.R",
+      "sha256": "33eee73451d58b17a32a24c18560b8703ad5337750749c0a4d902fea9c10ea7f",
+      "bytes": 2296
+    },
+    {
+      "path": "R/pairwise-reference.R",
+      "sha256": "d784d63d665bd2dde222a5f67ebc7b90e708912bc98631772985c0ff5546d463",
+      "bytes": 4082
+    },
+    {
+      "path": "R/plots-card.R",
+      "sha256": "0e3009ab8de874f23562f46052a7c7a2976068930da11cfa72f95a49f53ff8d2",
+      "bytes": 10597
+    },
+    {
+      "path": "R/plots-compare.R",
+      "sha256": "9b5a5de9bf0d1f229ab80226a7dd3de71905f10dd2b3701d159636dcfb23f7d8",
+      "bytes": 8300
+    },
+    {
+      "path": "R/plots-data.R",
+      "sha256": "428a733cc2c11a33bb388d72682a77b32067ff6fde331c5d4db2efff03ad5743",
+      "bytes": 5389
+    },
+    {
+      "path": "R/plots-frontier.R",
+      "sha256": "dab2eae6a3a4219695e70e128ca600e3f515f406174e332d86a7f812e82d409d",
+      "bytes": 13155
+    },
+    {
+      "path": "R/posterior-summaries.R",
+      "sha256": "8c69155a5c88431b1655081280965fea10c4e4679f90a00f53f94179bbfc2147",
+      "bytes": 8892
+    },
+    {
+      "path": "R/postrank-analysis.R",
+      "sha256": "edeba0617b9caa2c4db9f609c4b8921eb08ff485d98126b1c6efb29bc52b44de",
+      "bytes": 16877
+    },
+    {
+      "path": "R/postrank-diagnose.R",
+      "sha256": "7053830e95a23b6daf06a164d6740c7f980c3c4d7b72292160eca65d6a1b6ab9",
+      "bytes": 10835
+    },
+    {
+      "path": "R/postrank-package.R",
+      "sha256": "10650cb59a02b28b8bbe1e64fd21fcc72743d0d40301d7136d36519145987d26",
+      "bytes": 2412
+    },
+    {
+      "path": "R/postrank-report.R",
+      "sha256": "8925331b8ddcae57d283c0111b763366cab2c1576304f9c9e7229d7220297341",
+      "bytes": 35718
+    },
+    {
+      "path": "R/postrank-solve.R",
+      "sha256": "e270b6456945873edb9503f18583667c859d1ff8b3d0000d07ebb77a68cdd9d7",
+      "bytes": 8890
+    },
+    {
+      "path": "R/print-methods.R",
+      "sha256": "b88431d8371eaf638caff80689af007dbd7b1726967ceaace6923b70152b0042",
+      "bytes": 51213
+    },
+    {
+      "path": "R/problem-class.R",
+      "sha256": "d120f451417a424cf5c8a250edf175e5342af685c0a1da305ccf91abd4c1ac6c",
+      "bytes": 7792
+    },
+    {
+      "path": "R/problem-encoding.R",
+      "sha256": "e022acb5dd48c55b2e42beff1bcd831ef954b166dbfd924ad86434099881bcdc",
+      "bytes": 1275
+    },
+    {
+      "path": "R/problem-exact-grades.R",
+      "sha256": "137ad5ee9abc7b7af87222d5ee413f4d5a810985da3b6c2ad397506170f7fa8a",
+      "bytes": 2086
+    },
+    {
+      "path": "R/problem-minimax.R",
+      "sha256": "28432b771573b4a9eca906ce3468f3b62cf02ab852af72d188875393bb37cece",
+      "bytes": 1756
+    },
+    {
+      "path": "R/problem-protection.R",
+      "sha256": "209a3aaabe3c6c2bb28f1f4da5b357d2a4682f0a92f9babdaf36e8ea9ea79fe4",
+      "bytes": 1059
+    },
+    {
+      "path": "R/problem-weighted.R",
+      "sha256": "d7731945ef8334e1c33654f9d03e0dad077ebdf62d47707d5a2e56182dedf69d",
+      "bytes": 363
+    },
+    {
+      "path": "R/protection-constraint-settings.R",
+      "sha256": "a5954de463597d9845fc6c6852da2d354de976690439753f37ae9958c81acfa6",
+      "bytes": 1350
+    },
+    {
+      "path": "R/protection-envelopes.R",
+      "sha256": "50a367c0161a7d6d908431be0e26d8b7530b245a5cc0c3540e11bf1dda7846af",
+      "bytes": 12140
+    },
+    {
+      "path": "R/report-card.R",
+      "sha256": "b9e2d82a8df7fa307d21ed5b90dbde9c71b177777008955c81bd527a60481ac1",
+      "bytes": 6618
+    },
+    {
+      "path": "R/risk-regret-bounds.R",
+      "sha256": "307417dd0885f88cc5a4b09477b8a0c0e2cac16a00b1c8eaf225daec7f81765d",
+      "bytes": 7004
+    },
+    {
+      "path": "R/sensitivity.R",
+      "sha256": "816a51f37ebc64c311297b97a462dd3ebc129a51307b948d36edd057db11c4ed",
+      "bytes": 15122
+    },
+    {
+      "path": "R/settings.R",
+      "sha256": "107803bb370f83458bf1f2431c559483f0142a57e1796743e61351f90f894a44",
+      "bytes": 10343
+    },
+    {
+      "path": "R/solution-class.R",
+      "sha256": "36868b6aa91d906dbee9342b1fcc2ed876e28ce7060941115515ec20dc0d2ed8",
+      "bytes": 2270
+    },
+    {
+      "path": "R/solution-identity.R",
+      "sha256": "85718f9d39cd143e96c96c15e8ad8c7bfe400d54622563513f89cc82da4e872c",
+      "bytes": 612
+    },
+    {
+      "path": "R/theme.R",
+      "sha256": "7596775b9ae3763534dbdcd219f9bbbc265c06ce50b6c0d06a651c8035437efb",
+      "bytes": 6513
+    },
+    {
+      "path": "R/tie-backend.R",
+      "sha256": "974a1888b0077ba3f4dde17dc9546214909d77b2e29cc0f371f2284661a5751f",
+      "bytes": 3426
+    },
+    {
+      "path": "R/tie-evaluate.R",
+      "sha256": "ae63b4b407ac8802b6cdc374d3cb335592128da8af539e0e511d3c0778dc8205",
+      "bytes": 5080
+    },
+    {
+      "path": "R/tie-input.R",
+      "sha256": "30751c86bf15a901db71cee0e0b7c2c581f7a7605ace3082b7c5bc0955c316db",
+      "bytes": 16627
+    },
+    {
+      "path": "R/tie-json-scan.R",
+      "sha256": "a4d1d6ee9a80b3e8983ce3f65d85abd87c2630cc9a34a2729a1fb3f7a2c098a2",
+      "bytes": 6667
+    },
+    {
+      "path": "R/tie-normalize.R",
+      "sha256": "f6da929c005b3c7f99f2a3467b19dc138945b0c7ca4754c83bee9b5270352201",
+      "bytes": 11101
+    },
+    {
+      "path": "R/tie-pairwise.R",
+      "sha256": "d6eab647758cf3204a717d7e3dc5b9b32f323fa584df00dafcf19d87c93cdfa5",
+      "bytes": 11720
+    },
+    {
+      "path": "R/tie-problem.R",
+      "sha256": "4771a5aaf1a62beea8e7a9b7149e0b0dfeefd73a063a52652a68d7451828f3d4",
+      "bytes": 8971
+    },
+    {
+      "path": "R/tie-serialization.R",
+      "sha256": "94ec20ed00316b2bff8a9d6cd02ed2c18828a4439cde6e29b80798e331f415ca",
+      "bytes": 4441
+    },
+    {
+      "path": "R/tie-solution.R",
+      "sha256": "815327b9cc1fd56b86f04f06a1b401ddc827836c59c5137d3a240e6df21a9c2f",
+      "bytes": 5927
+    },
+    {
+      "path": "R/tie-solve.R",
+      "sha256": "929f8a2ec6167e7640b6eb81fed6c7c35a65bac1abda7ec245a040c968cf91a3",
+      "bytes": 4291
+    },
+    {
+      "path": "R/utils-cli.R",
+      "sha256": "8845a49b6d43d08dfb0faebb00c6a303af08fcbfd2a813f80330b5b317b093c5",
+      "bytes": 5813
+    },
+    {
+      "path": "R/utils-digest.R",
+      "sha256": "d25ee1cb7a506ed349404d115567e7f1f2408ca6ad95172261a3d1764374d192",
+      "bytes": 1917
+    },
+    {
+      "path": "R/validate-draw-history.R",
+      "sha256": "e50e1f8d98e0af5b72b39a6ab9413960af26642e229c65f54ccab5910a1ad798",
+      "bytes": 7076
+    },
+    {
+      "path": "R/validate-draws-common.R",
+      "sha256": "129e1d5ae7d065d744f3e60972968447e28dc08f3c88360c5f89c795bf0c121a",
+      "bytes": 5782
+    },
+    {
+      "path": "R/validate-solution.R",
+      "sha256": "269c0b51b425e909b3b5d15d4748a33b4389998509d80a1fb325b360658bdb25",
+      "bytes": 14005
+    }
+  ],
+  "count": 89,
+  "execution": "No package code executed in this dated readback.",
+  "historical_comparison": "All78historicalfilesexceptNAMESPACEunchanged;changedNAMESPACEand10additionsmatchthepreviouslyrecordedexpansion.",
+  "scientific_scope": "Selected14sourcefilesread; separateequality-neutralfamily notadoptedasthebookweak-errorloss."
+}
