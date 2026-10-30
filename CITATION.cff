@@ -6,7 +6,8 @@ authors:
     given-names: JoonHo
     email: jlee296@ua.edu
     orcid: "https://orcid.org/0009-0006-4019-8703"
-version: "v3"
+version: "v1.0.0"
+doi: "10.5281/zenodo.23790260"
 repository-code: "https://github.com/joonho112/postrank-theory-book"
 abstract: "A Quarto book on decisions from noisy multidimensional indicators: theory, evidence, and posterior grading"
 keywords:
@@ -24,6 +25,7 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0006-4019-8703"
   title: "Decisions from Noisy Multidimensional Indicators: Theory, Evidence, and Posterior Grading"
   year: 2026
-  version: "v3"
+  version: "v1.0.0"
+  doi: "10.5281/zenodo.23790260"
   url: "https://github.com/joonho112/postrank-theory-book"
-  notes: "Manuscript version v3; publication review copy."
+  notes: "Published version v1.0.0."
