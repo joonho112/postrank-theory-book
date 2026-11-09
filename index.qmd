@@ -1,7 +1,5 @@
 # Preface {.unnumbered #sec-preface}
 
-**Version v2.0.0** · [Zenodo DOI 10.5281/zenodo.24094442](https://doi.org/10.5281/zenodo.24094442)
-
 ```{=html}
 <span id="placing-profiles-in-a-unified-theory-book" class="legacy-anchor" aria-hidden="true"></span>
 ```
@@ -44,10 +42,6 @@ Readers beginning with an application can start with the [exact examples](chapte
 The online format provides further opportunities to examine the ideas. Supplementary Boxes link to postrank Explorer applications and suggest comparisons to try; screenshots introduce the displays before readers open an application. Some Boxes illustrate the argument at hand, while others introduce related concepts in uncertainty, measurement or decision making. The book also contains interactive examples with fixed tables and accompanying explanations, so the central argument can be followed without using the controls.
 
 The postrank software and the [reproduction appendix](appendices/E-reproduction.qmd) connect the definitions to computational practice. Executable material appears in the computing chapters and supplementary materials, where input preparation and numerical assessment can be treated in detail. The theory chapters concentrate on the reporting decision and its assumptions. Readers can therefore move between a mathematical result, a worked comparison and its implementation as their questions require.
-
-## How to cite this book {#sec-preface-citation}
-
-> Lee, J. (2026). *Decisions from noisy multidimensional indicators: Common grades, domain profiles, and posterior decision theory* (Version v2.0.0). Zenodo. <https://doi.org/10.5281/zenodo.24094442>
 
 ## Acknowledgments {#sec-acknowledgments}
 
