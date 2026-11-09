@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='576.00pt' height='394.56pt' viewBox='0 0 576.00 394.56' role="img" aria-labelledby="chart-title chart-desc">
+<title id="chart-title">Directions reported for each site pair</title>
+<desc id="chart-desc">In the primary and wider-threshold sensitivity reports, 280 and 232 pairs respectively have both directions withheld. Community alone determines 500 versus 248 directions. Student alone determines 0 versus 48. The same site is higher in both domains for 0 versus 236 pairs. Opposite directions appear for 0 versus 16 pairs. Each report sums to 780.</desc>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw1NzYuMDB8MC4wMHwzOTQuNTY='>
+    <rect x='0.00' y='0.00' width='576.00' height='394.56' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw1NzYuMDB8MC4wMHwzOTQuNTY=)'>
+<text x='14.40' y='28.08' style='font-size: 20.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='350.16px' lengthAdjust='spacingAndGlyphs'>Directions reported for each site pair</text>
+<text x='14.40' y='52.91' style='font-size: 11.00px;fill: #4E6168; font-family: "Helvetica";' textLength='335.94px' lengthAdjust='spacingAndGlyphs'>Each report partitions the same 780 unordered pairs of fictional sites.</text>
+<text x='146.16' y='86.58' style='font-size: 12.50px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='46.55px' lengthAdjust='spacingAndGlyphs'>Primary</text>
+<text x='146.16' y='106.01' style='font-size: 10.50px;fill: #4E6168; font-family: "Helvetica";' textLength='35.34px' lengthAdjust='spacingAndGlyphs'>t = 1/20</text>
+<line x1='146.16' y1='126.00' x2='146.16' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='146.16' y='358.55' text-anchor='middle' style='font-size: 10.00px;fill: #4E6168; font-family: "Helvetica";' textLength='5.56px' lengthAdjust='spacingAndGlyphs'>0</text>
+<line x1='220.68' y1='126.00' x2='220.68' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='220.68' y='358.55' text-anchor='middle' style='font-size: 10.00px;fill: #4E6168; font-family: "Helvetica";' textLength='16.69px' lengthAdjust='spacingAndGlyphs'>250</text>
+<line x1='295.20' y1='126.00' x2='295.20' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='295.20' y='358.55' text-anchor='middle' style='font-size: 10.00px;fill: #4E6168; font-family: "Helvetica";' textLength='16.69px' lengthAdjust='spacingAndGlyphs'>500</text>
+<rect x='146.16' y='135.14' width='83.46' height='16.27' style='stroke-width: 0.60; stroke: none; fill: #5A747D;' />
+<text x='234.30' y='147.24' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='18.38px' lengthAdjust='spacingAndGlyphs'>280</text>
+<rect x='146.16' y='179.06' width='149.04' height='16.27' style='stroke-width: 0.60; stroke: none; fill: #5A747D;' />
+<text x='299.88' y='191.16' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='18.38px' lengthAdjust='spacingAndGlyphs'>500</text>
+<text x='150.84' y='235.08' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='6.12px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='150.84' y='279.00' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='6.12px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='150.84' y='322.92' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='6.12px' lengthAdjust='spacingAndGlyphs'>0</text>
+<line x1='146.16' y1='339.84' x2='295.20' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='378.00' y='86.58' style='font-size: 12.50px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='160.31px' lengthAdjust='spacingAndGlyphs'>Wider-threshold sensitivity</text>
+<text x='378.00' y='106.01' style='font-size: 10.50px;fill: #4E6168; font-family: "Helvetica";' textLength='35.34px' lengthAdjust='spacingAndGlyphs'>t = 1/10</text>
+<line x1='378.00' y1='126.00' x2='378.00' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='378.00' y='358.55' text-anchor='middle' style='font-size: 10.00px;fill: #4E6168; font-family: "Helvetica";' textLength='5.56px' lengthAdjust='spacingAndGlyphs'>0</text>
+<line x1='452.52' y1='126.00' x2='452.52' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='452.52' y='358.55' text-anchor='middle' style='font-size: 10.00px;fill: #4E6168; font-family: "Helvetica";' textLength='16.69px' lengthAdjust='spacingAndGlyphs'>250</text>
+<line x1='527.04' y1='126.00' x2='527.04' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='527.04' y='358.55' text-anchor='middle' style='font-size: 10.00px;fill: #4E6168; font-family: "Helvetica";' textLength='16.69px' lengthAdjust='spacingAndGlyphs'>500</text>
+<rect x='378.00' y='135.14' width='69.15' height='16.27' style='stroke-width: 0.60; stroke: none; fill: #176A78;' />
+<text x='451.83' y='147.24' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='18.38px' lengthAdjust='spacingAndGlyphs'>232</text>
+<rect x='378.00' y='179.06' width='73.92' height='16.27' style='stroke-width: 0.60; stroke: none; fill: #176A78;' />
+<text x='456.60' y='191.16' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='18.38px' lengthAdjust='spacingAndGlyphs'>248</text>
+<rect x='378.00' y='222.98' width='14.31' height='16.27' style='stroke-width: 0.60; stroke: none; fill: #176A78;' />
+<text x='396.99' y='235.08' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='12.25px' lengthAdjust='spacingAndGlyphs'>48</text>
+<rect x='378.00' y='266.90' width='70.35' height='16.27' style='stroke-width: 0.60; stroke: none; fill: #176A78;' />
+<text x='453.03' y='279.00' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='18.38px' lengthAdjust='spacingAndGlyphs'>236</text>
+<rect x='378.00' y='310.82' width='4.77' height='16.27' style='stroke-width: 0.60; stroke: none; fill: #176A78;' />
+<text x='387.45' y='322.92' style='font-size: 11.00px; font-weight: bold;fill: #173943; font-family: "Helvetica";' textLength='12.25px' lengthAdjust='spacingAndGlyphs'>16</text>
+<line x1='378.00' y1='339.84' x2='527.04' y2='339.84' style='stroke-width: 0.60; stroke: #CCD8DA;' />
+<text x='14.40' y='147.29' style='font-size: 11.20px;fill: #173943; font-family: "Helvetica";' textLength='75.83px' lengthAdjust='spacingAndGlyphs'>Neither domain</text>
+<text x='14.40' y='191.21' style='font-size: 11.20px;fill: #173943; font-family: "Helvetica";' textLength='80.17px' lengthAdjust='spacingAndGlyphs'>Community only</text>
+<text x='14.40' y='235.13' style='font-size: 11.20px;fill: #173943; font-family: "Helvetica";' textLength='62.19px' lengthAdjust='spacingAndGlyphs'>Student only</text>
+<text x='14.40' y='272.00' style='font-size: 11.20px;fill: #173943; font-family: "Helvetica";' textLength='83.92px' lengthAdjust='spacingAndGlyphs'>Same site higher</text>
+<text x='14.40' y='286.11' style='font-size: 11.20px;fill: #173943; font-family: "Helvetica";' textLength='78.95px' lengthAdjust='spacingAndGlyphs'>in both domains</text>
+<text x='14.40' y='315.92' style='font-size: 11.20px;fill: #173943; font-family: "Helvetica";' textLength='95.73px' lengthAdjust='spacingAndGlyphs'>Opposite directions</text>
+<text x='14.40' y='330.03' style='font-size: 11.20px;fill: #173943; font-family: "Helvetica";' textLength='78.31px' lengthAdjust='spacingAndGlyphs'>across domains</text>
+<text x='352.80' y='381.95' text-anchor='middle' style='font-size: 11.00px;fill: #4E6168; font-family: "Helvetica";' textLength='135.78px' lengthAdjust='spacingAndGlyphs'>Number of distinct site pairs</text>
+</g>
+</g>
+</svg>

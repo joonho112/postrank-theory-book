@@ -1,0 +1,1 @@
+(function(root){'use strict';if(typeof module==='object'&&module.exports){module.exports=require('../case-results/common/model.js').create(require('./data.js'));}else{root.PostrankSavedModel=root.PostrankSavedResults.create(root.PostrankSavedData);}})(typeof globalThis==='undefined'?this:globalThis);

@@ -1,0 +1,30 @@
+---
+title: "Scenario aggregation contract"
+lang: en
+execute:
+  enabled: false
+---
+
+## Scope {#sec-scenario-contract}
+
+This extension of the fixed v1 decision specification implements the preservation conditions in [T12](../proofs/T12-scenario-aggregation.qmd). It changes neither target identity nor the candidate family. Its output is a computational view of a specified law, not a posterior fit and not a new iid sample.
+
+## Required receipt {#sec-scenario-receipt}
+
+Record the source-law hash and representation, original state/draw identifiers and count, exact candidate identifiers and grade arrays, candidate-family hash, scope catalog and protection indices, equality policy, objective branch, costs and thresholds, signature version and ordered coordinates. Record original masses, normalization receipt, block membership, block masses, representative identifier if used, and hashes of the retained feature values. Preserve the raw input or a reproducible access path. A hash establishes provenance, not mathematical equality of two signatures.
+
+Use exact integer count vectors when the count-signature contract is intended. For a loss/indicator signature, equal features must be established under the mathematical representation used. Do not group rounded losses or near-equal target values and call it exact aggregation. Rational finite laws permit exact block masses; floating-point sums retain their numerical qualification and must use the input mass policy.
+
+## Capability declaration and invalidation {#sec-scenario-capabilities}
+
+| Retained features, jointly within each state | Supported evaluation |
+|---|---|
+| Loss, union indicator, optional expected-scope counts for every fixed candidate | Current A/B problem |
+| Full-domain and required scoped counts for every fixed candidate | Changed costs and budgets on that catalog; individual scope probabilities and Bonferroni |
+| Additional pair-bundle or truth features | Only the additional explicitly determined functionals |
+
+Changing the family, masks, input law, target transform or error convention invalidates a receipt unless an explicit determination check proves all newly required features constant on every old block. Usually the safe operation is to recompute signatures from the raw law and refine the partition. Refinement preserves previous capabilities; arbitrary merging does not. Never infer a full joint law from separate marginal histograms.
+
+## Sampling and diagnostics {#sec-scenario-diagnostics}
+
+Keep original sample count, multiplicities, weights, chain and iteration identities. Empirical equality remains empirical equality. No certificate is obtained by relabeling unique states as iid observations. Original iid success counts may be retained for a valid independently justified certificate; chain diagnostics need the original ordered sequences. The evaluator must identify whether an output is exact for a finite mathematical law or an empirical evaluation of draws.

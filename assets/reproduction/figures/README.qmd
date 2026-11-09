@@ -6,7 +6,7 @@ author:
 lang: en
 ---
 
-The figure collection contains 40 numbered explanatory figures. Each of the 22 main chapters and five appendices has at least one. The collection includes conceptual maps, exact small examples, mathematical mechanisms and a bounded historical aggregate illustration. Their captions identify the relevant target, probability law, loss and feasible family; the figures do not establish empirical calibration or policy benefits.
+This guide covers the 40 explanatory figures inherited from the earlier 22-chapter edition, which included at least one figure in each chapter and each of its five appendices. The collection contains conceptual maps, exact small examples, mathematical mechanisms and a historical aggregate illustration with the scope stated in its caption. Captions identify the target, probability law, loss and feasible family; these figures alone do not establish empirical calibration or policy benefits. Additional figures and later reading-size layouts have separate guides in the reproduction appendix.
 
 ## Choose the reproduction target
 
@@ -63,7 +63,7 @@ Use `-B` to avoid bytecode caches. Many producers refuse to overwrite outputs un
 
 ## Check the outputs and display
 
-The manifest records SHA-256 identities for the public sources, accepted plotting inputs and expected exports. Hash agreement identifies bytes. The distributed exports carry standardized author metadata; packaging metadata can change file hashes without changing plotted content. It does not prove the mathematics, validate the supplied probability law or certify an optimizer. A different environment can change rendering bytes without changing coordinates; inspect the declared quantities and actual images as well as file identities.
+The manifest records SHA-256 identities for the public sources, accepted plotting inputs and expected exports. Matching hashes establish byte identity. The exports include standardized author metadata, so a metadata change can alter a hash without altering the plot. Neither byte identity nor metadata establishes the mathematics, validates the supplied probability law or certifies an optimizer. Other environments can also change rendering bytes while preserving coordinates. Compare the declared quantities and inspect the images as well as checking file identities.
 
 New SVG text is outlined as paths for font portability. PDF exports retain embedded fonts, and PNGs provide raster previews. Captions and alt text in the Quarto book supply the accessible descriptions. The retained original SVGs keep their original representation and declared export exceptions.
 
@@ -101,21 +101,21 @@ The machine-readable index is `manifest.json`. The reader-oriented table below l
 | [12.2](../../../chapters/12-conflict-estimands.html#fig-vis-f12a) | Why can co-primary targets disagree even at known truth? | [F12a](generators/F12a/generate.py) |
 | [13.1](../../../chapters/13-protections-preferences.html#fig-vis-f13a) | What happens when both strict directions violate a protected criterion? | [F13a](generators/F13a/generate.py) |
 | [13.2](../../../chapters/13-protections-preferences.html#fig-vis-f13b) | What does the weight switch express, and how does it compare with minimax? | [F13b](generators/F13b/generate.py) |
-| [14.1](../../../chapters/14-computing-grades.html#fig-vis-f14b) | How does a prefix recurrence recover a globally best fixed-order segmentation? | [F14b](generators/F14b/generate.py) |
-| [14.2](../../../chapters/14-computing-grades.html#fig-action-space-inclusions) | Which optimized risks can be ordered from set inclusion alone? | Retained SVG |
-| [15.1](../../../chapters/15-numerical-uncertainty.html#fig-vis-f15a) | Why can an estimated-feasible action violate the intended constraint? | [F15a](generators/F15a/generate.py) |
-| [15.2](../../../chapters/15-numerical-uncertainty.html#fig-vis-f15b) | How can many stationary draws still yield little precision? | [F15b](generators/F15b/generate.py) |
-| [15.3](../../../chapters/15-numerical-uncertainty.html#fig-vis-f15c) | Why can an all-withhold action have nonzero coefficient-error uncertainty? | [F15c](generators/F15c/generate.py) |
-| [16.1](../../../chapters/16-evaluation-frontiers.html#fig-vis-f16b) | Why do pooled and per-report error summaries answer different questions? | [F16b](generators/F16b/generate.py) |
-| [16.2](../../../chapters/16-evaluation-frontiers.html#fig-matched-disclosure-frontier) | What changes when mixing whole reports rather than interpolating deterministic counts? | [F16a](generators/F16a/generate.py) |
-| [16.3](../../../chapters/16-evaluation-frontiers.html#fig-tie-aware-distinct-disclosure) | Why can N fall while Q rises as tau increases? | [F16c](generators/F16c/generate.py) |
-| [17.1](../../../chapters/17-rules-objectives.html#fig-vis-f17) | What information, objective and adaptation must be matched? | [F17](generators/F17/generate.py) |
-| [18.1](../../../chapters/18-misspecification-calibration.html#fig-vis-f18) | Why does self-reported risk not establish external calibration? | [F18](generators/F18/generate.py) |
-| [19.1](../../../chapters/19-worked-examples.html#fig-vis-f19a) | How is the exact example assembled and compared at matched disclosure? | [F19a](generators/F19a/generate.py) |
-| [19.2](../../../chapters/19-worked-examples.html#fig-objective-contrast) | How can the leading expected target differ from the most likely best unit? | [F19b-mobile](generators/F19b-mobile/generate.py) |
-| [20.1](../../../chapters/20-krw-illustration.html#fig-vis-f20) | What exactly is recoverable from two archived aggregate reports? | [F20](generators/F20/generate.py) |
-| [21.1](../../../chapters/21-governance-communication.html#fig-vis-f21) | What should a reporting institution explain and make contestable? | [F21](generators/F21/generate.py) |
-| [22.1](../../../chapters/22-synthesis-agenda.html#fig-vis-f22) | Where do inherited results, author derivations, implementation and empirical questions stop? | [F22](generators/F22/generate.py) |
+| [19.1](../../../chapters/19-computing-grades.html#fig-vis-f14b) | How does a prefix recurrence recover a globally best fixed-order segmentation? | [F14b](generators/F14b/generate.py) |
+| [19.2](../../../chapters/19-computing-grades.html#fig-action-space-inclusions) | Which optimized risks can be ordered from set inclusion alone? | Retained SVG |
+| [21.1](../../../chapters/21-numerical-uncertainty.html#fig-vis-f15a) | Why can an estimated-feasible action violate the intended constraint? | [F15a](generators/F15a/generate.py) |
+| [21.2](../../../chapters/21-numerical-uncertainty.html#fig-vis-f15b) | How can many stationary draws still yield little precision? | [F15b](generators/F15b/generate.py) |
+| [21.3](../../../chapters/21-numerical-uncertainty.html#fig-vis-f15c) | Why can an all-withhold action have nonzero coefficient-error uncertainty? | [F15c](generators/F15c/generate.py) |
+| [22.1](../../../chapters/22-evaluation-frontiers.html#fig-vis-f16b) | Why do pooled and per-report error summaries answer different questions? | [F16b](generators/F16b/generate.py) |
+| [22.2](../../../chapters/22-evaluation-frontiers.html#fig-matched-disclosure-frontier) | What changes when mixing whole reports rather than interpolating deterministic counts? | [F16a](generators/F16a/generate.py) |
+| [22.3](../../../chapters/22-evaluation-frontiers.html#fig-tie-aware-distinct-disclosure) | Why can N fall while Q rises as tau increases? | [F16c](generators/F16c/generate.py) |
+| [23.1](../../../chapters/23-rules-objectives.html#fig-vis-f17) | What information, objective and adaptation must be matched? | [F17](generators/F17/generate.py) |
+| [24.1](../../../chapters/24-misspecification-calibration.html#fig-vis-f18) | Why does self-reported risk not establish external calibration? | [F18](generators/F18/generate.py) |
+| [25.1](../../../chapters/25-worked-examples.html#fig-vis-f19a) | How is the exact example assembled and compared at matched disclosure? | [F19a](generators/F19a/generate.py) |
+| [25.2](../../../chapters/25-worked-examples.html#fig-objective-contrast) | How can the leading expected target differ from the most likely best unit? | [F19b-mobile](generators/F19b-mobile/generate.py) |
+| [26.1](../../../chapters/26-krw-illustration.html#fig-vis-f20) | What exactly is recoverable from two archived aggregate reports? | [F20](generators/F20/generate.py) |
+| [32.1](../../../chapters/32-governance-communication.html#fig-vis-f21) | What should a reporting institution explain and make contestable? | [F21](generators/F21/generate.py) |
+| [33.1](../../../chapters/33-synthesis-agenda.html#fig-vis-f22) | Where do inherited results, author derivations, implementation and empirical questions stop? | [F22](generators/F22/generate.py) |
 | [A.1](../../../appendices/A-proofs.html#fig-vis-fa) | Which assumptions support the weak and neutral results, and how does refinement work? | [FA](generators/FA/generate.py) |
 | [B.1](../../../appendices/B-notation.html#fig-vis-fb) | Which quantities are realizations, expectations, normalized rates or API fields? | [FB](generators/FB/generate.py) |
 | [C.1](../../../appendices/C-source-provenance.html#fig-vis-fc) | Which claim can a source passage, proof, hash or recorded run establish? | [FC](generators/FC/generate.py) |

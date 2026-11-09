@@ -27,3 +27,13 @@ __pycache__/
 .env.*
 *.pem
 *.key
+/.cache/
+/cases/
+/examples/
+/fixtures/
+/results/
+/scripts/
+.Renviron
+
+**/*.quarto_ipynb
+/site_libs/

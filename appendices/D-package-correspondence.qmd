@@ -1,8 +1,89 @@
 # Software correspondence {#sec-package-correspondence}
 
+```{=html}
+<span id="sec-p2-e-integration" class="legacy-anchor" aria-hidden="true"></span>
+```
+
+We describe the current **postrank 1.2.0** interface and then retain the earlier 0.9.0 development record for comparison. The current source snapshot is the public checkout at commit `da02a785f753efb060e149f04650970b0ea1e05b`. These interfaces compute reporting decisions from supplied inputs. The analysis providing those inputs is responsible for any model fitting, the scientific definition of targets and justification of producer assumptions. The source descriptions establish correspondence with the interface, and the executed checks below examine its behavior on selected inputs.
+
+## Current interfaces and their decision objects {#sec-package-current-interfaces}
+
+```{=html}
+<span id="keeping-two-meanings-of-profile-distinguishable-in-r" class="legacy-anchor" aria-hidden="true"></span>
+```
+
+The three interfaces implement different decisions. The common-grade interface chooses one grade vector and evaluates it against multiple criteria. The equality-neutral interface changes the loss and imposes its active-profile equality guard. The multidomain interface uses a separate grade column for every domain and evaluates specified joint events. Each interface therefore has its own objects and capabilities; changing a printed label does not change the decision represented.
+
+| Interface | Preparation and computation | Extracted object and qualification |
+|---|---|---|
+| Common weak-error grades | `postrank_problem()`, `postrank_solve()`, `postrank_evaluate()` | `get_grades()` returns one grade vector. `get_profile()` returns a **criterion-level risk/error table for that common vector**, not multidomain grades. Solver status, bounds, tolerances and declared family must accompany optimality claims. |
+| Equality-neutral grades | `postrank_tie_problem()`, `postrank_tie_solve()`, `postrank_tie_evaluate()` | Separate fit fields `grade` and `evaluation`; weighted at-most-$G$ label-MIP decisions with an active-profile guard. Ordinary accessors, protection, minimax and exact-$G$ modes do not transfer. |
+| Domain-specific profiles | The eight functions in the following table | A named unit-by-domain grade matrix; supplied state law, loss, candidate bank and assessment route remain explicit. |
+
+| Multidomain function | Role | Essential boundary |
+|---|---|---|
+| `postrank_mdomain_input()` | Bind targets, unit/domain IDs, states and declarations. | Matching marginal row labels do not establish a joint law. Structural identities are declared, not inferred from sampled coincidences. |
+| `postrank_mdomain_decision()` | Specify weights, costs, scopes and protection rows. | Zero weights do not disable guards. The event uses $F>tN$ and acceptance uses $J\le\alpha$. Defaults include joint protection; omission must be deliberate. |
+| `postrank_mdomain_evaluate()` | Evaluate one fixed card. | The denominator for loss is the original pair count. Expected mode leaves joint and overall feasibility unknown. |
+| `postrank_mdomain_assess()` | Assess the supplied law or history. | Complete finite support, conditional fixed-sample iid assurance and MCMC diagnostics are distinct routes. |
+| `postrank_mdomain_family()` | Construct named column banks and their product. | All-withheld columns are included; structural guards remain active; size caps refuse oversized families without truncation. |
+| `postrank_mdomain_solve()` | Minimize primary expected loss over the full declared product. | All computed optima are retained. A lexicographic representative is selected without a secondary objective. This is bank-relative optimality. |
+| `postrank_mdomain_grades()` | Extract the verified grade matrix. | It reads a validated stored card and does not solve again. |
+| `postrank_plot_mdomain()` | Display grades, occupied cells or a selected pair. | Display subsets do not change the original card's risk or protection scope. |
+
+The common interface also exposes `postrank_cuts()`: its optimal-cut route solves a contiguous partition problem in the declared score order under supported settings. This public operation should be distinguished from private dynamic-programming subroutines inside a staged unrestricted search. A result optimal in one order need not be optimal over every ordered partition (@sec-fixed-order-dp).
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: report-designer -->
+
+::: {#box-explorer-report-designer .explorer-box}
+
+![](../assets/explorer-boxes/report-designer.png){fig-alt="Screenshot of Case-report specification and export, illustrating Export a report with its computation scope." .explorer-screenshot}
+
+Choose a released case and inspect the target definitions, search family and error-budget checks accompanying its common-grade report. The twelve-school preset permits complete enumeration, while other settings can use an order-restricted search whose guarantee must remain visible. A budget pass evaluates the displayed report; it does not establish useful disclosure, simultaneous correctness or the current R interface’s capabilities.
+
+::: {.explorer-link}
+[Open Case-report specification and export in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/tools/report-designer.html)
+:::
+
+Export a report with its computation scope
+
+:::
+<!-- END EXPLORER EXPANSION: report-designer -->
+
+## Representation, arithmetic and assurance {#sec-package-current-assurance}
+
+A complete finite-law input identifies the entire declared probability measure. Rational strings can preserve exact arithmetic; numeric masses instead retain the documented approximate arithmetic contract. Consequently, `method = "exact"` names the finite-support assessment route and does not turn floating masses into rational numbers. Draw calculations describe their empirical measure before any sampling argument is supplied.
+
+For iid assessment, the report, decision, target law, sample size and numerical budget must be frozen before independent validation states are generated or inspected. The accepted exact binomial count rule concerns only the specified joint event, conditional on those sampling and design assumptions. It does not certify expected-error rows, optimality, posterior-model calibration or the truth of producer declarations. Failure to certify is inconclusive. MCMC assessment retains ordered-chain and event diagnostics, including zero-hit information, without supplying iid assurance or a convergence certificate (@sec-numerical-uncertainty).
+
+## Current reproduction record {#sec-package-current-reproduction}
+
+The current examples were executed with postrank 1.2.0 in an explicitly selected library under R 4.6.0 on macOS arm64. The common and equality-neutral optimizations used the R highs wrapper 1.12.0.3, one thread and a fixed solver seed. Package version and loaded-library assertions prevented accidental use of the default 0.9.0 installation. The [small reproduction bundle](../assets/reproduction/software/software-examples.zip) includes complete inputs and scripts; its [instructions](../assets/reproduction/software/README.txt) separate data preparation from the short calls shown in the computing chapter.
+
+| Current check | Executed comparison | Interpretation |
+|---|---|---|
+| Common-grade finite example | All three two-unit actions have risks $1/4$, $1/5$ and $4/5$; the numerical solver selects the $1/5$ report. | Complete action enumeration supplies a separate small-example check; solver arithmetic is floating. |
+| Positive equality mass | Equality-neutral risks are $1/8,0,1/2$, compared with weak-error risks $1/4,1/2,1$ for the same three actions and law. A separate tie-free law gives matching losses. | The equality convention changes the decision problem; it cannot be omitted from a software comparison. |
+| Complete crossed law | The selected two-domain card has exact risk $1/5$ and joint exceedance probability $1/5$ in a nine-card bank. | Exact represented-law calculation and bank optimum. |
+| Fixed iid validation | A prespecified batch of 59 whole states has zero exceedances. With $\alpha=1/10$ and $\beta=1/20$, the exact binomial rule accepts; the displayed upper bound is approximately $0.04951$. | Conditional assurance for the frozen joint event, subject to the recorded sampling design. |
+| Dependent Markov histories | Two fictional chains of 200 states yield 59 exceedances and empirical $J=0.1475$ for a fixed card. | MCMC event diagnostics only; no iid or convergence certificate is returned. |
+| Ties, resource limits and extraction | All nine optima of a symmetric bank are retained; an eight-action cap refuses a nine-action search. Stored grade and plot data retain withheld directions and undefined zero-disclosure ratios. | No silent truncation, no hidden secondary objective, and no new optimization by plotting. |
+| Independent finite oracle | Six decision specifications across five small finite laws compare 374 candidates with a separate rational pair-count calculation. Exact risk, strict joint events, feasibility, all optimizer IDs and the selected representative agree. | A bounded current replay; the historical 28,125-candidate campaign was not repeated. |
+| Stored 40-site illustration | Ten specifications reproduce 490 candidate rows, 400 selected grade rows and 11 fixed-report assessments from stored states. | Exact empirical arithmetic and candidate-family parity; no new posterior fit or sampling guarantee. |
+
+The 40-site primary report has risk $170039/2496000$, no student-domain disclosures and 500 community-domain disclosures. The wider-threshold report has selection risk $716341/12480000$ and $J=266/8000$; assessment on the other stored chains gives $J=229/8000$. This chain split is retained as a diagnostic design and does not establish conditional independence. The detailed interpretation belongs to the [worked synthetic illustration](../chapters/31-synthetic-need.qmd).
+
+These executions cover the examples and selected interfaces listed above. The package's complete release suite and empirical model assessment require separate examination. We now turn to the dated 0.9.0 inspections and runs.
+
+## Retained 0.9.0 correspondence record {#sec-package-historical-record}
+
+The 0.9.0 record retains its original figures, source fingerprints, numerical example and provenance. Its capability statements refer to those snapshots, including routes that were not executed in the recorded checks; the current interface is described above.
+
 We relate the mathematical results to postrank 0.9.0 through the 79-file source inventory inspected on 26 October 2026 and a small executed example. A [source fingerprint manifest](../assets/provenance/postrank-0.9.0-source-snapshot.json) lists hashes for the package description, exports and R source files; the inspected directory had no Git commit identity. The [package repository](https://github.com/joonho112/postrank) provides the software's broader development context. Files and exports subsequently added to the live directory retained the same version label but fall outside this comparison. The source inspection and executed example examine part of the implementation without providing a complete audit or comparison of performance.
 
-A source-only recheck on 27 October 2026 found [89 files in a second fingerprint inventory](../assets/provenance/postrank-2026-10-27-readback.json) covering the same description, export and R-source scope: the 78 earlier files other than `NAMESPACE` remained unchanged, while `NAMESPACE` and ten added R files matched the previously recorded expansion. No package code was executed in this recheck. The separate `postrank_tie_*` family uses an equality-neutral loss: for each criterion, a direction costs $P(\theta_i<\theta_j)$ and withholding costs $\tau P(\theta_i\ne\theta_j)$. This differs from the book's weak-error loss when equality has positive probability. The historical correspondence and earlier executed example in the legacy sections below remain tied to the original 79-file snapshot.
+A source-only recheck on 27 October 2026 found [89 files in a second fingerprint inventory](../assets/provenance/postrank-2026-10-27-readback.json) covering the same description, export and R-source scope: the 78 earlier files other than `NAMESPACE` remained unchanged, while `NAMESPACE` and ten added R files matched the previously recorded expansion. No package code was executed in this recheck. The separate `postrank_tie_*` family uses an equality-neutral loss: for each criterion, a direction costs $P(\theta_i<\theta_j)$ and withholding costs $\tau P(\theta_i\ne\theta_j)$. This differs from the book's weak-error loss when equality has positive probability. The historical correspondence and earlier executed example in the historical sections below remain tied to the original 79-file snapshot.
 
 ## Supplied uncertainty representations
 
@@ -93,9 +174,9 @@ The package retained exact coefficient strings `3/10` and `7/10`, while the risk
 
 ## Equality-neutral implementation and capability limits {#sec-package-tie-aware}
 
-The equality-neutral decision in @sec-tie-aware-loss is implemented in the opt-in `tie_aware_v1` domain, with separate input, pairwise, problem and fit classes. Existing `postrank_draws` objects and the default weak-error route retain their original interpretation. The earlier software comparison therefore does not validate all functions added for this domain. The package version remains `0.9.0`; this implementation is a development addition, not an identified external release. The dated [89-file fingerprint inventory](../assets/provenance/postrank-2026-10-27-readback.json) distinguishes its description, exports and R source from the original 79-file inventory.
+In the inspected 0.9.0 addition, the equality-neutral decision in @sec-tie-aware-loss is implemented in the opt-in `tie_aware_v1` domain, with separate input, pairwise, problem and fit classes. Existing `postrank_draws` objects and the default weak-error route retain their original interpretation. The earlier software comparison therefore does not validate all functions added for this domain. That snapshot retained the version label `0.9.0`; the implementation was a development addition, not an identified external release. The dated [89-file fingerprint inventory](../assets/provenance/postrank-2026-10-27-readback.json) distinguishes its description, exports and R source from the original 79-file inventory.
 
-The new domain changes both the accepted inputs and the decision loss. A direction uses the strict-reversal coefficient $b_{ij,k}$, and withholding uses $\tau d_{ij,k}$. The all-withhold offset is $R_0$, not generally $\tau$. The evaluator reports raw disclosure $N/M$, distinct-mass disclosure $D/T$, and criterion-specific strict-error ratios with their different denominators. A zero denominator returns `NA`. These summaries refer to the supplied law and do not estimate external accuracy or policy benefit. When the active criteria have zero pairwise equality probability, the losses agree mathematically with the original route on the same action domain. Mathematical agreement need not produce bitwise agreement in floating-point calculations.
+That domain changes both the accepted inputs and the decision loss. A direction uses the strict-reversal coefficient $b_{ij,k}$, and withholding uses $\tau d_{ij,k}$. The all-withhold offset is $R_0$, not generally $\tau$. The evaluator reports raw disclosure $N/M$, distinct-mass disclosure $D/T$, and criterion-specific strict-error ratios with their different denominators. A zero denominator returns `NA`. These summaries refer to the supplied law and do not estimate external accuracy or policy benefit. When the active criteria have zero pairwise equality probability, the losses agree mathematically with the original route on the same action domain. Mathematical agreement need not produce bitwise agreement in floating-point calculations.
 
 ::: {.tie-aware-capability-table}
 
@@ -110,9 +191,9 @@ The new domain changes both the accepted inputs and the decision loss. A directi
 
 :::
 
-The input domains and capabilities found in the inspected source are summarized in @fig-vis-fd, subject to the source and execution limits described here.
+@fig-vis-fd summarizes the input domains and capabilities in the inspected source.
 
-::: {#fig-vis-fd}
+::: {#fig-vis-fd .reader-figure .reader-has-narrow style="--reader-figure-width:700px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/fd-software-domains-and-actual-capabilities-mobile.svg">
 <img src="../assets/figures/fd-software-domains-and-actual-capabilities.svg" class="img-fluid" alt="Three parallel routes distinguish legacy tie-free draw/exact-law pairwise inputs, legacy typed Gaussian/mixture coefficients and separate equality-neutral joint draw/exact law inputs. Each route retains its own class, objective/family and solver. The neutral row has a profile guard and label_mip only; a boundary box lists unsupported legacy modes/helpers and distinguishes its R0 baseline from tau.">
@@ -129,7 +210,7 @@ The numerical route preserves explicit backend selection: a function argument ta
 
 ### Source identity and recorded execution {#sec-package-tie-aware-evidence}
 
-The recorded source comparison found no byte changes in the 89 listed files relative to the dated inventory. It establishes identity for `DESCRIPTION`, `NAMESPACE` and R files, with the complete package, installed library and runtime outside its scope. The new API descriptions above were checked against selected source passages and generated help files. Evidence about execution comes from the later installation record, whereas no package was loaded, installed or solved during this book update.
+The source comparison found no byte changes in the 89 listed files relative to the dated inventory. It identifies `DESCRIPTION`, `NAMESPACE` and R files, leaving the complete package, installed library and runtime outside the comparison. The API descriptions were checked against selected source passages and generated help files. No package was loaded, installed or solved in this source-only recheck; the subsequent installation record supplies the execution evidence.
 
 A separately retained installation record dated 27 October 2026 identifies a tested `postrank_0.9.0.tar.gz` with SHA-256
 
@@ -137,4 +218,4 @@ A separately retained installation record dated 27 October 2026 identifies a tes
 8adb80d01139022c88967edd8c242b2d2524072329ddbd9af9c56a8b7741acbd
 ```
 
-That record reports installation under R 4.6.0 and checks in two fresh processes, one with ordinary startup and one with `--vanilla`. Each process passed 26 recorded checks, including two actual HiGHS solves of a synthetic two-state law and comparisons of thirteen no-tie actions. These results are taken from the earlier execution record; the runtime and present installed library have not been independently rechecked for the monograph. The recorded checks do not demonstrate Gurobi execution or establish performance for the empirical application, convergence of a posterior producer or correctness for arbitrary inputs. The earlier solver-free example provides separate evidence under the numerical qualifications stated above.
+That record reports installation under R 4.6.0 and checks in two fresh processes, one with ordinary startup and one with `--vanilla`. Each process passed 26 recorded checks, including two actual HiGHS solves of a synthetic two-state law and comparisons of thirteen no-tie actions. These results are taken from the earlier execution record; the original runtime and installed 0.9.0 library are not independently verified by that source-only recheck. The recorded checks do not demonstrate Gurobi execution or establish performance for the empirical application, convergence of a posterior producer or correctness for arbitrary inputs. The earlier solver-free example provides separate evidence under the numerical qualifications stated above.

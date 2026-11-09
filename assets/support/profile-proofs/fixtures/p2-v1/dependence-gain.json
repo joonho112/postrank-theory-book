@@ -1,0 +1,1038 @@
+{
+  "fixture_id": "T08-dependence-gain-v1",
+  "classification": "Exact coherent synthetic finite laws; primary expected-risk minimization; not observed data or Monte Carlo",
+  "created_at_utc": "2026-11-05T20:25:35.187772+00:00",
+  "specification": {
+    "n": 2,
+    "D_values": [
+      2,
+      3
+    ],
+    "target_states": {
+      "plus": "unit 1 = [1]*D, unit 2 = [0]*D",
+      "minus": "unit 1 = [-1]*D, unit 2 = [0]*D"
+    },
+    "masses": {
+      "plus": "1-p",
+      "minus": "p"
+    },
+    "action_family": "full A_2^D; W=(1,1), +=(1,2), -=(2,1)",
+    "domain_weights": "1/D",
+    "domain_costs": "common tau",
+    "H": "all full-domain scopes, one per domain",
+    "thresholds": "all zero",
+    "P": [],
+    "structural_guards": "none between distinct units",
+    "comparator": "T05 ungrouped optimized allocation: sum of scope probabilities <= alpha",
+    "all_probability_values": "exact fractions"
+  },
+  "read_source_hashes": {
+    "proofs/T05-risk-relations.qmd": "8c4af341d39ed0f1a073a9248f56c8e8981970e77fdaeca2d0bd40bae33b4c72",
+    "contracts/decision-contract-v1.qmd": "868760ab5f54927b298f81a0f2628cdf7229d6939c427fd0829a066f7723584a",
+    "contracts/profile-risk-spec.qmd": "9a10a9ab11ff947d10cf2ece0d92e23efbbeb78944ee43b9cc577031bb305d17",
+    "proofs/definitions/action-space.qmd": "25be158728ae3c81484b8c208e86dcf483ee873017b43b24ee9c64e9a36ea7f6",
+    "proofs/definitions/elementary-loss.qmd": "b6d3596b63c280ab6ca84d4b94c2b750a5a45a6ace52d6876815cd32a513ac2d"
+  },
+  "validation_code": {
+    "language": "Python 3, standard library",
+    "source": "from fractions import Fraction as Q\nfrom itertools import product\nimport json\n\n\ndef evaluate(action, p, tau):\n    D = len(action)\n    states = [(1-p, [[1]*D, [0]*D]),\n              (p, [[-1]*D, [0]*D])]\n    risk = joint = overlap = Q(0)\n    marginal = [Q(0)]*D\n    for mass, theta in states:\n        indicators = []\n        loss = Q(0)\n        for d, a in enumerate(action):\n            grade = {'W': (1, 1), '+': (1, 2), '-': (2, 1)}[a]\n            N = int(grade[0] != grade[1])\n            F = sum(int(grade[i] < grade[j] and theta[i][d] <= theta[j][d])\n                    for i, j in [(0, 1), (1, 0)])\n            event = int(F > 0*N)\n            indicators.append(event)\n            marginal[d] += mass*event\n            loss += (Q(F) + tau*(1-N))/D\n        V = sum(indicators)\n        risk += mass*loss\n        joint += mass*int(V > 0)\n        overlap += mass*max(V-1, 0)\n    assert sum(marginal) - joint == overlap\n    return {'action': ''.join(action), 'risk': risk, 'J': joint,\n            'sum_p': sum(marginal), 'Delta': overlap}\n\n\ndef run():\n    specifications = [\n        (2, '1/10', '1/4', ['0','1/20','1/10','19/100','1/5','21/100','1']),\n        (3, '1/10', '1/4', ['0','1/20','1/10','19/100','1/5','29/100','3/10','31/100','1']),\n        (3, '2/5', '1/2', ['1/5','2/5','79/100','4/5','81/100','1']),\n        (3, '1/4', '1/4', ['1/8','1/4','1/2','3/4','1']),\n        (3, '2/5', '1/4', ['1/5','2/5','4/5','1']),\n        (2, '1/2', '1/2', ['0','1/4','1/2','3/4','1'])]\n    cases = []\n    checked_actions = 0\n    witness = []\n    for D, ps, ts, budgets in specifications:\n        p, tau = Q(ps), Q(ts)\n        for als in budgets:\n            alpha = Q(als)\n            rows = [evaluate(a, p, tau) for a in product('W+-', repeat=D)]\n            checked_actions += len(rows)\n            fj = [r for r in rows if r['J'] <= alpha]\n            fb = [r for r in rows if r['sum_p'] <= alpha]\n            assert fj and fb\n            assert {r['action'] for r in fb} <= {r['action'] for r in fj}\n            rj = min(r['risk'] for r in fj)\n            rb = min(r['risk'] for r in fb)\n            mj = sorted(r['action'] for r in fj if r['risk'] == rj)\n            mb = sorted(r['action'] for r in fb if r['risk'] == rb)\n            intersection = set(mj) & {r['action'] for r in fb}\n            assert (rj == rb) == bool(intersection)\n            for r in fj:\n                assert (r['sum_p'] <= alpha) == (r['Delta'] <= alpha-r['J'])\n            if p < tau:\n                k = min(D, alpha // p)\n                expected_b = Q(k, D)*p + (1-Q(k, D))*tau\n                expected_j = p if alpha >= p else tau\n                assert rb == expected_b and rj == expected_j\n                expected_mj = ['+'*D] if alpha >= p else ['W'*D]\n                expected_mb = sorted(''.join(a) for a in product('W+', repeat=D)\n                                     if a.count('+') == k)\n                assert mj == expected_mj and mb == expected_mb\n                expected_gap = (1-Q(k, D))*(tau-p) if alpha >= p else Q(0)\n                assert rb-rj == expected_gap\n            else:\n                assert 0 < tau <= p <= Q(1, 2)\n                assert rj == rb == tau\n                assert 'W'*D in mj and 'W'*D in mb\n            cases.append({'D': D, 'p': str(p), 'tau': str(tau), 'alpha': str(alpha),\n                          'joint_risk': str(rj), 'allocation_risk': str(rb),\n                          'gain': str(rb-rj), 'joint_minimizers': mj,\n                          'allocation_minimizers': mb,\n                          'joint_feasible_count': len(fj),\n                          'allocation_feasible_count': len(fb)})\n            if (D, p, tau, alpha) == (3, Q(1,10), Q(1,4), Q(1,10)):\n                witness = [{k: str(v) if isinstance(v, Q) else v for k,v in row.items()}\n                           for row in rows]\n    summary = {'status': 'PASS', 'parameter_cases': len(cases),\n               'action_parameter_evaluations': checked_actions,\n               'finite_state_evaluations': 2*checked_actions,\n               'exact_optimizer_pairs': len(cases),\n               'witness_D3_risks': {'joint':'1/10','allocation':'1/5','gain':'1/10'}}\n    return {'summary': summary, 'cases': cases, 'all_actions_D3_witness': witness}\n\nif __name__ == '__main__':\n    print(json.dumps(run()['summary'], indent=2))\n",
+    "sha256": "2cfa4f53f7203f6306d9f1fb36b63ee765397f559d40d1aba8c945a5d09e2721",
+    "original_execution_command": "python3 /tmp/p2-t08-check.py"
+  },
+  "execution_environment": {
+    "python_version": "3.15.2"
+  },
+  "observed_results": {
+    "summary": {
+      "status": "PASS",
+      "parameter_cases": 36,
+      "action_parameter_evaluations": 756,
+      "finite_state_evaluations": 1512,
+      "exact_optimizer_pairs": 36,
+      "witness_D3_risks": {
+        "joint": "1/10",
+        "allocation": "1/5",
+        "gain": "1/10"
+      }
+    },
+    "cases": [
+      {
+        "D": 2,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "0",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WW"
+        ],
+        "allocation_minimizers": [
+          "WW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 2,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1/20",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WW"
+        ],
+        "allocation_minimizers": [
+          "WW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 2,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1/10",
+        "joint_risk": "1/10",
+        "allocation_risk": "7/40",
+        "gain": "3/40",
+        "joint_minimizers": [
+          "++"
+        ],
+        "allocation_minimizers": [
+          "+W",
+          "W+"
+        ],
+        "joint_feasible_count": 4,
+        "allocation_feasible_count": 3
+      },
+      {
+        "D": 2,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "19/100",
+        "joint_risk": "1/10",
+        "allocation_risk": "7/40",
+        "gain": "3/40",
+        "joint_minimizers": [
+          "++"
+        ],
+        "allocation_minimizers": [
+          "+W",
+          "W+"
+        ],
+        "joint_feasible_count": 4,
+        "allocation_feasible_count": 3
+      },
+      {
+        "D": 2,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1/5",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/10",
+        "gain": "0",
+        "joint_minimizers": [
+          "++"
+        ],
+        "allocation_minimizers": [
+          "++"
+        ],
+        "joint_feasible_count": 4,
+        "allocation_feasible_count": 4
+      },
+      {
+        "D": 2,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "21/100",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/10",
+        "gain": "0",
+        "joint_minimizers": [
+          "++"
+        ],
+        "allocation_minimizers": [
+          "++"
+        ],
+        "joint_feasible_count": 4,
+        "allocation_feasible_count": 4
+      },
+      {
+        "D": 2,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/10",
+        "gain": "0",
+        "joint_minimizers": [
+          "++"
+        ],
+        "allocation_minimizers": [
+          "++"
+        ],
+        "joint_feasible_count": 9,
+        "allocation_feasible_count": 8
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "0",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1/20",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1/10",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/5",
+        "gain": "1/10",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "+WW",
+          "W+W",
+          "WW+"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 4
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "19/100",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/5",
+        "gain": "1/10",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "+WW",
+          "W+W",
+          "WW+"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 4
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1/5",
+        "joint_risk": "1/10",
+        "allocation_risk": "3/20",
+        "gain": "1/20",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "++W",
+          "+W+",
+          "W++"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 7
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "29/100",
+        "joint_risk": "1/10",
+        "allocation_risk": "3/20",
+        "gain": "1/20",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "++W",
+          "+W+",
+          "W++"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 7
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "3/10",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/10",
+        "gain": "0",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "+++"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 8
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "31/100",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/10",
+        "gain": "0",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "+++"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 8
+      },
+      {
+        "D": 3,
+        "p": "1/10",
+        "tau": "1/4",
+        "alpha": "1",
+        "joint_risk": "1/10",
+        "allocation_risk": "1/10",
+        "gain": "0",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "+++"
+        ],
+        "joint_feasible_count": 27,
+        "allocation_feasible_count": 17
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/2",
+        "alpha": "1/5",
+        "joint_risk": "1/2",
+        "allocation_risk": "1/2",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/2",
+        "alpha": "2/5",
+        "joint_risk": "2/5",
+        "allocation_risk": "7/15",
+        "gain": "1/15",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "+WW",
+          "W+W",
+          "WW+"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 4
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/2",
+        "alpha": "79/100",
+        "joint_risk": "2/5",
+        "allocation_risk": "7/15",
+        "gain": "1/15",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "+WW",
+          "W+W",
+          "WW+"
+        ],
+        "joint_feasible_count": 15,
+        "allocation_feasible_count": 7
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/2",
+        "alpha": "4/5",
+        "joint_risk": "2/5",
+        "allocation_risk": "13/30",
+        "gain": "1/30",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "++W",
+          "+W+",
+          "W++"
+        ],
+        "joint_feasible_count": 15,
+        "allocation_feasible_count": 10
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/2",
+        "alpha": "81/100",
+        "joint_risk": "2/5",
+        "allocation_risk": "13/30",
+        "gain": "1/30",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "++W",
+          "+W+",
+          "W++"
+        ],
+        "joint_feasible_count": 15,
+        "allocation_feasible_count": 10
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/2",
+        "alpha": "1",
+        "joint_risk": "2/5",
+        "allocation_risk": "13/30",
+        "gain": "1/30",
+        "joint_minimizers": [
+          "+++"
+        ],
+        "allocation_minimizers": [
+          "++W",
+          "+W+",
+          "W++"
+        ],
+        "joint_feasible_count": 27,
+        "allocation_feasible_count": 16
+      },
+      {
+        "D": 3,
+        "p": "1/4",
+        "tau": "1/4",
+        "alpha": "1/8",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 3,
+        "p": "1/4",
+        "tau": "1/4",
+        "alpha": "1/4",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "+++",
+          "++W",
+          "+W+",
+          "+WW",
+          "W++",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "+WW",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 4
+      },
+      {
+        "D": 3,
+        "p": "1/4",
+        "tau": "1/4",
+        "alpha": "1/2",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "+++",
+          "++W",
+          "+W+",
+          "+WW",
+          "W++",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "++W",
+          "+W+",
+          "+WW",
+          "W++",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 7
+      },
+      {
+        "D": 3,
+        "p": "1/4",
+        "tau": "1/4",
+        "alpha": "3/4",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "+++",
+          "++W",
+          "+W+",
+          "+WW",
+          "W++",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "+++",
+          "++W",
+          "+W+",
+          "+WW",
+          "W++",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "joint_feasible_count": 15,
+        "allocation_feasible_count": 11
+      },
+      {
+        "D": 3,
+        "p": "1/4",
+        "tau": "1/4",
+        "alpha": "1",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "+++",
+          "++W",
+          "+W+",
+          "+WW",
+          "W++",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "+++",
+          "++W",
+          "+W+",
+          "+WW",
+          "W++",
+          "W+W",
+          "WW+",
+          "WWW"
+        ],
+        "joint_feasible_count": 27,
+        "allocation_feasible_count": 17
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/4",
+        "alpha": "1/5",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/4",
+        "alpha": "2/5",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 8,
+        "allocation_feasible_count": 4
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/4",
+        "alpha": "4/5",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 15,
+        "allocation_feasible_count": 10
+      },
+      {
+        "D": 3,
+        "p": "2/5",
+        "tau": "1/4",
+        "alpha": "1",
+        "joint_risk": "1/4",
+        "allocation_risk": "1/4",
+        "gain": "0",
+        "joint_minimizers": [
+          "WWW"
+        ],
+        "allocation_minimizers": [
+          "WWW"
+        ],
+        "joint_feasible_count": 27,
+        "allocation_feasible_count": 16
+      },
+      {
+        "D": 2,
+        "p": "1/2",
+        "tau": "1/2",
+        "alpha": "0",
+        "joint_risk": "1/2",
+        "allocation_risk": "1/2",
+        "gain": "0",
+        "joint_minimizers": [
+          "WW"
+        ],
+        "allocation_minimizers": [
+          "WW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 2,
+        "p": "1/2",
+        "tau": "1/2",
+        "alpha": "1/4",
+        "joint_risk": "1/2",
+        "allocation_risk": "1/2",
+        "gain": "0",
+        "joint_minimizers": [
+          "WW"
+        ],
+        "allocation_minimizers": [
+          "WW"
+        ],
+        "joint_feasible_count": 1,
+        "allocation_feasible_count": 1
+      },
+      {
+        "D": 2,
+        "p": "1/2",
+        "tau": "1/2",
+        "alpha": "1/2",
+        "joint_risk": "1/2",
+        "allocation_risk": "1/2",
+        "gain": "0",
+        "joint_minimizers": [
+          "++",
+          "+W",
+          "--",
+          "-W",
+          "W+",
+          "W-",
+          "WW"
+        ],
+        "allocation_minimizers": [
+          "+W",
+          "-W",
+          "W+",
+          "W-",
+          "WW"
+        ],
+        "joint_feasible_count": 7,
+        "allocation_feasible_count": 5
+      },
+      {
+        "D": 2,
+        "p": "1/2",
+        "tau": "1/2",
+        "alpha": "3/4",
+        "joint_risk": "1/2",
+        "allocation_risk": "1/2",
+        "gain": "0",
+        "joint_minimizers": [
+          "++",
+          "+W",
+          "--",
+          "-W",
+          "W+",
+          "W-",
+          "WW"
+        ],
+        "allocation_minimizers": [
+          "+W",
+          "-W",
+          "W+",
+          "W-",
+          "WW"
+        ],
+        "joint_feasible_count": 7,
+        "allocation_feasible_count": 5
+      },
+      {
+        "D": 2,
+        "p": "1/2",
+        "tau": "1/2",
+        "alpha": "1",
+        "joint_risk": "1/2",
+        "allocation_risk": "1/2",
+        "gain": "0",
+        "joint_minimizers": [
+          "++",
+          "+-",
+          "+W",
+          "-+",
+          "--",
+          "-W",
+          "W+",
+          "W-",
+          "WW"
+        ],
+        "allocation_minimizers": [
+          "++",
+          "+-",
+          "+W",
+          "-+",
+          "--",
+          "-W",
+          "W+",
+          "W-",
+          "WW"
+        ],
+        "joint_feasible_count": 9,
+        "allocation_feasible_count": 9
+      }
+    ],
+    "all_actions_D3_witness": [
+      {
+        "action": "WWW",
+        "risk": "1/4",
+        "J": "0",
+        "sum_p": "0",
+        "Delta": "0"
+      },
+      {
+        "action": "WW+",
+        "risk": "1/5",
+        "J": "1/10",
+        "sum_p": "1/10",
+        "Delta": "0"
+      },
+      {
+        "action": "WW-",
+        "risk": "7/15",
+        "J": "9/10",
+        "sum_p": "9/10",
+        "Delta": "0"
+      },
+      {
+        "action": "W+W",
+        "risk": "1/5",
+        "J": "1/10",
+        "sum_p": "1/10",
+        "Delta": "0"
+      },
+      {
+        "action": "W++",
+        "risk": "3/20",
+        "J": "1/10",
+        "sum_p": "1/5",
+        "Delta": "1/10"
+      },
+      {
+        "action": "W+-",
+        "risk": "5/12",
+        "J": "1",
+        "sum_p": "1",
+        "Delta": "0"
+      },
+      {
+        "action": "W-W",
+        "risk": "7/15",
+        "J": "9/10",
+        "sum_p": "9/10",
+        "Delta": "0"
+      },
+      {
+        "action": "W-+",
+        "risk": "5/12",
+        "J": "1",
+        "sum_p": "1",
+        "Delta": "0"
+      },
+      {
+        "action": "W--",
+        "risk": "41/60",
+        "J": "9/10",
+        "sum_p": "9/5",
+        "Delta": "9/10"
+      },
+      {
+        "action": "+WW",
+        "risk": "1/5",
+        "J": "1/10",
+        "sum_p": "1/10",
+        "Delta": "0"
+      },
+      {
+        "action": "+W+",
+        "risk": "3/20",
+        "J": "1/10",
+        "sum_p": "1/5",
+        "Delta": "1/10"
+      },
+      {
+        "action": "+W-",
+        "risk": "5/12",
+        "J": "1",
+        "sum_p": "1",
+        "Delta": "0"
+      },
+      {
+        "action": "++W",
+        "risk": "3/20",
+        "J": "1/10",
+        "sum_p": "1/5",
+        "Delta": "1/10"
+      },
+      {
+        "action": "+++",
+        "risk": "1/10",
+        "J": "1/10",
+        "sum_p": "3/10",
+        "Delta": "1/5"
+      },
+      {
+        "action": "++-",
+        "risk": "11/30",
+        "J": "1",
+        "sum_p": "11/10",
+        "Delta": "1/10"
+      },
+      {
+        "action": "+-W",
+        "risk": "5/12",
+        "J": "1",
+        "sum_p": "1",
+        "Delta": "0"
+      },
+      {
+        "action": "+-+",
+        "risk": "11/30",
+        "J": "1",
+        "sum_p": "11/10",
+        "Delta": "1/10"
+      },
+      {
+        "action": "+--",
+        "risk": "19/30",
+        "J": "1",
+        "sum_p": "19/10",
+        "Delta": "9/10"
+      },
+      {
+        "action": "-WW",
+        "risk": "7/15",
+        "J": "9/10",
+        "sum_p": "9/10",
+        "Delta": "0"
+      },
+      {
+        "action": "-W+",
+        "risk": "5/12",
+        "J": "1",
+        "sum_p": "1",
+        "Delta": "0"
+      },
+      {
+        "action": "-W-",
+        "risk": "41/60",
+        "J": "9/10",
+        "sum_p": "9/5",
+        "Delta": "9/10"
+      },
+      {
+        "action": "-+W",
+        "risk": "5/12",
+        "J": "1",
+        "sum_p": "1",
+        "Delta": "0"
+      },
+      {
+        "action": "-++",
+        "risk": "11/30",
+        "J": "1",
+        "sum_p": "11/10",
+        "Delta": "1/10"
+      },
+      {
+        "action": "-+-",
+        "risk": "19/30",
+        "J": "1",
+        "sum_p": "19/10",
+        "Delta": "9/10"
+      },
+      {
+        "action": "--W",
+        "risk": "41/60",
+        "J": "9/10",
+        "sum_p": "9/5",
+        "Delta": "9/10"
+      },
+      {
+        "action": "--+",
+        "risk": "19/30",
+        "J": "1",
+        "sum_p": "19/10",
+        "Delta": "9/10"
+      },
+      {
+        "action": "---",
+        "risk": "9/10",
+        "J": "9/10",
+        "sum_p": "27/10",
+        "Delta": "9/5"
+      }
+    ]
+  },
+  "limitations": [
+    "No fitting, sample estimation or numerical certification.",
+    "Finite enumeration validates specified settings; general conclusions rely on the QMD proofs.",
+    "This is an ungrouped allocation comparator, not a grouped within-event union comparator."
+  ],
+  "finite_support_templates": {
+    "2": [
+      {
+        "mass": "1-p",
+        "theta": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "mass": "p",
+        "theta": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "3": [
+      {
+        "mass": "1-p",
+        "theta": [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "mass": "p",
+        "theta": [
+          [
+            -1,
+            -1,
+            -1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ]
+  }
+}

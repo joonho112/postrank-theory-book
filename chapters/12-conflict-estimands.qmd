@@ -1,10 +1,12 @@
 # Conflict, invariance, and estimands {#sec-conflict-estimands}
 
-## Two co-primary targets for a reported direction {#sec-two-estimands}
+## Composite and criterion-specific reporting targets {#sec-two-estimands}
 
 A scalar composite assesses a comparison using a specified combination of attribute magnitudes, whereas a directional objective assesses its criterion-specific errors. The targets answer different questions about the same units, so neither corrects the other by definition. They can disagree even when the target values are known exactly.
 
-The choice between these targets is discussed in @sec-measurement-values and @sec-aggregation-mcda. Decision analysis interprets coefficients relative to the attribute scales and the tradeoffs they represent; the presence of several attributes does not itself justify an additive representation [@keeney_raiffa_1993, pp. 66–69, 116–123]. For the mathematical comparison we take both constructions as given. Relating them to institutional objectives and justifying their weights require substantive arguments.
+A second choice concerns the form of the report. Both objectives below assess a common grade column; a profile report permits a separate column for each domain, as introduced in @sec-profile-actions. To study the effect of this larger action family, we hold the target definitions, supplied law and loss fixed. This comparison concerns what the report may communicate, leaving the substantive choice between a composite and criterion-specific targets unresolved.
+
+The choice between these targets is discussed in @sec-measurement-values and @sec-aggregation-mcda. Decision analysis interprets coefficients relative to the attribute scales and the tradeoffs they represent; the presence of several attributes does not itself justify an additive representation [@keeney_raiffa_1993]. For the mathematical comparison we take both constructions as given. Relating them to institutional objectives and justifying their weights require substantive arguments.
 
 ### Composite and criterion-specific error counts on a common frame {#a-common-frame-two-error-counts}
 
@@ -77,14 +79,30 @@ The following exact instances fix $\omega=3/4$. Every row concerns a known state
 
 In the first row, following the true composite direction incurs positive criterion-direction error. In the second, the less costly criterion direction opposes the composite order. Thus the objectives may favor different disclosures even at a known state. Selecting an optimal grade additionally requires comparison with withholding at cost $\tau$.
 
-The final row isolates equality. Criterionwise tie-freeness does not imply composite tie-freeness. At a composite tie, both strict disclosed directions are errors under the weak-error convention. A shared reported grade withholds the comparison and incurs $\tau$; it does not assert that the composite or either criterion is equal. The same distinction persists probabilistically:
+<!-- BEGIN EXPLORER BOX: targets -->
+::: {#box-explorer-targets .explorer-box}
+
+![](../assets/explorer-boxes/composite-or-criterion.png){fig-alt="Published app screenshot with criterion error weight 0.75 and composite coefficient 0.50. The criterion objective selects A above B with risk 0.25; the composite selects B above A with risk zero. Withholding costs 0.30 under both objectives." .explorer-screenshot}
+
+With the target values held fixed, criterion error weights and composite coefficients can favor opposite directions. In this known two-unit example, the criterion-direction objective selects A above B, whereas the equally weighted composite selects B above A, using the same three reports and a withholding cost of 0.30. Select “Rescale the second criterion” in the app to see how changing magnitudes can reverse the composite decision while leaving criterion directions unchanged.
+
+::: {.explorer-link}
+[Open Composite targets and criterion directions in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/composite-or-criterion.html)
+:::
+
+Two reporting targets, opposite directions
+
+:::
+<!-- END EXPLORER BOX: targets -->
+
+The final row of the table isolates equality: criterionwise tie-freeness does not imply composite tie-freeness. At a composite tie, both strict disclosed directions are errors under the weak-error convention. A shared reported grade withholds the comparison and incurs $\tau$; it does not assert that the composite or either criterion is equal. The same distinction persists probabilistically:
 
 $$
 \Pi_s(c_i\le c_j\mid y)+\Pi_s(c_j\le c_i\mid y)
 =1+\Pi_s(c_i=c_j\mid y).
 $$
 
-Composite error probabilities are therefore complementary only when composite equality has zero mass under the relevant law. This constructed family illustrates the definitions by exact arithmetic. It supplies no empirical evidence, and the phenomenon is not presented as a new contribution to the decision-analysis literature.
+Composite error probabilities are therefore complementary only when composite equality has zero mass under the relevant law. These exact calculations illustrate the definitions at a stipulated target state.
 
 ### Directional error and total loss at a known state {#what-conflict-can-force-at-known-truth}
 
@@ -137,11 +155,30 @@ When all-tie is feasible, conflict alone cannot impose a positive directional-er
 
 Error can therefore persist under a target even after estimation uncertainty has disappeared. Knowing the ordering of a tie-free composite allows zero composite error, but following it may still incur criterion-direction errors where criteria conflict. At composite ties, every disclosed strict direction is wrong under the present convention; withholding avoids that error at a cost. Evaluating both targets together with disclosure describes these choices, without yielding a unique additive decomposition of statistical and definitional error. The oracle for one target need not be the oracle for the other.
 
+
+
+<!-- BEGIN EXPLORER EXPANSION: conflict-pairs -->
+
+::: {#box-explorer-conflict-pairs .explorer-box}
+
+![](../assets/explorer-boxes/conflict-pairs.png){fig-alt="Screenshot of Opposing criterion directions, illustrating Separate opposition from uncertainty." .explorer-screenshot}
+
+Compare certain opposition with uncertain agreement to see why similar directional costs can arise from different situations. In one case the criteria disagree at a known state; in the other they agree within each state but the state is uncertain. The pair display supports this distinction without supplying a unique error decomposition or replacing the coherence constraints on a complete report.
+
+::: {.explorer-link}
+[Open Opposing criterion directions in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/conflict-pairs.html)
+:::
+
+Separate opposition from uncertainty
+
+:::
+<!-- END EXPLORER EXPANSION: conflict-pairs -->
+
 ## Conflict, withholding, and the limits of pairwise decisions {#sec-conflict-withholding}
 
 Separating a pair in a common grade may require additional disclosures, making the joint decision costly even when the pair's own disclosure cost is low. A three-grade report may also improve on withholding everything when every two-grade report fails to do so. We examine how pairwise costs bound the decision over ordered partitions.
 
-KRW compares directional disclosure with a reported tie in its scalar pair gamble [@kline_discrimination_2024, p. 2478]. We make this comparison for weighted directional loss and then relate it to the common-grade problem. The certain-split results and two constructed examples below follow from the specified loss and action domain; the underlying ideas of local abstention and posterior grading are inherited.
+KRW compares directional disclosure with a reported tie in its scalar pair gamble [@kline_discrimination_2024]. We apply this existing abstention and posterior-grading argument to weighted directional loss, first for a pair and then for a common grade. The certain-split results and two examples below follow from the specified loss and action domain.
 
 ### Pairwise relaxation and its lower bound {#a-lower-bound-that-need-not-be-a-report}
 
@@ -245,7 +282,7 @@ Nevertheless, the full order $A>B>C$ has error sum $1/3+1/3+2/3=4/3$ and risk $4
 
 @fig-vis-f12b separates the local lower bound from risks attained by coherent reports at each occupied grade count.
 
-::: {#fig-vis-f12b}
+::: {#fig-vis-f12b .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f12b-local-lower-bounds-and-attainable-common-grades-mobile.svg">
 <img src="../assets/figures/f12b-local-lower-bounds-and-attainable-common-grades.svg" class="img-fluid" alt="Three known criterion orders induce the cycle A above B, B above C, C above A, each supported by two criteria. Four risk groups show one one-grade report at 9/20, six two-grade reports at 29/60, and two three-grade groups of three reports each at 4/9 and 5/9. A dashed lower-bound line at 1/3 is unattained. The grade-cap comparison distinguishes the unique all-withhold optimum under at most two grades from three strict-order optima when three are allowed.">
@@ -260,7 +297,9 @@ The isolated $A>B$ disclosure is attractive, with incremental cost $1/10-1/4=-3/
 
 All-tie is therefore uniquely optimal at risk $1/4$, even in the unrestricted domain, while the pairwise bound is $1/5$. The favorable local comparison cannot be disclosed without increasing total risk. Both examples use exact calculations under constructed laws, rather than simulation or empirical results.
 
-These withholding results concern the optimal action for the specified beliefs, weights, costs and feasible reports. They establish neither equality of the units nor a conclusion about the information in the data, and they do not solve other reporting or allocation problems.
+Withholding is optimal here relative to specified beliefs, weights, costs and feasible reports. It need not indicate equality of the units or reveal how much information the data contain. Other reporting objectives and allocation decisions require their own analysis.
+
+The conflict bounds use a shared column, so each disclosed pair receives the same direction on every criterion. A larger profile family can express opposing domain directions and need not obey these bounds. Each column must still be coherent, and the complete card must satisfy its constraints. The crossing example in @sec-profile-crossing-example shows the effect of allowing separate columns; @sec-profile-separability gives the conditions under which those columns can be chosen separately.
 
 ## Ordinal invariance and qualified dominance statements {#sec-invariance-dominance}
 
@@ -316,9 +355,30 @@ The result permits an unrestricted, capped, exact-grade or fixed-order domain, p
 
 Equality of the minimizing sets does not ensure that two procedures return the same member. This also requires compatible tie-breaking and exact objective comparisons. The result uses exact real arithmetic; rounding can create ties or change coefficients. Data-dependent transformations are covered conditionally by fixing their realized functions and corresponding target law at $y$, without integrating over unspecified preferences or permitting latent-state-dependent rescaling.
 
+For a protected profile, the invariance argument likewise transforms the complete joint state while retaining the reporting family and protected-event definitions. Preserving separate domain marginals and choosing a new coupling is a different operation: additive risk can remain unchanged while joint protection changes. Refitting a model therefore requires checking the resulting law, rather than invoking invariance from the transformation alone.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: signed-or-absolute -->
+
+::: {#box-explorer-signed-or-absolute .explorer-box}
+
+![](../assets/explorer-boxes/signed-or-absolute.png){fig-alt="Screenshot of Signed and absolute gender-gap targets, illustrating Changing the target changes the comparisons." .explorer-screenshot}
+
+Compare grades for signed gender contact gaps with grades for their absolute magnitudes in KRW’s historical firm data. Taking absolute values changes the estimand and requires target-specific posterior probabilities, rather than a relabeling of a signed ranking. Each displayed report searches cuts of its own expected-rank order at the stated cost and cap, so its optimality is order-specific.
+
+::: {.explorer-link}
+[Open Signed and absolute gender-gap targets in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/cases/signed-or-absolute.html)
+:::
+
+Changing the target changes the comparisons
+
+:::
+<!-- END EXPLORER EXPANSION: signed-or-absolute -->
+
 ### Scale transformations of cardinal composites {#cardinal-composites-require-a-different-scale-argument}
 
-For a declared composite $c_i=\sum_k a_k\theta_{ik}$, applying increasing transformations while retaining the same numerical $a$ does not generally preserve composite comparisons. The composite uses magnitudes and cardinal trade-offs; directional-loss weights $w$ have a different role. A strictly increasing transformation of the already constructed scalar $c_i$ preserves its order, but that is different from transforming its separate components before summing. Even positive affine changes require compensation when criteria are rescaled differently. The distinction between an ordinal representation of the completed value function and the scaling of its additive components is discussed by Keeney and Raiffa [@keeney_raiffa_1993, pp. 66–69, 80–81, 116–123]. The compensation identity below is a direct calculation for the declared linear composite.
+For a declared composite $c_i=\sum_k a_k\theta_{ik}$, applying increasing transformations while retaining the same numerical $a$ does not generally preserve composite comparisons. The composite uses magnitudes and cardinal trade-offs; directional-loss weights $w$ have a different role. A strictly increasing transformation of the already constructed scalar $c_i$ preserves its order, but that is different from transforming its separate components before summing. Even positive affine changes require compensation when criteria are rescaled differently. The distinction between an ordinal representation of the completed value function and the scaling of its additive components is discussed by Keeney and Raiffa [@keeney_raiffa_1993]. The compensation identity below is a direct calculation for the declared linear composite.
 
 If $f_k(t)=\alpha_kt+\beta_k$ with $\alpha_k>0$, choose $a'_k=a_k/\alpha_k$. Then
 
@@ -331,7 +391,7 @@ The common added term preserves every composite difference and tie. This calcula
 
 The three-unit family introduced earlier makes these conditions concrete. Take $A=(-2,4)$, $B=(1,0)$, $C=(2,-1)$ with $a=w=(1/2,1/2)$. The original composites are $(1,1/2,1/2)$. Dividing criterion 2 by ten and retaining $a$ gives $(-4/5,1/2,19/20)$, reversing $A$ versus $B$ and breaking the $B,C$ tie. Compensating with $a'=(1/2,5)$ restores the original composites exactly. All criterion-direction errors remain unchanged under this common positive rescaling.
 
-Two variations within this same family show why the transformation assumptions matter. Applying the nondecreasing function $f_2(t)=\max(t,0)$ to criterion 2 makes its $B,C$ values equal. The weighted error for reporting $B$ above $C$ rises from $1/2$ to $1$, because equality now fails that strict assertion. Applying instead an increasing shift of $+10$ to **only unit $A$** on criterion 1 changes $A<B$ there into $A>B$; the weighted error for reporting $A$ above $B$ falls from $1/2$ to zero. Each individual shift is increasing, but there is no common criterion transformation. These are exact variations of the earlier illustration, not a new empirical or simulation family.
+Two variations within this same family show why the transformation assumptions matter. Applying the nondecreasing function $f_2(t)=\max(t,0)$ to criterion 2 makes its $B,C$ values equal. The weighted error for reporting $B$ above $C$ rises from $1/2$ to $1$, because equality now fails that strict assertion. Applying instead an increasing shift of $+10$ to **only unit $A$** on criterion 1 changes $A<B$ there into $A>B$; the weighted error for reporting $A$ above $B$ falls from $1/2$ to zero. Each individual shift is increasing, but there is no common criterion transformation. These are exact variations of the earlier illustration.
 
 ### Statewise costs of dominance reversals and complete equality {#what-a-dominance-reversal-actually-counts}
 
@@ -365,7 +425,7 @@ To establish a Pareto property of a posterior-optimal common grade, one must con
 
 ## Comparing estimands under equality-neutral loss {#sec-tie-aware-estimands}
 
-The extension in @sec-tie-aware-loss changes the treatment of latent equality as well as allowing a choice of target. A composite and the criterion vector may have different equality events even with numerically identical coefficients, giving different withholding costs under equality-neutral loss. The earlier weak-error comparisons remain valid for their original loss.
+Under the equality-neutral loss in @sec-tie-aware-loss, changing the target can also change the withholding cost. A composite and the criterion vector may have different equality events even when their coefficients are numerically identical. We now compare these costs; the earlier weak-error comparisons continue to apply to their original loss.
 
 Fix the same observed information, supplied joint law, units, orientations, weights and report. Write $c_i=\sum_k a_k\theta_{ik}$ for the composite, and define
 $$
@@ -396,7 +456,7 @@ For an exact two-unit example, let $\theta_A=(1,-1)$ and $\theta_B=(0,0)$ with p
 
 @fig-vis-f12a relates the known target geometry to the four evaluations of the same reports.
 
-::: {#fig-vis-f12a}
+::: {#fig-vis-f12a .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f12a-composite-equality-and-criterion-opposition-mobile.svg">
 <img src="../assets/figures/f12a-composite-equality-and-criterion-opposition.svg" class="img-fluid" alt="A at (1,-1) and B at (0,0) lie on the dashed zero-composite line in a two-criterion plane. Two tables evaluate the same forward, withheld and reverse reports. Weak composite costs are 1,tau,1 and criterion costs are 1/2,tau,1/2; neutral composite costs are all zero and criterion costs are 1/2,tau,1/2.">

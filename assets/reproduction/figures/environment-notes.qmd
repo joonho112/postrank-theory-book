@@ -11,4 +11,4 @@ SVG glyphs are stored as vector paths so display does not depend on locally inst
 
 Use Python’s `-B` flag for selective regeneration to avoid writing bytecode caches. Generated `__pycache__` and `.pyc` files are excluded from the public resource selection.
 
-All required scientific plotting inputs are the supplied public coordinates, public drawing code and public style. Chapter names retained as provenance references do not require canonical QMD files. Optional existing own receipts or guarded audit hashes supply bookkeeping only and cannot be required to draw the figure. See `README.qmd`, `environment.json` and `manifest.json` for the complete final entry-point map and retained-original exceptions.
+The scientific plotting inputs consist of the supplied public coordinates, drawing code and style. Chapter names in the provenance record identify the source context; canonical QMD files are not plotting dependencies. Optional execution records and audit hashes document the work but are not needed to draw the figures. See `README.qmd`, `environment.json` and `manifest.json` for the entry-point map and exceptions for retained originals.

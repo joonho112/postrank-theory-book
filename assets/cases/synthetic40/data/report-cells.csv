@@ -1,0 +1,10 @@
+report_role,case_id,profile_cell,S_grade,C_grade,occupied,site_count,site_ids
+primary,main-alpha-1_20,S1-C1,1,1,1,10,S13 S14 S17 S18 S19 S20 S25 S26 S27 S32
+primary,main-alpha-1_20,S1-C2,1,2,1,10,S11 S12 S16 S23 S24 S29 S30 S31 S33 S34
+primary,main-alpha-1_20,S1-C3,1,3,1,20,S01 S02 S03 S04 S05 S06 S07 S08 S09 S10 S15 S21 S22 S28 S35 S36 S37 S38 S39 S40
+secondary_sensitivity,sensitivity-t-wide,S1-C1,1,1,1,6,S13 S14 S17 S26 S27 S32
+secondary_sensitivity,sensitivity-t-wide,S1-C2,1,2,1,4,S11 S12 S16 S24
+secondary_sensitivity,sensitivity-t-wide,S1-C3,1,3,0,0,
+secondary_sensitivity,sensitivity-t-wide,S2-C1,2,1,1,4,S18 S19 S20 S25
+secondary_sensitivity,sensitivity-t-wide,S2-C2,2,2,1,6,S23 S29 S30 S31 S33 S34
+secondary_sensitivity,sensitivity-t-wide,S2-C3,2,3,1,20,S01 S02 S03 S04 S05 S06 S07 S08 S09 S10 S15 S21 S22 S28 S35 S36 S37 S38 S39 S40

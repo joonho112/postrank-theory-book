@@ -1,0 +1,57 @@
+{
+  "files": [
+    {
+      "path": "scripts/examples/pilot.R",
+      "sha256": "ef0a6b5f53f5ade0242f710bd762315bb11afd5551d52e0afbf310c7aed3e621"
+    },
+    {
+      "path": "scripts/examples/pilot-oracle.py",
+      "sha256": "6d96f3f99e5131711c6616a527466fa597812046e73baf5f4efcf84a67c143b7"
+    },
+    {
+      "path": "scripts/examples/compare-pilot.py",
+      "sha256": "0610241665e24506d611b9a7cb39ea58943d348d31b2789421af6213a788a69a"
+    },
+    {
+      "path": "scripts/examples/pilot-figure.py",
+      "sha256": "30504e2bdb3673a6731848b48599713ba4ad7453c3186dcb13e0528af36cb73e"
+    },
+    {
+      "path": "scripts/examples/pilot-figure-stacked.py",
+      "sha256": "5d4b504f358a7a6d40d0fbdc320a3bb73dd49a78de3a729b86f89c919bbceeee"
+    },
+    {
+      "path": "evidence/pilot/fixture-spec.json",
+      "sha256": "8e90eb2be9acffda639c3bf71a052e6d85c2348dc774fd4b87f5be3f6ad3609a"
+    },
+    {
+      "path": "results/pilot/r-candidates.csv",
+      "sha256": "a6c111397efa7074d3d9bb142389c5e0969fd34e773e791a2326fa909a2c25c5"
+    },
+    {
+      "path": "results/pilot/oracle-candidates.csv",
+      "sha256": "984127edd6f0d0e959e0296af5a5c0570f4934272f2b59472b84cb8ce37a00e9"
+    },
+    {
+      "path": "assets/figures/v4-pilot.svg",
+      "sha256": "a4739fa1febd8626828ee2f02c19ab627b2a484d6c4901989bc49a03e937ce72"
+    },
+    {
+      "path": "assets/figures/v4-pilot.pdf",
+      "sha256": "fc7a358095b56400b62c79dd91455a89bda07afaa85c36138bcd9f9643f95e34"
+    },
+    {
+      "path": "assets/figures/v4-pilot-stacked.svg",
+      "sha256": "5a2a15902c7a4e0e99a8f3013368da01375ef88f597b8248ed7534df83055e73"
+    },
+    {
+      "path": "assets/figures/v4-pilot-stacked.pdf",
+      "sha256": "f5bf085bca4d69b6e9cefe686694743c3dae1881bbd2122a3ddb2bb6baf10881"
+    },
+    {
+      "path": "crossed-example.R",
+      "sha256": "f643584397ab35b9728f8d8e2665d5341c38b821203ed4539b619937537d32c1"
+    }
+  ],
+  "scope": "synthetic-only; package and private runtime receipts excluded; code stored outside theory chapters"
+}

@@ -1,0 +1,3 @@
+report_role,case_id,sites,original_pairs,pairs_with_any_direction,pairs_with_no_direction,S_assertions,C_assertions,total_domain_assertions,K_S,K_C,potential_cells,occupied_cells,empty_cells
+primary,main-alpha-1_20,40,780,500,280,0,500,500,1,3,3,3,0
+secondary_sensitivity,sensitivity-t-wide,40,780,548,232,300,500,800,2,3,6,5,1

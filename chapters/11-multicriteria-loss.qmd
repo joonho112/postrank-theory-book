@@ -2,11 +2,13 @@
 
 We evaluate a common grade report against several criteria by weighting criterion-specific directional errors and assigning a cost to withheld comparisons. This does not require combining target values into a scalar score. Linearity of expectation gives the risk as a sum of pair coefficients, allowing dependence among units and criteria. Assessing simultaneous correctness would require a different calculation.
 
+The common grade applies the same action to every criterion. In @sec-profile-actions, these actions form the identical-column subset of a larger profile family under the same declared constraints. Here $K$ counts criteria and $D_k$ counts a criterion's errors; in the profile chapters, $D$ counts domains and $F_d$ counts their weak errors. The correspondence between these quantities depends on the target and error definitions used in the two problems.
+
 ## Weighted directional risk from a supplied selection law {#sec-weighted-directional-risk}
 
 We first treat latent equality as an error when a strict direction is disclosed. @sec-tie-aware-loss then introduces an equality-neutral alternative. The earlier definitions and results retain the weak-error convention.
 
-The construction extends KRW's scalar report-card decision: ordered grades communicate comparisons, and the loss trades correct and incorrect disclosures against silence under supplied beliefs. Their objective is a sum of pair contributions [@kline_discrimination_2024, pp. 2477–2480, eqs. 1 and 5]. We define the criterion-weighted loss under our orientation and equality convention, and derive its risk by taking expectations.
+The construction extends KRW's scalar report-card decision: ordered grades communicate comparisons, and the loss trades correct and incorrect disclosures against silence under supplied beliefs. Their objective is a sum of pair contributions [@kline_discrimination_2024]. We define the criterion-weighted loss under our orientation and equality convention, and derive its risk by taking expectations.
 
 ### Targets, reports, and the loss
 
@@ -43,6 +45,8 @@ L_{w,\tau}(g,\Theta)
 $$
 
 A disclosed pair has weighted error cost between zero and one, and a withheld pair costs $\tau$ once regardless of the number of criteria. Normalizing $w$ fixes the disclosed-pair scale as $K$ changes, while the substantive choice of weights requires justification. Since $D_k\le N\le M$, the loss lies in $[0,1]$ and its expectation exists under every supplied probability law.
+
+For identical profile columns, the domain-specific withholding costs combine into their weighted average. The reduction in @sec-profile-diagonal-reduction matches that average to the present $\tau$, while also matching targets, orientation, weights, weak error and the original-pair denominator. Equality of risk then uses the same law; equality of complete minimizing sets additionally uses exactly corresponding feasible actions. Allowing separate columns or adding a protection only on one side changes the comparison.
 
 ### The expected-risk identity
 
@@ -98,11 +102,30 @@ If feasible, the all-tie report has risk $\tau$. The remaining sum measures the 
 
 To compute $e^s_{ij,k}$, it suffices to know the bivariate marginal law of $(\theta_{ik},\theta_{jk})$ induced by $\Pi_s$ and evaluate its weak-order event. The full within-criterion vector law is one way to supply all such bivariate marginals. Once the event probabilities are available, the additive risk calculation needs only those numbers, the weights, and the action. For this fixed weighted objective, their aggregates $\bar e^s_{ij}$ are enough; retaining the criterion-specific probabilities also permits the expected counts $E^s_k$ to be evaluated separately.
 
-These probabilities contain the distributional information required to calculate the additive risk; this use differs from statistical sufficiency for estimating a target distribution. Unit marginals alone generally do not identify bivariate comparison probabilities, because different couplings preserve the marginals while changing the ordering probabilities. Means and standard errors contain still less information. The within-criterion pair dependence needed for the calculation is illustrated in @sec-posterior-risk-laws.
+The probabilities suffice to calculate additive risk, a statement about this loss rather than statistical sufficiency for estimating a target distribution. Unit marginals generally leave bivariate comparison probabilities undetermined: different couplings can preserve the marginals while changing the ordering probabilities. Means and standard errors contain still less information. The example in @sec-posterior-risk-laws illustrates the within-criterion dependence needed for the calculation.
 
 If the within-criterion pair probabilities remain fixed, changing cross-criterion dependence leaves the additive risk unchanged. This follows because the expectation of the sum depends only on the expectation of each term. The joint law, however, can change, as can the probability that every disclosed direction is correct. That probability involves intersections of events across pairs and criteria.
 
 A cardinal composite $c_i=\sum_k a_k\theta_{ik}$ depends on target magnitudes and their joint distribution, so the additive-risk coefficients generally do not determine its ordering probabilities. The coefficients $a$ specify cardinal trade-offs, while $w$ weights directional errors; numerical equality of the two sets of coefficients does not make their interpretations equivalent. Comparing these estimands requires assumptions beyond the directional-risk identity.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: pairwise-matrix -->
+
+::: {#box-explorer-pairwise-matrix .explorer-box}
+
+![](../assets/explorer-boxes/pairwise-matrix.png){fig-alt="Screenshot of The matrix of pairwise posterior probabilities, illustrating Reordering a matrix does not change its probabilities." .explorer-screenshot}
+
+Sort the same probability matrix by labels and by posterior means, keeping track of a named pair. Its cell moves with the row and column, while the pair's probability remains unchanged. The matrix supplies inputs for additive directional risk under this teaching law; it does not by itself determine joint error events or make an arbitrary collection of pairwise preferences a coherent report.
+
+::: {.explorer-link}
+[Open The matrix of pairwise posterior probabilities in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/uncertainty/pairwise-matrix.html)
+:::
+
+Reordering a matrix does not change its probabilities
+
+:::
+<!-- END EXPLORER EXPANSION: pairwise-matrix -->
 
 ### Exact comparison of additive, composite, and joint-event information {#an-exact-information-boundary-example}
 
@@ -112,7 +135,9 @@ For the report $A>B$, each criterion error probability is $1/2$. With $w=(1/2,1/
 
 Now separately declare composite coefficients $a=(1/2,1/2)$. Under the first law, $A$'s composite is 2 or $-1$, so reporting $A>B$ has composite error probability $1/2$. Under the second law, its composite is always $1/2$, so the same report has composite error probability zero. The probability that $A$ is above $B$ on **both** criteria is $1/2$ under the first law and zero under the second. Neither law has a criterion or composite tie.
 
-The example gives identical additive risks under the two laws but different composite comparisons and joint-event probabilities. These are distinct evaluation targets, each requiring the corresponding distributional information; the example does not favor one target over another.
+The two laws thus give the same additive risks but different composite comparisons and joint-event probabilities. Each evaluation target calls for its own distributional information. Choosing among them is a substantive decision that this example does not resolve.
+
+It also gives a direct protection boundary. Keep the common direction $A>B$ in both criteria and protect their union of false-direction events with threshold zero in each all-pairs scope. The union has probability $1/2$ under the first law and one under the second: it is the complement of being correct on both criteria here. Thus a cap of $3/4$ accepts the first card-law combination and rejects the second, despite identical additive risk. This comparison holds the card and criterion marginals fixed while changing their coupling; it does not establish an action-space advantage for profiles.
 
 ### Latent equality and conditional calculations {#equality-conditioning-and-attribution}
 
@@ -127,13 +152,61 @@ Partitioning the pair's states into strict forward order, equality, and strict r
 
 Weights, transformations, and loss settings may depend on $Y$. Conditional on $y$, hold their realized definitions fixed and use a supplied law for those same targets. The resulting loss is the conditional version $L_y$ of the data-dependent loss $L_Y$. The identity applies also to a selected report $g=\delta(y)$ because conditioning fixes the action. Evaluation under another law or repeated sampling requires the corresponding expectation. Integrating random preferences would additionally require their probability law and their relationship with the targets; preferences are held fixed here.
 
-KRW's online Appendix A weights scalar concordances and discordances by powers of cardinal target differences [@kline_discrimination_2024, online Appendix A, p. 2; main text p. 2479, footnote 3]. Its magnitude-dependent pair weights provide an antecedent to the present construction, but differ from our fixed criterion-loss weights. We do not adopt its further formulas. The expected-risk representation above follows by elementary linearity for the specified loss and is not a new principle of weighting or posterior postprocessing.
+KRW's supplementary extension weights scalar concordances and discordances by powers of cardinal target differences [@kline_discrimination_2024]. Its magnitude-dependent pair weights provide an antecedent to the present construction, but differ from our fixed criterion-loss weights. We do not adopt its further formulas. The expected-risk representation is a direct application of linearity of expectation to the specified loss.
+
+<!-- postrank-exhibit:W03:begin -->
+<details class="widget-exhibit" data-postrank-widget="W03" data-widget-src="../assets/widgets/W03/index.html" data-widget-title="What does a common grade cost each criterion?" data-widget-height="1500">
+<summary>Explore: When one grade serves two criteria, which criterion pays the extra risk?</summary>
+<div class="widget-fallback"><p>Default: weight = 1/2. Minimum risk 1/3; all minimizing cards: W/W. W withholds; AB ranks Alder higher; BA ranks Birch higher.</p><div class="table-scroll"><table><caption>Default setting: the complete candidate family</caption><thead><tr><th scope="col">Card</th><th scope="col">Risk</th><th scope="col">Criterion risks (1, 2)</th><th scope="col">Joint J</th><th scope="col">Feasible</th><th scope="col">Minimum risk?</th></tr></thead><tbody><tr><th scope="row">W/W</th><td>1/3</td><td>1/3, 1/3</td><td>Disabled</td><td>Yes</td><td>Optimal</td></tr><tr><th scope="row">AB/AB</th><td>1/2</td><td>1/5, 4/5</td><td>Disabled</td><td>Yes</td><td>—</td></tr><tr><th scope="row">BA/BA</th><td>1/2</td><td>4/5, 1/5</td><td>Disabled</td><td>Yes</td><td>—</td></tr></tbody></table></div><div class="table-scroll"><table><caption>Default common optima: unweighted criterion-specific extra risk</caption><thead><tr><th scope="col">Common card</th><th scope="col">Extra risk, criterion 1</th><th scope="col">Extra risk, criterion 2</th></tr></thead><tbody><tr><th scope="row">W/W</th><td>2/15</td><td>2/15</td></tr></tbody></table></div></div>
+<button type="button" data-widget-load disabled>Open interactive example</button><div data-widget-frame></div>
+<noscript><p>The complete default comparison above remains available without JavaScript.</p></noscript>
+</details>
+<script defer src="../assets/widgets/shared/book-loader.js"></script>
+<!-- postrank-exhibit:W03:end -->
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: two-scores -->
+
+::: {#box-explorer-two-scores .explorer-box}
+
+![](../assets/explorer-boxes/two-scores.png){fig-alt="Screenshot of A common grade report for two scores, illustrating One report, two error profiles." .explorer-screenshot}
+
+Change the criterion weights and inspect the same common grade column beside both criterion-specific error profiles. The display connects the weighted loss to its components and shows that a criterion can have errors even when its objective weight is zero. The report is chosen jointly under a declared family; a small average error does not bound every stated pair.
+
+::: {.explorer-link}
+[Open A common grade report for two scores in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/two-scores.html)
+:::
+
+One report, two error profiles
+
+:::
+<!-- END EXPLORER EXPANSION: two-scores -->
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: common-grade-cost -->
+
+::: {#box-explorer-common-grade-cost .explorer-box}
+
+![](../assets/explorer-boxes/common-grade-cost.png){fig-alt="Each criterion’s minimum risk when choosing its own report is joined to its risk under the common report; the two excess risks differ despite equal weights." .explorer-screenshot style="--explorer-image-width:520px;"}
+
+Compare each criterion’s risk under the common report with the minimum it could attain on its own in the same family. The connectors show why equal weights need not distribute this excess risk equally, and changing a weight can move the burden. This is a loss-based comparison, not a judgment of institutional fairness; archived search intervals describe optimization bounds.
+
+::: {.explorer-link}
+[Open Criterion-specific excess risk of a common report in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/common-grade-cost.html)
+:::
+
+What does a common report cost each criterion?
+
+:::
+<!-- END EXPLORER EXPANSION: common-grade-cost -->
 
 ## A criterion mixture and its scalar correspondence {#sec-criterion-mixture}
 
 We can represent the weighted directional objective as a scalar problem by selecting one criterion and evaluating the report against that criterion's entire vector of unit targets. Mixing the criterion-specific vector laws in this way connects the weighted loss to KRW's scalar objective. It does not average target magnitudes into a composite. The representation concerns average loss, without implying stakeholder consensus or simultaneous correctness on all criteria.
 
-KRW evaluates correct comparisons, incorrect comparisons and reported ties under general beliefs [@kline_discrimination_2024, pp. 2477–2480, eqs. 1 and 5]. The following mixture construction relates that scalar objective to criterion-weighted loss. It reconstructs a correspondence between the objectives, without claiming priority for weighted loss or posterior decision-making.
+KRW evaluates correct comparisons, incorrect comparisons and reported ties under general beliefs [@kline_discrimination_2024]. The mixture construction below relates that scalar objective to criterion-weighted loss.
 
 ### Selection of one whole criterion vector {#one-criterion-selects-one-whole-vector}
 
@@ -149,6 +222,8 @@ $$
 Equivalently, choose $k$ with probability $w_k$ and draw one vector from $B_k$. The auxiliary selector is independent of the target array, while dependence among its criteria and among units within a criterion is unrestricted. Each selected vector retains its joint unit dependence.
 
 The same $\kappa$ is used for the entire evaluation. Selecting criteria separately for different units would compare targets measured on different criteria, while selecting anew for every pair would not define this scalar target vector. Nor is $Z$ the componentwise average $\sum_k w_k\Theta_{\cdot k}$: a mixture of vector laws and an average of target values are different constructions.
+
+A profile declares all its domain columns as one action, whose joint protection concerns the complete target array; the mixture law alone cannot reconstruct that protection.
 
 Use the same labelled units, priority orientation, $M=\binom n2$, and nonempty finite feasible domain $\mathcal A$ on both sides. Every $g\in\mathcal A$ is a canonical ordered partition, with grade 1 highest. Its disclosure indicators are $x_{ij}(g)=\mathbf1\{g_i<g_j\}$ and $N(g)=\sum_{i\ne j}x_{ij}(g)$. The report is selected before observing the auxiliary criterion; the comparison does not allow a different report $g_\kappa$ after the criterion is revealed.
 
@@ -224,11 +299,13 @@ $$
 B_w(Z_i\le Z_j\mid y)=\sum_k w_k e^s_{ij,k}(y)=\bar e^s_{ij}(y).
 $$
 
-The resulting pair coefficients are those in @prp-weighted-directional-risk. The mixture retains the information needed for this averaged loss but does not reconstruct the original array's full joint law.
+The pair coefficients in @prp-weighted-directional-risk therefore arise from the mixture law. They retain the information needed for the averaged loss, while leaving the original array's full joint law undetermined.
 
 ### Equality and the feasible domain {#equality-and-feasible-domain-boundaries}
 
 The mixture's equality probability is $\sum_k w_k\Pi_s(\theta_{ik}=\theta_{jk}\mid y)$. Because all terms are nonnegative, its vanishing is equivalent to zero equality probability on each positive-weight criterion. Requiring every criterion to be tie-free is sufficient but stronger than needed when some weights are zero. A zero-weight criterion contributes neither to $B_w$ nor to this loss, whatever its equality probabilities.
+
+A zero loss weight does not, however, remove a separately declared structural guard or protection constraint. In a profile problem that criterion can still enter the joint event or limit admissible columns. The zero-weight simplification here concerns the mixture and objective; feasible-set factorization and the entire profile minimizing set require the conditions in @sec-profile-separability.
 
 The no-tie condition ensures affine equivalence on the common action domain. On a restricted domain, the minimizing sets may still agree without this condition, for instance if every admissible action withholds each equality-bearing pair. In general, however, the correction varies across actions. The weak-error risk identity remains valid with equality mass; identifying it with the strict source risk then requires retaining the correction.
 
@@ -240,15 +317,17 @@ The baseline $0<\tau\le1/2$ corresponds to $0<\lambda\le1$. The formulas additio
 
 Suppose criterion $k$ governs an audience's assessment with probability $w_k$, and the report is issued before the criterion is selected. The proposition evaluates average directional loss under this criterion lottery. Interpreting the weights as population shares or random human preferences requires additional substantive modeling. The weighted sum trades off criterion-specific errors even though each directional error ignores the magnitude of the target difference.
 
-Under the positive-weight no-tie condition, connecting this construction to KRW's behavioral audience further requires the source assumptions: users follow the disclosed recommendation, informed users resolve reported ties correctly, and uninformed users choose correctly with probability one half. With the same informed fraction $\phi\in(0,1)$, homogeneous correct/incorrect payoffs, and equal averaging over pairwise choice problems, the preceding scalar calculation gives $\tau=(1-\phi)/2$ [@kline_discrimination_2024, p. 2478]. The source's correct choice is the less-discriminatory firm; a priority grade by itself does not specify a corresponding choice or allocation rule in another application.
+Under the positive-weight no-tie condition, connecting this construction to KRW's behavioral audience further requires the source assumptions: users follow the disclosed recommendation, informed users resolve reported ties correctly, and uninformed users choose correctly with probability one half. With the same informed fraction $\phi\in(0,1)$, homogeneous correct/incorrect payoffs, and equal averaging over pairwise choice problems, the preceding scalar calculation gives $\tau=(1-\phi)/2$ [@kline_discrimination_2024]. The source's correct choice is the less-discriminatory firm; a priority grade by itself does not specify a corresponding choice or allocation rule in another application.
 
-The audience interpretation averages pairwise outcomes over the criterion lottery. It does not evaluate unanimous stakeholder agreement, agreement of all criteria on every disclosure, or welfare from a global allocation. The correspondence is therefore specific to the average decision loss, rather than a general social-choice or utility result. We compare this loss with the co-primary scalar-composite target in @sec-two-estimands.
+The audience interpretation concerns pairwise outcomes averaged over the criterion lottery. Unanimous stakeholder agreement, agreement of all criteria on every disclosure, and welfare from a global allocation are different quantities. The correspondence for average decision loss supplies no general social-choice or utility result. We compare this loss with the co-primary scalar-composite target in @sec-two-estimands.
 
 ## An equality-neutral extension of directional loss {#sec-tie-aware-loss}
 
 Under the weak-error loss in @sec-weighted-directional-risk, a disclosed strict direction is wrong at latent equality and withholding incurs a fixed cost. We now consider an alternative that assigns zero cost to either direction at equality and charges withholding only when the criterion distinguishes the units. This changes the decision loss while retaining the targets, supplied probability law, and common-grade reporting structure. The earlier weak-error definitions continue to describe the original loss.
 
 Shared targets motivate this alternative. Two institutions may have exactly the same community attribute but different institution-specific attributes, making equality a feature of the scientific target. Almost-sure equality cannot be established from agreement of posterior means, rounded values or finitely many draws alone. The decision calculations remain conditional on the supplied targets and beliefs, whose validity requires substantive assessment.
+
+The Alabama application in @sec-alabama-need gives this distinction a substantive interpretation. Sites sharing a catchment share its community-need target while retaining site-specific student-need targets. Equality on the community criterion enters the equality-neutral loss for their common grade. It does not make their full student–community target vectors identical, and does not by itself justify an equality guard or quotient that treats the two sites as identical across an entire profile. The equality statement belongs to the specified target coordinate, rather than to the reported grade.
 
 ### States, coefficients, and distinct-comparison mass
 
@@ -292,11 +371,11 @@ In particular, the reverse strict-error probability is $d^s_{ij,k}-b^s_{ij,k}$. 
 | $T^s_w$ | $\sum_{i<j}\delta^s_{ij}$: weighted distinct mass over all possible pairs. |
 | $N(g)$ | Number of pairs assigned different grades, irrespective of latent equality. |
 
-Thus $0\le A^s_{\rm TA}(g)\le Q^s_w(g)\le N(g)\le M$ and $Q^s_w(g)\le T^s_w\le M$. We retain the superscript on $Q$ because distinct mass depends on the law, and continue to use $D_k(g,\Theta)$ for the realized weak-error count defined earlier. The package API separately names its weighted distinct-mass field `D`; that field corresponds to $Q^s_w$ here and leaves the definition of $D_k$ unchanged.
+Thus $0\le A^s_{\rm TA}(g)\le Q^s_w(g)\le N(g)\le M$ and $Q^s_w(g)\le T^s_w\le M$. We retain the superscript on $Q$ because distinct mass depends on the law, and continue to use $D_k(g,\Theta)$ for the realized weak-error count defined earlier. The quantities $Q^s_w$ and $D_k$ retain these different meanings when notation is aligned across the common-grade and profile discussions.
 
 @fig-vis-f11b places the two loss definitions on the same state and action grid.
 
-::: {#fig-vis-f11b}
+::: {#fig-vis-f11b .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f11b-equality-changes-the-loss-and-the-baseline-mobile.svg">
 <img src="../assets/figures/f11b-equality-changes-the-loss-and-the-baseline.svg" class="img-fluid" alt="Two loss tables share latent-state rows for i above j, equality and i below j, and action columns for i above j, withholding and j above i. The strict-state rows agree. At equality the weak row is one, tau, one, while the neutral row is all zero. Symbolic event boxes and baseline formulas show how equality mass changes expected costs without asserting equality when a comparison is withheld.">
@@ -339,6 +418,24 @@ For a disclosed direction, the weak-error indicator exceeds its strict counterpa
 
 Since the difference is nonnegative and generally varies with the action, a smaller neutral risk reflects the changed loss and does not establish improved accuracy under weak-error loss. The all-withhold report, when feasible, has risk $R^s_0\in[0,\tau]$. If $T^s_w=0$, every active criterion is almost surely equal within every pair, giving zero neutral risk for all reports. This can describe known equality rather than epistemic uncertainty. A distinct-mass ratio is undefined whenever its denominator is zero.
 
+The protected event must be specified separately from the loss. Under a requirement that issued strict directions be true, a direction at latent equality remains false even when the objective assigns it zero cost. Using strict reversals in place of weak errors would therefore protect a different statement. A profile extension must specify both conventions and the feasible family to which they apply.
+
+<!-- BEGIN EXPLORER BOX: equality -->
+::: {#box-explorer-equality .explorer-box}
+
+![](../assets/explorer-boxes/ties-and-withholding.png){fig-alt="Published app screenshot under a complete three-state law with equality probability 0.40. Weak-error costs for A above B, B above A and withholding are 0.50, 0.90 and 0.25; equality-neutral costs are 0.10, 0.50 and 0.15. The plot traces neutral costs as equality probability changes." .explorer-screenshot}
+
+Under the same stipulated two-unit law, switching from weak-error to equality-neutral loss changes both the cost of a stated direction and the cost of withholding. Compare the two losses at probability of equality 0.40, then select “No equality” to see when their costs agree. A lower neutral risk reflects different consequences at equality; a shared grade still withholds a comparison rather than asserting equal targets.
+
+::: {.explorer-link}
+[Open Posterior equality and withholding in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/ties-and-withholding.html)
+:::
+
+What changes when equality has zero cost?
+
+:::
+<!-- END EXPLORER BOX: equality -->
+
 ### A single whole-vector criterion selector and the payoff correspondence {#one-criterion-selector-and-the-payoff-correspondence}
 
 We can apply the whole-column construction in @sec-criterion-mixture to the neutral loss. Conditional on $y$, draw one auxiliary index $\kappa\sim\operatorname{Cat}(w)$ independently of $\Theta$ and set $Z=\Theta_{\cdot\kappa}$. The scalar target is the entire vector on the selected criterion and has law $B_w=\sum_kw_kB_k$, with $B_k$ the supplied marginal law of that vector. Use the same report for every possible selection. Averaging the scalar neutral loss over the selector and target law gives $R^s_{{\rm TA},w,\tau}$ by finite-sum linearity. Selecting criteria independently for separate units or pairs would define a different construction.
@@ -366,11 +463,11 @@ R^s_{{\rm TA},w,\tau}(g\mid y)
 =R^s_0-(1-\tau)U^s_{w,\lambda}(g\mid y).
 $$
 
-Since the baseline is independent of the action and the multiplier is positive, minimizing risk and maximizing payoff give the same optimal set on a common domain. KRW provides the scalar correct–incorrect comparison objective under tie-free beliefs [@kline_discrimination_2024, pp. 2477–2480]. We have reconstructed the extension of the state loss and identity to latent equality; the source's results remain subject to its original assumptions in @sec-krw-scalar-core.
+Since the baseline is independent of the action and the multiplier is positive, minimizing risk and maximizing payoff give the same optimal set on a common domain. KRW provides the scalar correct–incorrect comparison objective under tie-free beliefs [@kline_discrimination_2024]. The derivation here extends the state loss and identity to latent equality; KRW's results remain subject to the original assumptions in @sec-krw-scalar-core.
 
 @fig-vis-f11a keeps the whole-vector selector and the predeclared report separate, including the qualified distinctness interpretation.
 
-::: {#fig-vis-f11a}
+::: {#fig-vis-f11a .reader-figure .reader-has-narrow style="--reader-figure-width:700px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector-mobile.svg">
 <img src="../assets/figures/f11a-one-selector-chooses-one-whole-criterion-vector.svg" class="img-fluid" alt="A symbolic unit-by-criterion array feeds a single categorical selector. One complete highlighted column becomes the scalar target vector Z, evaluated using the same predeclared grade report. A mixture-law equation distinguishes selecting a whole vector from averaging its entries. A qualified pair inset conditions only on distinctness of the selected coordinate.">
@@ -391,6 +488,8 @@ $$
 
 On the intersection of the finitely many probability-one equality events, equality is reflexive, symmetric and transitive, so this defines an equivalence relation. The full active-profile guard imposes $g_i=g_j$ whenever $i\sim j$. Equality on only one of two positive-weight attributes does not suffice. The relation may follow from a scientific structural specification or a complete stipulated finite law, but coincidence in finite Monte Carlo output alone cannot establish it.
 
+Here an active profile means the vector of target values on positively weighted criteria, not the row of grades in a profile report. The theorem below concerns one common grade column and its equality-neutral objective. A declared identity within one domain of a profile instead constrains that domain's column; it need not imply equality of the whole target vector or a common grade across all domains.
+
 ::: {#prp-tie-aware-guard}
 ### Existence of a guarded weighted minimizer
 
@@ -407,13 +506,15 @@ The argument retains every original unit and pair, with their multiplicities and
 
 @fig-vis-f11c illustrates full-profile equality while retaining the original units and pair multiplicities.
 
-::: {#fig-vis-f11c}
+::: {#fig-vis-f11c .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities-mobile.svg">
 <img src="../assets/figures/f11c-a-full-profile-guard-retains-original-multiplicities.svg" class="img-fluid" alt="Two-state profile matrix shows A and B identical in all four state-criterion cells, and A and C equal only on criterion 2. A bubble keeps A and B as separate original units, with two pair edges to C, two to D, one C-D edge and one internal zero-distinct A-B pair. The footer states the existence-only at-most-grade theorem scope.">
 </picture>
 
-Full active-profile guard with the original comparison frame and pair multiplicities retained. In the complete stipulated T11 law, A and B have identical values on both positive-weight criteria in both states, while A and C share only criterion 2. The guard requires gA=gB; it does not forbid other reported ties. Grouping A and B for the guard retains their two comparisons with C and two with D, the C–D pair, and the zero-distinct A–B pair: the original normalization is M=6. The existing theorem preserves the minimum and existence of a guarded minimizer over the full weighted at-most-G family without additional restrictions; it does not justify arbitrary merging or every constrained extension.
+Full active-profile guard with the original comparison frame and pair multiplicities retained. In the complete two-state law shown here, A and B have identical values on both positive-weight criteria in both states, while A and C share only criterion 2. The guard requires gA=gB; it does not forbid other reported ties. Grouping A and B for the guard retains their two comparisons with C and two with D, the C–D pair, and the zero-distinct A–B pair: the original normalization is M=6. The theorem preserves the minimum and existence of a guarded minimizer over the full weighted at-most-G family without additional restrictions; it does not justify arbitrary merging or every constrained extension.
 :::
 
 For exact grade counts, fixed orders, quotas or criterion protections, the reassignment may be infeasible. It may also increase a component risk in a minimax objective, so these extensions require further arguments. Changing which weights are positive can change the guard. Even when the guard preserves minimum reporting risk, the grade count, choice among minimizers and any subsequent funding allocation remain subject to their own domains and rules.
+
+A joint tail-protected profile family poses the same feasibility issue: the reassignment need not stay within it. On its specified at-most family, the guard theorem guarantees existence of a minimizer in the guarded family, a weaker conclusion than equality of complete minimizing sets in a matched loss correspondence.

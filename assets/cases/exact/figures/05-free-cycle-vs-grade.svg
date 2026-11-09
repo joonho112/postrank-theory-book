@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='777.60pt' height='388.80pt' viewBox='0 0 777.60 388.80'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw3NzcuNjB8MC4wMHwzODguODA='>
+    <rect x='0.00' y='0.00' width='777.60' height='388.80' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw3NzcuNjB8MC4wMHwzODguODA=)'>
+<rect x='0.00' y='0.00000000000011' width='777.60' height='388.80' style='stroke-width: 1.21; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpOTUuNzZ8NzU1LjY4fDY1LjE4fDMxMS4yOA=='>
+    <rect x='95.76' y='65.18' width='659.93' height='246.09' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpOTUuNzZ8NzU1LjY4fDY1LjE4fDMxMS4yOA==)'>
+<polyline points='95.76,244.16 755.68,244.16 ' style='stroke-width: 1.21; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='95.76,132.30 755.68,132.30 ' style='stroke-width: 1.21; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='125.75' y='103.21' width='219.76' height='58.17' style='stroke-width: 1.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #8E5EA2;' />
+<rect x='125.75' y='215.08' width='329.63' height='58.17' style='stroke-width: 1.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #5E6770;' />
+<text x='354.42' y='127.97' style='font-size: 11.95px; font-family: "Arial";' textLength='74.30px' lengthAdjust='spacingAndGlyphs'>R = 1/3; N = 3</text>
+<text x='364.05' y='145.18' style='font-size: 11.95px; font-family: "Arial";' textLength='154.55px' lengthAdjust='spacingAndGlyphs'>J = 0; P(any issued error) = 1</text>
+<text x='464.30' y='239.83' style='font-size: 11.95px; font-family: "Arial";' textLength='74.30px' lengthAdjust='spacingAndGlyphs'>R = 1/2; N = 0</text>
+<text x='473.93' y='257.04' style='font-size: 11.95px; font-family: "Arial";' textLength='154.55px' lengthAdjust='spacingAndGlyphs'>J = 0; P(any issued error) = 0</text>
+</g>
+<g clip-path='url(#cpMC4wMHw3NzcuNjB8MC4wMHwzODguODA=)'>
+<text x='90.15' y='242.34' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='70.05px' lengthAdjust='spacingAndGlyphs'>Ordered grades</text>
+<text x='90.15' y='253.14' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='56.12px' lengthAdjust='spacingAndGlyphs'>(all withheld)</text>
+<text x='90.15' y='130.48' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='45.02px' lengthAdjust='spacingAndGlyphs'>Free pairs</text>
+<text x='90.15' y='141.28' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='72.22px' lengthAdjust='spacingAndGlyphs'>(cyclic optimum)</text>
+<text x='125.75' y='324.04' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='5.56px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='235.63' y='324.04' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='13.91px' lengthAdjust='spacingAndGlyphs'>1/6</text>
+<text x='345.51' y='324.04' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='13.91px' lengthAdjust='spacingAndGlyphs'>1/3</text>
+<text x='455.39' y='324.04' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='13.91px' lengthAdjust='spacingAndGlyphs'>1/2</text>
+<text x='425.72' y='338.21' text-anchor='middle' style='font-size: 12.50px; font-family: "Arial";' textLength='224.36px' lengthAdjust='spacingAndGlyphs'>Minimum expected error-withholding risk</text>
+<text x='95.76' y='49.82' style='font-size: 11.50px;fill: #424B57; font-family: "Arial";' textLength='312.02px' lengthAdjust='spacingAndGlyphs'>n = 3, D = 1, original M = 3; tau = 1/2, q = 1, t = 1/3, alpha = 0</text>
+<text x='95.76' y='30.82' style='font-size: 18.00px; font-weight: bold; font-family: "Arial";' textLength='429.56px' lengthAdjust='spacingAndGlyphs'>A free cyclic action is not an ordered-grade profile</text>
+<text x='95.76' y='359.96' style='font-size: 10.00px;fill: #424B57; font-family: "Arial";' textLength='357.20px' lengthAdjust='spacingAndGlyphs'>The free optimum issues the priority cycle 1 &gt; 2 &gt; 3 &gt; 1 and has no grade matrix.</text>
+<text x='95.76' y='370.76' style='font-size: 10.00px;fill: #424B57; font-family: "Arial";' textLength='360.75px' lengthAdjust='spacingAndGlyphs'>Its strict-threshold event J = P(F/N &gt; 1/3) is zero, while P(any issued error) is one.</text>
+</g>
+</g>
+</svg>

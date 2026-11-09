@@ -1,0 +1,803 @@
+{
+  "schema_version": "p2-coupling-laws-v1",
+  "step": "Step 4.3",
+  "status": "designed exact finite laws and analytic continuous companions; not empirical posterior fits",
+  "units": [
+    "u1",
+    "u2"
+  ],
+  "domains": [
+    "d1",
+    "d2"
+  ],
+  "orientation": "larger theta means higher priority; grade1 highest",
+  "decision": {
+    "primary_problem": "A: minimize additive expected error-withholding loss",
+    "n": 2,
+    "D": 2,
+    "M": 1,
+    "weights": [
+      "1/2",
+      "1/2"
+    ],
+    "tau": [
+      "1/4",
+      "1/4"
+    ],
+    "t": [
+      "0",
+      "0"
+    ],
+    "alpha": "3/20",
+    "H": [
+      [
+        "d1",
+        "full"
+      ],
+      [
+        "d2",
+        "full"
+      ]
+    ],
+    "full_mask": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "P": [],
+    "structural_equalities": "singleton classes only; no between-unit equality guards",
+    "allowed_family": "full product A_2^2; all9 canonical grade matrices"
+  },
+  "canonical_columns": {
+    "W": [
+      1,
+      1
+    ],
+    "+": [
+      1,
+      2
+    ],
+    "-": [
+      2,
+      1
+    ]
+  },
+  "laws": [
+    {
+      "id": "LAW-COINCIDENT",
+      "states": [
+        {
+          "id": "pp",
+          "mass": "9/10",
+          "theta": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "mm",
+          "mass": "1/10",
+          "theta": [
+            [
+              -1,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LAW-DISJOINT",
+      "states": [
+        {
+          "id": "pp",
+          "mass": "4/5",
+          "theta": [
+            [
+              1,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "mp",
+          "mass": "1/10",
+          "theta": [
+            [
+              -1,
+              1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "id": "pm",
+          "mass": "1/10",
+          "theta": [
+            [
+              1,
+              -1
+            ],
+            [
+              0,
+              0
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "expected_domain_marginals": {
+    "each_domain": {
+      "unit_vector_1_0_mass": "9/10",
+      "unit_vector_minus1_0_mass": "1/10"
+    },
+    "same_full_unit_vector_marginals": true
+  },
+  "expected_all_actions": [
+    {
+      "action": [
+        "W",
+        "W"
+      ],
+      "risk": "1/4",
+      "J_coincident": "0",
+      "J_disjoint": "0",
+      "feasible_coincident": true,
+      "feasible_disjoint": true
+    },
+    {
+      "action": [
+        "W",
+        "+"
+      ],
+      "risk": "7/40",
+      "J_coincident": "1/10",
+      "J_disjoint": "1/10",
+      "feasible_coincident": true,
+      "feasible_disjoint": true
+    },
+    {
+      "action": [
+        "W",
+        "-"
+      ],
+      "risk": "23/40",
+      "J_coincident": "9/10",
+      "J_disjoint": "9/10",
+      "feasible_coincident": false,
+      "feasible_disjoint": false
+    },
+    {
+      "action": [
+        "+",
+        "W"
+      ],
+      "risk": "7/40",
+      "J_coincident": "1/10",
+      "J_disjoint": "1/10",
+      "feasible_coincident": true,
+      "feasible_disjoint": true
+    },
+    {
+      "action": [
+        "+",
+        "+"
+      ],
+      "risk": "1/10",
+      "J_coincident": "1/10",
+      "J_disjoint": "1/5",
+      "feasible_coincident": true,
+      "feasible_disjoint": false
+    },
+    {
+      "action": [
+        "+",
+        "-"
+      ],
+      "risk": "1/2",
+      "J_coincident": "1",
+      "J_disjoint": "9/10",
+      "feasible_coincident": false,
+      "feasible_disjoint": false
+    },
+    {
+      "action": [
+        "-",
+        "W"
+      ],
+      "risk": "23/40",
+      "J_coincident": "9/10",
+      "J_disjoint": "9/10",
+      "feasible_coincident": false,
+      "feasible_disjoint": false
+    },
+    {
+      "action": [
+        "-",
+        "+"
+      ],
+      "risk": "1/2",
+      "J_coincident": "1",
+      "J_disjoint": "9/10",
+      "feasible_coincident": false,
+      "feasible_disjoint": false
+    },
+    {
+      "action": [
+        "-",
+        "-"
+      ],
+      "risk": "9/10",
+      "J_coincident": "9/10",
+      "J_disjoint": "1",
+      "feasible_coincident": false,
+      "feasible_disjoint": false
+    }
+  ],
+  "expected_optima": {
+    "LAW-COINCIDENT": {
+      "risk": "1/10",
+      "actions": [
+        [
+          "+",
+          "+"
+        ]
+      ],
+      "grade_counts": [
+        [
+          2,
+          2
+        ]
+      ],
+      "disclosed_pair_domain_statements": [
+        2
+      ],
+      "occupied_cells": [
+        2
+      ]
+    },
+    "LAW-DISJOINT": {
+      "risk": "7/40",
+      "actions": [
+        [
+          "W",
+          "+"
+        ],
+        [
+          "+",
+          "W"
+        ]
+      ],
+      "grade_counts": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "disclosed_pair_domain_statements": [
+        1,
+        1
+      ],
+      "occupied_cells": [
+        2,
+        2
+      ]
+    }
+  },
+  "continuous_companion": {
+    "construction": "For either finite law, add independent Uniform(-epsilon,epsilon) noise to each of the4 target coordinates, independent of the selected mixture component. Use the same noise law for both companions.",
+    "epsilon_range": "0<epsilon<1/2",
+    "example_epsilon": "1/4",
+    "positive_gap_lower_bound": "1/2",
+    "negative_gap_upper_bound": "-1/2",
+    "ambient_dimension": 4,
+    "density": "sum_k p_k*(2*epsilon)^(-4)*1{||theta-center_k||_infinity<epsilon}",
+    "marginal_statement": "The two smoothed laws have identical full2-coordinate domain marginals; those are smoothed versions, not the original discrete marginals.",
+    "support_statement": "Bounded unions of boxes with nonempty interior; absolutely continuous on R^4. Density is not claimed positive everywhere.",
+    "metrics_statement": "All domain sign indicators, risk values, joint probabilities and argmin sets remain those of the corresponding finite law; established analytically, not by simulation."
+  },
+  "validation_python": "from fractions import Fraction as Q\nfrom itertools import product\ncolumns=document['canonical_columns']\nactions=list(product(columns,repeat=2))\nassert len(actions)==9\nassert len({tuple(c) for c in columns.values()})==3\nassert set(map(tuple,columns.values()))=={(1,1),(1,2),(2,1)}\nweights=list(map(Q,document['decision']['weights']))\ntaus=list(map(Q,document['decision']['tau']))\nthresholds=list(map(Q,document['decision']['t']))\nalpha=Q(document['decision']['alpha'])\nassert sum(weights)==1 and document['decision']['P']==[]\nexpected={tuple(r['action']):r for r in document['expected_all_actions']}\nassert set(expected)==set(actions)\nmarginals=[]; results={}\nfor law in document['laws']:\n    assert sum(Q(s['mass']) for s in law['states'])==1\n    marginal=[]\n    for d in range(2):\n        m={}\n        for state in law['states']:\n            key=tuple(row[d] for row in state['theta'])\n            m[key]=m.get(key,Q(0))+Q(state['mass'])\n        assert m=={(1,0):Q(9,10),(-1,0):Q(1,10)}\n        marginal.append(m)\n    marginals.append(marginal)\n    rows=[]\n    for action in actions:\n        g=[[columns[action[d]][i] for d in range(2)] for i in range(2)]\n        N=[int(g[0][d]!=g[1][d]) for d in range(2)]\n        risk=Q(0); joint=Q(0)\n        for state in law['states']:\n            p=Q(state['mass']);theta=state['theta']\n            assert p>0 and all(theta[0][d]!=theta[1][d] for d in range(2))\n            F=[sum(int(g[i][d]<g[j][d] and theta[i][d]<=theta[j][d]) for i in range(2) for j in range(2) if i!=j) for d in range(2)]\n            assert all(0<=F[d]<=N[d]<=1 for d in range(2))\n            risk+=p*sum(weights[d]*(F[d]+taus[d]*(1-N[d])) for d in range(2))\n            joint+=p*int(any(F[d]>thresholds[d]*N[d] for d in range(2)))\n        label='coincident' if law['id']=='LAW-COINCIDENT' else 'disjoint'\n        exp=expected[action]\n        assert risk==Q(exp['risk']) and joint==Q(exp['J_'+label])\n        assert (joint<=alpha)==exp['feasible_'+label]\n        rows.append({'action':list(action),'grade_matrix':g,'risk':str(risk),'J':str(joint),'feasible':joint<=alpha,'grade_counts':[len(set(columns[a])) for a in action],'occupied_cells':len(set(map(tuple,g)))})\n    feasible=[r for r in rows if r['feasible']]\n    best=min(Q(r['risk']) for r in feasible)\n    winners=[r['action'] for r in feasible if Q(r['risk'])==best]\n    exp=document['expected_optima'][law['id']]\n    assert best==Q(exp['risk']) and winners==exp['actions']\n    winner_rows=[r for r in feasible if Q(r['risk'])==best]\n    assert [r['grade_counts'] for r in winner_rows]==exp['grade_counts']\n    assert [sum(k-1 for k in r['grade_counts']) for r in winner_rows]==exp['disclosed_pair_domain_statements']\n    assert [r['occupied_cells'] for r in winner_rows]==exp['occupied_cells']\n    results[law['id']]={'evaluated_actions':len(rows),'minimum_risk':str(best),'minimizers':winners,'rows':rows}\nassert marginals[0]==marginals[1]\nepsilon=Q(document['continuous_companion']['example_epsilon'])\nassert 0<epsilon<Q(1,2)\nassert 1-2*epsilon>0 and -1+2*epsilon<0\nassert 1-2*epsilon==Q(document['continuous_companion']['positive_gap_lower_bound'])\nassert -1+2*epsilon==Q(document['continuous_companion']['negative_gap_upper_bound'])\nprint('PASS: two coherent laws; identical full domain marginals; all18 action-law evaluations; exact minimizer sets; sign-preserving continuous-bound check')\n",
+  "validation_reproduction": "Load this JSON as document, then exec(document[\"validation_python\"]) in Python3. Standard library only.",
+  "scope_limit": "This bounded exact checker is an example audit, not the later reference evaluator or optimizer.",
+  "verification": {
+    "checked_at_utc": "2026-11-05T20:05:33.464579+00:00",
+    "passed": true,
+    "exact_arithmetic": "fractions.Fraction",
+    "action_law_cases": 18,
+    "results": {
+      "LAW-COINCIDENT": {
+        "evaluated_actions": 9,
+        "minimum_risk": "1/10",
+        "minimizers": [
+          [
+            "+",
+            "+"
+          ]
+        ],
+        "rows": [
+          {
+            "action": [
+              "W",
+              "W"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "1/4",
+            "J": "0",
+            "feasible": true,
+            "grade_counts": [
+              1,
+              1
+            ],
+            "occupied_cells": 1
+          },
+          {
+            "action": [
+              "W",
+              "+"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "risk": "7/40",
+            "J": "1/10",
+            "feasible": true,
+            "grade_counts": [
+              1,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "W",
+              "-"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "23/40",
+            "J": "9/10",
+            "feasible": false,
+            "grade_counts": [
+              1,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "+",
+              "W"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "risk": "7/40",
+            "J": "1/10",
+            "feasible": true,
+            "grade_counts": [
+              2,
+              1
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "+",
+              "+"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "risk": "1/10",
+            "J": "1/10",
+            "feasible": true,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "+",
+              "-"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "risk": "1/2",
+            "J": "1",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "-",
+              "W"
+            ],
+            "grade_matrix": [
+              [
+                2,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "23/40",
+            "J": "9/10",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              1
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "-",
+              "+"
+            ],
+            "grade_matrix": [
+              [
+                2,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "risk": "1/2",
+            "J": "1",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "-",
+              "-"
+            ],
+            "grade_matrix": [
+              [
+                2,
+                2
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "9/10",
+            "J": "9/10",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          }
+        ]
+      },
+      "LAW-DISJOINT": {
+        "evaluated_actions": 9,
+        "minimum_risk": "7/40",
+        "minimizers": [
+          [
+            "W",
+            "+"
+          ],
+          [
+            "+",
+            "W"
+          ]
+        ],
+        "rows": [
+          {
+            "action": [
+              "W",
+              "W"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "1/4",
+            "J": "0",
+            "feasible": true,
+            "grade_counts": [
+              1,
+              1
+            ],
+            "occupied_cells": 1
+          },
+          {
+            "action": [
+              "W",
+              "+"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "risk": "7/40",
+            "J": "1/10",
+            "feasible": true,
+            "grade_counts": [
+              1,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "W",
+              "-"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "23/40",
+            "J": "9/10",
+            "feasible": false,
+            "grade_counts": [
+              1,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "+",
+              "W"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "risk": "7/40",
+            "J": "1/10",
+            "feasible": true,
+            "grade_counts": [
+              2,
+              1
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "+",
+              "+"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "risk": "1/10",
+            "J": "1/5",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "+",
+              "-"
+            ],
+            "grade_matrix": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "risk": "1/2",
+            "J": "9/10",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "-",
+              "W"
+            ],
+            "grade_matrix": [
+              [
+                2,
+                1
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "23/40",
+            "J": "9/10",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              1
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "-",
+              "+"
+            ],
+            "grade_matrix": [
+              [
+                2,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "risk": "1/2",
+            "J": "9/10",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          },
+          {
+            "action": [
+              "-",
+              "-"
+            ],
+            "grade_matrix": [
+              [
+                2,
+                2
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "risk": "9/10",
+            "J": "1",
+            "feasible": false,
+            "grade_counts": [
+              2,
+              2
+            ],
+            "occupied_cells": 2
+          }
+        ]
+      }
+    },
+    "continuous_calculation": "analytic proof plus exact bound arithmetic; no samples generated",
+    "independent_review": false,
+    "proof_qmd_parse": "passed",
+    "proof_anchor_count": 8,
+    "proof_links": "all local targets and cited anchor exist",
+    "proof_sha256": "b70d519120b0f8c61166624c71638027327b1e9b01bc129e2f914744ef226cd8"
+  }
+}

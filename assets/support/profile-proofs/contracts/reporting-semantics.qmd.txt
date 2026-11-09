@@ -1,0 +1,91 @@
+---
+title: "Reporting semantics: directions, partial signatures, and profile cells"
+lang: en
+execute:
+  enabled: false
+---
+
+## Scope and status {#sec-p2-reporting-semantics-contract}
+
+This contract implements Step 3.2 using [targets and actions](targets-actions.qmd) and the canonical [action-space definitions](../proofs/definitions/action-space.qmd). It defines what an issued report says. A rule for selecting that report, a cost for false assertions, and a probability guarantee are separate objects. The forthcoming loss and protection contracts supply those objects; no reliability threshold or optimality claim is introduced here. Definitions below concern a fixed admissible matrix $G$ and a fixed target state $\Theta$, with units and domains aligned as in Step 3.1.
+
+## Atomic direction and withholding {#sec-p2-semantic-atom}
+
+For distinct units $i,j$ and domain $d$, define the disclosure indicator
+
+$$
+x_{ij}^{d}(G)=\mathbf1\{g_{id}<g_{jd}\}.
+$$
+
+When this indicator is one, the issued atomic assertion is $\theta_{id}>\theta_{jd}$. Its truth is evaluated at the target state, not at the grade labels. Reversing the grade order issues the opposite assertion. Equal grade labels issue neither assertion. Thus $x_{ij}^{d}+x_{ji}^{d}$ is either zero or one; the report never issues both directions for one pair and domain.
+
+A strict assertion is false when its two target values are equal. Conversely, withholding is **not** an assertion that the targets are equal, close, practically equivalent, or unimportant. Two units can receive the same grade despite widely separated target values in a particular state. Grades also lack fixed numerical cutpoints unless a separate target/category specification supplies them. Grade 1 in two domains does not equate the domains' target levels.
+
+## Partial pair signature and its truth {#sec-p2-semantic-signature}
+
+Use the stable unit indexing to write each unordered pair once, with $i<j$. Its partial comparison signature is the vector
+
+$$
+\sigma_{ij}(G)=(\sigma_{ij}^{1},\ldots,\sigma_{ij}^{D}),\qquad
+\sigma_{ij}^{d}=\operatorname{sign}(g_{jd}-g_{id})\in\{-1,0,+1\}.
+$$
+
+The value $+1$ asserts that $i$ is higher in that domain; $-1$ asserts that $j$ is higher; zero withholds the direction. These symbols describe the **reported** directions, not the signs of latent differences. A signature is true at $\Theta$ precisely when
+
+$$
+\sigma_{ij}^{d}(\theta_{id}-\theta_{jd})>0
+\quad\text{for every }d\text{ with }\sigma_{ij}^{d}\ne0.
+$$
+
+Unreported coordinates place no restriction on $\Theta$. The all-zero signature has no directional content. Its empty conjunction is logically true at every state, but this convention must be displayed as no comparison rather than perfect accuracy. A partial signature is not a claim about the complete vector of latent signs. It also does not declare a probability that the complete vector equals the reported signature, because zero means absence of an assertion rather than a latent zero.
+
+## Profiles, cells, and cardinalities {#sec-p2-semantic-cells}
+
+A unit's profile is its grade row. For a potential row value $v=(v_1,\ldots,v_D)$ in the Cartesian grid $\prod_d\{1,\ldots,K_d\}$, its cell is
+
+$$
+U_v(G)=\{i:(g_{i1},\ldots,g_{iD})=v\}.
+$$
+
+A cell is occupied when this set is nonempty. Its membership is a deterministic consequence of the issued matrix. An empty grid cell contains no unit in this report; it is not evidence that the corresponding latent characteristics are impossible in a population. The occupied-cell count $C(G)$ differs from both the number $K_d$ of grades in one domain and the number $\prod_dK_d$ of potential grid cells.
+
+Cell names are identifiers. Sorting them lexicographically, assigning colors, or numbering them for a legend must not imply a total priority order. Units in the same occupied cell share all reported grades; they need not share target values or a latent class. The report has not fitted a mixture model or estimated class membership merely by assigning identical grade rows.
+
+## Whole-card content and protection {#sec-p2-semantic-card}
+
+The whole-card truth event is the conjunction of all issued atomic assertions:
+
+$$
+\mathsf{True}(G)=
+\bigcap_{d=1}^{D}\ \bigcap_{(i,j):\,g_{id}<g_{jd}}
+\{\Theta:\theta_{id}>\theta_{jd}\}.
+$$
+
+This defines a measurable set of target states and nothing more. No probability bound follows from writing down the event or from the structural coherence of grade columns. In particular, a later procedure that allows some directional errors must not be described as guaranteeing this complete conjunction. Its exact protection concerns the event specified by its loss/protection contract. An all-withheld card has a universal truth event and zero directional information.
+
+A profile cell does not itself add a further latent equality assertion to this conjunction. Likewise, a label such as “profile 2” is not another uncertain scalar rank requiring interpretation. A claim about an entire row, an arbitrary subset of comparisons, or the complete card must identify which atomic statements are included. This avoids treating a displayed collection of grades as an unqualified assertion that every possible comparison is correct.
+
+## Grade dominance does not establish latent Pareto dominance {#sec-p2-semantic-grade-dominance}
+
+Call $i$ grade-dominant over $j$ when $g_{id}\leq g_{jd}$ for every domain and at least one inequality is strict. This describes the report. Latent Pareto dominance would instead require $\theta_{id}\geq\theta_{jd}$ for every domain, with at least one strict inequality. These conditions are not interchangeable.
+
+For two units and two domains, take
+
+$$
+G=\begin{pmatrix}1&1\\2&1\end{pmatrix},\qquad
+\Theta=\begin{pmatrix}2&0\\1&3\end{pmatrix}.
+$$
+
+Unit 1 is grade-dominant. The only assertion is $\theta_{11}>\theta_{21}$, which is true. The second coordinate is withheld and actually favors unit 2. Hence neither latent vector Pareto-dominates the other, although every issued assertion is true. The logical obstacle is the missing assertion in a tied-grade coordinate; a whole-card conjunction does not repair it. To claim Pareto dominance, the analysis must separately specify and support all required weak/strict target inequalities.
+
+## Three distinct sources of an unranked comparison {#sec-p2-semantic-three-cases}
+
+**Domain conflict:** with exactly known vectors $(4,1)$ and $(1,4)$, the report can correctly issue opposite directions in the two domains. No overall winner follows. This is a substantive tradeoff, not uncertainty about either domain direction.
+
+**Reporting withholding:** equal grades suppress the relevant direction. The grade matrix alone does not reveal whether this resulted from uncertainty, a joint protection, a representation restriction, a grade cap, or a policy cost. Explain the actual selection rationale rather than diagnosing low signal from the tie alone.
+
+**Known structural equality:** a declared model or scientific identity can require two targets to be equal throughout the admissible state space. Its domain-specific grade guard is separate metadata, formalized in Step 3.4. A guard can require a grade tie; a grade tie does not establish the guard's premise. Equality observed in a single illustrative state, or across finitely many saved draws, is not by itself scientific provenance for such an identity.
+
+## Executable illustrations and boundary {#sec-p2-semantic-fixtures}
+
+[The semantics fixtures](../fixtures/p2-v1/semantics-cases.json) contain five small fixed-state illustrations: grade dominance without Pareto dominance; a shared cell with different targets; correctly disclosed crossing directions; a declared structural equality with an unoccupied grid cell; and a strict assertion that is false at latent equality. Each includes issued assertions, pair signatures, target-state truth, occupied cells and expected interpretation. An embedded validation script checks orientation and these logical consequences directly. These checks validate the examples, not a posterior optimizer or the later reference evaluator.

@@ -1,0 +1,18 @@
+---
+title: "Primary foundations for numerical assurance"
+lang: en
+execute:
+  enabled: false
+---
+
+## Bounded reading and inheritance {#sec-mc-foundation-reading}
+
+Hoeffding's original Theorem 1 supplies a one-sided concentration bound for independent bounded variables. The current reading visually checked printed page 15, equation (2.3) and its endpoint discussion in the existing primary-scan image. Bibliographic identity is the 1963 JASA article, rather than its later online release. [Publisher record](https://www.tandfonline.com/doi/abs/10.1080/01621459.1963.10500830).
+
+Clopper and Pearson construct confidence boundaries from binomial tails and discuss their conservative repeated-sampling interpretation. Their zero-count endpoint is determined by a binomial zero-success probability. The relevant scan text was checked at printed pages 404–407 and 410; publisher metadata confirms the 1934 Biometrika identity. [Primary scan](https://www.barestatistics.nl/uploads/1/1/7/9/11797954/clopper__pearson_1934.pdf), [publisher record](https://academic.oup.com/biomet/article-abstract/26/4/404/291538).
+
+## Current applications and limits {#sec-mc-foundation-adaptation}
+
+N01 develops the finite-family union argument for P2 report-event indicators. N02 develops a one-sided held-out validation procedure. Their conditioning, selection and provenance requirements belong to the present development; they are not attributed to those original papers as modern adaptive-search results. Neither citation establishes independence of supplied draws or a generic MCMC confidence certificate.
+
+The [source records](numerical-assurance-foundations-source-records.json) retain exact bibliographic fields, the local Hoeffding scan/image hashes, actual reading depth and access limitations. No primary PDF is copied into rendered Book resources. The source-register builder preserves all 15 Phase2 keys, adds these two recorded sources, and writes a new current-build receipt without replacing the historical Phase2 receipt. Earlier source outputs are snapshotted in the Phase7 internal source-extension record.

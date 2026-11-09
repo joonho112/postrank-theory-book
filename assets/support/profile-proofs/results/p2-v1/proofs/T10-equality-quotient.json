@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "assertions": 15073,
+  "crossing_identity_scoped_count_cases": 8748,
+  "zero_disclosure_cases": 4860,
+  "unequal_class_original_N_F": [
+    5,
+    1
+  ],
+  "unequal_class_naive_N_F": [
+    3,
+    1
+  ],
+  "original_loss": "5/24",
+  "arithmetic": "exact integers and Fraction",
+  "scope": "T10 algebraic replay, not input provenance validation or production solver"
+}

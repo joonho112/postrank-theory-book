@@ -1,0 +1,3953 @@
+{
+  "schema": "p2-saa-oracle-check-v1",
+  "step": "Step 7.3",
+  "classification": "Elementary finite-scenario encoding and exact exhaustive checks; no optimization novelty claim",
+  "limits": "No MIP solver invoked; bounded exact enumeration only; empirical scenarios have no posterior numerical certificate",
+  "cases": [
+    {
+      "id": "C01-coincident",
+      "n": 2,
+      "D": 2,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "masses": [
+        "9/10",
+        "1/10"
+      ],
+      "alpha": "3/20",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "0"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "full",
+          "t": "0"
+        }
+      ],
+      "expected": []
+    },
+    {
+      "id": "C01-disjoint",
+      "n": 2,
+      "D": 2,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "masses": [
+        "4/5",
+        "1/10",
+        "1/10"
+      ],
+      "alpha": "3/20",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "0"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "full",
+          "t": "0"
+        }
+      ],
+      "expected": []
+    },
+    {
+      "id": "C01-positive-t",
+      "n": 3,
+      "D": 1,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            3
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      ],
+      "masses": [
+        "1"
+      ],
+      "alpha": "0",
+      "tau": [
+        "1/4"
+      ],
+      "weights": [
+        "1/1"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "2/5"
+        }
+      ],
+      "expected": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "q": "2/5"
+        }
+      ]
+    },
+    {
+      "id": "C01-threshold-one",
+      "n": 3,
+      "D": 1,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            3
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      ],
+      "masses": [
+        "1"
+      ],
+      "alpha": "0",
+      "tau": [
+        "1/4"
+      ],
+      "weights": [
+        "1/1"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "1"
+        }
+      ],
+      "expected": []
+    },
+    {
+      "id": "C01-crossed",
+      "n": 2,
+      "D": 2,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            2,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "masses": [
+        "1"
+      ],
+      "alpha": "0",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "0"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "full",
+          "t": "0"
+        }
+      ],
+      "expected": []
+    },
+    {
+      "id": "C01-overlap-and-latent-tie",
+      "n": 3,
+      "D": 2,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            3,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      "masses": [
+        "1/3",
+        "2/3"
+      ],
+      "alpha": "2/3",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1",
+        "0"
+      ],
+      "scopes": {
+        "full": "full",
+        "site1": "site1",
+        "copy": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "2/5"
+        },
+        {
+          "domain_id": "d1",
+          "scope_id": "site1",
+          "t": "1/2"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "full",
+          "t": "1/3"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "copy",
+          "t": "1"
+        }
+      ],
+      "expected": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "q": "2/5"
+        }
+      ]
+    },
+    {
+      "id": "C01-iid-empirical",
+      "n": 2,
+      "D": 2,
+      "representation": "iid_equal_weight_draws",
+      "states": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "masses": null,
+      "alpha": "1/3",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "0"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "full",
+          "t": "0"
+        }
+      ],
+      "expected": []
+    },
+    {
+      "id": "C01-mcmc-empirical",
+      "n": 2,
+      "D": 2,
+      "representation": "mcmc_equal_weight_draws",
+      "states": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            -1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "masses": null,
+      "alpha": "1/3",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "0"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "full",
+          "t": "0"
+        }
+      ],
+      "expected": []
+    },
+    {
+      "id": "C01-protection-disabled",
+      "n": 2,
+      "D": 2,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "masses": [
+        "9/10",
+        "1/10"
+      ],
+      "alpha": "0",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [],
+      "expected": []
+    },
+    {
+      "id": "C01-zero-mass-state",
+      "n": 2,
+      "D": 2,
+      "representation": "exact_finite_law",
+      "states": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "masses": [
+        "1",
+        "0"
+      ],
+      "alpha": "0",
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ],
+      "scopes": {
+        "full": "full"
+      },
+      "joint": [
+        {
+          "domain_id": "d1",
+          "scope_id": "full",
+          "t": "0"
+        },
+        {
+          "domain_id": "d2",
+          "scope_id": "full",
+          "t": "0"
+        }
+      ],
+      "expected": []
+    }
+  ],
+  "replay": {
+    "status": "PASS",
+    "checked_at_utc": "2026-11-05 22:23:02 UTC",
+    "assertions": 2636,
+    "case_count": 10,
+    "product_count": 258,
+    "selected_action_z_assignments": 1070,
+    "mip_solver_invoked": false,
+    "empirical_posterior_certificate": false,
+    "R": "R version 4.6.0 (2026-04-24)",
+    "command": "Rscript scripts/p2_check_saa.R",
+    "source_sha256": {
+      "scripts/p2_check_saa.R": "5cc6ec80b7d05f0a2186203f362b495812a1eab599f39c3e4f8e69492305c469",
+      "R/profile/input.R": "1ad2538a3e768af633910720fe5fa01b33693e5cd2e1ea28bb16a7795d8705c3",
+      "R/profile/input-summary.R": "5548d8693ab95ed045987d79b9c17d2f8b6fbd508bff2ebc314ec300fa16c7b5",
+      "R/profile/action.R": "4756089f07ad510928547262bc8c42b50e069877e4a94970a261fe537a9907c9",
+      "R/profile/decision.R": "22de8de0f30fea24a81d0ea186c1b4b060246617e69fb0cc58d262e5d4a80b1e",
+      "R/profile/evaluate-expected.R": "cec3009a45038ba0e50424cd6e542d6c1e1bcff195c40e5d02273651b765760d",
+      "R/profile/evaluate-joint.R": "6db5d18cba010dab670182c5d42bf5f74f9ddd3036d193b40fed6e6d47af2593",
+      "R/profile/oracle.R": "d7174a56a60d3d9131a5cb0f075c7bdbcdd23b6c4245f8148c61bb6d3c22e985",
+      "R/profile/candidates.R": "490bbe8b9138379d69602f05d96c9df2f1ef20d28849e14300c2fd6d4739f8d9",
+      "R/profile/solve-candidates.R": "ab132bf32f582e5586667b5e0bed25caf149ddcc1ca251d9a5db7cc86989830a",
+      "tests/profile/helper-input-fixtures.R": "34ccfa2305015c72673c8459e5a92f0ec63f4fe378b733dbb79e8b9bd40a44ed",
+      "tests/profile/helper-evaluator-fixtures.R": "8270932bafa89770cc95429b8fd0e066bebde13b2be708d4acc4c3ca28db637c"
+    },
+    "cases": {
+      "C01-coincident": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 2,
+        "bank_counts": [3, 3],
+        "product_count": 9,
+        "z_patterns_per_product": 4,
+        "protected_event_count": 2,
+        "big_m": ["1", "1"],
+        "integer_big_m": ["1", "1"],
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,2,1,2",
+            "candidate_solver": "1,2,1,2",
+            "full_small_oracle": "1,2,1,2"
+          },
+          "B": {
+            "independent": "1,2,1,2",
+            "candidate_solver": "1,2,1,2",
+            "full_small_oracle": "1,2,1,2"
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 2,
+            "minimal_z": [0, 0],
+            "N": [0, 0]
+          },
+          {
+            "key": "1,2,1,1",
+            "risk": "7/40",
+            "J": "1/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [1, 0]
+          },
+          {
+            "key": "2,1,1,1",
+            "risk": "23/40",
+            "J": "9/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0],
+            "N": [1, 0]
+          },
+          {
+            "key": "1,1,1,2",
+            "risk": "7/40",
+            "J": "1/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,1,2",
+            "risk": "1/10",
+            "J": "1/10",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,1,2",
+            "risk": "1/2",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "1,1,2,1",
+            "risk": "23/40",
+            "J": "9/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,2,1",
+            "risk": "1/2",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,2,1",
+            "risk": "9/10",
+            "J": "9/10",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0],
+            "N": [1, 1]
+          }
+        ]
+      },
+      "C01-disjoint": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 3,
+        "bank_counts": [3, 3],
+        "product_count": 9,
+        "z_patterns_per_product": 8,
+        "protected_event_count": 2,
+        "big_m": ["1", "1"],
+        "integer_big_m": ["1", "1"],
+        "optimizer_sets": {
+          "A": {
+            "independent": ["1,1,1,2", "1,2,1,1"],
+            "candidate_solver": ["1,1,1,2", "1,2,1,1"],
+            "full_small_oracle": ["1,1,1,2", "1,2,1,1"]
+          },
+          "B": {
+            "independent": ["1,1,1,2", "1,2,1,1"],
+            "candidate_solver": ["1,1,1,2", "1,2,1,1"],
+            "full_small_oracle": ["1,1,1,2", "1,2,1,1"]
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 3,
+            "minimal_z": [0, 0, 0],
+            "N": [0, 0]
+          },
+          {
+            "key": "1,2,1,1",
+            "risk": "7/40",
+            "J": "1/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1, 0],
+            "N": [1, 0]
+          },
+          {
+            "key": "2,1,1,1",
+            "risk": "23/40",
+            "J": "9/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0, 1],
+            "N": [1, 0]
+          },
+          {
+            "key": "1,1,1,2",
+            "risk": "7/40",
+            "J": "1/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0, 1],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,1,2",
+            "risk": "1/10",
+            "J": "1/5",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [0, 1, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,1,2",
+            "risk": "1/2",
+            "J": "9/10",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "1,1,2,1",
+            "risk": "23/40",
+            "J": "9/10",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 0],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,2,1",
+            "risk": "1/2",
+            "J": "9/10",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 0],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,2,1",
+            "risk": "9/10",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 1],
+            "N": [1, 1]
+          }
+        ]
+      },
+      "C01-positive-t": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 1,
+        "bank_counts": 13,
+        "product_count": 13,
+        "z_patterns_per_product": 2,
+        "protected_event_count": 1,
+        "big_m": "9/5",
+        "integer_big_m": "2",
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,3,2",
+            "candidate_solver": "1,3,2",
+            "full_small_oracle": "1,3,2"
+          },
+          "B": {
+            "independent": ["1,2,3", "1,3,2", "2,3,1"],
+            "candidate_solver": ["1,2,3", "1,3,2", "2,3,1"],
+            "full_small_oracle": ["1,2,3", "1,3,2", "2,3,1"]
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 0
+          },
+          {
+            "key": "1,1,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": 2
+          },
+          {
+            "key": "1,2,1",
+            "risk": "1/12",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "1,2,2",
+            "risk": "1/12",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "1,2,3",
+            "risk": "1/3",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "1,3,2",
+            "risk": "0",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "2,1,1",
+            "risk": "3/4",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": 2
+          },
+          {
+            "key": "2,1,2",
+            "risk": "3/4",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": 2
+          },
+          {
+            "key": "2,1,3",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": 3
+          },
+          {
+            "key": "2,2,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": 2
+          },
+          {
+            "key": "2,3,1",
+            "risk": "1/3",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "3,1,2",
+            "risk": "1",
+            "J": "1",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": 3
+          },
+          {
+            "key": "3,2,1",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": 3
+          }
+        ]
+      },
+      "C01-threshold-one": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 1,
+        "bank_counts": 13,
+        "product_count": 13,
+        "z_patterns_per_product": 2,
+        "protected_event_count": 1,
+        "big_m": "0",
+        "integer_big_m": "0",
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,3,2",
+            "candidate_solver": "1,3,2",
+            "full_small_oracle": "1,3,2"
+          },
+          "B": {
+            "independent": ["1,2,3", "1,3,2", "2,1,3", "2,3,1", "3,1,2", "3,2,1"],
+            "candidate_solver": ["1,2,3", "1,3,2", "2,1,3", "2,3,1", "3,1,2", "3,2,1"],
+            "full_small_oracle": ["1,2,3", "1,3,2", "2,1,3", "2,3,1", "3,1,2", "3,2,1"]
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 0
+          },
+          {
+            "key": "1,1,2",
+            "risk": "5/12",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "1,2,1",
+            "risk": "1/12",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "1,2,2",
+            "risk": "1/12",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "1,2,3",
+            "risk": "1/3",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "1,3,2",
+            "risk": "0",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "2,1,1",
+            "risk": "3/4",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "2,1,2",
+            "risk": "3/4",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "2,1,3",
+            "risk": "2/3",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "2,2,1",
+            "risk": "5/12",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 2
+          },
+          {
+            "key": "2,3,1",
+            "risk": "1/3",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "3,1,2",
+            "risk": "1",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          },
+          {
+            "key": "3,2,1",
+            "risk": "2/3",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": 3
+          }
+        ]
+      },
+      "C01-crossed": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 1,
+        "bank_counts": [3, 3],
+        "product_count": 9,
+        "z_patterns_per_product": 2,
+        "protected_event_count": 2,
+        "big_m": ["1", "1"],
+        "integer_big_m": ["1", "1"],
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,2,2,1",
+            "candidate_solver": "1,2,2,1",
+            "full_small_oracle": "1,2,2,1"
+          },
+          "B": {
+            "independent": "1,2,2,1",
+            "candidate_solver": "1,2,2,1",
+            "full_small_oracle": "1,2,2,1"
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": [0, 0]
+          },
+          {
+            "key": "1,2,1,1",
+            "risk": "1/8",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": [1, 0]
+          },
+          {
+            "key": "2,1,1,1",
+            "risk": "5/8",
+            "J": "1",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": [1, 0]
+          },
+          {
+            "key": "1,1,1,2",
+            "risk": "5/8",
+            "J": "1",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,1,2",
+            "risk": "1/2",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,1,2",
+            "risk": "1",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": [1, 1]
+          },
+          {
+            "key": "1,1,2,1",
+            "risk": "1/8",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,2,1",
+            "risk": "0",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": 0,
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,2,1",
+            "risk": "1/2",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": 1,
+            "N": [1, 1]
+          }
+        ]
+      },
+      "C01-overlap-and-latent-tie": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 2,
+        "bank_counts": [13, 13],
+        "product_count": 169,
+        "z_patterns_per_product": 4,
+        "protected_event_count": 4,
+        "big_m": ["9/5", "1", "2", "0"],
+        "integer_big_m": ["2", "1", "2", "0"],
+        "optimizer_sets": {
+          "A": {
+            "independent": ["1,1,1,1,1,1", "1,1,1,2,1,1", "1,1,1,2,1,2", "1,1,1,2,1,3", "1,1,1,2,2,1", "1,1,1,2,3,1", "1,1,1,3,1,2", "1,1,1,3,2,1"],
+            "candidate_solver": ["1,1,1,1,1,1", "1,1,1,2,1,1", "1,1,1,2,1,2", "1,1,1,2,1,3", "1,1,1,2,2,1", "1,1,1,2,3,1", "1,1,1,3,1,2", "1,1,1,3,2,1"],
+            "full_small_oracle": ["1,1,1,1,1,1", "1,1,1,2,1,1", "1,1,1,2,1,2", "1,1,1,2,1,3", "1,1,1,2,2,1", "1,1,1,2,3,1", "1,1,1,3,1,2", "1,1,1,3,2,1"]
+          },
+          "B": {
+            "independent": ["3,1,2,2,3,1", "3,1,2,3,2,1"],
+            "candidate_solver": ["3,1,2,2,3,1", "3,1,2,3,2,1"],
+            "full_small_oracle": ["3,1,2,2,3,1", "3,1,2,3,2,1"]
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 3,
+            "minimal_z": [0, 0],
+            "N": [0, 0, 0, 0]
+          },
+          {
+            "key": "1,1,2,1,1,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 0, 0]
+          },
+          {
+            "key": "1,2,1,1,1,1",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 1, 0, 0]
+          },
+          {
+            "key": "1,2,2,1,1,1",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 2, 0, 0]
+          },
+          {
+            "key": "1,2,3,1,1,1",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 0, 0]
+          },
+          {
+            "key": "1,3,2,1,1,1",
+            "risk": "2/3",
+            "J": "2/3",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 0, 0]
+          },
+          {
+            "key": "2,1,1,1,1,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 2, 0, 0]
+          },
+          {
+            "key": "2,1,2,1,1,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 1, 0, 0]
+          },
+          {
+            "key": "2,1,3,1,1,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 0, 0]
+          },
+          {
+            "key": "2,2,1,1,1,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 0, 0]
+          },
+          {
+            "key": "2,3,1,1,1,1",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 0, 0]
+          },
+          {
+            "key": "3,1,2,1,1,1",
+            "risk": "1/3",
+            "J": "1/3",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 0, 0]
+          },
+          {
+            "key": "3,2,1,1,1,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 3,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 0, 0]
+          },
+          {
+            "key": "1,1,1,1,1,2",
+            "risk": "1/4",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [0, 0, 2, 2]
+          },
+          {
+            "key": "1,1,2,1,1,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,1,1,1,2",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,2,1,1,2",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "1,2,3,1,1,2",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,3,2,1,1,2",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,1,1,1,1,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "2,1,2,1,1,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,1,3,1,1,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,2,1,1,1,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,3,1,1,1,2",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,1,2,1,1,2",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,2,1,1,1,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,1,1,1,2,1",
+            "risk": "1/4",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [0, 0, 2, 2]
+          },
+          {
+            "key": "1,1,2,1,2,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,1,1,2,1",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,2,1,2,1",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "1,2,3,1,2,1",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,3,2,1,2,1",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,1,1,1,2,1",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "2,1,2,1,2,1",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,1,3,1,2,1",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,2,1,1,2,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,3,1,1,2,1",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,1,2,1,2,1",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,2,1,1,2,1",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,1,1,1,2,2",
+            "risk": "1/4",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [0, 0, 2, 2]
+          },
+          {
+            "key": "1,1,2,1,2,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,1,1,2,2",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,2,1,2,2",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "1,2,3,1,2,2",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,3,2,1,2,2",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,1,1,1,2,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "2,1,2,1,2,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,1,3,1,2,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,2,1,1,2,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,3,1,1,2,2",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,1,2,1,2,2",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,2,1,1,2,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,1,1,1,2,3",
+            "risk": "1/4",
+            "J": "1",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [0, 0, 3, 3]
+          },
+          {
+            "key": "1,1,2,1,2,3",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,1,1,2,3",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,2,1,2,3",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "1,2,3,1,2,3",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,3,2,1,2,3",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,1,1,1,2,3",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "2,1,2,1,2,3",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,1,3,1,2,3",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,2,1,1,2,3",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,3,1,1,2,3",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,1,2,1,2,3",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,2,1,1,2,3",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,1,1,1,3,2",
+            "risk": "1/4",
+            "J": "1",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [0, 0, 3, 3]
+          },
+          {
+            "key": "1,1,2,1,3,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,1,1,3,2",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,2,1,3,2",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "1,2,3,1,3,2",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,3,2,1,3,2",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,1,1,1,3,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "2,1,2,1,3,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,1,3,1,3,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,2,1,1,3,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,3,1,1,3,2",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,1,2,1,3,2",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,2,1,1,3,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,1,1,2,1,1",
+            "risk": "1/4",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [0, 0, 2, 2]
+          },
+          {
+            "key": "1,1,2,2,1,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,1,2,1,1",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,2,2,1,1",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "1,2,3,2,1,1",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,3,2,2,1,1",
+            "risk": "2/3",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,1,1,2,1,1",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "2,1,2,2,1,1",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,1,3,2,1,1",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,2,1,2,1,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,3,1,2,1,1",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,1,2,2,1,1",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,2,1,2,1,1",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,1,1,2,1,2",
+            "risk": "1/4",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [0, 0, 2, 2]
+          },
+          {
+            "key": "1,1,2,2,1,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,1,2,1,2",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,2,2,1,2",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "1,2,3,2,1,2",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,3,2,2,1,2",
+            "risk": "2/3",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,1,1,2,1,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "2,1,2,2,1,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,1,3,2,1,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,2,1,2,1,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,3,1,2,1,2",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,1,2,2,1,2",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,2,1,2,1,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,1,1,2,1,3",
+            "risk": "1/4",
+            "J": "2/3",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [0, 0, 3, 3]
+          },
+          {
+            "key": "1,1,2,2,1,3",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,1,2,1,3",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,2,2,1,3",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "1,2,3,2,1,3",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,3,2,2,1,3",
+            "risk": "2/3",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,1,1,2,1,3",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "2,1,2,2,1,3",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,1,3,2,1,3",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,2,1,2,1,3",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,3,1,2,1,3",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,1,2,2,1,3",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,2,1,2,1,3",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,1,1,2,2,1",
+            "risk": "1/4",
+            "J": "1/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [0, 0, 2, 2]
+          },
+          {
+            "key": "1,1,2,2,2,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,1,2,2,1",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "1,2,2,2,2,1",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "1,2,3,2,2,1",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,3,2,2,2,1",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,1,1,2,2,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 2, 2, 2]
+          },
+          {
+            "key": "2,1,2,2,2,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 4,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,1,3,2,2,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "2,2,1,2,2,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 4,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 2, 2]
+          },
+          {
+            "key": "2,3,1,2,2,1",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,1,2,2,2,1",
+            "risk": "1/3",
+            "J": "1/3",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "3,2,1,2,2,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 2, 2]
+          },
+          {
+            "key": "1,1,1,2,3,1",
+            "risk": "1/4",
+            "J": "1/3",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [0, 0, 3, 3]
+          },
+          {
+            "key": "1,1,2,2,3,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,1,2,3,1",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,2,2,3,1",
+            "risk": "19/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "1,2,3,2,3,1",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,3,2,2,3,1",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,1,1,2,3,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "2,1,2,2,3,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,1,3,2,3,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,2,1,2,3,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,3,1,2,3,1",
+            "risk": "5/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,1,2,2,3,1",
+            "risk": "1/3",
+            "J": "1/3",
+            "utility": 6,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,2,1,2,3,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,1,1,3,1,2",
+            "risk": "1/4",
+            "J": "2/3",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [0, 0, 3, 3]
+          },
+          {
+            "key": "1,1,2,3,1,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,1,3,1,2",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,2,3,1,2",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "1,2,3,3,1,2",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,3,2,3,1,2",
+            "risk": "2/3",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,1,1,3,1,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "2,1,2,3,1,2",
+            "risk": "11/36",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,1,3,3,1,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,2,1,3,1,2",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,3,1,3,1,2",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,1,2,3,1,2",
+            "risk": "1/3",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,2,1,3,1,2",
+            "risk": "4/9",
+            "J": "1",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,1,1,3,2,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 3,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 3,
+            "minimal_z": [0, 0],
+            "N": [0, 0, 3, 3]
+          },
+          {
+            "key": "1,1,2,3,2,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,1,3,2,1",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "1,2,2,3,2,1",
+            "risk": "19/36",
+            "J": "2/3",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "1,2,3,3,2,1",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "1,3,2,3,2,1",
+            "risk": "2/3",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,1,1,3,2,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 2, 3, 3]
+          },
+          {
+            "key": "2,1,2,3,2,1",
+            "risk": "11/36",
+            "J": "1/3",
+            "utility": 5,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,1,3,3,2,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "2,2,1,3,2,1",
+            "risk": "5/12",
+            "J": "1",
+            "utility": 5,
+            "mean_feasible": false,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [2, 1, 3, 3]
+          },
+          {
+            "key": "2,3,1,3,2,1",
+            "risk": "5/9",
+            "J": "2/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,1,2,3,2,1",
+            "risk": "1/3",
+            "J": "1/3",
+            "utility": 6,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 3, 3]
+          },
+          {
+            "key": "3,2,1,3,2,1",
+            "risk": "4/9",
+            "J": "1/3",
+            "utility": 6,
+            "mean_feasible": false,
+            "tail_feasible": true,
+            "feasible": false,
+            "feasible_z_count": 1,
+            "minimal_z": [1, 0],
+            "N": [3, 2, 3, 3]
+          }
+        ]
+      },
+      "C01-iid-empirical": {
+        "status": "PASS",
+        "representation": "iid_equal_weight_draws",
+        "scenario_count": 3,
+        "bank_counts": [3, 3],
+        "product_count": 9,
+        "z_patterns_per_product": 8,
+        "protected_event_count": 2,
+        "big_m": ["1", "1"],
+        "integer_big_m": ["1", "1"],
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,1,1,1",
+            "candidate_solver": "1,1,1,1",
+            "full_small_oracle": "1,1,1,1"
+          },
+          "B": {
+            "independent": ["1,1,1,2", "1,2,1,1"],
+            "candidate_solver": ["1,1,1,2", "1,2,1,1"],
+            "full_small_oracle": ["1,1,1,2", "1,2,1,1"]
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 4,
+            "minimal_z": [0, 0, 0],
+            "N": [0, 0]
+          },
+          {
+            "key": "1,2,1,1",
+            "risk": "7/24",
+            "J": "1/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1, 0],
+            "N": [1, 0]
+          },
+          {
+            "key": "2,1,1,1",
+            "risk": "11/24",
+            "J": "2/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0, 1],
+            "N": [1, 0]
+          },
+          {
+            "key": "1,1,1,2",
+            "risk": "7/24",
+            "J": "1/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0, 1],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,1,2",
+            "risk": "1/3",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [0, 1, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,1,2",
+            "risk": "1/2",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "1,1,2,1",
+            "risk": "11/24",
+            "J": "2/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 0],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,2,1",
+            "risk": "1/2",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 0],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,2,1",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 1],
+            "N": [1, 1]
+          }
+        ]
+      },
+      "C01-mcmc-empirical": {
+        "status": "PASS",
+        "representation": "mcmc_equal_weight_draws",
+        "scenario_count": 3,
+        "bank_counts": [3, 3],
+        "product_count": 9,
+        "z_patterns_per_product": 8,
+        "protected_event_count": 2,
+        "big_m": ["1", "1"],
+        "integer_big_m": ["1", "1"],
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,1,1,1",
+            "candidate_solver": "1,1,1,1",
+            "full_small_oracle": "1,1,1,1"
+          },
+          "B": {
+            "independent": ["1,1,1,2", "1,2,1,1"],
+            "candidate_solver": ["1,1,1,2", "1,2,1,1"],
+            "full_small_oracle": ["1,1,1,2", "1,2,1,1"]
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 4,
+            "minimal_z": [0, 0, 0],
+            "N": [0, 0]
+          },
+          {
+            "key": "1,2,1,1",
+            "risk": "7/24",
+            "J": "1/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1, 0],
+            "N": [1, 0]
+          },
+          {
+            "key": "2,1,1,1",
+            "risk": "11/24",
+            "J": "2/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0, 1],
+            "N": [1, 0]
+          },
+          {
+            "key": "1,1,1,2",
+            "risk": "7/24",
+            "J": "1/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0, 1],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,1,2",
+            "risk": "1/3",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [0, 1, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,1,2",
+            "risk": "1/2",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "1,1,2,1",
+            "risk": "11/24",
+            "J": "2/3",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 0],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,2,1",
+            "risk": "1/2",
+            "J": "2/3",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 0],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,2,1",
+            "risk": "2/3",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1, 1],
+            "N": [1, 1]
+          }
+        ]
+      },
+      "C01-protection-disabled": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 2,
+        "bank_counts": [3, 3],
+        "product_count": 9,
+        "z_patterns_per_product": 4,
+        "protected_event_count": 0,
+        "big_m": [],
+        "integer_big_m": [],
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,2,1,2",
+            "candidate_solver": "1,2,1,2",
+            "full_small_oracle": "1,2,1,2"
+          },
+          "B": {
+            "independent": ["1,2,1,2", "1,2,2,1", "2,1,1,2", "2,1,2,1"],
+            "candidate_solver": ["1,2,1,2", "1,2,2,1", "2,1,1,2", "2,1,2,1"],
+            "full_small_oracle": ["1,2,1,2", "1,2,2,1", "2,1,1,2", "2,1,2,1"]
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "1,2,1,1",
+            "risk": "7/40",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "2,1,1,1",
+            "risk": "23/40",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "1,1,1,2",
+            "risk": "7/40",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "1,2,1,2",
+            "risk": "1/10",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "2,1,1,2",
+            "risk": "1/2",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "1,1,2,1",
+            "risk": "23/40",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "1,2,2,1",
+            "risk": "1/2",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          },
+          {
+            "key": "2,1,2,1",
+            "risk": "9/10",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 0],
+            "N": []
+          }
+        ]
+      },
+      "C01-zero-mass-state": {
+        "status": "PASS",
+        "representation": "exact_finite_law",
+        "scenario_count": 2,
+        "bank_counts": [3, 3],
+        "product_count": 9,
+        "z_patterns_per_product": 4,
+        "protected_event_count": 2,
+        "big_m": ["1", "1"],
+        "integer_big_m": ["1", "1"],
+        "optimizer_sets": {
+          "A": {
+            "independent": "1,2,1,2",
+            "candidate_solver": "1,2,1,2",
+            "full_small_oracle": "1,2,1,2"
+          },
+          "B": {
+            "independent": "1,2,1,2",
+            "candidate_solver": "1,2,1,2",
+            "full_small_oracle": "1,2,1,2"
+          }
+        },
+        "all_product_records": [
+          {
+            "key": "1,1,1,1",
+            "risk": "1/4",
+            "J": "0",
+            "utility": 0,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 2,
+            "minimal_z": [0, 0],
+            "N": [0, 0]
+          },
+          {
+            "key": "1,2,1,1",
+            "risk": "1/8",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [1, 0]
+          },
+          {
+            "key": "2,1,1,1",
+            "risk": "5/8",
+            "J": "1",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0],
+            "N": [1, 0]
+          },
+          {
+            "key": "1,1,1,2",
+            "risk": "1/8",
+            "J": "0",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,1,2",
+            "risk": "0",
+            "J": "0",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": true,
+            "feasible": true,
+            "feasible_z_count": 1,
+            "minimal_z": [0, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,1,2",
+            "risk": "1/2",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "1,1,2,1",
+            "risk": "5/8",
+            "J": "1",
+            "utility": 1,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0],
+            "N": [0, 1]
+          },
+          {
+            "key": "1,2,2,1",
+            "risk": "1/2",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 1],
+            "N": [1, 1]
+          },
+          {
+            "key": "2,1,2,1",
+            "risk": "1",
+            "J": "1",
+            "utility": 2,
+            "mean_feasible": true,
+            "tail_feasible": false,
+            "feasible": false,
+            "feasible_z_count": 0,
+            "minimal_z": [1, 0],
+            "N": [1, 1]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+---
+title: "Definitions: target law and product action space"
+lang: en
+execute:
+  enabled: false
+---
+
+## Status {#sec-p2-action-definitions-status}
+
+These named definitions implement Step 3.1 and the canonical `contracts/notation.csv` symbols. They fix objects for later propositions; no Phase 4 or Phase 5 theorem is asserted here. Throughout, fix analyzed information $y$, finite unit set $\{1,\ldots,n\}$ with $n\ge2$, and domain set $\{1,\ldots,D\}$ with $D\ge1$.
+
+::: {#def-p2-target-law name="Oriented target and supplied law"}
+The target state is $\Theta=(\theta_{id})\in\mathbb R^{n\times D}$, equipped with its Borel sigma-field. Its coordinates are measurable real quantities; larger $\theta_{id}$ means higher declared priority in domain $d$. The supplied selection law $\Pi_s(\cdot\mid y)$ is a probability measure on this space, with total mass one. An underlying parameter model may supply this law by a measurable target map. The law and map include the declared orientations and full joint coupling. Quantities depending on $y$ are suppressed in notation when no confusion arises.
+:::
+
+::: {#def-p2-canonical-grade name="Canonical ordered grade column"}
+Let
+$$
+\mathcal A_n
+=\bigcup_{K=1}^{n}
+\{g:\{1,\ldots,n\}\longrightarrow\{1,\ldots,K\}:g\text{ is surjective}\}.
+$$
+A column $g\in\mathcal A_n$ is a canonical ordered partition: its occupied blocks are $\{i:g_i=k\}$ in increasing label order, with grade 1 highest. It discloses $\theta_{id}>\theta_{jd}$ when used in domain $d$ and $g_i<g_j$, and withholds both directions when $g_i=g_j$. Its labels encode order and no metric distance.
+:::
+
+::: {#def-p2-product-action name="Product grade action"}
+A profile report is a matrix
+$$
+G=(g^{(1)},\ldots,g^{(D)})\in\mathcal A_n^D,
+\qquad K_d=|\{g_{id}:1\le i\le n\}|.
+$$
+Each column uses the preceding direction convention for its own domain. There are no cross-domain scalar comparisons in this definition. The all-withheld action has every entry equal to 1.
+:::
+
+::: {#def-p2-action-family name="Declared action family"}
+The core decision family $\mathcal G$ is an explicitly specified subset of $\mathcal A_n^D$ containing the all-withheld action. Thus it is finite and nonempty. It may depend on $y$; any additional dependence on a numerical selection sample must be recorded and the realized family held fixed for posterior evaluation. The full product and every restricted family must be labeled separately. All restrictions and candidate-generation rules form part of the decision specification; no Cartesian factorization of $\mathcal G$ is assumed.
+:::
+
+::: {#def-p2-common-action name="Restricted common-grade diagonal"}
+The matched common-grade family is
+$$
+\mathcal G_{\mathrm{diag}}
+=\mathcal G\cap\{(g,\ldots,g):g\in\mathcal A_n\}.
+$$
+It inherits every restriction in $\mathcal G$, including applicable domain guards, and contains the all-withheld action. Replacing this intersection by an unrestricted diagonal changes the comparison problem.
+:::
+
+::: {#def-p2-profile-cell name="Profile and occupied cell count"}
+Unit $i$'s profile is the row $(g_{i1},\ldots,g_{iD})$. Units with the same row occupy one profile cell. Define
+$$
+C(G)=\left|\{(g_{i1},\ldots,g_{iD}):1\le i\le n\}\right|.
+$$
+The count satisfies $1\le C(G)\le\min\{n,\prod_d K_d\}$ by counting occupied row values. Cells have membership and domain grades, but no imposed total order or latent-class interpretation.
+:::
+
+::: {#def-p2-fixed-action-evaluation name="Fixed-action posterior evaluation"}
+For a selected matrix $G^\star\in\mathcal G$, posterior evaluation integrates a declared measurable functional of $(G^\star,\Theta)$ against $\Pi_s(d\Theta\mid y)$, holding the matrix and decision metadata fixed. A deterministic decision rule may depend on $y$. A computationally selected realization is evaluated in the same way once fixed; its exact posterior target is distinct from the sampling behavior of an estimator computed on the selection draws. If repeated-data properties are later asserted, the relevant decision rule and probability law must additionally be specified.
+:::

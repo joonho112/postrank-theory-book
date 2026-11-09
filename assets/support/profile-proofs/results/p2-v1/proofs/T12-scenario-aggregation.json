@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "assertions": 29,
+  "arithmetic": "fractions.Fraction",
+  "new_candidate_true_R_J": [
+    "1/2",
+    "1/2"
+  ],
+  "new_candidate_old_representative_R_J": [
+    "0",
+    "0"
+  ],
+  "changed_threshold_true_J": "1/2",
+  "changed_threshold_old_representative_J": "0",
+  "scope": "T12 finite examples and pushforward replay, not an R implementation or sampling certificate"
+}

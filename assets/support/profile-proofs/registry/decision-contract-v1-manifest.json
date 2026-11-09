@@ -1,0 +1,86 @@
+{
+  "contract_version": "p2-decision-v1",
+  "frozen_at": "2026-11-05T19:51:25.890128+00:00",
+  "G1": "closed;A0findings,B1minoracceptedandindependentlyrechecked",
+  "review_run": "reviews/G1-design/review-run.json",
+  "disposition": "reviews/G1-design/disposition.csv",
+  "administrative_changes": "reviews/G1-design/administrative-status-update.json",
+  "summary_note": "decision-contract-v1 is a post-review author integration of canonical definitions, not a separately externally reviewed file. Explanatory target/loss prose was internally checked; G1 actualreadscopeisrecorded.",
+  "files": [
+    {
+      "path": "proofs/definitions/action-space.qmd",
+      "sha256": "25be158728ae3c81484b8c208e86dcf483ee873017b43b24ee9c64e9a36ea7f6",
+      "bytes": 4081
+    },
+    {
+      "path": "contracts/reporting-semantics.qmd",
+      "sha256": "7ebee3439188a81885837da49da134ba2f1d7a92ad7a594e20757ddf91908a9c",
+      "bytes": 8083
+    },
+    {
+      "path": "proofs/definitions/elementary-loss.qmd",
+      "sha256": "b6d3596b63c280ab6ca84d4b94c2b750a5a45a6ace52d6876815cd32a513ac2d",
+      "bytes": 2154
+    },
+    {
+      "path": "contracts/profile-risk-spec.qmd",
+      "sha256": "9a10a9ab11ff947d10cf2ece0d92e23efbbeb78944ee43b9cc577031bb305d17",
+      "bytes": 7677
+    },
+    {
+      "path": "contracts/primary-problem.json",
+      "sha256": "7f0ac5ff29ce9a0977fbe9c719071da3e6a55c000a4ae9786c327896391afb38",
+      "bytes": 3583
+    },
+    {
+      "path": "contracts/equality-policy.qmd",
+      "sha256": "4ab59a2f7ff1778301cc4c64c688bbd8f0204dba6d9dc7395b41156cbabdd3b2",
+      "bytes": 7504
+    },
+    {
+      "path": "contracts/input-provenance.qmd",
+      "sha256": "b1fa6c09d5744b7afe60589f9e78a1ee798e82f5326319e852977261a36eb072",
+      "bytes": 8840
+    },
+    {
+      "path": "contracts/posterior-input.json",
+      "sha256": "b2c3e129f8ea0c874e222cec20ac9838ce99b22d98f73c333d32e16c47b734a1",
+      "bytes": 10457
+    },
+    {
+      "path": "contracts/targets-actions.qmd",
+      "sha256": "593f273fe929200b859f8268172dfa6c8485796c8934d7e36d693c764384f982",
+      "bytes": 5386
+    },
+    {
+      "path": "contracts/loss-core.qmd",
+      "sha256": "b9f9f80509eb1284d70d95793c9c159651a010715f3678112faedf027e7c7106",
+      "bytes": 4827
+    },
+    {
+      "path": "contracts/notation.csv",
+      "sha256": "58b08d0073f1691368236e8e06a9a772a1e0c4fcec7267e99ecdbf3a87928832",
+      "bytes": 6746
+    },
+    {
+      "path": "fixtures/p2-v1/semantics-cases.json",
+      "sha256": "3a3d74ef9bcdd47a176a8e79b9f014f66d91bd3c19307d9dc526e894e6473772",
+      "bytes": 13367
+    },
+    {
+      "path": "fixtures/p2-v1/equality-cases.json",
+      "sha256": "930e2833d29f56ad5f0f007bf20eb81d8d586ff053d81e5e86363c28aff74e14",
+      "bytes": 14876
+    },
+    {
+      "path": "contracts/decision-contract-v1.qmd",
+      "sha256": "868760ab5f54927b298f81a0f2628cdf7229d6939c427fd0829a066f7723584a",
+      "bytes": 5057
+    },
+    {
+      "path": "fixtures/p2-v1/input-identity-regressions.json",
+      "sha256": "c5d438cae3440e085e466bd79350ca096b1b5ca58083b51b8758959f365a56ab",
+      "bytes": 5450
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+---
+title: "Explicit candidate families and bounded domain banks"
+format: html
+---
+
+## Status and scope {#sec-candidate-family-status}
+
+This is the Phase 7 Step 7.1 **implementation contract**, subordinate to the frozen [action and reference API](reference-api-v1.qmd), [input API](reference-input-api.qmd), and [exhaustive oracle contract](reference-oracle-api.qmd). The local constructors in `R/profile/candidates.R` construct restricted product families; they neither search those products nor assert optimality over all ordered partitions. No posterior fitting, target-order estimation, Monte Carlo validation, or production-package integration occurs here.
+
+For each domain $d$, let $\mathcal B_d$ be a finite bank of canonical grade columns, each respecting the declared identity relation and grade cap. The constructed family is
+
+$$
+\mathcal G_{\mathrm{bank}}=\prod_{d=1}^D\mathcal B_d,
+\qquad |\mathcal G_{\mathrm{bank}}|=\prod_{d=1}^D|\mathcal B_d|.
+$$
+
+Every bank includes the all-withheld column. Columns in different domains need not share their ordering, grades, or identity classes. An identical reported grade remains a withheld direction, not a latent-equality assertion.
+
+## Constructors {#sec-candidate-family-api}
+
+Source `input.R`, `action.R`, and `candidates.R` before calling:
+
+```r
+p2_build_domain_bank(
+  input, domain_id, order = NULL, cut_positions = integer(),
+  max_grades = NULL, seeds = list(), max_bank_entries = 1000L,
+  provenance
+)
+p2_build_candidate_family(input, banks)
+```
+
+`input` is a validated `p2_profile_input`; it is the **construction input**. `domain_id` names one declared domain. `max_grades` is a positive integer, defaults to $n$, and is normalized to $\min(n,\texttt{max_grades})$. `max_bank_entries` is a positive integer bound, never a truncation request.
+
+`order` is either `NULL`, meaning no nonconstant order-generated columns, or an explicit permutation of the input's unit IDs. There is no implicit posterior-mean builder. `cut_positions` is a distinct, explicit integer dictionary in $\{1,\ldots,n-1\}$; its order is immaterial. Nonempty cuts require an explicit order. Omitting cuts generates only all-withheld, plus any supplied seeds.
+
+`seeds` is a list of finite numeric grade vectors, each in input unit order. Optional vector names must match that order exactly; list names identify seed origins, with automatic names otherwise. The action validator canonicalizes occupied numeric labels in their existing order. Thus $(10,20,20)$ and $(1,2,2)$ are the same candidate, whereas $(2,1,1)$ reverses its directions. Invalid length, IDs, values, guard violations, or excess grades cause an error. **Invalid seeds are never repaired or silently dropped.** Seeds may come from an external single-domain method, but the constructor does not execute or endorse that method.
+
+## Identity restrictions and allocation bounds {#sec-candidate-family-bounds}
+
+Only declared domain-specific identity classes in the validated input constrain construction; the generator never infers classes from coincident draws or grades. If an identity class occupies order positions with minimum $a$ and maximum $b$, every requested cut $c$ with $a\le c<b$ is blocked. The receipt records the requested, blocked, and eligible dictionaries. This removes precisely the ordered partitions that would split that class. An intervening unit may consequently be tied in this *restricted ordered bank* without being declared structurally identical. Another domain retains its own guard and dictionary.
+
+Let $m$ be the number of eligible cuts and $K_{\max}$ the normalized cap. Before allocating combinations, the generator computes with arbitrary-precision integers
+
+$$
+B_{\mathrm{order}}=\sum_{k=0}^{\min(m,K_{\max}-1)}\binom{m}{k}.
+$$
+
+If this count exceeds `max_bank_entries`, construction fails before ordered-column allocation. The raw number of seeds is also bounded by that limit before processing. At most $B_{\mathrm{order}}+\#\mathrm{seeds}\le2\,\texttt{max_bank_entries}$ columns are temporarily combined. Canonical duplicate columns are merged, their origins are retained, and the final unique count must again respect the limit. There is no silent truncation. Repeated raw seeds can therefore fail the raw-work cap even if their eventual unique count would be small; callers should deduplicate large external submissions first.
+
+For $n=40$, all 39 cut positions with cap 40 require $2^{39}=549755813888$ order-generated columns and fail a small limit without enumeration. An explicit dictionary of three eligible cuts with cap 3 produces only $1+3+3=7$ columns. Two such banks have 49 product actions, whose count is computed without materializing that product. This is a bounded-family construction, not a general large-$n$ search solution.
+
+## Construction provenance and assurance boundaries {#sec-candidate-family-provenance}
+
+The required `provenance` list contains the following fields.
+
+| Field | Contract |
+|---|---|
+| `construction_method` | Nonempty account of how the order, seeds, and settings were obtained. |
+| `source_input_hash` | Exactly `p2_hash(input$original_spec)` for the construction input. |
+| `source_ids` | Nonempty vector of unique source identifiers. |
+| `construction_draw_ids` | Unique draw/source-row IDs actually used, or explicit `character(0)`. |
+| `source_artifact_hashes` | Named SHA256 string vector for external artifacts, or explicit `character(0)`. The source-input hash is always required separately. |
+| `sample_adaptive` | Logical vector named `order`, `seeds`, `cut_positions`, `configuration`, in that order; report dependence on Monte Carlo samples in each component. |
+| `depends_on_y` | Logical scalar recording dependence on observed data. |
+| `fixed_universe_claim` | Logical scalar claiming that this constructed bank itself is fixed with respect to Monte Carlo sampling; rejected if any sample-adaptive flag is true. |
+| `fixed_universe_justification` | Nonempty justification required when the preceding claim is true. |
+| `selection_validation_relationship` | Nonempty account of construction/selection and validation sample reuse, separation, or absence. |
+
+These declarations are inspectable provenance, **not verified sampling guarantees**. The implementation does not establish independence, coverage, effective sample size, or truthful prespecification from flags, IDs, or hashes. Every bank records `fixed_universe_verified = FALSE`, `provenance_assertions_independently_verified = FALSE`, and `numerical_guarantee = FALSE`.
+
+A family constructed deterministically from observed $y$ can be fixed conditional on $y$ while independent of a later Monte Carlo sample; `depends_on_y = TRUE` does not by itself imply sample adaptation. Conversely, an ordering or seed selected using the same posterior draws later used to estimate risk must record that dependence. A fixed cut dictionary does not make a draw-adaptive ordering fixed. A surrounding fixed catalog may support a different analysis only when that catalog and the actual selection procedure are separately declared and checked; this constructor makes no such assurance claim.
+
+The bank preserves its construction-input hash and original provenance. `p2_build_candidate_family` requires banks from the same construction input with compatible domain and unit contracts. A later evaluator may evaluate this unchanged family on a compatible new payload, including heldout draws of the same target/law, without changing its construction provenance. That later evaluator must check the evaluation target, orientations, IDs and guards, and record the construction/evaluation relationship. Rebuilding the bank as if it originated from validation draws would erase that distinction. This Step implements neither that evaluator nor a heldout-sample certificate.
+
+## Returned objects and stable identities {#sec-candidate-family-results}
+
+A `p2_candidate_bank` contains:
+
+- `columns`: integer matrix, rows are candidates and columns are unit IDs in input order; rows are lexicographically sorted by grades in that order.
+- `candidate_ids`: content hashes of domain ID, ordered unit IDs, and canonical grade vector. These remain stable under seed reordering or equivalent grade relabeling.
+- `metadata`: candidate ID, occupied grade count `K`, and `all_withheld`; `origins` retains all generating seed IDs or cut subsets.
+- `all_withheld_id`, `column_count`, `max_grades`, `max_bank_entries`, `equality_classes`, `order`, the three cut dictionaries, `ordered_partition_count_exact`, and `raw_seed_count`.
+- `source_input_hash`, unchanged `provenance`, bounded-construction `receipts`, and `bank_hash`/`bank_id`. The bank hash includes construction metadata and origins, so two banks with identical columns but different construction records need not have identical bank hashes.
+
+The family constructor accepts a named bank list in exact input domain order and checks bank integrity hashes, construction binding, identities and retained all-withheld candidates. Its `p2_candidate_family` contains `banks`, `unit_ids`, `domain_ids`, `source_input_hash`, `column_counts`, `max_grades`, `equality_classes`, exact decimal-integer string `product_size_exact`, `family_type`, `family_hash`/`family_id`, and receipts explicitly denying product enumeration, full-family optimality and numerical assurance. Hashes detect accidental mutation; they are not signatures authenticating a source's assertions.
+
+## Validation receipt and limits {#sec-candidate-family-tests}
+
+The executed focused runner is:
+
+```sh
+Rscript scripts/p2_test_profile.R candidates
+```
+
+Its receipt is [reference-tests-candidates.json](../results/p2-v1/tests/reference-tests-candidates.json): **7 test blocks, 87 expectations, all passing**, with source hashes and environment recorded. Coverage includes small exact ordered-partition counts; caps and all-withheld preservation; $n=40$ bounded construction and excessive-count rejection; domain-specific nonadjacent identity guards; canonical duplicate and reversed seeds; ordering and ID failures; provenance consistency; product counts; and construction-record mutation rejection.
+
+Initial failures exposed two implementation hazards, both repaired and retained under regression coverage: the integer binomial recurrence requires parentheses around multiplication before R's `%/%`, and `combn()` treats a single numeric value as a sequence length. The generator now combines dictionary *positions* and then indexes the declared cuts, preserving a singleton cut such as position 3.
+
+These checks validate this local constructor against its stated finite contract. They do not establish scientific quality of a supplied order, coverage of useful candidates, optimizer performance, or posterior reliability. Candidate search and comparison with the full small oracle belong to subsequent Steps.

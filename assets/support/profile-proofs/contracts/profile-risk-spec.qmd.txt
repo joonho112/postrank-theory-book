@@ -1,0 +1,103 @@
+---
+title: "Primary profile decision under joint scope protection"
+lang: en
+execute:
+  enabled: false
+---
+
+## One closed decision specification {#sec-p2-primary-risk-contract}
+
+Fix the supplied law and oriented targets, an admissible finite family $\mathcal G$ containing all-withheld, and the [core loss](loss-core.qmd). Impose the declared domain equality guards from [the equality policy](equality-policy.qmd). The remaining inputs are the scope masks, protected index sets and budgets below. All are fixed for posterior integration. The companion [machine-readable specification](primary-problem.json) records this formal contract; it is not a fitted example or a production API schema.
+
+The primary problem is **A: minimize expected error–withholding loss subject to joint protection**. Problem B uses a separate disclosure objective on the same feasible set. Their definitions must not be interchanged.
+
+## Scope counts {#sec-p2-scope-counts}
+
+A scope $h$ has a symmetric binary mask $a_{ij}^h=a_{ji}^h$, with $a_{ii}^h=0$, on the declared unit population. The finite mask catalog is fixed conditional on $y$, as are the finite protected index sets $\mathcal H$ and $\mathcal P$ of domain–scope pairs. Masks may overlap. Each distinct $(d,h)$ occurs at most once in an index set. Define
+
+$$
+N_{dh}(G)=\sum_{i\ne j}a_{ij}^h x_{ij}^d(G),\qquad
+F_{dh}(G,\Theta)=\sum_{i\ne j}a_{ij}^h x_{ij}^d(G)
+\mathbf1\{\theta_{id}\leq\theta_{jd}\}.
+$$
+
+Each scope counts a disclosed unordered pair once. Always $0\leq F_{dh}\leq N_{dh}$. For a fixed action, $N_{dh}$ is deterministic and $F_{dh}$ is random under the supplied law. A full-domain mask includes all distinct unit pairs. An incident-to-unit mask can protect comparisons involving one named unit. Excluding a pair from one scope neither forbids its disclosure nor removes it from the core loss.
+
+The baseline does not define masks from the latent integration state. Profile-cell-dependent or draw-adapted scopes require a separately declared rule and numerical selection analysis; they are not silently inserted into this fixed-mask contract.
+
+## Expected-error constraints {#sec-p2-mean-protection}
+
+For each $(d,h)\in\mathcal P$, declare $q_{dh}\in[0,1]$ and impose
+
+$$
+E_{\Pi_s}[F_{dh}(G,\Theta)\mid y]\leq q_{dh}N_{dh}(G).
+$$
+
+When $N_{dh}>0$, this is equivalent to $E(F_{dh}/N_{dh}\mid y)\leq q_{dh}$. Define
+$$
+\widetilde{\mathrm{FDP}}_{dh}=
+\begin{cases}F_{dh}/N_{dh},&N_{dh}>0,\\0,&N_{dh}=0.\end{cases}
+$$
+At $N_{dh}=0$, both counts are zero and the count constraint is satisfied, but display the fraction as **NA / no disclosure**. The computational extension is not a claim of perfect accuracy. $\mathcal P$ may be empty, explicitly disabling these optional constraints.
+
+## Joint exceedance probability {#sec-p2-joint-protection}
+
+For each $(d,h)\in\mathcal H$, declare $t_{dh}\in[0,1]$. With $\alpha\in[0,1]$, define
+
+$$
+E_{dh}(G)=\{\Theta:F_{dh}(G,\Theta)>t_{dh}N_{dh}(G)\},
+\qquad
+J(G)=\Pi_s\!\left(\bigcup_{(d,h)\in\mathcal H}E_{dh}(G)\,\middle|\,y\right),
+$$
+
+and require $J(G)\leq\alpha$. The violation inequality is strict. For integer counts it is equivalently $F_{dh}\geq\lfloor t_{dh}N_{dh}\rfloor+1$. This is a mathematical equality, not authorization to round targets or alter thresholds numerically.
+
+Empty disclosure creates no exceedance, including at $t_{dh}=0$. A threshold of one creates no exceedance either and thus provides no restriction for that scope. Overlapping scopes enter a union event; their probabilities are not added when computing direct joint risk. $\alpha$ is a posterior event-probability budget, while $q$ bounds an expectation and $t$ identifies the realized error fraction considered excessive. None is the Monte Carlo failure probability $\beta$.
+
+The baseline protected family is all full-domain scopes. Other finite families must be stated explicitly. If $\mathcal H$ is empty, its union is empty and $J=0$ by convention, but the output must state **joint protection disabled**. A bound on selected scopes cannot be presented as protection of unlisted disclosures.
+
+When all thresholds are zero and the scopes cover every issued comparison, the violation event is precisely the complement of $\mathsf{True}(G)$. This is a sufficient condition, not a necessary one: a positive threshold with $t_{dh}N_{dh}<1$ still treats one error as an exceedance. Positive thresholds can permit errors, and incomplete scope coverage leaves assertions outside the guarantee. Thus the general joint constraint does not claim that the complete report is correct with probability $1-\alpha$.
+
+## Primary A and auxiliary B {#sec-p2-problems-a-b}
+
+Let
+$$
+\mathcal F=
+\left\{G\in\mathcal G:
+J(G)\leq\alpha,\quad
+E_{\Pi_s}F_{dh}(G,\Theta)\leq q_{dh}N_{dh}(G)
+\ \forall(d,h)\in\mathcal P
+\right\}.
+$$
+All guards and candidate restrictions are already part of $\mathcal G$. Define
+$$
+\text{A:}\quad\operatorname*{arg\,min}_{G\in\mathcal F}R_{\mathrm{sep}}(G),
+\qquad
+\text{B:}\quad\operatorname*{arg\,max}_{G\in\mathcal F}I_v(G).
+$$
+
+Unweighted disclosure uses $v_{ij}^d=1$. Any additional risk cap in B is a new constraint and must be reported. A solution is a set of minimizers/maximizers until a deterministic tie-break is declared. Grade counts $K_d$ and occupied cell count $C(G)$ are outputs of the selected action, not independent estimates of a latent number of classes. They depend on the posterior, decision costs, protection and allowed family; signal-to-noise alone does not determine them.
+
+All-withheld satisfies these count and event constraints and respects the guards. The existence and reduction arguments, including restrictions on common-grade comparison, are formalized in Phase 4. This specification supplies no unrestricted large-scale solver or claim that A and B select the same action.
+
+## Separate pair-bundle option {#sec-p2-pair-bundle-option}
+
+For each $i<j$, let $b_{ij}(G)=\mathbf1\{\exists d:g_{id}\ne g_{jd}\}$ and let $u_{ij}(G,\Theta)$ indicate that at least one **issued** domain assertion for that pair is false. Set $u_{ij}=0$ when none is issued. Define
+$$
+N_{\mathrm{bun}}=\sum_{i<j}b_{ij},\qquad
+F_{\mathrm{bun}}=\sum_{i<j}u_{ij}.
+$$
+A bundle fraction uses $F_{\mathrm{bun}}/N_{\mathrm{bun}}$, with the same explicit empty display convention. An optional bundle loss is
+$$
+L_{\mathrm{bun}}=\{F_{\mathrm{bun}}+
+\tau_{\mathrm{bun}}(M-N_{\mathrm{bun}})\}/M,\quad
+0<\tau_{\mathrm{bun}}\leq1/2.
+$$
+
+This prices one partially disclosed pair as one bundle; adding a correct domain direction to an already disclosed pair does not change its bundle count. It is therefore a different reporting preference. It is not the core additive loss, a domain FDP, or a guarantee for the full latent sign vector. Bundle expected fractions or tails require their own explicitly declared constraints. The core problem does not enable them automatically.
+
+## What evaluation certifies {#sec-p2-risk-assurance-boundary}
+
+For one fixed report, all posterior statements refer to the supplied law conditional on $y$. They do not cover every possible card simultaneously, establish frequentist calibration, or validate an estimated law. Direct $J$ evaluation requires the relevant joint states. A conservative coupling-unknown alternative needs its own sufficient bounds and input contract; it cannot fabricate a joint posterior by aligning unrelated draw rows.
+
+Finite-state numerical accuracy, optimization scope and posterior-producer adequacy are separate qualifications. An empirical $\widehat J\leq\alpha$ after searching the same draws is not an exact certificate for $J\leq\alpha$. The later numerical phase must state its sampling assumptions and validation procedure.

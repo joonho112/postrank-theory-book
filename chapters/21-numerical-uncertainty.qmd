@@ -1,0 +1,683 @@
+# Numerical and posterior uncertainty {#sec-numerical-uncertainty}
+
+The probabilities used for posterior grading describe uncertainty about latent targets, but computing them may introduce numerical error of its own. Optimization must then account for any approximation. A further question is whether the supplied law describes the evaluation process. We must distinguish these sources of uncertainty, since improving one part of the calculation need not improve the others.
+
+With the supplied law fixed, we derive deterministic bounds for report risk, decision regret and criterion protection from bounded coefficient errors. We then assign a probability to these bounds under specified sampling assumptions. The resulting certificates depend on the objective, feasible family and numerical inputs as well as the optimizer.
+
+The first results give coefficient and protection bounds for weak-error loss, whose withholding cost is fixed. @sec-tie-aware-error gives the corresponding equality-neutral calculations, including uncertainty in the withholding baseline.
+
+The coefficient results first retain the common-grade action and criterion notation of the preceding foundations. A domain-profile report in @sec-profile-actions can disclose a different set of pairs in each domain. Its additive risk still permits coefficient bounds, but its joint exceedance constraint in @sec-joint-protection requires the joint law of the error events. A numerical guarantee must identify which of these quantities it controls.
+
+## Objective approximation and expected constraints
+
+We use the sample-average literature to motivate uniform error bounds for a report chosen by optimization. Kleywegt, Shapiro, and Homem-de-Mello study sample-average objectives on a finite decision set. Their consistency argument first controls the largest objective error across that set, then relates this error to optimal values and the inclusion of approximate optimizing sets. Eventual optimizer inclusion uses the separation between excluded actions and the declared optimality tolerance, with iid sampling and integrable losses supplying the finite-set uniform convergence argument [@kleywegt_sample_2002]. This argument does not assert a known sufficient draw count for the posterior-ranking problem.
+
+Expected constraints also raise a feasibility problem when approximated. Wang and Ahmed compare original expected-value constraints with their sample-average counterparts using relaxed and tightened feasible regions. A solution satisfying a sample constraint may violate the intended expectation constraint, which motivates tightening and separate validation [@wang_sample_2008]. We therefore treat objective error and changes in the feasible set separately when imposing criterion protections.
+
+Motivated by the sample-average literature, we derive deterministic perturbation bounds for posterior pair coefficients and grade reports, retaining the unordered-pair normalization and disclosure-dependent constraint errors. To assign a probability to the coefficient envelope, we need assumptions about the draws and their dependence. Accurate calculation under the selection law leaves a separate question about its calibration to the data-generating law.
+
+## Effects of coefficient error on risk and feasibility {#sec-coefficient-error}
+
+We first ask how coefficient approximation changes the risk assigned to a report, the risk of the selected report and its feasibility under criterion protections. Simultaneous coefficient-error bounds control these changes deterministically. Together with optimization accuracy, they relate a numerical solution to the intended supplied-law problem. Probabilities for the coefficient bounds, sufficient draw counts and assessment of the fitted posterior require additional arguments.
+
+### Approximate coefficients on a common decision domain {#the-same-decision-problem-with-approximate-coefficients}
+
+Fix observed information $Y=y$, $n\ge2$ units, $K\ge1$ oriented criteria, and one proper supplied joint law $\Pi_s(\cdot\mid y)$. Hold the targets, weights $w_k\ge0$ with $\sum_kw_k=1$, withholding cost $0<\tau\le1/2$, and nonempty finite base domain $\mathcal A$ fixed. The domain can encode a cap, an exact grade count or a prescribed order, but it must be the same domain in each comparison where that is assumed.
+
+Write $e_{ij,k}$ for the exact supplied-law probability $\Pi_s(\theta_{ik}\le\theta_{jk}\mid y)$. We suppress the selection superscript and conditioning argument in this section. Here *exact* refers to the stated selection law; it does not identify that law with an unknown evaluation distribution. Equality remains part of the wrong-direction event.
+
+Let $\widehat e_{ij,k}$ be finite approximate coefficients. Suppose finite radii $\varepsilon_k\ge0$ satisfy
+
+$$
+\max_{i\ne j}|\widehat e_{ij,k}-e_{ij,k}|\le\varepsilon_k,
+\qquad k=1,\ldots,K,
+\qquad \delta_w=\sum_kw_k\varepsilon_k.
+$$
+
+The maximum includes every ordered distinct pair, allowing reverse errors to be noncomplementary when equality has positive probability. The algebra permits approximate arrays that need not arise from a coherent joint law. For arbitrary finite real entries, $\widehat R$ is an affine proxy rather than necessarily an expected loss. The deterministic conclusions follow from the discrepancy bounds and require no probabilistic interpretation of that proxy.
+
+For a canonical action $g$, retain $x_{ij}(g)=\mathbf1\{g_i<g_j\}$, $N(g)=\sum_{i\ne j}x_{ij}(g)$ and $M=\binom n2$. Define
+
+$$
+E_k(g)=\sum_{i\ne j}x_{ij}(g)e_{ij,k},\qquad
+\widehat E_k(g)=\sum_{i\ne j}x_{ij}(g)\widehat e_{ij,k}.
+$$
+
+Let $R(g)$ denote the exact weighted selection risk and let $\widehat R(g)$ substitute the approximate coefficients into the same formula:
+
+$$
+\widehat R(g)=
+\frac{\sum_kw_k\widehat E_k(g)+\tau\{M-N(g)\}}M.
+$$
+
+Throughout this comparison, the targets, error convention, weights, withholding cost and denominator remain fixed; only the comparison coefficients change.
+
+In this section, $K$ counts criteria and $g$ is one common grade column; neither symbol counts occupied profile cells. For a profile $G$ with domain-specific withholding costs held fixed, the same triangle argument gives $|\widehat R_{\rm sep}(G)-R_{\rm sep}(G)|\le M^{-1}\sum_d w_d\varepsilon_dN_d(G)$. A fixed binary scope similarly has count error at most $\varepsilon_dN_{dh}(G)$. These bounds retain the original-pair normalizer and include zero-weight domains in any protected rows. They control additive risk and mean counts, not the probability of a union of threshold events.
+
+A coefficient-error radius measures the numerical accuracy of a probability calculation, not posterior spread. An exactly computed probability may still describe a highly uncertain comparison, and improved integration leaves the uncertainty in the fixed supplied law unchanged. Thus a smaller numerical radius alone does not provide stronger scientific separation of the units.
+
+### Uniform risk bounds for selected reports {#uniform-risk-control-and-a-selected-report}
+
+::: {#prp-coefficient-risk-regret}
+### Coefficient perturbation and regret on a common domain {#coefficient-perturbation-and-common-domain-regret}
+
+Under the simultaneous coefficient bound, every $g\in\mathcal A$ satisfies
+
+$$
+|\widehat E_k(g)-E_k(g)|\le\varepsilon_kN(g),\qquad
+|\widehat R(g)-R(g)|\le\frac{N(g)}M\delta_w\le\delta_w.
+$$
+
+Let $g^*$ minimize $R$ over $\mathcal A$. If $\widehat g\in\mathcal A$ satisfies
+
+$$
+\widehat R(\widehat g)
+\le\min_{g\in\mathcal A}\widehat R(g)+\eta,
+\qquad \eta\ge0,
+$$
+
+for a finite absolute risk tolerance $\eta$, then
+
+$$
+0\le R(\widehat g)-R(g^*)
+\le\frac{N(\widehat g)+N(g^*)}M\delta_w+\eta
+\le2\delta_w+\eta.
+$$
+:::
+
+**Proof.** For each criterion, the difference of counts is a sum of $N(g)$ disclosed-pair coefficient errors. The triangle inequality gives its bound. The withholding terms cancel between the two risks, so
+
+$$
+\begin{aligned}
+|\widehat R(g)-R(g)|
+&\le\frac1M\sum_{i\ne j}x_{ij}(g)
+\sum_kw_k|\widehat e_{ij,k}-e_{ij,k}|\\
+&\le\frac{N(g)}M\sum_kw_k\varepsilon_k.
+\end{aligned}
+$$
+
+The final uniform inequality follows from $N(g)\le M$. To compare the selected report with the exact optimum, write
+
+$$
+\begin{aligned}
+R(\widehat g)-R(g^*)
+={}&R(\widehat g)-\widehat R(\widehat g)\\
+&+\widehat R(\widehat g)-\widehat R(g^*)\\
+&+\widehat R(g^*)-R(g^*).
+\end{aligned}
+$$
+
+The first and last terms obey the respective pointwise bounds. The middle term is at most $\eta$ because the approximate optimization includes $g^*$ in the same domain. Optimality of $g^*$ gives the nonnegative lower bound. $\square$
+
+A report making fewer disclosures accumulates fewer coefficient errors, which gives the sharper bound. For all-tie, both risks equal $\tau$ and there is no perturbation. Since that report makes no comparison, its displayed wrong fraction remains undefined.
+
+On the coefficient envelope, the bounds hold simultaneously for all actions and hence for one selected using the approximate coefficients. Independence between selection and coefficient estimation is unnecessary for this deterministic implication. The probability that the envelope holds must still be established from the sampling experiment.
+
+The tolerance $\eta$ must bound error for the whole approximate problem on the same domain. A valid lower bound and verified feasible incumbent give such an absolute tolerance in the risk units defined in @sec-solver-qualifications. A relative gap, unnormalized gap or gap for a smaller candidate set requires conversion or a further argument before it can be used as $\eta$. Changing the fixed order or admissible reports also invalidates the common-domain premise.
+
+Although the sharper expression contains the possibly unknown disclosure count of an exact optimum, $2\delta_w+\eta$ is available without that count or the exact optimizer. This bounds objective regret, not agreement of the reports. Distinct reports can have equal or arbitrarily close risks, so without a separation condition even small perturbations may change the selected grade vector or the rule for choosing a representative.
+
+### Feasibility under estimated protection coefficients {#estimated-protections-alter-feasibility}
+
+Now declare protected criteria $\mathcal P\subseteq\{1,\ldots,K\}$ and budgets $q_k\in[0,1]$. The intended protected family is
+
+$$
+\mathcal A_q=\{g\in\mathcal A:E_k(g)\le q_kN(g),\ k\in\mathcal P\}.
+$$
+
+Replacing $E_k$ by $\widehat E_k$ can admit reports that violate the exact constraints and exclude reports that satisfy them. Exact optimization of the estimated problem does not remove this change of feasible family. Its optimum therefore need not be covered by the common-domain regret comparison with the optimum over $\mathcal A_q$.
+
+The criterionwise count bound supplies a more precise construction. Define two families within the **same base domain**:
+
+$$
+\mathcal A_{\rm in}=\left\{g\in\mathcal A:
+\widehat E_k(g)\le(q_k-\varepsilon_k)N(g),\ k\in\mathcal P\right\},
+$$
+
+$$
+\mathcal A_{\rm out}=\left\{g\in\mathcal A:
+\widehat E_k(g)\le(q_k+\varepsilon_k)N(g),\ k\in\mathcal P\right\}.
+$$
+
+::: {#prp-protection-coefficient-envelopes}
+### Inner and outer protection families under coefficient error {#inner-and-outer-protection-families}
+
+Under the same simultaneous coefficient-error assumption,
+
+$$
+\mathcal A_{\rm in}\subseteq\mathcal A_q
+\subseteq\mathcal A_{\rm out}.
+$$
+:::
+
+**Proof.** For an inner-feasible action,
+
+$$
+E_k(g)\le\widehat E_k(g)+\varepsilon_kN(g)
+\le q_kN(g).
+$$
+
+For an exactly protected action,
+
+$$
+\widehat E_k(g)\le E_k(g)+\varepsilon_kN(g)
+\le(q_k+\varepsilon_k)N(g).
+$$
+
+Apply these implications to every protected criterion. Neither argument divides by $N(g)$. $\square$
+
+The adjusted thresholds enter the count inequalities as signed coefficients. Clipping a negative $q_k-\varepsilon_k$ to zero enlarges the inner family and invalidates the inclusion proof. For example, when $\varepsilon_k>q_k$, a zero approximate count gives only $E_k\le\varepsilon_kN$, which does not ensure $E_k\le q_kN$. With nonnegative approximate probabilities, retaining the negative threshold excludes every positive-disclosure action on that row.
+
+At $N=0$, exact and approximate counts vanish, making inner, exact, and outer rows all $0\le0$ without defining an error fraction. All-tie therefore ensures inner nonemptiness when the base domain permits it. An exact grade count above one excludes all-tie and can leave the inner family empty. Inner feasibility is sufficient rather than necessary for exact protection, so failure to find an inner action leaves exact feasibility unresolved.
+
+A criterion with zero objective weight may still be protected. Its coefficient errors contribute nothing to $\delta_w$, but its own radius remains in the protection rows. Consequently, accurate weighted risk does not alone ensure criterion protection.
+
+### Risk certificate for a protected report relative to the intended optimum {#certifying-a-protected-report-against-the-intended-optimum}
+
+Under the coefficient envelope, every inner action satisfies the intended protection. The outer family contains all exactly protected actions and can therefore supply a lower bound for their optimum. A favorable value for an inner action, on its own, supplies no lower bound.
+
+::: {#prp-inner-outer-risk-certificate}
+### Risk certificate from an inner action and outer lower bound {#inner-action-and-outer-lower-bound}
+
+Suppose $g_{\rm in}\in\mathcal A_{\rm in}$ has been verified and a finite number $L_{\rm out}$ satisfies
+
+$$
+L_{\rm out}\le
+\min_{g\in\mathcal A_{\rm out}}\widehat R(g).
+$$
+
+Under the coefficient bound, $g_{\rm in}\in\mathcal A_q$, the exact protected minimum exists, and
+
+$$
+0\le R(g_{\rm in})-\min_{g\in\mathcal A_q}R(g)
+\le\widehat R(g_{\rm in})-L_{\rm out}+2\delta_w.
+$$
+:::
+
+**Proof.** The inner action belongs to both larger families, making them nonempty. Its risk satisfies $R(g_{\rm in})\le\widehat R(g_{\rm in})+\delta_w$. Every exactly protected action belongs to the outer family and satisfies
+
+$$
+R(g)\ge\widehat R(g)-\delta_w
+\ge\min_{\mathcal A_{\rm out}}\widehat R-\delta_w
+\ge L_{\rm out}-\delta_w.
+$$
+
+Minimizing this inequality over $\mathcal A_q$ and subtracting it from the inner action's upper bound gives the result. Its nonnegative lower bound follows from exact feasibility of $g_{\rm in}$. $\square$
+
+The protection conclusion requires verified inner feasibility, not inner optimality. The action's approximate value and the outer lower bound determine its regret certificate. An outer optimizer may instead violate the intended protection. Neither a lower bound for the smaller inner problem nor one from a restricted outer search can be used as $L_{\rm out}$ without establishing its validity for the full outer problem.
+
+### Two-unit perturbation example with signed inner thresholds {#sec-coefficient-error-example}
+
+One small family illustrates both decision regret and changed constraint feasibility. Take two units, one criterion, weight one, $M=1$, and $\tau=1/4$. Under the intended supplied law, let $\theta_B=0$, with $\theta_A=-1$ having probability $t+1/10$ and $\theta_A=1$ having probability $9/10-t$. Use the approximate forward-error coefficient $\widehat e_{AB}=t$, with the reverse coefficient $1-t$. The exact forward error is $e^s_{AB}=t+1/10$, so the simultaneous coefficient-error bound is $\varepsilon=\delta_w=1/10$. Consider $t\in\{0,1/5\}$ and set $q=t+1/20$. The word *exact* refers to the stipulated selection law, not a verified data-generating posterior.
+
+At $t=1/5$, the three reports have the following risks:
+
+| Report | $N$ | Approximate risk $\widehat R$ | Exact supplied-law risk $R^s$ |
+|---|---:|---:|---:|
+| Withhold | $0$ | $1/4$ | $1/4$ |
+| $A>B$ | $1$ | $1/5$ | $3/10$ |
+| $B>A$ | $1$ | $4/5$ | $7/10$ |
+
+The approximate optimum reports $A>B$, whereas the exact supplied-law optimum withholds. The resulting risk regret is $3/10-1/4=1/20$. The disclosure-sensitive bound is $\{1+0\}(1/10)=1/10$ with optimization error zero; the uniform $2\delta_w$ bound is $1/5$. Withholding has no coefficient error because its risk is the common constant $\tau$.
+
+Now impose the criterion protection. At this parameter value, $q=1/4$: the forward report satisfies the nominal approximate row because $1/5\le1/4$, but violates the exact row because $3/10>1/4$. An exact solution of the nominal approximate constrained problem would therefore still be infeasible for the intended constraint.
+
+For both parameter points, the unmodified inner set contains only withholding, the exact protected set also contains only withholding, and the outer set contains withholding and $A>B$. The exact minimum of the approximate objective over that outer set is $L_{\mathrm{out}}=t$. Using the inner action that withholds gives the bound
+
+$$
+R^s(g_{\mathrm{in}})-\min_{\mathcal A_q}R^s
+\le \frac14-t+\frac15.
+$$
+
+The bound is $1/4$ at $t=1/5$ and $9/20$ at $t=0$, while actual constrained regret is zero at both points. The deliberately loose values illustrate the inner-action/outer-bound construction rather than sharpness. Requiring exactly two grades leaves the inner family empty, so this certificate has no action to evaluate.
+
+The $t=0$ case also shows why the inner threshold must remain unmodified. Here $q=1/20$ and $q-\varepsilon=-1/20$. The forward approximate error is zero, so it fails the negative inner threshold. Replacing that threshold by zero would admit $A>B$, although its exact error $1/10$ exceeds $q$. Clipping changes the set and destroys the claimed inclusion in this example. The zero-disclosure count inequality still reads $0\le0$ with the negative threshold; its error fraction remains undefined.
+
+Enumerating the three actions at both parameter values in exact rational arithmetic verifies the perturbations, regret bounds and feasible sets. The deterministic example illustrates the general bounds proved above; it provides neither a sampling probability nor a numerical solver certificate.
+
+@fig-vis-f15a makes the four count tests explicit for both parameter values. The signed inner threshold is part of the safety argument.
+
+::: {#fig-vis-f15a .reader-figure .reader-has-narrow style="--reader-figure-width:690px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-f15a-narrow.svg">
+<img src="../assets/figures/reader-f15a-normal.svg" class="img-fluid" alt="Two membership matrices use t=0, q=1/20 and t=1/5, q=1/4, with epsilon=1/10. In both matrices, withholding passes Inner, Exact, Nominal and Outer; A&gt;B passes only Nominal and Outer; B&gt;A passes none. The inner thresholds are -1/20 and 3/20, and outer thresholds are 3/20 and 7/20. A callout shows why replacing -1/20 by 0 wrongly admits the forward report. Withholding has N=0 and an undefined error fraction.">
+</picture>
+
+Nominal and intended criterion-protection feasibility under the supplied law. Here the approximate forward error is t, the exact forward error is t+1/10, q=t+1/20, and epsilon=1/10. Both parameter panels use the same three reports and M=1. Withholding belongs to all four displayed families; A>B belongs to the nominal and outer families but fails the exact and inner tests. At t=0, the signed inner threshold is -1/20. Clipping it to zero would admit A>B despite its exact error 1/10 exceeding q=1/20. The homogeneous count rows admit withholding when it belongs to the base family, while its displayed error fraction remains undefined.
+:::
+
+[Reading-size PDF](../assets/figures/reader-f15a-normal.pdf).
+
+<!-- BEGIN EXPLORER BOX: approximation -->
+::: {#box-explorer-approximation .explorer-box}
+
+![](../assets/explorer-boxes/estimated-budgets.png){fig-alt="Deterministic two-unit example with budget 0.05, error radius 0.10, inner threshold −0.05 and outer threshold 0.15. A above B has estimated wrong share 0 and supplied-law share 0.10; it passes only the estimated and outer tests. Withholding passes all four tests with an undefined error share." .explorer-screenshot}
+
+In this two-unit illustration, the forward report has estimated error 0 but supplied-law error 0.10, above the budget 0.05. The declared uniform error radius 0.10 makes the inner threshold −0.05: compare “Negative inner” with “Estimated pass” to see why the threshold must remain signed. Withholding passes the count inequalities while its error fraction stays undefined; this deterministic construction illustrates feasible-set relationships without assigning a sampling probability to the coefficient bound.
+
+::: {.explorer-link}
+[Open Error budgets under estimated pairwise probabilities in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/estimated-budgets.html)
+:::
+
+Keep the inner threshold signed
+
+:::
+<!-- END EXPLORER BOX: approximation -->
+
+### Assumptions and scope of the risk certificate {#what-the-certificate-does-not-supply}
+
+The certificates require simultaneous coefficient accuracy and the specified feasibility and optimization conditions. No probability has yet been assigned to these premises. If certificates are issued only on some runs, a failure bound over all runs need not hold conditional on issuance; that claim needs a separate sampling argument.
+
+If the inner family is empty or no outer lower bound is available, this sufficient construction has not certified a report. A satisfactory solution of the intended problem may nevertheless exist. The derivation does not provide a general numerical certification implementation.
+
+To use the inequalities, we must validate the error radii and optimization bounds, accounting for arithmetic error and coefficient generation. Favorable rounding is insufficient for either task. With these premises established, the results account for coefficient and optimization errors. They leave model validation, the choice of normative weights, realized tail events and performance under other evaluation laws to separate analyses.
+
+## Monte Carlo error under a declared sampling law {#sec-monte-carlo-coefficients}
+
+We first assign a probability to the coefficient envelope for independent whole-state posterior draws, then examine which assumptions change for Markov-chain draws.
+
+The coefficient propositions below use $\alpha$ for their numerical failure probability. When these results are combined with the profile constraint $J\le\alpha$ of @sec-joint-protection, denote the numerical failure budget by $\beta$ instead: substitute $\beta$ for that local probability parameter throughout the coefficient bound. This change of label keeps numerical coverage conditional on the observed data separate from the posterior risk of a fixed report; it does not change either inequality.
+
+Fix the observed information $y$, the joint selection law, the oriented targets, and the unit and criterion frame. Suppose $S$ whole latent states are independently drawn from $\Pi_s(\cdot\mid y)$, with $S$ fixed before drawing them. For draw $b$, calculate
+
+$$
+X^{(b)}_{ij,k}=\mathbf1\{\theta^{(b)}_{ik}\le\theta^{(b)}_{jk}\},
+\qquad \widehat e_{ij,k}=\frac1S\sum_{b=1}^S X^{(b)}_{ij,k}.
+$$
+
+Each indicator has expectation equal to the exact coefficient $e_{ij,k}$ under this numerical experiment. Whole draws retain dependence among units and criteria; resampling marginal coordinates independently generally changes the target law. Independence is assumed across successive whole draws, while pair events within a draw may be highly dependent.
+
+Write $\Pr_{\rm MC}(\cdot\mid y)$ for the randomness of these draws. This differs from latent-state uncertainty under $\Pi_s$ and performance across datasets under an evaluation law. With $y$ and $\Pi_s$ fixed, increasing $S$ improves approximation to the law while retaining its posterior uncertainty.
+
+<!-- postrank-exhibit:W09:begin -->
+<details class="widget-exhibit" data-postrank-widget="W09" data-widget-src="../assets/widgets/W09/index.html" data-widget-title="More draws refine a probability; they do not change it" data-widget-height="1000">
+<summary>Explore: What shrinks when a fixed pair-error probability is computed from more independent draws?</summary>
+<div class="widget-fallback"><table><caption>Same law at every draw count</caption><thead><tr><th scope="col">S</th><th scope="col">Pair-error probability</th><th scope="col">SD of its iid frequency estimate</th></tr></thead><tbody><tr><td>100</td><td>20%</td><td>4%</td></tr><tr><td>400</td><td>20%</td><td>2%</td></tr><tr><td>1,600</td><td>20%</td><td>1%</td></tr><tr><td>6,400</td><td>20%</td><td>0.5%</td></tr></tbody></table></div>
+<button type="button" data-widget-load disabled>Open interactive example</button>
+<div data-widget-frame></div>
+<noscript><p>Both the fixed comparison above and the chapter explanation remain available without JavaScript.</p></noscript>
+</details>
+<script defer src="../assets/widgets/shared/book-loader.js"></script>
+<!-- postrank-exhibit:W09:end -->
+
+### Simultaneous coefficient bounds at a fixed sample size {#a-fixed-sample-simultaneous-bound}
+
+::: {#prp-iid-coefficient-envelope}
+### Coefficient envelope for independent whole-state draws {#independent-draw-coefficient-envelope}
+
+Let $n\ge2$, $K\ge1$, $M=\binom n2$ and $0<\alpha<1$. Under the fixed-sample iid construction,
+
+$$
+\Pr_{\rm MC}\left(
+\max_{i\ne j,k}|\widehat e_{ij,k}-e_{ij,k}|\le
+\sqrt{\frac{\log(4MK/\alpha)}{2S}}
+\,\middle|\,y\right)\ge1-\alpha.
+$$
+
+All ordered directions are included, and latent equality is allowed. No independence across pair coordinates or across criteria is required.
+:::
+
+**Proof.** For a Bernoulli indicator $X$ with mean $p$, the centered log moment-generating function $h(t)=\log\mathbb E\exp\{t(X-p)\}$ has $h(0)=h'(0)=0$. Its second derivative is the variance of a Bernoulli variable under exponential tilting, at most $1/4$. Taylor's formula gives $h(t)\le t^2/8$ for every real $t$; degenerate Bernoulli variables satisfy the same bound. Independence across draws and exponential Markov inequality therefore imply, for any $u>0$ and $t>0$,
+
+$$
+\Pr_{\rm MC}(\widehat e_{ij,k}-e_{ij,k}\ge u\mid y)
+\le\exp(-Stu+St^2/8).
+$$
+
+Setting $t=4u$ bounds this tail by $\exp(-2Su^2)$. The lower tail has the same bound, so the two-sided probability is at most $2\exp(-2Su^2)$. There are $Kn(n-1)=2MK$ ordered pair-criterion coordinates. Taking their union bounds the probability of any violation by $4MK\exp(-2Su^2)$. Substituting the displayed radius proves the result. $\square$
+
+The calculation applies the classical bounded-variable exponential-moment argument to the comparison indicators, with the sampling experiment and coordinate count specified above [@hoeffding1963bounded]. Retaining both directions accommodates equality, which contributes to the weak-error event for either strict direction. A radius greater than one is uninformative because empirical and exact probabilities already lie between zero and one.
+
+Different criteria can receive different error allocations. If positive numbers $\alpha_k$ are fixed before drawing, with $\sum_k\alpha_k\le\alpha$, then
+
+$$
+\varepsilon_k=
+\sqrt{\frac{\log(4M/\alpha_k)}{2S}}
+$$
+
+gives simultaneous criterionwise envelopes with joint probability at least $1-\alpha$. The union bound again requires no independence between criteria. These radii can be used in the previous section's weighted radius and protection margins. The allocation describes numerical failure probabilities, while the objective weights and protection budgets express different features of the decision problem.
+
+### Uniform bounds for optimization using the same draws {#why-optimization-using-the-same-draws-is-covered}
+
+On the simultaneous event, the deterministic risk and protection bounds hold for every report, including one optimized using the same coefficients. Every report risk depends on the same finite coefficient array, so no additional factor for the number of grade vectors is needed. 
+
+Coefficient accuracy is the sampling contribution to the argument. A regret bound also requires an absolute suboptimality bound for the entire approximate problem. For a protected report, we instead need a verified inner action and a valid lower bound for the entire outer problem. Each of these computational premises requires its own verification.
+
+Suppose the procedure issues a certificate only when the mathematical optimization and feasibility premises hold. A false issued certificate can then occur only if the coefficient envelope fails, giving probability at most $\alpha$ over **all** runs at the fixed sample size. Failure probability conditional on issuance concerns a different experiment, and non-issuance leaves the existence of an acceptable report unresolved.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: chosen-and-judged -->
+
+::: {#box-explorer-chosen-and-judged .explorer-box}
+
+![](../assets/explorer-boxes/chosen-and-judged.png){fig-alt="Screenshot of Selection and evaluation using posterior draws, illustrating Selection draws can score a report either way." .explorer-screenshot}
+
+Compare the risk estimated on the draws that selected a report with its risk under the exact version of that same supplied law. Follow runs on either side of zero, then distinguish this fixed-report discrepancy from regret against the exact-law optimum. The experiment concerns numerical sampling from fictional posteriors, not predictive performance on new observations or validation of the model.
+
+::: {.explorer-link}
+[Open Selection and evaluation using posterior draws in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/chosen-and-judged.html)
+:::
+
+Selection draws can score a report either way
+
+:::
+<!-- END EXPLORER EXPANSION: chosen-and-judged -->
+
+### Fixed sampling assumptions and limits of the bound {#fixed-sampling-assumptions-are-part-of-the-result}
+
+The law, targets, coordinate universe and sample size are fixed before sampling. Repeated inspection followed by stopping when an interval is satisfactory requires a sequential argument, and selecting error allocations after observing deviations requires an appropriate multiplicity construction. Uniformity over actions covers selection by optimization but does not justify arbitrary stopping times.
+
+The proof factors exponential moments across independent draws and hence does not justify replacing $S$ with an estimated effective sample size. Dependence, initialization error, weighted sampling and approximate kernels require separate analyses. Even small integration error leaves external calibration of the supplied model unresolved.
+
+The scope of this simultaneous event is the coefficient array used by the common-grade problem. A simultaneous bound for the joint-event probabilities of many profile cards is a different construction: it must cover their fixed candidate universe and event definitions. A pointwise interval for a card selected after examining the same draws is not made simultaneous by the coefficient theorem. Separate validation or a suitable uniform event bound supplies the missing selection argument.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: mc-error -->
+
+::: {#box-explorer-mc-error .explorer-box}
+
+![](../assets/explorer-boxes/mc-error.png){fig-alt="Screenshot of Monte Carlo error in pairwise probabilities, illustrating A fragile pair need not change the whole report." .explorer-screenshot}
+
+Increase the number of independent whole-state draws and compare estimated pair errors with their reference probabilities. Then change the permitted report family to see why a pair near the withholding threshold may or may not alter the selected coherent report. The displayed Monte Carlo standard errors are numerical diagnostics; a simultaneous fixed-sample guarantee requires its stated sampling and optimization conditions.
+
+::: {.explorer-link}
+[Open Monte Carlo error in pairwise probabilities in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/uncertainty/mc-error.html)
+:::
+
+A fragile pair need not change the whole report
+
+:::
+<!-- END EXPLORER EXPANSION: mc-error -->
+
+## A finite-sample coefficient bound for dependent draws {#sec-dependent-monte-carlo}
+
+For dependent draws, we need assumptions about the simulation process as well as the supplied law. We use Paulin's spectral concentration inequality in its corrected 2018 arXiv revision. Relative to the 2015 publication, the revised statement adds an even-sample-size condition for the selected inequality on general state spaces [@paulin_concentration_2015; @paulin_concentration_2018v5].
+
+Condition on observed $Y=y$. Suppose $\Theta^{(1)},\ldots,\Theta^{(S)}$ is a stationary, reversible, time-homogeneous, $\varphi$-irreducible, aperiodic Markov chain on a Polish space, with unique stationary law $\Pi_s(\cdot\mid y)$. Assume its ordinary $L^2$ spectral gap has a justified lower bound $\gamma_0>0$, and take a fixed even number $S$ of draws. Finite state spaces also permit odd $S$ under the cited theorem. This is a statement about the full joint chain; its separate pair indicators need not form Markov chains.
+
+For every ordered pair and criterion, evaluate $f_{ij,k}(\Theta)=\mathbf1\{\theta_{ik}\le\theta_{jk}\}$. Its stationary mean is the required coefficient $e^s_{ij,k}$, and its empirical mean is $\widehat e^s_{ij,k}$. The indicator has centered magnitude at most one and variance at most $1/4$. Substitution in the revised inequality, followed by a union bound over $Kn(n-1)$ coordinates gives, for $0<\varepsilon\le1$,
+
+$$
+\Pr_{\mathrm{MC}}\left(\max_{i\ne j,k}|\widehat e^s_{ij,k}-e^s_{ij,k}|\ge\varepsilon\mid y\right)
+\le\min\left\{1,2Kn(n-1)\exp\left(-\frac{S\gamma_0\varepsilon^2}{1+10\varepsilon}\right)\right\}.
+$$
+
+The union bound allows dependence among pairs and criteria. Both directions are included because equality is an error for either strict disclosure. On the resulting coefficient event, the deterministic risk and constraint bounds also hold for a report selected using these coefficients. The probability bound concerns approximation to the supplied law, without assessing its agreement with the data-generating process.
+
+Applying this result requires justification of stationarity and the spectral-gap bound; the length of a run alone supplies neither. For a nonstationary start, Paulin's corresponding bound requires control of the appropriate initialization discrepancy, which an arbitrary burn-in does not establish [@paulin_concentration_2018v5]. Estimated effective sample size likewise provides no certified gap. Until these constants are justified, the theorem gives the conditions for a finite-sample guarantee rather than a certificate for the computation. Adaptive stopping requires a further argument.
+
+### Finite-sample coefficient error in a stationary two-state chain {#sec-markov-dependence-example}
+
+Consider a two-unit, one-criterion posterior with two equally probable latent states: $(\theta_A,\theta_B)=(-1,0)$ and $(1,0)$. The exact coefficient $e_{AB}$ is $1/2$. Let $X_b=\mathbf1\{\theta_A^{(b)}\le\theta_B^{(b)}\}$ be generated by a stationary two-state Markov chain. At each transition it stays in its current state with probability $99/100$ and switches with probability $1/100$. Its invariant distribution is the intended equal-probability posterior, and its initial state is drawn from that invariant distribution. There is no initialization error in this construction.
+
+Use $S=100$ consecutive states to estimate the coefficient. The probability that the chain never switches is
+
+$$
+\Pr_{\rm MC}(X_1=\cdots=X_{100})
+=\left(\frac{99}{100}\right)^{99}
+\approx0.36973.
+$$
+
+On this event, the sample proportion is either zero or one, and its error from $1/2$ is exactly $1/2$. If the independent-draw proposition were incorrectly used with $M=K=1$ and $\alpha=0.05$, its nominal simultaneous radius would be
+
+$$
+\sqrt{\frac{\log(80)}{200}}\approx0.14802.
+$$
+
+The no-switch event alone makes this proposed envelope fail with probability at least $0.36973$, well above $0.05$. This is a lower bound on the actual failure probability, not a calculation of its complete distribution. Stationary marginal draws do not satisfy the independence premise of the iid bound.
+
+The same chain gives an exact variance comparison. Its lag-one correlation is $\rho=1-2/100=0.98$. Writing $Z_b=2X_b-1$, the transition rule gives $\mathbb E(Z_{b+h}\mid Z_b)=\rho^h Z_b$, so stationarity implies
+
+$$
+\operatorname{Cov}(X_b,X_{b+h})=\frac14\rho^h.
+$$
+
+Consequently,
+
+$$
+\operatorname{Var}\!\left(\frac1S\sum_{b=1}^S X_b\right)
+=\frac{1}{4S^2}\left\{S+2\sum_{h=1}^{S-1}(S-h)\rho^h\right\}.
+$$
+
+At $S=100$ this variance is approximately $0.14125$, compared with $0.0025$ for one hundred independent Bernoulli draws of mean $1/2$. The number of independent Bernoulli draws with the same sample-mean variance would be approximately $1.770$. The long-run variance formula gives the different asymptotic equivalent count $S(1-\rho)/(1+\rho)=100/99\approx1.010$. These quantities are calculated from the known transition law; neither is an ESS estimated from a realized chain, and the asymptotic expression is not the exact finite-length variance equivalence.
+
+The variance-equivalent counts describe numerical precision but cannot replace $S$ in an iid tail inequality. Finite-sample coverage requires an analysis of dependence. For this chain, exact rational arithmetic verifies the covariance sum against separate first- and second-moment propagation through the transition matrix. The calculation uses neither a simulated path nor an empirical convergence diagnostic.
+
+@fig-vis-f15b displays the exact finite-sample variance in this stationary example beside the independent-draw reference. Its separate count summaries describe variance; they do not supply an IID probability guarantee.
+
+::: {#fig-vis-f15b .reader-figure .reader-has-narrow style="--reader-figure-width:700px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/f15b-stationarity-does-not-supply-iid-precision-mobile.svg">
+<img src="../assets/figures/f15b-stationarity-does-not-supply-iid-precision.svg" class="img-fluid" alt="A known symmetric two-state transition law has diagonal probability 0.99, off-diagonal 0.01 and stationary probabilities one half. Two variance curves show much larger Markov variance than the IID reference over nine sample lengths. The S=100 panel distinguishes variance 0.14125 from 0.0025, finite variance-equivalent count 1.770 from asymptotic expression 1.010, and no-switch probability 0.36973. No estimated ESS or simulated trace appears.">
+</picture>
+
+Finite-length sample-mean variance under a stationary two-state chain and an independent-draw reference. Stationarity does not supply independent-draw precision. The chain starts in its invariant distribution, stays with probability 0.99 and switches with probability 0.01. Curves compare exact finite-length sample-mean variance with an independent Bernoulli reference. At S=100 the variances are about 0.14125 and 0.0025; the finite variance-equivalent count is about 1.770, while the asymptotic expression is about 1.010. Neither is estimated ESS or an IID tail certificate. The exact no-switch probability is about 0.36973. All values come from the stipulated transition law; no path was simulated.
+:::
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: chain-draws -->
+
+::: {#box-explorer-chain-draws .explorer-box}
+
+![](../assets/explorer-boxes/chain-draws.png){fig-alt="Screenshot of Monte Carlo error with dependent draws, illustrating A stationary chain can still give a misleading estimate." .explorer-screenshot}
+
+Inspect a path that never changes state, then compare the independence-based precision calculation with the chain-aware result. Both target states remain equally probable under the stationary law, even when one finite path gives a seemingly certain estimate. This constructed chain exposes the missing independence assumption; estimated effective sample size or a quiet trace cannot by itself replace that assumption in an iid probability bound.
+
+::: {.explorer-link}
+[Open Monte Carlo error with dependent draws in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/uncertainty/chain-draws.html)
+:::
+
+A stationary chain can still give a misleading estimate
+
+:::
+<!-- END EXPLORER EXPANSION: chain-draws -->
+
+## Multivariate output analysis and effective sample size {#sec-mcmc-output-analysis}
+
+Posterior draws from a Markov chain require output analysis for the quantities actually estimated. At fixed observed information $y$, suppose the chain has the declared supplied law $\Pi_s(\cdot\mid y)$ as its invariant distribution. Let $\psi(\Theta)\in\mathbb R^p$ collect a declared vector of comparison indicators, let $\mu=\mathbb E_s\psi(\Theta)$, and let $\widehat\mu_S$ average $S$ chain iterations. Under appropriate Markov-chain conditions, the Monte Carlo central limit theorem has the form
+
+$$
+\sqrt S(\widehat\mu_S-\mu)
+\ \xrightarrow{d}\ \mathcal N_p(0,\Sigma_{\rm MC}).
+$$
+
+Here $\Sigma_{\rm MC}$ describes the asymptotic covariance of the Monte Carlo error. It is generally different from the target-distribution covariance $\Lambda=\operatorname{var}_s\{\psi(\Theta)\}$. Vats et al. develop multivariate output analysis using this distinction and define, when both matrices have full rank,
+
+$$
+\operatorname{ESS}_{\rm multi}
+=S\left\{\frac{\det(\Lambda)}{\det(\Sigma_{\rm MC})}\right\}^{1/p}.
+$$
+
+This measure compares generalized variances and acknowledges cross-component dependence. Its estimation requires appropriate estimates of the two covariance matrices; ordinary sample covariance does not by itself account for serial dependence [@vats_multivariate_2019].
+
+Their stopping rule compares joint confidence-region volume with a relative scale determined by target variability. Under the moment, ergodicity, and strong-consistency conditions, the stopped region has limiting coverage as the requested tolerance tends to zero; the ESS threshold uses an asymptotic approximation [@vats_multivariate_2019]. These multivariate asymptotic results provide neither exact finite-sample coordinate bounds nor anytime-valid confidence sequences, and they do not justify substituting estimated ESS into an iid inequality. Projection of an ellipsoid inherits its applicable coverage, but a volume criterion alone specifies no maximum-coordinate tolerance.
+
+The comparison vector may be structurally rank deficient. Under almost-sure pairwise tie-freeness, reverse indicators sum to one and are affinely redundant; indicators with probability zero or one are constant. The full-rank determinant formula therefore need not apply to the complete vector. A reduced representation must retain enough information to recover the required coefficients and justify the associated error statement.
+
+Batch-means assessment depends on batch size, batch count and chain convergence. Vats et al. discuss how mixing affects suitable sizes and why positive-definite estimates are difficult to obtain in high dimensions in their 2019 paper [@vats_multivariate_2019]. Neither a favorable ESS estimate nor a customary batching rule establishes the simultaneous coefficient envelope.
+
+### Assumptions for multivariate Monte Carlo output analysis {#diagnostic-assumptions}
+
+The following questions organize the conditions in Vats et al.'s framework [@vats_multivariate_2019]. Their answers concern the indicator expectations used by the decision problem.
+
+| Diagnostic question | Requirement or object | Permitted interpretation and boundary |
+|---|---|---|
+| What is being estimated? | A declared fixed-dimensional vector of expectations under the chain's invariant law. | For a common-grade report, choose the directional indicators actually needed. An ESS for different scalar summaries does not automatically describe them. |
+| Does a CLT apply? | Moment, ergodicity, and nondegeneracy conditions. | Bounded indicators satisfy moment requirements, but do not establish the chain's convergence rate or correct invariant target. |
+| Which covariance matters? | $\Sigma_{\rm MC}$ governs the mean's CLT; $\Lambda$ measures one-draw variation. | Ordinary posterior sample covariance alone does not estimate serially dependent Monte Carlo error. |
+| Is covariance estimation justified? | Increasing batches and batch lengths, plus the stated consistency/rate conditions. | A computed matrix or a customary batch-size choice is not itself proof of consistency or finite-sample accuracy. |
+| Are determinants and inverses defined? | Full-rank population and estimated covariances. | More than $p$ batches is a necessary rank condition for the batch-means matrix, not a remedy for structural redundancy. |
+| What does stopping certify? | The relative-volume rule and limiting coverage as tolerance shrinks. | Joint asymptotic coverage differs from a finite-sample maximum-coordinate error bound or an anytime-valid confidence sequence. |
+
+## Interpretation of numerical risk and error guarantees {#sec-interpreting-numerical-claims}
+
+Posterior comparison probabilities concern the supplied law. Monte Carlo error measures how closely they have been approximated under a sampling mechanism, while an optimization bound concerns the specified objective and action family. Evaluation of external performance introduces another law. The preceding results relate these quantities under their stated assumptions.
+
+For a report satisfying criterion protection, $q_k$ bounds its expected wrong fraction under the supplied law at positive disclosure. The numerical allocation $\alpha$ instead bounds envelope failure across the specified sampling runs. Keeping these quantities distinct, together with solver tolerance and Monte Carlo standard error, lets us identify the premises supporting a combined result. We turn to performance under evaluation laws and at matched disclosure in @sec-evaluation-frontiers, and to discrepancies between selection and evaluation laws in @sec-misspecification-calibration.
+
+For a profile card, a diagnostic should also examine the actual joint-violation indicator and the loss trace used to assess that card. Favorable diagnostics for individual target coordinates do not automatically establish reliable estimation of a rare union event. Keeping selection and assessment portions of one chain separate in a file does not establish independence between them. A second simulation run needs its own justification of the target law and the dependence assumptions required by the proposed assurance method.
+
+## Joint-event assurance for profile reports {#sec-profile-iid-assurance}
+
+[]{#sec-p2-10-numerical-uncertainty}
+[]{#two-routes-when-independent-simulation-is-justified}
+
+No observed exceedances may mean that the report issues no protected comparison, making its event impossible. It may also mean that an active event has not appeared in the finite simulation history. To distinguish these cases, we need the event's definition and the representation of the supplied states. Exhausting a complete finite law evaluates its stipulated probability directly; zero hits in an MCMC history do not.
+
+::: {#fig-v4-s09 .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/S09-mobile.svg">
+<img src="../assets/figures/S09.svg" class="img-fluid" alt="Three evidence routes: a complete finite law with exact arithmetic, a frozen event assessed on fresh conditional iid states, and a dependent MCMC event history. Their conclusions and remaining assumptions differ.">
+</picture>
+
+Three forms of numerical evidence for a frozen joint-error event. The middle column concerns independent validation after exploration; the separate fixed-universe iid route is developed below. Exact evaluation of a complete finite representation, conditional assurance under a declared sampling experiment, and MCMC diagnostics have different premises. None by itself establishes model adequacy or unrestricted optimality. [Full-size SVG](../assets/figures/S09.svg) · [PDF](../assets/figures/S09.pdf)
+:::
+
+For a complete specification $a$, freeze the report, target interpretation, equality guards, masks, protected indices and thresholds. Its same-state indicator and intended supplied-law probability are
+$$
+Z_a(\Theta)=\mathbf1\!\left\{\exists(d,h)\in\mathcal H_a:
+F_{dh}(G_a,\Theta)>t_{dh}N_{dh}(G_a)\right\},
+\qquad J_a=E_{\Pi_s}Z_a(\Theta).
+$$
+The event is strict; the scientific acceptance cap is inclusive, $J_a\le\alpha$. The posterior budget $\alpha$ is distinct from the numerical failure budget $\beta$. Model adequacy, reports omitted from a search, and integration error remain separate questions. The following two routes concern integration of this joint event under the same fixed law, conditional on the observed information $y$.
+
+### One batch covering a fixed universe {#sec-profile-uniform-iid-assurance}
+
+Let $\mathcal U_y$ be a nonempty finite universe of complete report-and-event specifications, fixed conditional on $y$ before using the simulation batch. Fix an integer bound $K_{\mathcal U}\ge|\mathcal U_y|$, a sample size $S\ge1$ and $0<\beta<1$. Here $K_{\mathcal U}$ counts covered specifications, not criteria, domain grades, profile cells or survivors of a search. Suppose the $S$ complete states are conditionally iid from $\Pi_s(\cdot\mid y)$ and write $\widehat J_a=S^{-1}\sum_sZ_a(\Theta^{(s)})$.
+
+For a fixed specification, the indicators are iid Bernoulli across states. Dependence among units, domains and scope errors within each state is retained. The one-sided bounded-variable inequality and a union bound give [@hoeffding1963bounded]
+$$
+\Pr_{\rm MC}\!\left\{\max_{a\in\mathcal U_y}(J_a-\widehat J_a)>\varepsilon\mid y\right\}
+\le\min\{1,K_{\mathcal U}e^{-2S\varepsilon^2}\},
+\qquad
+\varepsilon=\sqrt{\frac{\log(K_{\mathcal U}/\beta)}{2S}}.
+$$
+The first inequality holds for any positive margin; the displayed choice makes the upper bound at most $\beta$. There is no extra factor for the number of scopes: each indicator already includes their full union. Nor is this the two-sided coefficient bound above. [The uniform joint-event theorem](../appendices/A-proofs.qmd#thm-n01-uniform-joint) provides the complete argument.
+
+Any search can use this batch to choose a member $\widehat a$ of the covered universe. If it issues assurance only when $U_{\widehat a}=\min(1,\widehat J_{\widehat a}+\varepsilon)\le\alpha$, then
+$$
+\Pr_{\rm MC}\{\text{assurance issued and }J_{\widehat a}>\alpha\mid y\}\le\beta.
+$$
+This bounds erroneous issuance over all runs of the declared sampling experiment; it does not give coverage conditional on issuance. The search need not find a global optimum for this safety implication, which supplies no objective-regret guarantee. Empirical mean safeguards require separate valid assurance. See [the selected-report result](../appendices/A-proofs.qmd#cor-n01-selected-safe).
+
+A universe may depend on the observed data, since the statement conditions on those data. A bank constructed from this Monte Carlo batch needs a batch-independent covering universe that also contains every adaptively chosen mask or threshold. Counting only the realized candidates does not meet that condition. Repeated looks or stopping when the bound passes require a further sequential or simultaneous argument. A margin too large to pass is inconclusive, even though an analytically all-withheld report remains feasible.
+
+### Freeze the report, then validate independently {#sec-profile-fixed-iid-assurance}
+
+An alternative allows an adaptive exploratory search without counting its entire candidate family. Let $\mathcal E$ include all exploration, including randomized selection. Conditional on $(y,\mathcal E)$, freeze the complete event specification, $\alpha$, $\beta$ and validation size $S$. The validation states must remain iid from the same supplied law under this conditioning. Nonoverlapping state identifiers and a split chain do not establish this property.
+
+For $V=\sum_{s=1}^S Z_a(\Theta^{(s)})$, the conditional law is then $\operatorname{Bin}(S,J_a)$. The one-sided Clopper–Pearson upper bound adapts binomial confidence-bound inversion [@ClopperPearson1934]. For an observed $v<S$, let $U_\beta(v)$ be the unique root in $(0,1)$ of
+$$
+B_{S,v}(u)=\sum_{k=0}^v\binom Sk u^k(1-u)^{S-k}=\beta,
+$$
+and set $U_\beta(S)=1$. For an interior cap and $v<S$,
+$$
+U_\beta(v)\le\alpha
+\quad\Longleftrightarrow\quad B_{S,v}(\alpha)\le\beta.
+$$
+The second form permits an exact count-based acceptance decision without rounding a computed root. Equality is accepted. For example, $S=3$, $v=0$, $\alpha=1/2$ and $\beta=1/8$ lie exactly on the boundary because $(1-1/2)^3=1/8$. [The binomial bound and inversion proof](../appendices/A-proofs.qmd#thm-n02-cp-bound) also gives the endpoints and conservative coverage.
+
+Certifying only on that rule yields
+$$
+\Pr_{\rm MC}\{\text{assurance issued and }J_a>\alpha\mid y,\mathcal E\}\le\beta.
+$$
+For a fixed common $\beta$, averaging over exploration gives the same bound conditional on $y$. It is neither posterior probability $1-\beta$ for the report nor a guarantee about the data-generating model. The [conditional selected-report result](../appendices/A-proofs.qmd#cor-n02-selection) concerns only the frozen joint event, not optional mean constraints, objective risk or optimality. Changing the report or threshold after seeing validation outcomes and then reusing those outcomes changes the experiment.
+
+With zero hits, $U_\beta(0)=1-\beta^{1/S}>0$ at every finite sample size. At $\alpha=\beta=0.05$, zero hits need at least 59 iid validation states, since $0.95^{59}\le0.05<0.95^{58}$. This arithmetic does not turn 59 MCMC iterations into independent validation. An exact rational comparison at a scientific boundary and a floating display of the upper bound have different roles; a displayed value rounded to the cap cannot determine acceptance.
+
+### Distinct outcomes of the assurance calculation {#sec-profile-assurance-outcomes}
+
+| Situation | Interpretation |
+|---|---|
+| The declared stochastic rule passes under its sampling premises | Conditional numerical assurance for the specified joint event. |
+| The rule does not pass, or a computation exceeds its stated work limit | Inconclusive for that assurance route; neither proves scientific infeasibility. |
+| The event is analytically identically zero | Exact structural justification, distinct from observing zero hits; it can satisfy a zero cap. |
+| The cap is one | Every event probability satisfies the cap trivially. |
+| The protected index set is empty | Joint protection is disabled; this is not a scientific correctness certificate. |
+
+At a zero cap, zero observations alone cannot certify an active event through either a positive uniform margin or a finite-sample binomial upper bound; an analytic zero-event argument remains a separate route. Records of the calculation can check that the report and settings match and that state identifiers are disjoint. They cannot establish independence or show that freezing preceded inspection. Likewise, software support for a conditional count rule does not by itself implement the fixed-universe theorem.
+
+## Reading profile MCMC event histories {#sec-profile-mcmc-assessment}
+
+[]{#what-to-report-for-mcmc}
+
+For a frozen report, retain every original chain in time order. Evaluate its component indicators and their same-state union, and report chain-specific counts and rates, first hits, longest zero runs and contiguous batch rates with denominators. Preserve final partial batches. A series of zeros is a description of the retained run, not evidence that the event is structurally impossible. An estimated ESS substituted into a binomial formula, thinning, pooling chains or assigning a new chain identifier does not establish the iid experiment.
+
+The [fictional multidomain application](31-synthetic-need.qmd) illustrates the reporting distinction. Two chains selected ten reports, and two disjoint chains assessed the frozen reports. At the wider threshold, the union had 98 and 131 hits in 4,000 states per assessment chain, giving a pooled within-block empirical count of 229/8,000. The count summarizes the retained synthetic history. Under arbitrary MCMC dependence, the count alone gives no nontrivial finite-sample upper confidence bound for the intended posterior event probability. Disjoint assessment chains keep the records distinct but do not establish the stronger conditional iid premise. Loss estimates and other diagnostics must be identified and interpreted under their own definitions and conditions.
+
+The stationary-chain bound in @sec-dependent-monte-carlo can be used when its transition-law assumptions and constants are justified. A long empirical event history alone is insufficient. When reporting the final card, we therefore distinguish what follows from the model, what was searched, what the retained states show and what numerical assurance has been established.
+
+## Perturbation and sampling error for equality-neutral risk {#sec-tie-aware-error}
+
+The weak-error bounds use fixed withholding cost. Equality-neutral risk instead depends on both strict-error and distinctness probabilities. Estimating the baseline $R_0^s$ can therefore perturb even all-withhold risk. We derive the corresponding bound with the supplied law, targets, weights, and action family held fixed.
+
+Suppose finite nonnegative simultaneous radii satisfy, for every ordered pair and criterion,
+$$
+|\widehat b_{ij,k}-b_{ij,k}|\le\varepsilon^b_k,
+\qquad
+|\widehat d_{ij,k}-d_{ij,k}|\le\varepsilon^d_k.
+$$
+Distinct coefficients are symmetric in their two unit indices. Define $\Delta_b=\sum_kw_k\varepsilon^b_k$ and $\Delta_d=\sum_kw_k\varepsilon^d_k$. The estimated risk uses $\widehat b$ for disclosed directions and $\widehat d$ for withheld pairs, with the same weights and normalization as its exact target. The action is held fixed while evaluating the following difference.
+
+::: {#prp-tie-aware-perturbation}
+### Equality-neutral risk and regret with two coefficient components {#risk-and-regret-with-two-coefficient-components}
+
+For every action $g$,
+$$
+|\widehat R_{\rm TA}(g)-R_{\rm TA}(g)|
+\le \frac{N(g)\Delta_b+\tau\{M-N(g)\}\Delta_d}{M}
+\le \zeta,
+\qquad \zeta=\max\{\Delta_b,\tau\Delta_d\}.
+$$
+On a common nonempty finite family $\mathcal F$, let $\widehat g\in\mathcal F$ and let $\eta\ge0$ be finite. If
+$\widehat R_{\rm TA}(\widehat g)\le\min_{g\in\mathcal F}\widehat R_{\rm TA}(g)+\eta$,
+then
+$$
+R_{\rm TA}(\widehat g)-\min_{g\in\mathcal F}R_{\rm TA}(g)
+\le2\zeta+\eta.
+$$
+If $\widehat d_{ij,k}=\widehat b_{ij,k}+\widehat b_{ji,k}$ and the same identity holds for the exact coefficients, one may take $\varepsilon^d_k=2\varepsilon^b_k$. For $0<\tau\le1/2$, this yields the simpler uniform bound $\zeta=\Delta_b$ and regret bound $2\Delta_b+\eta$.
+:::
+
+**Proof.** Each of the $N(g)$ disclosed pairs contributes at most $\Delta_b$ to the absolute difference in the unnormalized risk. Each of the $M-N(g)$ withheld pairs contributes at most $\tau\Delta_d$. The triangle inequality gives the first bound; it is a convex combination of the two component radii. Let $g^*$ minimize the exact risk in $\mathcal F$. Insert and subtract the two estimated risks:
+$$
+R_{\rm TA}(\widehat g)-R_{\rm TA}(g^*)
+\le\zeta+
+\{\widehat R_{\rm TA}(\widehat g)-\widehat R_{\rm TA}(g^*)\}
++\zeta\le2\zeta+\eta.
+$$
+For coherently constructed distinct coefficients, the reverse-pair identity and triangle inequality give $|\widehat d-d|\le2\varepsilon^b_k$. Since $2\tau\le1$, the uniform radius is at most $\Delta_b$. $\square$
+
+@fig-vis-f15c separates the two contributions to a fixed-action error bound from the common-family regret argument. The horizontal axis is the raw disclosure fraction, rather than distinct-comparison coverage.
+
+::: {#fig-vis-f15c .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk-mobile.svg">
+<img src="../assets/figures/f15c-two-coefficient-uncertainties-contribute-to-risk.svg" class="img-fluid" alt="An algebraic plot stacks a disclosed-direction component rising from zero to 0.10 and a withheld-distinctness component falling from 0.05 to zero. Their total rises from 0.05 at zero disclosure to 0.10 at full disclosure and stays below the dashed uniform radius 0.10. A separate three-part proof bridge adds one 0.10 risk-approximation allowance, a zero estimated optimization gap and another 0.10 allowance to bound exact-risk regret by 0.20. Labels state the fixed-family assumptions and that the envelope is not an attained action path.">
+</picture>
+
+Equality-neutral risk-error bounds from strict-error and distinctness coefficients. With illustrative simultaneous radii $\Delta_b=0.10$ and $\Delta_d=0.20$ and withholding price $\tau=0.25$, the disclosed contribution $\rho\Delta_b$ and withheld contribution $(1-\rho)\tau\Delta_d$ sum to $B(\rho)=0.05+0.05\rho$, where $\rho=N(g)/M$. Thus the bound remains $0.05$ at zero disclosure because the distinctness-dependent withholding baseline can have coefficient error. The dashed uniform radius is $\zeta=0.10$. The separate proof bridge gives exact-risk regret at most $2\zeta+\eta=0.20$ for $\eta=0$, conditional on a common nonempty finite family and the simultaneous coefficient bounds. The curve is an algebraic envelope, not an attained report path, observed error curve or confidence band.
+:::
+
+The same coarse uniform bound can hold even when the action-specific bound changes. Consider two units and one criterion: one law always makes their targets equal, while another assigns probability $1/10$ to each strict order and $4/5$ to equality. The largest directional $b$ discrepancy is $1/10$, but all-withhold risks differ by $\tau/5>0$. A bound proportional only to $N(g)$ would incorrectly give zero, whereas the two-component bound is exactly $\tau/5$ for this action. These are stipulated laws rather than fitted-model errors.
+
+### Whole-state simulation and baseline-error dependence {#whole-state-simulation-and-a-shared-baseline}
+
+With fixed-size IID whole-state draws, strict comparison indicators are Bernoulli variables. The argument in @prp-iid-coefficient-envelope gives a simultaneous bound over $J=n(n-1)K$ ordered coordinates: a common radius $\varepsilon$ has failure probability at most $2J\exp(-2S\varepsilon^2)$. Constructing $\widehat d=\widehat b_{ij}+\widehat b_{ji}$ from the same draws then gives the coherent bound. The probability is over numerical draws at the prespecified sample size and coordinate set, conditional on the observed information and supplied law. Model equality declarations, dependence in MCMC, and optional stopping require additional justification.
+
+The errors in $\widehat b$, $\widehat d$ and $\widehat R_0$ are generally dependent. A fixed-action loss trace must therefore retain strict-error and distinct-opportunity indicators from the same whole draw; treating the baseline and disclosure errors as independent would omit their covariance. Independent selection and evaluation batches can separate those operations, but evaluation still uses the frozen loss and action. A bound for the selection optimization does not certify an optimum for the evaluation batch.
+
+The uniform argument requires a fixed family, which may be defined by a structural equality partition supported by the model. Observing no differences in a finite batch establishes neither almost-sure equality nor the validity of the result for a newly inferred random family. To use these mathematical guarantees in a numerical implementation, we must check that its loss mode, coefficient construction, action family and reported assurance satisfy the corresponding premises.
+
+### A prospective protection margin with a distinct-opportunity denominator {#a-prospective-distinct-denominator-protection-margin}
+
+For a declared $q_k\ge0$, the distinct-opportunity protection is $E^b_k\le q_kQ_k$, rather than the earlier $E_k\le q_kN$. Both sides can now have coefficient error. At a fixed action,
+$$
+\left| (\widehat E^b_k-q_k\widehat Q_k)
+-(E^b_k-q_kQ_k)\right|
+\le N(g)(\varepsilon^b_k+q_k\varepsilon^d_k).
+$$
+Bounding the two disclosed-pair sums gives the inequality. An estimated residual no greater than the negative radius suffices for exact protection; exact protection implies an estimated residual no greater than the positive radius. This uses the specified denominator, radii, and common family, rather than the earlier $(q_k\pm\varepsilon_k)N$ construction. Positive exposure, software support, and guard consolidation under protections require further results.

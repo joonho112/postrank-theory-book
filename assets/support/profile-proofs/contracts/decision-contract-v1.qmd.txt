@@ -1,0 +1,51 @@
+---
+title: "P2 decision contract v1"
+lang: en
+execute:
+  enabled: false
+---
+
+## Status and authority {#sec-p2-decision-contract-v1}
+
+This document binds the Phase 3 definitions into one specification. G1's two fresh-context reviews and the disposition record govern its review status; the final contract manifest identifies the frozen bytes. It does not claim that later proofs, software, numerical certificates or manuscript reviews are complete.
+
+The primary specification is a **posterior decision over coherent multidomain grades**. It preserves oriented domain targets and supplies no total ordering of profile rows. The supplied law may be fully Bayesian, empirical Bayes or approximate, with that provenance disclosed.
+
+## Fixed decision tuple {#sec-p2-contract-tuple}
+
+For fixed observed information $y$, specify a proper law $\Pi_s(\cdot\mid y)$ on $\mathbb R^{n\times D}$, $n\geq2,D\geq1$; oriented targets and stable identities; scientifically declared domain equality relations $E_d$; and a finite allowed family $\mathcal G\subseteq\mathcal A_n^D$ containing all-withheld. Every action obeys its domain guards. Additional restrictions, including a candidate bank, are part of $\mathcal G$.
+
+Specify $w_d\geq0,\sum_dw_d=1$, $0<\tau_d\leq1/2$, finite symmetric binary scope masks with zero diagonals, unique protected index sets $\mathcal H,\mathcal P$, and $t_{dh},q_{dh},\alpha\in[0,1]$. Hold these objects fixed in posterior integration. Record numerical-sample dependence separately.
+
+The canonical action and cell definitions are in [action space](../proofs/definitions/action-space.qmd); their interpretation is in [reporting semantics](reporting-semantics.qmd). A smaller grade asserts a strictly larger target in that domain. A grade tie withholds direction. Profile cells are reporting categories, not latent classes. Grade dominance does not by itself assert latent Pareto dominance.
+
+## Risk and optimization {#sec-p2-contract-risk}
+
+With $M=\binom n2$, $x_{ij}^d=\mathbf1\{g_{id}<g_{jd}\}$, define
+$$
+N_d=\sum_{i\ne j}x_{ij}^d,\qquad
+F_d=\sum_{i\ne j}x_{ij}^d\mathbf1\{\theta_{id}\leq\theta_{jd}\}.
+$$
+Scoped counts insert $a_{ij}^h$ into the same sums. The primary objective and joint risk are
+$$
+R_{\mathrm{sep}}(G)=
+E_{\Pi_s}\!\left[\frac1M\sum_dw_d\{F_d+\tau_d(M-N_d)\}\,\middle|\,y\right],
+\qquad
+J(G)=\Pi_s\{\exists(d,h)\in\mathcal H:
+F_{dh}>t_{dh}N_{dh}\mid y\}.
+$$
+Problem A minimizes $R_{\mathrm{sep}}$ subject to $J\leq\alpha$ and optional $E F_{dh}\leq q_{dh}N_{dh}$ for $(d,h)\in\mathcal P$. Problem B instead maximizes a declared disclosure utility on that same feasible set. A deterministic tie-break is separate from either objective.
+
+See [elementary loss](../proofs/definitions/elementary-loss.qmd), [complete protection specification](profile-risk-spec.qmd) and [primary JSON](primary-problem.json) for the canonical definitions. Empty disclosed counts satisfy the count constraints and create no exceedance; display the fraction as unavailable/no disclosure. Zero thresholds with complete coverage suffice for whole-card correctness protection. Positive thresholds can also detect any error when $tN<1$; general positive-threshold protection need not guarantee complete correctness.
+
+## Equality, input and assurance {#sec-p2-contract-input}
+
+[Structural equality](equality-policy.qmd) is domain-specific and requires scientific/model provenance plus compatibility with the supplied law. Its guard remains active in zero-weight domains. All-pair normalization and constant within-class withholding costs are retained in the core. Equality-neutral reversal loss and pair-bundle loss are separate branches; their denominators and guarantees are not silently substituted.
+
+[Input provenance](input-provenance.qmd) and [its formal field specification](posterior-input.json) distinguish exact finite laws, equal-weight iid draws, MCMC draws and pair summaries. Direct joint evaluation requires the relevant dependence. Row alignment does not establish it. Pair-summary identity compatibility must be checked under either supported probability encoding; unresolved approximate compatibility is not a pass. Local probability checks do not prove global realizability.
+
+Evaluation of a fixed report under the supplied law, finite numerical accuracy, candidate-family optimization and repeated-sampling calibration are distinct claims. No empirical inequality after sample-adaptive search is promoted to a population certificate here. Every downstream result must name its target, reporting family, loss branch, masks, error event, input law and numerical status.
+
+## Version discipline {#sec-p2-contract-versioning}
+
+Use this v1 contract as the baseline for Phase 4 proofs and Phase 6 reference code. Definitions that change later require an explicit impact record, updated fixtures and affected review/reproduction checks. The G1 original snapshot remains immutable; repairs and administrative status updates are separately identified. Completion of G1 does not certify first-in-literature novelty or later implementation.

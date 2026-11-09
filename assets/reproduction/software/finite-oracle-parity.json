@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "completed_at": "2026-11-09T01:30:45.972647+00:00",
+  "cases": {
+    "two-site-coincident": {
+      "candidates": 9,
+      "feasible": 4,
+      "optimizer_count": 1,
+      "optimizer_grade_keys": [
+        "1,2,1,2"
+      ],
+      "selected_grade_key": "1,2,1,2",
+      "optimum_exact": "1/10"
+    },
+    "two-site-disjoint": {
+      "candidates": 9,
+      "feasible": 3,
+      "optimizer_count": 2,
+      "optimizer_grade_keys": [
+        "1,1,1,2",
+        "1,2,1,1"
+      ],
+      "selected_grade_key": "1,1,1,2",
+      "optimum_exact": "7/40"
+    },
+    "strict-equal-one-third": {
+      "candidates": 169,
+      "feasible": 36,
+      "optimizer_count": 1,
+      "optimizer_grade_keys": [
+        "1,3,2,1,3,2"
+      ],
+      "selected_grade_key": "1,3,2,1,3,2",
+      "optimum_exact": "0"
+    },
+    "strict-below-one-third": {
+      "candidates": 169,
+      "feasible": 16,
+      "optimizer_count": 1,
+      "optimizer_grade_keys": [
+        "1,3,2,1,3,2"
+      ],
+      "selected_grade_key": "1,3,2,1,3,2",
+      "optimum_exact": "0"
+    },
+    "latent-equality-false-strict-assertion": {
+      "candidates": 9,
+      "feasible": 1,
+      "optimizer_count": 1,
+      "optimizer_grade_keys": [
+        "1,1,1,1"
+      ],
+      "selected_grade_key": "1,1,1,1",
+      "optimum_exact": "1/4"
+    },
+    "nine-way-primary-tie": {
+      "candidates": 9,
+      "feasible": 9,
+      "optimizer_count": 9,
+      "optimizer_grade_keys": [
+        "1,1,1,1",
+        "1,1,1,2",
+        "1,1,2,1",
+        "1,2,1,1",
+        "1,2,1,2",
+        "1,2,2,1",
+        "2,1,1,1",
+        "2,1,1,2",
+        "2,1,2,1"
+      ],
+      "selected_grade_key": "1,1,1,1",
+      "optimum_exact": "1/2"
+    }
+  },
+  "compared_candidates": 374,
+  "exact_comparison_tolerance": 0,
+  "display_tolerance": 1e-12,
+  "independent_implementation": "Python stdlib Fraction and literal pair comparisons; no package or P2 functions imported",
+  "checks": [
+    "exact risk",
+    "strict union including rational threshold below 1/3",
+    "expected/protection feasibility",
+    "latent equality is a false strict assertion",
+    "all-withheld zero event",
+    "complete optimizer sets",
+    "column then unit lexicographic selected representative",
+    "display doubles"
+  ],
+  "package": {
+    "version": "1.2.0",
+    "path": "POSTRANK_LIB/postrank",
+    "R": "R version 4.6.0 (2026-04-24)",
+    "description_sha256": "bea0e9367dcfbdf2d91ab5a5c98d2a3f6d6fa270d79ae319434f920d6255920a",
+    "exports": [
+      "postrank_mdomain_assess",
+      "postrank_mdomain_decision",
+      "postrank_mdomain_evaluate",
+      "postrank_mdomain_family",
+      "postrank_mdomain_grades",
+      "postrank_mdomain_input",
+      "postrank_mdomain_solve",
+      "postrank_plot_mdomain"
+    ]
+  },
+  "artifacts": {
+    "finite-oracle.py": "1b73eaef863d305dac9b2fdb2ac56a3f6c64f07fe70b5a18a3931d3a6f5a6222",
+    "exact-fixture.json": "db58a2311576a489a90e759f72ad7a73d30fac701c877c39e9e5c04b858d1856",
+    "finite-oracle.R": "39e571ad416b9e323dee2623b5fcdfb57113562a4a067b5872dcf49e22eeab30",
+    "exact-parity.tsv": "ede8808ee76a6bb8fdf2fe5776d0e5d1226efa99169ddacd7ae7f8d0dc9bb7cc"
+  },
+  "step": "7.23",
+  "execution": "current Phase7 run",
+  "distinct_finite_laws": 5,
+  "decision_specifications": 6,
+  "historical_28125_replayed": false,
+  "source_adaptation": "Historical independent Fraction oracle, bounded small batch. Positive-equality fixture now has half strict/half equal states, so no undeclared almost-sure identity is needed. Public R input excludes independent expected scores.",
+  "reader_copy": {
+    "scope": "All numerical fields unchanged; local installation path replaced by environment-variable notation.",
+    "source_sha256": "6ee1c467022f2d5a95f11f48ca76bc2e620e3ecc22cca71f5ee827f66d5d8180"
+  }
+}

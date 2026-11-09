@@ -1,0 +1,186 @@
+---
+title: "Declared candidate-product solver: implementation interface"
+lang: en
+execute:
+  enabled: false
+---
+
+## Export and optimization scope {#sec-candidate-solver-export}
+
+Step 7.2 implements [solve-candidates.R](../R/profile/solve-candidates.R):
+
+```r
+p2_solve_candidates(
+  input, family, decision = NULL, objective = "A",
+  protection = "direct_joint", utility = NULL, max_actions = 100000L,
+  construction_input = NULL, evaluation_relationship = NULL
+)
+```
+
+Source the input, action, decision, expected, joint and candidate-bank modules
+before the solver; summary construction also uses the summary validator.
+Dependencies resolve in the function's caller/source environment. Isolated
+environments with `baseenv()` ancestry additionally provide `stats::setNames`,
+as in the reference loader convention. No shared loader is modified by this
+Step.
+
+The input is a validated `p2_profile_input`; family is a validated
+`p2_candidate_family` from the [candidate constructors](candidate-family.qmd).
+The solver examines **every** member of that declared product. It does not
+expand its banks, infer a target order, or claim optimality over all ordered
+partitions. It supports $n>4$ when the declared product remains bounded. An exact
+integer product-size check against `max_actions` precedes domain precomputation
+and product enumeration. Exceeding the limit raises an explicit refusal; there
+is no silent truncation, partial solution or infeasibility declaration.
+
+Objective A minimizes additive expected error–withholding risk. Objective B
+maximizes separately declared pair-domain utility $I_v$. Utility accepts the
+same nonnegative numeric/rational-text $M\times D$ policy and pair/domain
+ordering as the [small oracle](reference-oracle-api.qmd). Numeric entries mean
+their stored binary rationals; default utility is one per disclosed statement.
+Neither objective uses grade or cell counts as its score. All optional mean
+constraints and the selected protection rule remain active for zero-weight
+domains.
+
+## Immutable construction and new evaluation inputs {#sec-candidate-solver-compatibility}
+
+The solver verifies the family hash after removing its own hash/ID fields,
+then validates its bank hashes and reconstructs only the family wrapper from
+the original banks. The result must exactly match the supplied family. It never
+rebuilds or relabels a bank's construction provenance using evaluation samples.
+
+If `p2_hash(input$original_spec)` matches the construction source hash,
+`construction_input` may be omitted and the relationship defaults to
+`same_input`. Otherwise callers must supply the original validated
+`construction_input` and an explicit list:
+
+```r
+list(
+  relation = "new_payload_same_declared_law",
+  same_target_law_asserted = TRUE,
+  justification = "Reason the intended target and conditional law agree",
+  sample_relationship = "How construction and evaluation samples relate"
+)
+```
+
+The original input's hash must match the family's construction binding. The
+solver requires identical unit/domain IDs, complete `target_spec` records
+(including orientations and transformations), and equality guards. It also
+checks intended-law `identifier`, `producer_class`, `model_version` and
+`conditioning_info`, plus provenance `conditioning_data_id` and
+`conditioning_data_hash`. Payload hashes, state identifiers, sample lengths
+and representations may differ. A same-input call cannot describe itself as a
+new payload, and a changed-input call cannot use the same-input label.
+
+These are mechanical checks of **declared compatibility**, not verification
+that two generators actually target the same probability law. An explicit
+new-input justification is retained. State labels or changed sample lengths do
+not prove disjointness or independence. Heldout inputs are permitted, but this
+solver does not certify that they are held out. Original construction flags,
+draw IDs, artifact hashes and provenance remain unchanged. The solver also
+records that its selected action uses the evaluation measure; reuse for search
+does not constitute independent validation.
+
+## Domain precomputation and joint combination {#sec-candidate-solver-precomputation}
+
+For each bank column, the solver constructs an action with that column in its
+domain and all other domains withheld. It calls the existing
+[joint evaluator](reference-joint-api.qmd), which calls expected evaluation and
+revalidates the action. Thus weak-error comparisons, original $M$, scoped counts,
+strict integer cutoffs and mean constraints come from the established modules.
+The precomputation retains the selected domain's weighted loss contribution,
+mean-constraint rows, event probabilities, and original-state failure union.
+It does **not** add the complete one-column action's risk across domains, which
+would duplicate other domains' withholding constants.
+
+Each product combines its domain contributions additively. For direct
+protection, it ORs the selected domain failure masks on their shared original
+state basis. Multiple active domains require actual joint capability and a
+joint payload with identical payload ID, state IDs/history, representation,
+weights, retention and sampling metadata. No sorting or row alignment creates
+coupling. A single active domain can use its own criterionwise full-vector
+states. An empty or analytically inactive tail has probability zero, including
+valid summary mean-only problems. Nontrivial scalar-summary tails are rejected.
+
+The alternative selectors preserve the same family, risk and mean constraints:
+`bonferroni` requires $\sum_h p_h\le\alpha$;
+`equal_bonferroni` requires every $p_h\le\alpha/H$. Here $H$ is the complete
+configured row count, including inactive rows. At $H=0$ protection is explicitly
+disabled and vacuous. Conservative values are not clipped or mislabeled as
+joint probabilities. If any required precomputation or product cannot be
+evaluated, the whole call fails with an informative error. Such candidates are
+not silently discarded or assigned infeasible status.
+
+## Returned objects and selection {#sec-candidate-solver-return}
+
+The result has class `p2_candidate_solution` and contains `candidate_table`,
+`actions`, `event_tables`, `optimizer_ids`, `selected_id`, `selected_action`,
+`domain_precomputation`, unchanged `family`, `decision`, `objective`,
+`protection`, `utility`, and `receipts`.
+
+Candidate rows follow lexicographic canonical-$G$ order: domain-major, with
+units in their declared order. Action IDs are content hashes of IDs and
+canonical $G$, so they need not equal the small oracle's sequential IDs.
+`actions` and `event_tables` are named by those hashes. The full optimizer set
+is retained; the first optimizer in the declared lexicographic order is selected
+without a secondary objective. Hash identity is not an assertion of numerical
+or scientific validity.
+
+The candidate table uses the oracle's numeric fields `risk`, `J`,
+`protection_value`, `Iv`, `I`, `C`, exact-character counterparts where available,
+and logical `mean_feasible`, `protection_feasible`,
+`feasible_for_represented_measure`, `optimal`, `selected`. Named domain counts
+appear in list columns `K` and `N`. `status` states arithmetic precision.
+For conservative protection, `J` and `J_exact` remain `NA`; the protection value
+is respectively the probability sum or $H$ times the maximum marginal event
+probability. Empty protection has value zero.
+
+`domain_precomputation[[domain_id]][[candidate_id]]` includes `grades`, the
+single-row `domain_table`, domain-only `expected_constraints` and `event_table`,
+`mean_feasible`, `active_event`, `failure_trace`, `Iv`/`Iv_exact`, `N`, `K` and
+`expected_arithmetic`. Active failure traces retain the joint evaluator's
+original history, weights and `union_event`; inactive columns have a `NULL`
+trace because their failure is analytically false. Domain precomputation count
+is the sum of bank sizes, while `examined_actions` is their product.
+
+Receipts preserve family/bank construction records, separate construction and
+evaluation input hashes, payload histories and receipts, the relationship
+assertion, exact product size, examined/precomputed counts, timing, decision
+hash and hashes of the solver/evaluator function forms and bodies. These last
+hashes are **function-content hashes**, not source-file hashes; the test receipt
+records actual file hashes. The receipt distinguishes a restricted exact optimum
+for the represented measure from an optimum of computed approximate values.
+
+## Arithmetic, assurance and actual checks {#sec-candidate-solver-checks}
+
+Rational finite masses and equal-weight empirical measures preserve exact
+domain contributions, utility and event probabilities. Their objective and
+feasibility comparisons use rational arithmetic. Floating expectations or
+probabilities retain approximate qualifiers; approximate objective comparison
+uses the actual floating values without an epsilon tie rule. Complete search
+does not remove approximation error. Exact empirical optimization is not an
+intended-posterior certificate, even when a fixed candidate bank was declared.
+No sampling independence, mixing, selection-adjustment or generator correctness
+is established here.
+
+The focused command `Rscript scripts/p2_test_profile.R candidate-solver` passed
+**10 blocks and 148 expectations** at 2026-11-05 22:15:48 UTC, with no failures,
+errors, warnings or skips. The [machine receipt](../results/p2-v1/tests/reference-tests-candidate-solver.json)
+records the run and source hashes. Tests compare complete seed banks with the
+full oracle at $n=2,3,4$, all A/B and protection combinations, exact utility,
+restricted banks, mean and zero-weight protection, integrity failures,
+construction/evaluation compatibility, different-length empirical payloads,
+criterionwise information limits, summaries and floating arithmetic. An
+$n=40$ case verifies 14 precomputations and 49 examined products. An additional
+three-state $n=3,D=2$ law with latent equality, overlapping scopes, distinct
+positive thresholds and mean caps verifies all 169 products against the full
+oracle under all three protection rules. Its three configured events include
+two in the first domain, exercising within-domain union before cross-domain
+mask combination; exact risks, event/union probabilities, feasibility and the
+complete optimizer sets agree.
+
+Root review caught an inherited R dependency-lookup hazard in an isolated
+environment; capturing the function evaluation environment repaired it, and an
+actual `baseenv()`-parent loading regression now passes. A failed initial error
+message assertion was corrected to match the explicit refusal semantics.
+These are implementation checks, not external review or numerical assurance.

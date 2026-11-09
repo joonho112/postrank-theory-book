@@ -1229,7 +1229,7 @@
       "figure_kind": "conceptual",
       "title": "Action-family inclusions",
       "reader_question": "Which optimized risks can be ordered from set inclusion alone?",
-      "chapter_HTML": "chapters/14-computing-grades.html",
+      "chapter_HTML": "chapters/19-computing-grades.html",
       "treatment": "retained_native_SVG_only",
       "generator": null,
       "public_plotting_dependencies": [
@@ -1245,7 +1245,8 @@
           "bytes": 4055,
           "role": "retained_original"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/14-computing-grades.html"
     },
     {
       "id": "F14b",
@@ -1253,7 +1254,7 @@
       "figure_kind": "mixed",
       "title": "A dynamic program chooses grade boundaries",
       "reader_question": "How does a prefix recurrence recover a globally best fixed-order segmentation?",
-      "chapter_HTML": "chapters/14-computing-grades.html",
+      "chapter_HTML": "chapters/19-computing-grades.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F14b/generate.py",
@@ -1311,7 +1312,8 @@
           "bytes": 308495,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/14-computing-grades.html"
     },
     {
       "id": "F15a",
@@ -1319,7 +1321,7 @@
       "figure_kind": "mixed",
       "title": "Approximate and intended protection feasibility",
       "reader_question": "Why can an estimated-feasible action violate the intended constraint?",
-      "chapter_HTML": "chapters/15-numerical-uncertainty.html",
+      "chapter_HTML": "chapters/21-numerical-uncertainty.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F15a/generate.py",
@@ -1373,7 +1375,8 @@
           "bytes": 206714,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/15-numerical-uncertainty.html"
     },
     {
       "id": "F15b",
@@ -1381,7 +1384,7 @@
       "figure_kind": "mixed",
       "title": "Stationarity does not supply IID precision",
       "reader_question": "How can many stationary draws still yield little precision?",
-      "chapter_HTML": "chapters/15-numerical-uncertainty.html",
+      "chapter_HTML": "chapters/21-numerical-uncertainty.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F15b/generate.py",
@@ -1439,7 +1442,8 @@
           "bytes": 192899,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/15-numerical-uncertainty.html"
     },
     {
       "id": "F15c",
@@ -1447,7 +1451,7 @@
       "figure_kind": "mixed",
       "title": "Two coefficient uncertainties contribute to risk",
       "reader_question": "Why can an all-withhold action have nonzero coefficient-error uncertainty?",
-      "chapter_HTML": "chapters/15-numerical-uncertainty.html",
+      "chapter_HTML": "chapters/21-numerical-uncertainty.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F15c/generate.py",
@@ -1505,7 +1509,8 @@
           "bytes": 237317,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/15-numerical-uncertainty.html"
     },
     {
       "id": "F16a",
@@ -1513,7 +1518,7 @@
       "figure_kind": "mixed",
       "title": "Matched-disclosure geometry",
       "reader_question": "What changes when mixing whole reports rather than interpolating deterministic counts?",
-      "chapter_HTML": "chapters/16-evaluation-frontiers.html",
+      "chapter_HTML": "chapters/22-evaluation-frontiers.html",
       "treatment": "retained_desktop_plus_new_mobile_companion",
       "generator": {
         "path": "assets/reproduction/figures/generators/F16a/generate.py",
@@ -1559,7 +1564,8 @@
           "bytes": 319076,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/16-evaluation-frontiers.html"
     },
     {
       "id": "F16b",
@@ -1567,7 +1573,7 @@
       "figure_kind": "mixed",
       "title": "Ratios average different things",
       "reader_question": "Why do pooled and per-report error summaries answer different questions?",
-      "chapter_HTML": "chapters/16-evaluation-frontiers.html",
+      "chapter_HTML": "chapters/22-evaluation-frontiers.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F16b/generate.py",
@@ -1621,7 +1627,8 @@
           "bytes": 197280,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/16-evaluation-frontiers.html"
     },
     {
       "id": "F16c",
@@ -1629,7 +1636,7 @@
       "figure_kind": "mixed",
       "title": "Fewer claims can carry more distinct opportunity",
       "reader_question": "Why can N fall while Q rises as tau increases?",
-      "chapter_HTML": "chapters/16-evaluation-frontiers.html",
+      "chapter_HTML": "chapters/22-evaluation-frontiers.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F16c/generate.py",
@@ -1691,7 +1698,8 @@
           "bytes": 197596,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/16-evaluation-frontiers.html"
     },
     {
       "id": "F17",
@@ -1699,7 +1707,7 @@
       "figure_kind": "conceptual",
       "title": "A fair comparator specification",
       "reader_question": "What information, objective and adaptation must be matched?",
-      "chapter_HTML": "chapters/17-rules-objectives.html",
+      "chapter_HTML": "chapters/23-rules-objectives.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F17/generate.py",
@@ -1749,7 +1757,8 @@
           "bytes": 299279,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/17-rules-objectives.html"
     },
     {
       "id": "F18",
@@ -1757,7 +1766,7 @@
       "figure_kind": "conceptual",
       "title": "Select under one law and evaluate under another",
       "reader_question": "Why does self-reported risk not establish external calibration?",
-      "chapter_HTML": "chapters/18-misspecification-calibration.html",
+      "chapter_HTML": "chapters/24-misspecification-calibration.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F18/generate.py",
@@ -1807,7 +1816,8 @@
           "bytes": 260812,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/18-misspecification-calibration.html"
     },
     {
       "id": "F19a",
@@ -1815,7 +1825,7 @@
       "figure_kind": "mixed",
       "title": "From target states to matrices to common grades",
       "reader_question": "How is the exact example assembled and compared at matched disclosure?",
-      "chapter_HTML": "chapters/19-worked-examples.html",
+      "chapter_HTML": "chapters/25-worked-examples.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F19a/generate.py",
@@ -1869,7 +1879,8 @@
           "bytes": 234132,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/19-worked-examples.html"
     },
     {
       "id": "F19b",
@@ -1877,7 +1888,7 @@
       "figure_kind": "mixed",
       "title": "Reporting and selection answer different objectives",
       "reader_question": "How can the leading expected target differ from the most likely best unit?",
-      "chapter_HTML": "chapters/19-worked-examples.html",
+      "chapter_HTML": "chapters/25-worked-examples.html",
       "treatment": "retained_desktop_plus_new_mobile_companion",
       "generator": {
         "path": "assets/reproduction/figures/generators/F19b-mobile/generate.py",
@@ -1923,7 +1934,8 @@
           "bytes": 206536,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/19-worked-examples.html"
     },
     {
       "id": "F20",
@@ -1931,7 +1943,7 @@
       "figure_kind": "quantitative",
       "title": "Two reconstructed KRW grade actions",
       "reader_question": "What exactly is recoverable from two archived aggregate reports?",
-      "chapter_HTML": "chapters/20-krw-illustration.html",
+      "chapter_HTML": "chapters/26-krw-illustration.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F20/generate.py",
@@ -1985,7 +1997,8 @@
           "bytes": 231270,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/20-krw-illustration.html"
     },
     {
       "id": "F21",
@@ -1993,7 +2006,7 @@
       "figure_kind": "conceptual",
       "title": "A grade report a reader can inspect",
       "reader_question": "What should a reporting institution explain and make contestable?",
-      "chapter_HTML": "chapters/21-governance-communication.html",
+      "chapter_HTML": "chapters/32-governance-communication.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F21/generate.py",
@@ -2043,7 +2056,8 @@
           "bytes": 272134,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/21-governance-communication.html"
     },
     {
       "id": "F22",
@@ -2051,7 +2065,7 @@
       "figure_kind": "conceptual",
       "title": "Established results and the P1 research agenda",
       "reader_question": "Where do inherited results, author derivations, implementation and empirical questions stop?",
-      "chapter_HTML": "chapters/22-synthesis-agenda.html",
+      "chapter_HTML": "chapters/33-synthesis-agenda.html",
       "treatment": "six_export_python_producer",
       "generator": {
         "path": "assets/reproduction/figures/generators/F22/generate.py",
@@ -2101,7 +2115,8 @@
           "bytes": 306388,
           "role": "generated_export"
         }
-      ]
+      ],
+      "historical_chapter_HTML": "chapters/22-synthesis-agenda.html"
     },
     {
       "id": "FA",
@@ -2421,13 +2436,19 @@
   "public_source_files": [
     {
       "path": "assets/reproduction/figures/README.html",
-      "sha256": "35af49534f448e2b1f4f11912871feedf40714849155c29881e32c914c4f5467",
-      "bytes": 21181
+      "sha256": "66af1b0163f4b7bdf6f9e6111fe2bf4c32fdfcb7c66323eecbd80d57009d4767",
+      "bytes": 1204931,
+      "historical_sha256": "35af49534f448e2b1f4f11912871feedf40714849155c29881e32c914c4f5467",
+      "change": "Existing Phase2 readerlinkmigration; currentmetadata refreshedPhase9.",
+      "prior_sha256": "b8932da5a086667a9b224cdbe53f2111670ebc207196b9062f4ed1bd9f1f857e"
     },
     {
       "path": "assets/reproduction/figures/README.qmd",
-      "sha256": "0a6726225bc90448a0f79d91d3ffd807a6ef768d11c2517af08095cbe6e31ce8",
-      "bytes": 13514
+      "sha256": "6d79d5816e0a23fc257c986c7565a02f3a27439fe7db86e33062e6a800a0a862",
+      "bytes": 13715,
+      "historical_sha256": "0a6726225bc90448a0f79d91d3ffd807a6ef768d11c2517af08095cbe6e31ce8",
+      "change": "Existing Phase2 readerlinkmigration; currentmetadata refreshedPhase9.",
+      "prior_sha256": "bf79fa620fbccc97f21cb62d513af14493c6922c817fe30d6865252db4f1d648"
     },
     {
       "path": "assets/reproduction/figures/data/derive_f09_coordinates.py",
@@ -2531,8 +2552,9 @@
     },
     {
       "path": "assets/reproduction/figures/environment-notes.qmd",
-      "sha256": "59e6e9f8d6607dffd7cb0f040679514b6f8884858fc61cb244d7cded42cdc114",
-      "bytes": 1859
+      "sha256": "0182b8fc4fea4eb78f9e0e9f3d2e29d76c6c097b511ad890ebdbefe1ce6baf24",
+      "bytes": 1847,
+      "prior_sha256": "59e6e9f8d6607dffd7cb0f040679514b6f8884858fc61cb244d7cded42cdc114"
     },
     {
       "path": "assets/reproduction/figures/environment.json",
@@ -2792,5 +2814,12 @@
   ],
   "publication_metadata_and_licenses": "Deferred",
   "packaging_author": "JoonHo Lee (jlee296@ua.edu)",
-  "public_packaging_date": "2026-10-29"
+  "public_packaging_date": "2026-10-29",
+  "v4_metadata_overlay": {
+    "updated_at_utc": "2026-11-09T02:22:05.316689+00:00",
+    "before_sha256": "a3a1000e406628f2eade78bde6e3a3fbb435c09d48f33400cdf519d1fe646cc2",
+    "chapter_paths_changed": 15,
+    "README_hashes_updated": 2,
+    "accepted_export_hashes_unchanged": true
+  }
 }

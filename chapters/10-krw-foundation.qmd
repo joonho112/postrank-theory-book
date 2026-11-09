@@ -1,8 +1,10 @@
 # Single-criterion report-card grading in KRW {#sec-krw-foundation}
 
+We begin with the scalar report-card decision, which provides the foundation for the common-grade loss in @sec-multicriteria-loss and the profile actions in @sec-profile-actions. Allowing several domain columns changes the comparisons a report can communicate. Comparing the resulting losses still requires matched decision settings: the scalar equivalence derived here and the statewise identical-column reduction for profiles establish different correspondences.
+
 ## The scalar report-card decision {#sec-krw-scalar-core}
 
-Kline, Rose, and Walters formulate report-card grading as a choice of comparisons to communicate. They assign firms to ordered grades, allowing ties, and evaluate the report through its correct and incorrect pairwise comparisons. We use this construction to define scalar grades and their tradeoff between information and error under general beliefs. We retain the source's probability assumptions while adopting our grade orientation and normalization [@kline_discrimination_2024, pp. 2477–2482].
+Kline, Rose, and Walters formulate report-card grading as a choice of comparisons to communicate. They assign firms to ordered grades, allowing ties, and evaluate the report through its correct and incorrect pairwise comparisons. We use this construction to define scalar grades and their tradeoff between information and error under general beliefs. We retain the source's probability assumptions while adopting our grade orientation and normalization [@kline_discrimination_2024].
 
 ### Supplied beliefs and reporting actions {#beliefs-and-actions-precede-the-empirical-model}
 
@@ -20,7 +22,7 @@ $$
 \pi_{ij}=B\{\theta_i>\theta_j\}.
 $$
 
-Then $\pi_{ij}+\pi_{ji}=1$. Dependence among units is allowed in this given-belief formulation; the probabilities must be calculated from the relevant joint law [@kline_discrimination_2024, pp. 2477–2478].
+Then $\pi_{ij}+\pi_{ji}=1$. Dependence among units is allowed in this given-belief formulation; the probabilities must be calculated from the relevant joint law [@kline_discrimination_2024].
 
 When beliefs are based on observed information $Y=y$, we identify $B$ with the supplied selection law $\Pi_s(\cdot\mid y)$ and choose the action conditional on that information. Taking $B$ as given allows us to study the reporting objective independently of the empirical assumptions used to estimate the beliefs. Their estimation and agreement with an evaluation model remain questions for the statistical analysis that supplies them.
 
@@ -40,7 +42,7 @@ Then $d_i>d_j$ exactly when $g_i<g_j$, and $d_i=d_j$ exactly when $g_i=g_j$. Con
 | Direction withheld | $d_i=d_j$ | $g_i=g_j$ |
 | $j$ has greater reported priority than $i$ | $d_i<d_j$ | $g_i>g_j$ |
 
-KRW permits $d\in[n]^n$, which, after removing redundant increasing relabelings, gives the unrestricted ordered-partition domain $\mathcal A_n$ in @sec-grade-actions. Its action definition fixes neither the number of grades nor their ordering. A cap, an exact grade count, or a contiguous-order restriction consequently changes the feasible problem even if the loss is unchanged. The canonical correspondence identifies equivalent representations of each report; restricted and unrestricted optima can differ [@kline_discrimination_2024, pp. 2477, 2480].
+KRW permits $d\in[n]^n$, which, after removing redundant increasing relabelings, gives the unrestricted ordered-partition domain $\mathcal A_n$ in @sec-grade-actions. Its action definition fixes neither the number of grades nor their ordering. A cap, an exact grade count, or a contiguous-order restriction consequently changes the feasible problem even if the loss is unchanged. The canonical correspondence identifies equivalent representations of each report; restricted and unrestricted optima can differ [@kline_discrimination_2024].
 
 ### Correct, incorrect, and withheld comparisons
 
@@ -52,9 +54,11 @@ C(g,\theta)=\sum_{i\ne j}x_{ij}(g)\mathbf1\{\theta_i>\theta_j\},
 D_{<}(g,\theta)=\sum_{i\ne j}x_{ij}(g)\mathbf1\{\theta_i<\theta_j\}.
 $$
 
-Although the sum uses ordered indices, each disclosed unordered pair contributes in only one direction: one to $C$ if the direction is correct and one to $D_{<}$ if it is wrong. A reported tie contributes to neither count. These counts express the strict inequalities in the source's equation (1) under our reversed grade convention [@kline_discrimination_2024, p. 2479].
+Although the sum uses ordered indices, each disclosed unordered pair contributes in only one direction: one to $C$ if the direction is correct and one to $D_{<}$ if it is wrong. A reported tie contributes to neither count. These counts express the source's strict comparison inequalities under our reversed grade convention [@kline_discrimination_2024].
 
 Let $N(g)=\sum_{i\ne j}x_{ij}(g)$. At every state with distinct scalar values, $N=C+D_{<}$, and hence the identity holds with belief probability one under the stated assumption on $B$. If a disclosed pair has equal latent values, both strict counts are zero for that pair. The weak-error convention instead uses $\theta_i\le\theta_j$ and counts the direction as wrong. The strict and weak counts therefore agree almost surely under the tie-free law, while positive equality mass can make them differ.
+
+The symbol $D$ in this scalar discussion is an error count, not the number of domains used in the later profile notation. A profile's domain-specific weak-error count is written $F_d$. Translating between them requires the same issued directions, target orientation and treatment of equality; renaming a strict discordance count does not turn it into a weak-error count.
 
 KRW assigns reward $\lambda\in[0,1]$ to a concordant pair, penalty one to a discordant pair, and payoff zero to a reported tie. Negating and averaging the pair payoffs gives
 
@@ -65,11 +69,11 @@ $$
 
 Division by $M$ gives loss per possible unordered pair. Since the divisor is positive and independent of the action, omitting it rescales loss without changing the minimizers. Rewarding correct disclosure permits negative loss. For $0\le\lambda\le1$, the loss lies between $-\lambda$ and $1$, so its expectation exists under every belief law. The all-tie action has zero loss, the reference payoff for silence; it supplies no comparisons whose accuracy could be assessed.
 
-Increasing $\lambda$ rewards correct disclosure more heavily relative to an incorrect comparison. It therefore expresses a preference between informativeness and mistakes, without setting a bound on the posterior error rate or the probability of any error. Its endpoint behavior and alternative parameterizations follow from the objective [@kline_discrimination_2024, pp. 2477–2479].
+Increasing $\lambda$ rewards correct disclosure more heavily relative to an incorrect comparison. It therefore expresses a preference between informativeness and mistakes, without setting a bound on the posterior error rate or the probability of any error. Its endpoint behavior and alternative parameterizations follow from the objective [@kline_discrimination_2024].
 
 ### Expected loss from pairwise beliefs
 
-For a pair considered in isolation, reporting $i$ above $j$ has expected payoff $\lambda\pi_{ij}-\pi_{ji}$. The reverse direction has payoff $\lambda\pi_{ji}-\pi_{ij}$, while withholding gives zero. Their expected losses are therefore $\pi_{ji}-\lambda\pi_{ij}$, $\pi_{ij}-\lambda\pi_{ji}$, and zero. These expressions translate the source's single-pair expected utility; combining pair actions into a grade report still requires joint constraints [@kline_discrimination_2024, p. 2478].
+For a pair considered in isolation, reporting $i$ above $j$ has expected payoff $\lambda\pi_{ij}-\pi_{ji}$. The reverse direction has payoff $\lambda\pi_{ji}-\pi_{ij}$, while withholding gives zero. Their expected losses are therefore $\pi_{ji}-\lambda\pi_{ij}$, $\pi_{ij}-\lambda\pi_{ji}$, and zero. These expressions translate the source's single-pair expected utility; combining pair actions into a grade report still requires joint constraints [@kline_discrimination_2024].
 
 ::: {#prp-krw-pair-risk}
 ### KRW risk in the monograph orientation
@@ -93,9 +97,11 @@ $$
 
 **Proof.** For fixed $g$, the indicators $x_{ij}$ are constants. Taking the expectation of the finite count sums gives $E_B C=\sum_{i\ne j}x_{ij}\pi_{ij}$ and $E_B D_{<}=\sum_{i\ne j}x_{ij}\pi_{ji}$. Substitution into the loss gives the first formula. The second additionally uses $\pi_{ji}=1-\pi_{ij}$. No independence among the error indicators is needed. $\square$
 
-The first expression is the expectation of the source's equation (1), with the change of orientation and normalization giving the coefficients in its equation (5). Pair probabilities suffice because the objective is additive. Assessing simultaneous correctness would require the joint event law, while issuing a grade report requires the pair decisions to satisfy the ordered-partition constraints.
+The first expression gives the expected strict-count loss in our orientation and normalization. Its additivity explains why pair probabilities suffice. Simultaneous correctness depends on the joint event law, while a coherent grade report requires pair decisions that satisfy the ordered-partition constraints.
 
-In the source formulation, a joint integer linear optimization imposes transitivity and the other logical restrictions on the pair indicators. Here choosing $g\in\mathcal A_n$ imposes coherence through the action representation. Since the action space is finite and nonempty and every risk is finite, at least one minimizer exists. Finding that minimum and certifying its value remain computational problems for either formulation [@kline_discrimination_2024, p. 2480, eqs. (4)–(5)].
+In the source formulation, a joint integer linear optimization imposes transitivity and the other logical restrictions on the pair indicators. Here choosing $g\in\mathcal A_n$ imposes coherence through the action representation. Since the action space is finite and nonempty and every risk is finite, at least one minimizer exists. Finding that minimum and certifying its value remain computational problems for either formulation [@kline_discrimination_2024].
+
+Joint optimization of the pair indicators enforces coherence of the report. The joint posterior error-probability constraint in @sec-profile-scope-protection serves a further purpose: it restricts the feasible reports using an event law as well as the additive-risk coefficients. Such a probability guarantee requires this additional information and constraint; it does not follow from scalar risk minimization or the choice of withholding preference.
 
 ### Discordance, informativeness, and their denominators
 
@@ -112,7 +118,7 @@ R_{\mathrm K,\lambda}^{B}(g)
 =(1-\lambda)\operatorname{DR}_{B}(g)-\lambda E_B I(g,\theta).
 $$
 
-These expressions give the count definitions and risk decomposition on pp. 2479–2480 under our orientation. The signs are determined by concordance: a report of the more likely larger target is rewarded when correct [@kline_discrimination_2024, pp. 2479–2480, eqs. (1)–(3)].
+Concordance determines the signs: a report of the more likely larger target is rewarded when correct [@kline_discrimination_2024].
 
 Under the tie-free belief assumption, $E_B I=s(g)-2\operatorname{DR}_{B}(g)$, so the same risk is $(1+\lambda)\operatorname{DR}_{B}(g)-\lambda s(g)$. This identity exposes the disclosure tradeoff within KRW's own criterion. It does not impose a disclosed-error budget. For $N(g)>0$, the posterior mean fraction wrong among disclosed comparisons is instead $E_BD_{<}/N(g)$, and
 
@@ -121,23 +127,23 @@ $$
 =s(g)\frac{E_BD_{<}(g,\theta)}{N(g)}.
 $$
 
-Consequently a low overall discordance rate can reflect limited disclosure. At $N=0$, the all-pair rate is zero while the fraction among disclosed pairs is undefined. KRW also discusses rates between grade groups; those use a specified cross-group denominator and should not be interchanged with its overall rate [@kline_discrimination_2024, pp. 2480–2481].
+Consequently a low overall discordance rate can reflect limited disclosure. At $N=0$, the all-pair rate is zero while the fraction among disclosed pairs is undefined. KRW also discusses rates between grade groups; those use a specified cross-group denominator and should not be interchanged with its overall rate [@kline_discrimination_2024].
 
 ### General beliefs and empirical Bayes implementation
 
-KRW introduces its empirical model in Section III, after specifying the decision problem. The idealized measurement model has normal noise with known variance, with estimation noise independent across firms conditional on their targets and standard errors. Latent effects are independent and identically distributed from a common mixing distribution conditional on the standard errors. The last assumption excludes dependence of the modeled target on precision, and the authors note that a transformation may be needed to make it plausible. These assumptions construct the application beliefs; the finite expectation argument above holds without them [@kline_discrimination_2024, pp. 2483–2484, Assumptions 1–3].
+KRW introduces its empirical model after specifying the decision problem. The idealized measurement model has normal noise with known variance, with estimation noise independent across firms conditional on their targets and standard errors. Latent effects are independent and identically distributed from a common mixing distribution conditional on the standard errors. The last assumption excludes dependence of the modeled target on precision, and the authors note that a transformation may be needed to make it plausible. These assumptions construct the application beliefs; the finite expectation argument above holds without them [@kline_discrimination_2024].
 
-Normal sampling noise does not imply a normal prior. The paper estimates the mixing distribution, uses it in posterior calculations, and substitutes the resulting empirical Bayes pair probabilities into the reporting objective. Appendix C describes calculating contrast probabilities from the modeled pair distribution and then applying the constrained grading optimization. This procedure produces beliefs from the measurements and grades from those beliefs while retaining the same abstract loss [@kline_discrimination_2024, p. 2485; online Appendix C, p. 5].
+Normal sampling noise does not imply a normal prior. The paper estimates the mixing distribution, uses it in posterior calculations, and substitutes the resulting empirical Bayes pair probabilities into the reporting objective. The computational appendix describes calculating contrast probabilities from the modeled pair distribution and then applying the constrained grading optimization. This procedure produces beliefs from the measurements and grades from those beliefs while retaining the same abstract loss [@kline_discrimination_2024].
 
-Exact minimization yields an optimum for the supplied pair probabilities, whose calibration under the data-generating process must be assessed separately. KRW observes that estimating the mixing distribution can lead to optimistic finite-sample assessments after optimizing grades. The simulations reported in the source address particular examples and have not been reproduced here; they do not establish a general finite-sample reliability guarantee [@kline_discrimination_2024, pp. 2485–2486].
+Exact minimization yields an optimum for the supplied pair probabilities, whose calibration under the data-generating process must be assessed separately. KRW observes that estimating the mixing distribution can lead to optimistic finite-sample assessments after optimizing grades. The simulations reported in the source address particular examples and have not been reproduced here; they do not establish a general finite-sample reliability guarantee [@kline_discrimination_2024].
 
-KRW thus provides the coherent scalar grades and joint optimization used here, with a loss that trades silence against mistakes under given beliefs. Its appendix also proposes weighting comparisons by cardinal magnitudes [@kline_discrimination_2024, online Appendix A, p. 2], although we do not adopt the full formulas of that extension. We next derive the scalar conversion and audience interpretation in @sec-scalar-reduction, examine dominance for specified action domains in @sec-krw-dominance, and relate expected-rank scores to the grade optimizer in @sec-rank-score-distance-bridge.
+The KRW loss trades silence against mistakes under given beliefs, subject to the coherence of a scalar grade report. Its appendix also proposes weighting comparisons by cardinal magnitudes [@kline_discrimination_2024]; we do not adopt the full formulas of that extension. The following sections derive the scalar conversion and its interpretation in @sec-scalar-reduction, establish dominance for specified action domains in @sec-krw-dominance, and relate expected-rank scores to the grade optimizer in @sec-rank-score-distance-bridge.
 
 ## Scalar normalization and withholding cost {#sec-scalar-reduction}
 
 Under the matching conditions given below, the scalar withholding loss is a positive affine transformation of KRW's reporting objective and hence has the same optimal reports. The correspondence also interprets withholding cost through KRW's audience model. Some users can choose correctly when the report withholds a direction, and the loss measures the mistakes that remain.
 
-The ordered-grade action, correctness reward and audience argument are due to KRW [@kline_discrimination_2024, pp. 2477–2480]. We derive the parameter conversion in the present notation, keeping track of the difference between the source's strict discordance count and the weak-error convention. The equivalent objective retains the same scalar decision principle under the stated equality conditions.
+The ordered-grade action, correctness reward and audience argument are due to KRW [@kline_discrimination_2024]. We derive the parameter conversion in the present notation, keeping track of the difference between the source's strict discordance count and the weak-error convention. The equivalent objective retains the same scalar decision principle under the stated equality conditions.
 
 ### Common-domain assumptions and comparison counts {#assumptions-and-counts}
 
@@ -214,7 +220,9 @@ $$
 
 There are finitely many distinct pairs. The union of their equality events has $B$-probability zero, so the pointwise identity holds on one common full-probability set for every action. Both losses are bounded, and taking expectations gives the risk identity. For any two actions, the risk difference on the left is $1-\tau$ times the difference on the right. Since $1-\tau\ge1/2>0$, weak and strict comparisons, and equality of risks, are all preserved. Finiteness and nonemptiness guarantee that each minimum is attained, so the full argmin sets coincide. Solving either parameter equation for the other gives the inverse maps and their endpoints. $\square$
 
-The proof also applies under an at-most cap, exact grade count or fixed order, provided both objectives use the same domain; the resulting optimum may differ from the unrestricted source optimum. The correspondence requires the same belief law, target, unit set, pair normalization and criterion weights. It establishes equivalence of the mathematical objectives, leaving calibration, downstream welfare and empirical performance to separate arguments.
+Because the identity holds on the shared action domain, it also applies under an at-most cap, exact grade count or fixed order. Restricting that domain may change the optimum from the unrestricted KRW solution. The two objectives must use the same belief law, target, unit set, pair normalization and criterion weights; their equivalence leaves calibration, downstream welfare and empirical performance to separate arguments.
+
+Imposing the same protection filter on both scalar objectives preserves the positive affine identity on the remaining actions. Applying protection to only one objective changes the comparison, since the protected and unprotected feasible sets may differ. The common/profile construction in @sec-profile-diagonal-reduction likewise uses a matched comparator when comparing optimal risks.
 
 ### Parameter endpoints and latent equality {#boundaries-and-latent-equality}
 
@@ -232,9 +240,28 @@ $$
 
 For two equal latent targets, either disclosed direction has $L_\tau=1$ while the source strict loss is zero; a reported tie has $L_\tau=\tau$ and source loss zero. Positive equality mass can therefore change the minimizing sets. Pairwise tie-freeness is sufficient across all coherent actions but need not be necessary on a restricted domain: if every admissible action withholds comparisons at the relevant equality, its $T_{=}$ is zero.
 
+
+
+<!-- BEGIN EXPLORER EXPANSION: krw-lambda -->
+
+::: {#box-explorer-krw-lambda .explorer-box}
+
+![](../assets/explorer-boxes/krw-lambda.png){fig-alt="Screenshot of KRW’s archived reward path, illustrating An archived reward path and its limits." .explorer-screenshot}
+
+Follow the archived KRW cards as the reward for a correct direction changes, and inspect the comparisons gained or lost between neighboring grid points. Disclosure generally rises but has local dips in this historical record. Those dips must be read with the archived probability inputs and solver tolerances; they do not refute monotonicity for exact optima in one fixed problem.
+
+::: {.explorer-link}
+[Open KRW’s archived reward path in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/cases/krw-lambda.html)
+:::
+
+An archived reward path and its limits
+
+:::
+<!-- END EXPLORER EXPANSION: krw-lambda -->
+
 ### KRW audience model and withholding cost {#reconstructing-the-audience-model}
 
-KRW's audience chooses the less-discriminatory of two firms and receives payoff 1 for a correct choice and 0 for an incorrect choice. Although grade 1 here denotes highest oversight priority, an accurate ordering identifies the less-discriminatory firm under either grade convention. The source assumes that all audience members follow the indicated choice when the report discloses a direction. When the firms share a grade, a fraction $\phi\in(0,1)$ is informed and chooses correctly, while the remainder chooses correctly with probability $1/2$. Private information is therefore used only for reported ties. We write $\phi$ for the fraction denoted by $q$ in the source, to avoid confusion with our error budgets [@kline_discrimination_2024, p. 2478].
+KRW's audience chooses the less-discriminatory of two firms and receives payoff 1 for a correct choice and 0 for an incorrect choice. Although grade 1 here denotes highest oversight priority, an accurate ordering identifies the less-discriminatory firm under either grade convention. The source assumes that all audience members follow the indicated choice when the report discloses a direction. When the firms share a grade, a fraction $\phi\in(0,1)$ is informed and chooses correctly, while the remainder chooses correctly with probability $1/2$. Private information is therefore used only for reported ties. We write $\phi$ for the fraction denoted by $q$ in the source, to avoid confusion with our error budgets [@kline_discrimination_2024].
 
 The expected utility in a reported tie is
 
@@ -266,13 +293,72 @@ The source uses the open interval $0<\phi<1$, yielding $0<\lambda<1$ and $0<\tau
 
 ### Objective scales and interpretation {#what-the-equivalence-establishes}
 
-The withholding loss multiplies a risk difference under the source objective by $1-\tau$, since the additive constant cancels. Numerical comparisons must therefore account for the normalization. Equivalence of the objectives neither validates the beliefs nor determines an informed fraction or preference setting, and it supplies no error-control guarantee.
+A difference in withholding risk is $1-\tau$ times the corresponding difference under the KRW objective, since the additive constant cancels. Numerical comparisons must account for this change of scale. Validating the beliefs, specifying an informed fraction or preference setting, and establishing error control each require an argument beyond the equivalence of the objectives.
 
-Exact-rational calculations under stipulated beliefs verify the identities and full minimizing sets on common unrestricted, capped, exact-count and fixed-order domains, including the endpoints and latent-tie correction. These are finite calculations rather than analyses of fitted posteriors or empirical data. The general result follows from the proof; its interpretation for an audience additionally requires the behavioral and pair-averaging assumptions.
+Exact-rational calculations under stipulated beliefs verify the identities and full minimizing sets on common unrestricted, capped, exact-count and fixed-order domains, including the endpoints and latent-tie correction. These are finite calculations rather than analyses of fitted posteriors or empirical data. The proof establishes the general result.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: price-of-silence -->
+
+::: {#box-explorer-price-of-silence .explorer-box}
+
+![](../assets/explorer-boxes/price-of-silence.png){fig-alt="Risk decomposition for the best six-site report at withholding cost 0.20, compared with withholding all pairs; colored segments distinguish expected wrong directions from the cost of withheld comparisons." .explorer-screenshot style="--explorer-image-width:480px;"}
+
+Inspect the two contributions to reporting risk: expected wrong directions and the cost of comparisons left unstated. Change the withholding cost or grade cap, then compare an entered report with the best report in the declared family. The six-site normal laws are fictional, and expected cost per pair is distinct from the probability of any error.
+
+::: {.explorer-link}
+[Open Reporting risk and withholding cost in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/price-of-silence.html)
+:::
+
+Price errors and withholding together
+
+:::
+<!-- END EXPLORER EXPANSION: price-of-silence -->
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: lambda-tau -->
+
+::: {#box-explorer-lambda-tau .explorer-box}
+
+![](../assets/explorer-boxes/lambda-tau.png){fig-alt="Screenshot of KRW’s reward and postrank’s withholding cost, illustrating Translate reward into withholding cost." .explorer-screenshot}
+
+This six-site teaching example relates KRW’s reward for a correct direction to the price of withholding through τ = λ/(1 + λ). Move between the two scales while keeping the posterior, target orientation and report family fixed. Here the equivalence is derived under zero latent-tie probability; it does not assess calibration or establish how an actual audience behaves.
+
+::: {.explorer-link}
+[Open KRW’s reward and postrank’s withholding cost in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/cases/lambda-tau.html)
+:::
+
+Translate reward into withholding cost
+
+:::
+<!-- END EXPLORER EXPANSION: lambda-tau -->
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: krw-axes -->
+
+::: {#box-explorer-krw-axes .explorer-box}
+
+![](../assets/explorer-boxes/krw-axes.png){fig-alt="Screenshot of Equivalent reporting-loss scales, illustrating The same reports on two loss scales." .explorer-screenshot}
+
+Each point represents one of the 4,683 coherent reports for six fictional sites, evaluated on two reporting-loss scales. At matching λ and τ, a positive affine transformation preserves the complete minimizing set under the same tie-free law and report family. The separate historical firm-card panel evaluates a fixed archived action and carries its own input qualifications.
+
+::: {.explorer-link}
+[Open Equivalent reporting-loss scales in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/cases/krw-axes.html)
+:::
+
+The same reports on two loss scales
+
+:::
+<!-- END EXPLORER EXPANSION: krw-axes -->
 
 ## Withholding a pair and constructing a common grade {#sec-pair-versus-grade}
 
-Pair actions that are individually preferred need not form a common grade report. In KRW's Example 1, the isolated-pair threshold selects two ties whose transitivity conflicts with a third preferred direction. Their example uses three independent normal beliefs [@kline_discrimination_2024, pp. 2481–2482, equation (6) and Example 1]. We illustrate the same need for joint constraints using a finite belief, for which every cost can be calculated exactly.
+Pair actions that are individually preferred need not form a common grade report. In KRW's three-firm example, the isolated-pair threshold selects two ties whose transitivity conflicts with a third preferred direction. Their example uses three independent normal beliefs [@kline_discrimination_2024]. We illustrate the same need for joint constraints using a finite belief, for which every cost can be calculated exactly.
+
+Every column of a profile must also form an ordered partition. Separate columns allow the coherent ordering to differ across domains, while the pair relations within each domain remain subject to the same coherence requirement.
 
 ### The isolated-pair decision
 
@@ -292,7 +378,7 @@ These isolated-pair solutions follow by comparing the three costs. Combining the
 
 @fig-vis-f10a shows the isolated-pair cost comparison, including its co-optimal boundaries.
 
-::: {#fig-vis-f10a}
+::: {#fig-vis-f10a .reader-figure .reader-has-narrow style="--reader-figure-width:700px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f10a-the-isolated-pair-decision-mobile.svg">
 <img src="../assets/figures/f10a-the-isolated-pair-decision.svg" class="img-fluid" alt="Three expected-cost lines against forward error e from zero to one: the cost of i above j rises as e, the reverse cost falls as 1-e, and withholding is constant at 1/5. The lower envelope selects i above j below 1/5, withholding between 1/5 and 4/5, and j above i above 4/5. Both adjacent actions minimize at each crossing. A callout converts tau=1/5 to normalized source parameter lambda=1/4; an endpoint note retains all three minimizers at tau=e=1/2.">
@@ -300,6 +386,17 @@ These isolated-pair solutions follow by comparing the three costs. Combining the
 
 Expected costs for an isolated scalar pair under one tie-free belief: e for reporting i above j, 1-e for the reverse direction, and tau for withholding. With tau=1/5, the minimizing action changes at e=1/5 and e=4/5; at each crossing the adjacent direction and withholding are both optimal. The scalar source parameter is lambda=tau/(1-tau)=1/4 after the normalization in the text. At tau=e=1/2, all three actions tie. These comparisons solve an isolated-pair problem and do not give a separate error ceiling for every pair in a coherent common-grade report.
 :::
+
+<!-- postrank-exhibit:W02:begin -->
+<details class="widget-exhibit" data-postrank-widget="W02" data-widget-src="../assets/widgets/W02/index.html" data-widget-title="Price withholding against two directions" data-widget-height="1000">
+<summary>Explore: Which of the three actions minimizes expected loss under one complete two-state law?</summary>
+<div class="widget-fallback"><table><caption>Fixed probability, changed withholding cost</caption><thead><tr><th scope="col">Pr(A &gt; B)</th><th scope="col">Withholding cost</th><th scope="col">All minimizing actions</th></tr></thead><tbody><tr><td>17/20</td><td>1/10</td><td>Withhold</td></tr><tr><td>17/20</td><td>1/5</td><td>A above B</td></tr><tr><td>4/5</td><td>1/5</td><td>A above B; withhold</td></tr><tr><td>1/2</td><td>1/2</td><td>All three</td></tr></tbody></table></div>
+<button type="button" data-widget-load disabled>Open interactive example</button>
+<div data-widget-frame></div>
+<noscript><p>Both the fixed comparison above and the chapter explanation remain available without JavaScript.</p></noscript>
+</details>
+<script defer src="../assets/widgets/shared/book-loader.js"></script>
+<!-- postrank-exhibit:W02:end -->
 
 ### A finite belief with incompatible local ties
 
@@ -364,26 +461,66 @@ $$
 
 The implication follows by substituting $R^s_\tau(g)=\{E_BD(g,\theta)+\tau[M-N(g)]\}/M$ and cancelling $\tau M$. For positive disclosure, the aggregate posterior expected error fraction is therefore at most $\tau$ under these conditions. In the example, it is $(7/20)/2=7/40$, even though one disclosed pair has error $1/4$. The aggregate statement concerns the same belief and exact optimizer; it neither bounds each pair nor establishes the corresponding error under another law.
 
+In a weighted profile, the domains can contribute differently to a bound on the total objective. The scalar comparison with the all-withheld action therefore gives no separate error cap for each domain. Domain-specific mean requirements and a joint probability cap each require their own formulation and verification.
+
 @fig-vis-f10b contrasts the infeasible local choices with both coherent optimal reports.
 
-::: {#fig-vis-f10b}
+::: {#fig-vis-f10b .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent-mobile.svg">
 <img src="../assets/figures/f10b-locally-attractive-comparisons-can-be-incoherent.svg" class="img-fluid" alt="The local relaxation withholds AB and BC and reports A above C, with costs 1/5,1/5 and 1/10 and normalized total 1/6. A transitivity warning shows that two same-grade assignments would force A and C into the same grade as well. Two equally optimal coherent alternatives are shown: A and B above C, and A above tied B and C. Both have two disclosures and normalized risk 11/60. They add respectively B&gt;C or A&gt;B, each with error 1/4. The gap from the infeasible relaxation is 1/60; no unique optimizer is selected.">
 </picture>
 
-Pairwise decisions and coherent optima under an exact four-state belief. At tau=1/5, the local decisions withhold AB and BC but issue A>C; their normalized cost is 1/6. Two report ties would force all three units into one grade, so this local pattern is infeasible. Among all thirteen canonical ordered partitions, both {A,B}>{C} and {A}>{B,C} attain the exact minimum 11/60, a coherence gap of 1/60. Each discloses two pairs, including one adjacent direction with error 1/4>tau. The majority order A>B>C is transitive. This is the monograph’s finite construction illustrating the phenomenon in KRW Example 1, rather than a reproduction of its Gaussian example.
+Pairwise decisions and coherent optima under an exact four-state belief. At tau=1/5, the local decisions withhold AB and BC but issue A>C; their normalized cost is 1/6. Two report ties would force all three units into one grade, so this local pattern is infeasible. Among all thirteen canonical ordered partitions, both {A,B}>{C} and {A}>{B,C} attain the exact minimum 11/60, a coherence gap of 1/60. Each discloses two pairs, including one adjacent direction with error 1/4>tau. The majority order A>B>C is transitive. This is the monograph’s finite construction illustrating the phenomenon in KRW’s three-firm example, rather than a reproduction of its Gaussian example.
 :::
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: coherence-finite -->
+
+::: {#box-explorer-coherence-finite .explorer-box}
+
+![](../assets/explorer-boxes/coherence-finite.png){fig-alt="Screenshot of Coherence in a finite three-unit example, illustrating Compare every coherent report." .explorer-screenshot}
+
+Inspect all thirteen reports under one complete four-state law, then change the withholding cost without changing the probabilities. The stacked bars show how coherent decisions can include a direction that would be too costly in isolation. These exact finite-law comparisons illustrate the reporting constraint; they neither validate an empirical posterior nor replace the book’s general argument.
+
+::: {.explorer-link}
+[Open Coherence in a finite three-unit example in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/coherence-finite.html)
+:::
+
+Compare every coherent report
+
+:::
+<!-- END EXPLORER EXPANSION: coherence-finite -->
 
 ### Interpretation of a shared grade and complete withholding {#what-silence-means}
 
 For the feasible all-tie action, $N=0$, the wrong-direction count is zero, and the withholding loss is $\tau$. Its disclosed-error fraction, and hence accuracy among disclosed comparisons, is undefined because no comparison was issued. An exact requirement of more than one nonempty grade excludes this action, so the aggregate comparison above cannot then be justified by using it as a feasible benchmark.
 
-Although the belief assigns zero probability to latent equality, each optimal report ties two units because of the combined costs of error, silence and coherence. The grade table summarizes these reporting choices. A shared grade establishes neither equality of the targets nor practical equivalence, and it does not specify how resources should be allocated.
+Each optimal report ties two units even though the belief assigns zero probability to latent equality. The shared grade reflects the combined costs of error, silence and coherence. It is a reporting choice, from which neither equality of the targets nor practical equivalence follows; deciding how to allocate resources requires a further rule.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: one-pair -->
+
+::: {#box-explorer-one-pair .explorer-box}
+
+![](../assets/explorer-boxes/one-pair.png){fig-alt="Screenshot of The decision for an isolated pair, illustrating Three choices for one pair." .explorer-screenshot}
+
+Change the withholding cost while holding the direction probability fixed, then inspect the boundary where a direction and withholding are equally good. The three cost curves connect the scalar loss to an explicit action choice. This tie-free, isolated-pair example does not impose the coherence constraints required when many pair decisions become one grade report.
+
+::: {.explorer-link}
+[Open The decision for an isolated pair in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/one-pair.html)
+:::
+
+Three choices for one pair
+
+:::
+<!-- END EXPLORER EXPANSION: one-pair -->
 
 ## Dominance properties and their feasible domain {#sec-krw-dominance}
 
-KRW's Propositions 1–3 describe how sufficiently strong pairwise evidence constrains an optimal scalar grade report [@kline_discrimination_2024, p. 2483; online Appendix B, pp. 3–4]. We reconstruct these inherited dominance properties in the grade-1-highest convention with a block proof that identifies where the unrestricted action domain is needed. A finite illustration then examines a restricted domain.
+KRW's dominance results describe how sufficiently strong pairwise evidence constrains an optimal scalar grade report [@kline_discrimination_2024]. We give a block proof in the grade-1-highest convention, showing where it uses the unrestricted action domain. A finite example then shows why a grade restriction can change the conclusion.
 
 Fix one scalar belief $B$ with zero probability of equality for each distinct pair, $0\le\lambda\le1$, and $\pi_{ij}=B(\theta_i>\theta_j)$. From @prp-krw-pair-risk, the unnormalized expected cost of a disclosed direction is
 
@@ -424,13 +561,15 @@ Write any report as ordered blocks $(B_1,\ldots,B_G)$. Form a new report by list
 
 Under the additional internal condition, either direction disclosed within $\mathcal S$ has positive cost. Once separation holds, merging its blocks into a single top block removes those costs and preserves all other comparisons. A minimizer must therefore tie all members of $\mathcal S$ together, with no outsider in that block. $\square$
 
-The first conclusion is stronger than KRW's Proposition 2 because it specifies every cross-set relation, rather than only top-grade membership. This elementary strengthening carries no claim of priority. For a singleton $\mathcal S=\{i\}$, it gives the unique top-grade member of the source's Proposition 1. If another unit dominates every remaining unit at the same threshold, applying the argument to the remaining blocks places that unit alone in the next grade. Reversing directions gives the corresponding loser statement. The second conclusion supplies the top-block property of Proposition 3.
+The first conclusion strengthens KRW's top-grade membership result by specifying every cross-set relation. This elementary strengthening carries no claim of priority. For a singleton $\mathcal S=\{i\}$, it recovers the source's unique-top-unit conclusion. If another unit dominates every remaining unit at the same threshold, applying the argument to the remaining blocks places that unit alone in the next grade. Reversing directions gives the corresponding loser statement. The second conclusion supplies the source’s top-block property.
 
 At equality in the cross-set threshold, withholding can have the same cost as disclosure, and separation by every optimizer no longer follows. The cross-set premise is impossible at $\lambda=0$, since it would require a probability greater than one for a nonempty proper subset. At $\lambda=1$, the internal premise is impossible for a set of two or more units because opposite probabilities sum to one and cannot both be below one half. The singleton case remains meaningful.
 
 ### Dominance under restricted grade families {#why-a-grade-constraint-changes-the-conclusion}
 
 The proof can split mixed blocks and increase the grade count, so a cap, an exact grade count or an incompatible fixed order may make the rearrangement infeasible. The same separation proof applies to a restricted family when the rearranged report stays in that family. Full orders with exactly $n$ grades satisfy this condition. A fixed-order family without a grade cap also does so when all members of $\mathcal S$ precede all outsiders in that order. The top-block conclusion additionally requires the merging operation to be feasible.
+
+In a protected profile problem, a rearrangement must remain feasible with the other columns and all joint constraints in place. A scalar block improvement can violate a cross-domain protection cap. Applying the dominance argument to a profile therefore requires both its scalar assumptions and the feasibility of the rearranged cards; the scalar result alone gives no general profile-dominance theorem.
 
 For an example under a restricted domain, take unit order $(A,B,X,Y)$ and assign probability $3/5$ to scalar values $(4,3,2,1)$ and probability $2/5$ to $(2,1,4,3)$. The descending orders in the two states are $ABXY$ and $XYAB$. With $\lambda=4/5$ and $\mathcal S=\{A,B\}$, each cross-set probability is $3/5>5/9=1/(1+\lambda)$, while $A>B$ and $X>Y$ hold with certainty.
 
@@ -457,7 +596,7 @@ $$
 r_i(\theta)=1+\sum_{j\ne i}\mathbf1\{\theta_j>\theta_i\}.
 $$
 
-This is the largest-value-first orientation used by Laird and Louis. The calculation follows directly from their rank indicator and expected-rank construction, without invoking a historical Borda theorem [@laird1989ranking, p. 32, eq. 2; pp. 32–33]. Define $\pi_{ij}=B\{\theta_i>\theta_j\}$ and the probability-sum score $W_i=\sum_{j\ne i}\pi_{ij}$. Then
+This is the largest-value-first orientation used by Laird and Louis. The calculation follows directly from their rank indicator and expected-rank construction, without invoking a historical Borda theorem [@laird1989ranking]. Define $\pi_{ij}=B\{\theta_i>\theta_j\}$ and the probability-sum score $W_i=\sum_{j\ne i}\pi_{ij}$. Then
 
 $$
 \mathbb E_B r_i
@@ -467,13 +606,15 @@ $$
 
 **Proof.** Taking expectations of the finite indicator sum gives the first equality. Pairwise tie-freeness gives $\pi_{ji}=1-\pi_{ij}$, so the sum becomes $1+(n-1)-W_i$. Independence among units is unnecessary. If the diagonal convention $\pi_{ii}=0$ is adopted, the last expression is also $n-\sum_j\pi_{ij}$. $\square$
 
-Ordering $W_i$ from largest to smallest therefore agrees with ordering expected descending ranks from smallest to largest, including ties. The posterior target mean $\mathbb E_B\theta_i$ instead depends on magnitudes, whereas expected rank depends on ordering probabilities. Laird and Louis distinguish inference about parameters from inference about ranks [@laird1989ranking, pp. 31–35]. Whether either ordering solves a common-grade problem must be established from its loss and feasible domain.
+Ordering $W_i$ from largest to smallest therefore agrees with ordering expected descending ranks from smallest to largest, including ties. The posterior target mean $\mathbb E_B\theta_i$ instead depends on magnitudes, whereas expected rank depends on ordering probabilities. Laird and Louis distinguish inference about parameters from inference about ranks [@laird1989ranking]. Whether either ordering solves a common-grade problem must be established from its loss and feasible domain.
+
+Applying this identity separately to several domains produces domainwise score orders. Using these orders to restrict candidate columns defines a family on which optimality can be assessed. Selecting a protected card within that family is a further decision: exact scores alone neither select the card nor establish factorization of its feasible family.
 
 The majority-win count $H_i=\sum_{j\ne i}\mathbf1\{\pi_{ij}>1/2\}$ is different: thresholding discards probability magnitudes. An exact constructed belief on three strict descending orders illustrates the distinction. Give $ABC$, $BCA$, and $CBA$ probabilities $0.51$, $0.48$, and $0.01$, respectively. Then $\pi_{AB}=\pi_{AC}=0.51$ and $\pi_{BC}=0.99$. The probability sums are $(W_A,W_B,W_C)=(1.02,1.48,0.50)$, giving expected ranks $(1.98,1.52,2.50)$, whereas majority-win counts are $(2,1,0)$. Expected rank therefore puts $B$ before $A$, while majority-win count puts $A$ before $B$. This constructed belief supplies no fitted evidence; it shows that the two scores need not order units alike.
 
 ### The scalar signed-order distance
 
-KRW connects its $\lambda=1$ objective to a sign-based ranking distance [@kline_discrimination_2024, p. 2482]. The following count argument reconstructs that connection in the monograph's grade orientation, retaining its additive constant. Let $g$ be a coherent report with grade 1 highest. Write $M=\binom n2$, $N(g)$ for the number of disclosed unordered pairs, $C(g,\theta)$ for concordant disclosures, and $D_{<}(g,\theta)$ for strictly discordant disclosures. At a scalar state without latent ties, define
+KRW connects its $\lambda=1$ objective to a sign-based ranking distance [@kline_discrimination_2024]. The following count argument reconstructs that connection in the monograph's grade orientation, retaining its additive constant. Let $g$ be a coherent report with grade 1 highest. Write $M=\binom n2$, $N(g)$ for the number of disclosed unordered pairs, $C(g,\theta)$ for concordant disclosures, and $D_{<}(g,\theta)$ for strictly discordant disclosures. At a scalar state without latent ties, define
 
 $$
 \mathcal K(g,\theta)
@@ -500,6 +641,27 @@ $$
 
 Minimizing expected $\mathcal K$ therefore gives the entire minimizing set of the source risk on a common nonempty finite feasible domain. This identity holds pointwise on tie-free states and, for risks, under the pairwise no-tie belief condition; the count argument changes at latent equality. Metric properties, approximation ratios, axiomatic characterizations, and the existence of equally good strict refinements require additional results. In particular, the identity leaves open whether an optimal tied report admits such a refinement. The criterion-weighted construction in @sec-multicriteria-loss builds on this scalar foundation under its equality and common-domain conditions.
 
+
+
+<!-- BEGIN EXPLORER EXPANSION: majority-wins -->
+
+::: {#box-explorer-majority-wins .explorer-box}
+
+![](../assets/explorer-boxes/majority-wins.png){fig-alt="Screenshot of Majority comparisons and expected ranks, illustrating Counting wins discards their strength." .explorer-screenshot}
+
+Compare the number of pairwise probabilities above one half with the expected-rank calculation using their full values. In the finite law on orders, many narrow wins can give a different ordering from fewer strong wins. This isolates a distinction among scores; neither score alone establishes which coherent grade report minimizes a specified reporting loss on a restricted family.
+
+::: {.explorer-link}
+[Open Majority comparisons and expected ranks in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/uncertainty/majority-wins.html)
+:::
+
+Counting wins discards their strength
+
+:::
+<!-- END EXPLORER EXPANSION: majority-wins -->
+
 ## A separate equality-neutral extension of the scalar decision {#sec-krw-tie-aware-bridge}
 
 The scalar correspondence above retains the original equality qualifications. We introduce an alternative in @sec-tie-aware-loss by assigning zero payoff at latent equality and making the withholding cost proportional to the distinct event. We derive its pointwise payoff identity and baseline while retaining the weak-error risk and equality correction developed here. This is an extension of the decision problem reconstructed from the scalar argument, rather than a structural-tie theorem in the original continuous-belief account.
+
+The profile formulation in @sec-profile-loss uses weak error unless another loss is explicitly declared. To carry an identity or optimizer result into an equality-neutral extension, we must specify its statewise costs, feasible family and protection events. A reported tie describes what is withheld under either loss; the losses can still evaluate latent equality differently.

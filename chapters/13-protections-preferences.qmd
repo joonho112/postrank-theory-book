@@ -4,7 +4,9 @@
 
 A weighted objective can accept greater error on one criterion in return for smaller errors on others. An institution can limit this tradeoff by constraining the expected error fraction for a specified criterion. The constraint excludes reports while retaining the objective used to compare those remaining. Increasing a loss weight would instead change their objective values.
 
-Related constraints arise in Bayesian multiple comparisons and selective reporting. Müller, Parmigiani, and Rice express a posterior expected false fraction using a denominator fixed by the observed data, and BLiP constrains expected error homogeneously for disjoint signal-containing regions [@MullerParmigianiRice2006, working-paper p. 4, eq. 2; @SpectorJanson2025, p. 464, Proposition 3.1]. We apply the count calculation to coherent grades. Their action space, algorithms and optimization properties differ from those in these earlier methods.
+Related constraints arise in Bayesian multiple comparisons and selective reporting. Müller, Parmigiani, and Rice express a posterior expected false fraction using a denominator fixed by the observed data, and BLiP constrains expected error homogeneously for disjoint signal-containing regions [@MullerParmigianiRice2006; @SpectorJanson2025]. We apply the count calculation to coherent grades, whose action space, algorithms and optimization properties differ from those of these earlier methods.
+
+The statewide California reports in @sec-cde-accountability make the distinction between aggregate and individual error concrete. Their expected wrong fraction averages over disclosed pairs, while some individual comparisons are much less certain. The archived reports optimize a reporting loss within a declared order; they do not impose the criterion-error constraint developed here. Adding that constraint would change the admissible reports. Even then, a bound on their average expected error would not by itself place the same bound on every disclosed comparison.
 
 ### The protected feasible set
 
@@ -74,6 +76,22 @@ Although tighter budgets cannot lower the minimum of the fixed objective, the se
 
 A budget of one is nonbinding because $E^s_k\le N$. At a budget of zero, nonnegativity of every term in $E^s_k$ permits only disclosures with zero error probability on that criterion. Intermediate budgets constrain the average over disclosed pairs, allowing an individual pair's error probability to exceed $q_k$ if the report's average remains within the budget.
 
+<!-- BEGIN EXPLORER BOX: budgets -->
+::: {#box-explorer-budgets .explorer-box}
+
+![](../assets/explorer-boxes/error-budgets.png){fig-alt="Published app screenshot with a score-B expected-error budget of 0.02. A report cloud uses square-root-scaled axes. Two of 603 allowed reports are feasible; the selected report states 8 of 15 pairs with risk 0.0939, versus 0.0933 without the budget. All-withhold is feasible but omitted from the fraction cloud because its error share is undefined." .explorer-screenshot}
+
+An expected-error budget restricts the admissible reports without changing the reporting loss. In this illustration with six fictional sites, compare the loose score-B budget of 0.03 with the displayed tight budget of 0.02 at fixed weights and withholding cost, then require exactly three grades. The budgets bound expected error averaged over disclosed comparisons under the stipulated normal model; withholding every comparison passes the count inequalities only when that report is admissible, and its error fraction remains undefined.
+
+::: {.explorer-link}
+[Open Criterion-specific expected-error budgets in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/error-budgets.html)
+:::
+
+An error budget changes the feasible reports
+
+:::
+<!-- END EXPLORER BOX: budgets -->
+
 ### Exact feasibility under conflicting criteria {#one-exact-feasibility-example}
 
 Consider two units and two criteria under a point-mass selection law:
@@ -96,7 +114,7 @@ The unprotected weighted optimum in this example has zero risk. With both protec
 
 @fig-vis-f13a shows why the same protection rows have different feasibility consequences under different base families.
 
-::: {#fig-vis-f13a}
+::: {#fig-vis-f13a .reader-figure .reader-has-narrow style="--reader-figure-width:700px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family-mobile.svg">
 <img src="../assets/figures/f13a-protection-can-leave-withholding-or-an-empty-family.svg" class="img-fluid" alt="Three actions have disclosure counts 1,1,0 and criterion-error vectors (0,1),(1,0),(0,0). Each strict direction fails one half-budget; withholding passes both count rows with an undefined fraction. Separate boxes show only withholding feasible with at most two grades and no feasible report with exactly two grades.">
@@ -107,17 +125,21 @@ Criterion-protection feasibility under alternative base action families. At know
 
 ### Scope of conditional expected-error protection {#what-the-conditional-protection-guarantees}
 
-For exact coefficients, the constraint bounds the expected fraction under the supplied selection law. The same conclusion holds under another evaluation law only with a suitable link between the laws. Equality to the true conditional target law suffices, but feasibility under $\Pi_s$ alone establishes no corresponding bound under $P$. Posterior, joint-model and fixed-parameter sampling errors refer to different averaging experiments [@BansalMiescke2013, p. 207, eqs. 6–8].
+For exact coefficients, the constraint bounds the expected fraction under the supplied selection law. The same conclusion holds under another evaluation law only with a suitable link between the laws. Equality to the true conditional target law suffices, but feasibility under $\Pi_s$ alone establishes no corresponding bound under $P$. Posterior, joint-model and fixed-parameter sampling errors refer to different averaging experiments [@BansalMiescke2013].
 
 Even under the intended law, the constraint bounds an expectation. A positive budget need not bound the probability that the realized fraction exceeds $q_k$, ensure that every comparison is correct, or ensure agreement across criteria. Assessing social fairness, criterion validity and the choice of budget requires substantive definitions and evidence in addition to the error constraint.
 
-A report satisfying a row based on $\widehat e^s_{ij,k}$ is feasible for those estimates. To establish feasibility for the exact supplied-law probabilities, coefficient error and numerical optimization error must also be controlled. BLiP similarly distinguishes the accuracy of input probabilities from that of optimization [@SpectorJanson2025, pp. 466, 470]. We develop the coefficient-error argument later.
+For a profile, a domain-specific expected-error constraint concerns one column and its disclosed pairs. Joint protection concerns the probability that at least one declared scope exceeds its error threshold on the same complete target state. Both restrictions can be imposed, since they control different quantities. The counterexample in @sec-profile-separability shows why an additive objective need not give a factorized joint feasible family.
 
-The constraints apply to each action. Randomizing among complete protected-feasible reports, independently of the latent state conditional on $y$, preserves the bound for every positive-disclosure action and for their average conditional on positive disclosure, provided that event has positive probability. Silent outcomes still have undefined fractions. Using average disclosure indicators in a homogeneous row instead constrains a ratio of randomized expected counts. When disclosure varies, this differs from the average action-specific fraction and can offset infeasible actions with others. The distinction follows @sec-selection-abstention and provides no relaxed-variable or rounding guarantee.
+A report satisfying a row based on $\widehat e^s_{ij,k}$ is feasible for those estimates. To establish feasibility for the exact supplied-law probabilities, coefficient error and numerical optimization error must also be controlled. BLiP similarly distinguishes the accuracy of input probabilities from that of optimization [@SpectorJanson2025]. We develop the coefficient-error argument later.
+
+These constraints apply to individual actions. Randomizing among complete protected-feasible reports, independently of the latent state conditional on $y$, preserves the bound for each positive-disclosure action and for their average conditional on positive disclosure, provided that event has positive probability. The fractions remain undefined for silent outcomes.
+
+Using average disclosure indicators in a homogeneous row has a different effect: it constrains a ratio of randomized expected counts. With varying disclosure, this ratio differs from the average action-specific fraction and can offset infeasible actions with other reports. As in @sec-selection-abstention, this distinction supplies no guarantee for relaxed variables or rounding.
 
 ## Preference sensitivity and expected-criterion minimax {#sec-expected-criterion-minimax}
 
-Comparing reports across directional-loss weight vectors shows their sensitivity to the chosen tradeoffs among criterion errors. Such a comparison does not estimate stakeholder values. A model for uncertain preferences, a population distribution of preferences and a normative choice of error weights answer different questions [@lahdelma_salminen2001smaa2, pp. 445–446, 449–450].
+Comparing reports across directional-loss weight vectors shows their sensitivity to the chosen tradeoffs among criterion errors. Such a comparison does not estimate stakeholder values. A model for uncertain preferences, a population distribution of preferences and a normative choice of error weights answer different questions [@lahdelma_salminen2001smaa2].
 
 Alternatively, we can minimize the largest criterion-specific expected loss over a specified set of criteria. This gives priority to the most unfavorable criterion expectation, but still requires choices of targets, comparable loss scales, included criteria and permissible reports.
 
@@ -218,11 +240,11 @@ Thus weighted risk uniquely selects withholding when $\omega<1/2$, ties withhold
 
 Requiring exactly two grades removes withholding from this same family. The minimax optimum becomes $A>B$, with value $1/2$. A protection $q_2<1/2$ makes both remaining directions infeasible, and restoring all-tie would change the exact-grade problem. These calculations use a constructed family rather than a fitted application. In this example, taking the maximum before or after expectation gives the same value for each fixed action; the table compares weighted risk with expected-criterion minimax.
 
-When criterion 1 receives sufficient weight, the weighted average accepts the larger expected error on criterion 2. Minimax instead assesses the largest included expectation. Reporting the criterion risks alongside disclosure makes the consequences of this preference choice explicit; solving the optimization does not normatively justify the weights or included set. @sec-computing-grades develops algorithms for the specified objective and feasible reports, with computational conclusions depending on their restrictions.
+When criterion 1 receives sufficient weight, the weighted average accepts greater expected error on criterion 2. Minimax evaluates the largest included expectation. The criterion risks and disclosure counts show the consequences of these choices, but the weights and included set still need a substantive justification. The algorithms in @sec-computing-grades address this optimization for the specified objective and feasible reports; their computational conclusions depend on those restrictions.
 
 @fig-vis-f13b holds the law and reporting family fixed while comparing weighted and expected-criterion minimax objectives.
 
-::: {#fig-vis-f13b}
+::: {#fig-vis-f13b .reader-figure .reader-has-narrow style="--reader-figure-width:700px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f13b-weights-change-an-optimal-reporting-action-mobile.svg">
 <img src="../assets/figures/f13b-weights-change-an-optimal-reporting-action.svg" class="img-fluid" alt="Forward risk falls from 1/2 to 0, reverse rises from 1/2 to 1, and withholding stays at 1/4 as omega runs from 0 to 1. The weighted lower envelope switches at 1/2, retaining both boundary optimizers. A separate table shows maximum criterion risks 1/2,1,1/4, so minimax selects withholding with both criteria included.">
@@ -230,6 +252,44 @@ When criterion 1 receives sufficient weight, the weighted average accepts the la
 
 For the fixed law, three-report family and tau=1/4, weighted risk selects withholding below omega=1/2 and A>B above it; both minimize at the crossing. The reverse direction never minimizes. Expected-criterion minimax compares both criterion risks and uniquely withholds, including at omega=1 when criterion 2 has zero weight in the separate weighted objective. The switch expresses a change in declared preferences, not a change in the data or target law.
 :::
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: weight-path -->
+
+::: {#box-explorer-weight-path .explorer-box}
+
+![](../assets/explorer-boxes/weight-path.png){fig-alt="Screenshot of Optimal reports along the criterion-weight path, illustrating Weights can change the report at a boundary." .explorer-screenshot}
+
+Follow the risk envelope as the weight shifts between two criteria, watching both criterion error profiles rather than only their weighted average. A report can remain unchanged across an interval and share optimality with another report at a boundary. The path uses one stipulated law and family; it explores preference sensitivity without determining which weights an institution should choose.
+
+::: {.explorer-link}
+[Open Optimal reports along the criterion-weight path in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/weight-path.html)
+:::
+
+Weights can change the report at a boundary
+
+:::
+<!-- END EXPLORER EXPANSION: weight-path -->
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: worst-criterion -->
+
+::: {#box-explorer-worst-criterion .explorer-box}
+
+![](../assets/explorer-boxes/worst-criterion.png){fig-alt="Risk trajectories over criterion weight, showing the weighted-best report, the report guarding both criteria, and the lower risk envelope. The plotted trajectories use a common vertical clipping limit." .explorer-screenshot style="--explorer-image-width:460px;"}
+
+Compare the weighted-risk report with the report that minimizes its largest criterion-specific expected risk, keeping the law and family fixed. An included criterion can matter to the latter objective even when its weight in the average is zero. This rule maximizes after taking expectations; it does not minimize the expected worst statewise loss or guarantee protection under another model.
+
+::: {.explorer-link}
+[Open Minimizing the largest criterion risk in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/criteria/worst-criterion.html)
+:::
+
+Choose which risk is worst
+
+:::
+<!-- END EXPLORER EXPANSION: worst-criterion -->
 
 ## Protections and preference choices under equality-neutral loss {#sec-tie-aware-protections}
 
@@ -246,3 +306,5 @@ The denominator is a policy choice, and neither protection is implemented by the
 A weight crossing zero can change the guard as well as the objective. The active set $\{k:w_k>0\}$ determines full active-profile equality, so removing a criterion may merge equivalence classes. To isolate the effect on the objective, the common family and its equality constraints must be retained. Allowing the guard to change compares both effects.
 
 An extension to expected-criterion minimax must specify its losses and denominators. Under equality neutrality, the baseline $R_{0,k}=\tau T^s_k/M$, where $T^s_k=\sum_{i<j}d^s_{ij,k}$, may differ across criteria. Subtracting these constants before taking the maximum can therefore alter the objective and its minimizers. The earlier minimax and exact-grade results, weighted consolidation proof and available software do not resolve this extension.
+
+In the next chapter, a card of domain-specific columns allows different disclosure patterns across domains. The common-grade results developed here carry over only when the loss, denominator, equality rule, feasible family and protection definitions are matched. We can then distinguish a change in weights within one decision problem from a change in the reporting problem itself.

@@ -2,95 +2,100 @@ project:
   type: book
   output-dir: _book
   post-render:
-    - python3 tools/remove-legacy-polyfill.py
+  - python3 tools/remove-legacy-polyfill.py
   render:
-    - index.qmd
-    - chapters/*.qmd
-    - appendices/*.qmd
-    - references.qmd
+  - index.qmd
+  - chapters/*.qmd
+  - appendices/*.qmd
+  - references.qmd
   resources:
-    - assets/**
-    - '!log/**'
-    - '!evidence/**'
-    - '!registry/**'
-    - '!contracts/**'
-    - '!reviews/**'
-    - '!scripts/**'
-    - '!release/**'
-    - '!backups/**'
-    - '!**/.DS_Store'
-    - '!**/__pycache__/**'
-    - '!**/*.pyc'
-
+  - assets/**
+  - '!**/.DS_Store'
+  - '!**/__pycache__/**'
+  - '!**/*.pyc'
 book:
-  title: "Decisions from Noisy Multidimensional Indicators"
-  subtitle: "Theory, Evidence, and Posterior Grading (v3)"
+  title: Decisions from Noisy Multidimensional Indicators
+  subtitle: Common Grades, Domain Profiles, and Posterior Decision Theory
   author:
-    - name: JoonHo Lee
-      email: jlee296@ua.edu
-      orcid: 0009-0006-4019-8703
-  date: "2026-10-29"
-  date-format: "D MMMM YYYY"
-  repo-url: "https://github.com/joonho112/postrank-theory-book"
-  site-url: "https://joonho112.github.io/postrank-theory-book/"
+  - name: JoonHo Lee
+    email: jlee296@ua.edu
+    orcid: 0009-0006-4019-8703
+  date: '2026-11-09'
+  date-format: D MMMM YYYY
   search: true
   sidebar:
     style: docked
     collapse-level: 1
   chapters:
-    - index.qmd
-    - part: "Part I — Public decisions and measurement"
-      chapters:
-        - chapters/01-public-decisions.qmd
-        - chapters/02-education-access.qmd
-        - chapters/03-institutional-practice.qmd
-        - chapters/04-measurement-values.qmd
-    - part: "Part II — Intellectual lineages"
-      chapters:
-        - chapters/05-bayesian-ranking.qmd
-        - chapters/06-uncertainty-ordering.qmd
-        - chapters/07-aggregation-mcda.qmd
-        - chapters/08-selection-abstention.qmd
-    - part: "Part III — Mathematical foundations"
-      chapters:
-        - chapters/09-targets-actions-laws.qmd
-        - chapters/10-krw-foundation.qmd
-        - chapters/11-multicriteria-loss.qmd
-        - chapters/12-conflict-estimands.qmd
-        - chapters/13-protections-preferences.qmd
-    - part: "Part IV — Computation and uncertainty"
-      chapters:
-        - chapters/14-computing-grades.qmd
-        - chapters/15-numerical-uncertainty.qmd
-    - part: "Part V — Evaluation and comparison"
-      chapters:
-        - chapters/16-evaluation-frontiers.qmd
-        - chapters/17-rules-objectives.qmd
-        - chapters/18-misspecification-calibration.qmd
-    - part: "Part VI — Interpretation and research use"
-      chapters:
-        - chapters/19-worked-examples.qmd
-        - chapters/20-krw-illustration.qmd
-        - chapters/21-governance-communication.qmd
-        - chapters/22-synthesis-agenda.qmd
+  - index.qmd
+  - part: Part 1 — Public decisions and measurement
+    chapters:
+    - chapters/01-public-decisions.qmd
+    - chapters/02-education-access.qmd
+    - chapters/03-institutional-practice.qmd
+    - chapters/04-measurement-values.qmd
+  - part: Part 2 — Intellectual foundations
+    chapters:
+    - chapters/05-bayesian-ranking.qmd
+    - chapters/06-uncertainty-ordering.qmd
+    - chapters/07-aggregation-mcda.qmd
+    - chapters/08-selection-abstention.qmd
+  - part: Part 3 — Shared definitions and common grades
+    chapters:
+    - chapters/09-targets-actions-laws.qmd
+    - chapters/10-krw-foundation.qmd
+    - chapters/11-multicriteria-loss.qmd
+    - chapters/12-conflict-estimands.qmd
+    - chapters/13-protections-preferences.qmd
+  - part: Part 4 — Domain profiles
+    chapters:
+    - chapters/14-profile-actions.qmd
+    - chapters/15-joint-protection.qmd
+    - chapters/16-information-dependence.qmd
+    - chapters/17-equality-scopes.qmd
+    - chapters/18-representation-resolution.qmd
+  - part: Part 5 — Computation and uncertainty
+    chapters:
+    - chapters/19-computing-grades.qmd
+    - chapters/20-computing-profiles.qmd
+    - chapters/21-numerical-uncertainty.qmd
+  - part: Part 6 — Evaluation and comparison
+    chapters:
+    - chapters/22-evaluation-frontiers.qmd
+    - chapters/23-rules-objectives.qmd
+    - chapters/24-misspecification-calibration.qmd
+  - part: Part 7 — Worked examples and applications
+    chapters:
+    - chapters/25-worked-examples.qmd
+    - chapters/26-krw-illustration.qmd
+    - chapters/27-alabama-need.qmd
+    - chapters/28-opportunity-atlas.qmd
+    - chapters/29-pisa-comparisons.qmd
+    - chapters/30-cde-accountability.qmd
+    - chapters/31-synthetic-need.qmd
+  - part: Part 8 — Interpretation and synthesis
+    chapters:
+    - chapters/32-governance-communication.qmd
+    - chapters/33-synthesis-agenda.qmd
   appendices:
-    - appendices/A-proofs.qmd
-    - appendices/B-notation.qmd
-    - appendices/C-source-provenance.qmd
-    - appendices/D-package-correspondence.qmd
-    - appendices/E-reproduction.qmd
-    - references.qmd
-
+  - appendices/A-proofs.qmd
+  - appendices/B-notation.qmd
+  - appendices/C-source-provenance.qmd
+  - appendices/D-package-correspondence.qmd
+  - appendices/E-reproduction.qmd
+  - references.qmd
 bibliography: references.bib
 csl: assets/apa.csl
 lang: en
 language:
-  title-block-published: "Draft date"
+  title-block-published: Draft date
 format:
   html:
     template-partials:
-      - _partials/_title-meta-author.html
-    theme: [cosmo, styles/offline.scss]
+    - _partials/_title-meta-author.html
+    theme:
+    - cosmo
+    - styles/offline.scss
     css: styles/book.css
     toc: true
     toc-depth: 3
@@ -104,3 +109,10 @@ format:
 execute:
   enabled: false
 
+crossref:
+  custom:
+  - kind: float
+    key: box
+    reference-prefix: Box
+    caption-prefix: Box
+    caption-location: top

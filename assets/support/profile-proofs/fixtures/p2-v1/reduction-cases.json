@@ -1,0 +1,496 @@
+{
+  "schema": "p2-reduction-fixtures-v1",
+  "step": "Step 4.1",
+  "status": "exact_small_examples_only",
+  "scientific_scope": "Hand-checkable reduction and boundary fixtures; not the Phase 6 reference evaluator, unrestricted algorithm or empirical evidence. KRW strict-count functional at positive equality is explicitly outside the original no-tie assumption.",
+  "contract_manifest_sha256": "b2122caee4b06f6f87ac89d4420afe864cb514a27b910f5be9d01f590322dec4",
+  "cases": [
+    {
+      "id": "RED-SCALAR",
+      "n": 2,
+      "D": 1,
+      "weights": [
+        "1"
+      ],
+      "tau": [
+        "1/3"
+      ],
+      "lambda": "1/2",
+      "structural_guards": "identity_only",
+      "states": [
+        {
+          "theta": [
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ],
+          "mass": "3/4"
+        },
+        {
+          "theta": [
+            [
+              1
+            ],
+            [
+              2
+            ]
+          ],
+          "mass": "1/4"
+        }
+      ],
+      "actions": [
+        {
+          "name": "forward",
+          "G": [
+            [
+              1
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "withheld",
+          "G": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "reverse",
+          "G": [
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ]
+        }
+      ],
+      "protection": {
+        "domains": [
+          0
+        ],
+        "t": [
+          "0"
+        ],
+        "alpha": "1/8"
+      },
+      "expected_weak_risks": {
+        "forward": "1/4",
+        "withheld": "1/3",
+        "reverse": "3/4"
+      },
+      "expected_strict_risks": {
+        "forward": "-1/8",
+        "withheld": "0",
+        "reverse": "5/8"
+      },
+      "expected_unconstrained_weak_minimizers": [
+        "forward"
+      ],
+      "expected_strict_minimizers": [
+        "forward"
+      ],
+      "expected_feasible_actions": [
+        "withheld"
+      ],
+      "expected_feasible_weak_minimizers": [
+        "withheld"
+      ]
+    },
+    {
+      "id": "RED-COMMON",
+      "n": 3,
+      "D": 2,
+      "weights": [
+        "1/3",
+        "2/3"
+      ],
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "structural_guards": "identity_only",
+      "states": [
+        {
+          "theta": [
+            [
+              3,
+              2
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "mass": "1"
+        }
+      ],
+      "action": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "expected_N": [
+        2,
+        2
+      ],
+      "expected_F": [
+        0,
+        1
+      ],
+      "cost_variants": [
+        {
+          "id": "common_tau",
+          "tau": [
+            "1/4",
+            "1/4"
+          ],
+          "effective_tau": "1/4",
+          "expected_R": "11/36"
+        },
+        {
+          "id": "domain_specific_tau",
+          "tau": [
+            "1/4",
+            "1/2"
+          ],
+          "effective_tau": "5/12",
+          "expected_R": "13/36"
+        }
+      ]
+    },
+    {
+      "id": "RED-EQUALITY",
+      "n": 2,
+      "D": 1,
+      "weights": [
+        "1"
+      ],
+      "tau": [
+        "1/3"
+      ],
+      "lambda": "1/2",
+      "structural_guards": "identity_only; equality in one state is not a structural identity",
+      "states": [
+        {
+          "theta": [
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ],
+          "mass": "1/2"
+        },
+        {
+          "theta": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "mass": "1/2"
+        }
+      ],
+      "actions": [
+        {
+          "name": "forward",
+          "G": [
+            [
+              1
+            ],
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "name": "withheld",
+          "G": [
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ]
+        },
+        {
+          "name": "reverse",
+          "G": [
+            [
+              2
+            ],
+            [
+              1
+            ]
+          ]
+        }
+      ],
+      "expected_weak_risks": {
+        "forward": "1/2",
+        "withheld": "1/3",
+        "reverse": "1"
+      },
+      "expected_strict_risks": {
+        "forward": "-1/4",
+        "withheld": "0",
+        "reverse": "1/2"
+      },
+      "expected_feasible_weak_minimizers": [
+        "withheld"
+      ],
+      "expected_strict_minimizers": [
+        "forward"
+      ]
+    },
+    {
+      "id": "RED-ZERO-WEIGHT",
+      "n": 2,
+      "D": 2,
+      "weights": [
+        "1",
+        "0"
+      ],
+      "tau": [
+        "1/4",
+        "1/4"
+      ],
+      "structural_guards": "identity_only",
+      "states": [
+        {
+          "theta": [
+            [
+              2,
+              2
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "mass": "1"
+        }
+      ],
+      "action_family": "all 3 x 3 canonical two-unit domain products",
+      "protection": {
+        "domains": [
+          0,
+          1
+        ],
+        "t": [
+          "0",
+          "0"
+        ],
+        "alpha": "0"
+      },
+      "expected_feasible_weak_minimizers": [
+        "forward|forward",
+        "forward|withheld"
+      ],
+      "expected_feasible_actions": [
+        "forward|forward",
+        "forward|withheld",
+        "withheld|forward",
+        "withheld|withheld"
+      ]
+    }
+  ],
+  "validation_code": {
+    "language": "Python 3 standard library",
+    "scope": "Exact finite fixtures; full-domain scope checks only; no production evaluator implemented.",
+    "entrypoint": "check_fixture(document)",
+    "source": "from fractions import Fraction as Q\nfrom itertools import product\n\ndef check_fixture(doc):\n    labels=[]\n    def check(label,condition):\n        assert condition,label\n        labels.append(label)\n    def canonical(G):\n        return all(set(c)==set(range(1,max(c)+1)) for c in zip(*G))\n    def counts(theta,G):\n        n,D=len(theta),len(theta[0]); N=[0]*D; F=[0]*D; C=[0]*D; rev=[0]*D; eq=[0]*D\n        for d in range(D):\n            for i in range(n):\n                for j in range(i+1,n):\n                    if G[i][d]==G[j][d]: continue\n                    a,b=(i,j) if G[i][d]<G[j][d] else (j,i)\n                    N[d]+=1\n                    c=Q(theta[a][d]); z=Q(theta[b][d])\n                    F[d]+=int(c<=z); C[d]+=int(c>z); rev[d]+=int(c<z); eq[d]+=int(c==z)\n        return N,F,C,rev,eq\n    def evaluate(c,G,tau=None):\n        tau=[Q(x) for x in (tau or c['tau'])]; w=list(map(Q,c['weights']))\n        n,D=c['n'],c['D']; M=Q(n*(n-1),2)\n        R=Q(0); K=Q(0); T=Q(0); J=Q(0); EF=[Q(0)]*D\n        N=None\n        for st in c['states']:\n            mass=Q(st['mass']); N,F,C,rev,eq=counts(st['theta'],G)\n            R+=mass*sum(w[d]*(F[d]+tau[d]*(M-N[d]))/M for d in range(D))\n            EF=[v+mass*f for v,f in zip(EF,F)]\n            prot=c.get('protection')\n            if prot and any(F[d]>Q(prot['t'][d])*N[d] for d in prot['domains']): J+=mass\n            if D==1 and 'lambda' in c:\n                K+=mass*(rev[0]-Q(c['lambda'])*C[0])/M\n                T+=mass*eq[0]\n        feasible=(not c.get('protection')) or J<=Q(c['protection']['alpha'])\n        return {'R':R,'K':K,'T':T,'J':J,'N':N,'EF':EF,'feasible':feasible,'I':sum(N)}\n    summary={}\n    for c in doc['cases']:\n        cid=c['id']; n,D=c['n'],c['D']; M=Q(n*(n-1),2)\n        check(cid+' proper masses',sum(Q(s['mass']) for s in c['states'])==1 and all(Q(s['mass'])>=0 for s in c['states']))\n        check(cid+' loss weights',sum(map(Q,c['weights']))==1 and all(Q(w)>=0 for w in c['weights']))\n        check(cid+' positive admissible costs',all(0<Q(t)<=Q(1,2) for t in c['tau']))\n        check(cid+' state dimensions',all(len(s['theta'])==n and all(len(r)==D for r in s['theta']) for s in c['states']))\n        all0=[[1]*D for _ in range(n)]; z=evaluate(c,all0)\n        check(cid+' all-withheld feasible',z['feasible'] and z['J']==0 and all(v==0 for v in z['N']) and all(v==0 for v in z['EF']))\n        check(cid+' all-withheld risk',z['R']==sum(Q(w)*Q(t) for w,t in zip(c['weights'],c['tau'])))\n        if cid=='RED-COMMON':\n            G=c['action']; check(cid+' canonical diagonal',canonical(G) and len(set(zip(*G)))==1)\n            N,F,C,rev,eq=counts(c['states'][0]['theta'],G)\n            check(cid+' count once',N==c['expected_N'] and F==c['expected_F'])\n            for v in c['cost_variants']:\n                out=evaluate(c,G,v['tau']); tb=sum(Q(w)*Q(t) for w,t in zip(c['weights'],v['tau']))\n                p1=(sum(Q(w)*f for w,f in zip(c['weights'],F))+tb*(M-N[0]))/M\n                check(cid+' '+v['id']+' exact risk',out['R']==Q(v['expected_R']))\n                check(cid+' '+v['id']+' matched P1',p1==out['R'] and tb==Q(v['effective_tau']))\n            check(cid+' unmatched tau changes risk',Q(c['cost_variants'][0]['expected_R'])!=Q(c['cost_variants'][1]['expected_R']))\n            summary[cid]={'counted_disclosures':N,'counted_errors':F}\n            continue\n        if cid=='RED-ZERO-WEIGHT':\n            columns=[(1,2),(1,1),(2,1)]\n            acts={a+'|'+b:[list(row) for row in zip(ca,cb)] for (a,ca),(b,cb) in product(zip(['forward','withheld','reverse'],columns),repeat=2)}\n        else:\n            acts={a['name']:a['G'] for a in c['actions']}\n        results={}\n        for name,G in acts.items():\n            check(cid+' '+name+' canonical',canonical(G))\n            o=evaluate(c,G);results[name]=o\n            check(cid+' '+name+' bounded risk',0<=o['R']<=1)\n            if 'expected_weak_risks' in c:check(cid+' '+name+' weak risk',o['R']==Q(c['expected_weak_risks'][name]))\n            if 'expected_strict_risks' in c:\n                check(cid+' '+name+' strict risk',o['K']==Q(c['expected_strict_risks'][name]))\n                tau=Q(c['tau'][0]); bridge=tau+(1-tau)*o['K']; correction=(1-tau)*o['T']/M\n                check(cid+' '+name+' exact correction',o['R']==bridge+correction)\n                if cid=='RED-SCALAR':check(cid+' '+name+' no-tie affine',o['R']==bridge)\n        feasible={name:o for name,o in results.items() if o['feasible']}\n        check(cid+' nonempty feasible family',bool(feasible))\n        minimum=min(o['R'] for o in feasible.values()); maximum=max(o['I'] for o in feasible.values())\n        amin=sorted(name for name,o in feasible.items() if o['R']==minimum)\n        bmax=sorted(name for name,o in feasible.items() if o['I']==maximum)\n        check(cid+' feasible minimizers',amin==sorted(c['expected_feasible_weak_minimizers']))\n        if 'expected_feasible_actions' in c:check(cid+' feasible actions',sorted(feasible)==sorted(c['expected_feasible_actions']))\n        if 'expected_unconstrained_weak_minimizers' in c:\n            mn=min(o['R'] for o in results.values())\n            check(cid+' unconstrained weak minimizers',sorted(k for k,v in results.items() if v['R']==mn)==sorted(c['expected_unconstrained_weak_minimizers']))\n        if 'expected_strict_minimizers' in c:\n            mk=min(o['K'] for o in results.values())\n            check(cid+' strict minimizers',sorted(k for k,v in results.items() if v['K']==mk)==sorted(c['expected_strict_minimizers']))\n        if cid=='RED-EQUALITY':check(cid+' unconditional bridge fails',results['forward']['R']!=Q(c['tau'][0])+(1-Q(c['tau'][0]))*results['forward']['K'])\n        if cid=='RED-ZERO-WEIGHT':\n            check(cid+' zero-weight wrong direction infeasible',not results['forward|reverse']['feasible'])\n            check(cid+' risk minimizer not unique',len(amin)==2)\n            check(cid+' auxiliary solution set differs',bmax==['forward|forward'] and amin!=bmax)\n        summary[cid]={'feasible_actions':sorted(feasible),'risk_minimizers':amin,'disclosure_maximizers':bmax,'minimum_risk':str(minimum),'maximum_disclosures':maximum}\n    return {'status':'PASS','assertions':len(labels),'arithmetic':'exact fractions.Fraction; no simulated draws','case_count':len(doc['cases']),'check_labels':labels,'case_summaries':summary}\n"
+  },
+  "validation_result": {
+    "status": "PASS",
+    "assertions": 97,
+    "arithmetic": "exact fractions.Fraction; no simulated draws",
+    "case_count": 4,
+    "check_labels": [
+      "RED-SCALAR proper masses",
+      "RED-SCALAR loss weights",
+      "RED-SCALAR positive admissible costs",
+      "RED-SCALAR state dimensions",
+      "RED-SCALAR all-withheld feasible",
+      "RED-SCALAR all-withheld risk",
+      "RED-SCALAR forward canonical",
+      "RED-SCALAR forward bounded risk",
+      "RED-SCALAR forward weak risk",
+      "RED-SCALAR forward strict risk",
+      "RED-SCALAR forward exact correction",
+      "RED-SCALAR forward no-tie affine",
+      "RED-SCALAR withheld canonical",
+      "RED-SCALAR withheld bounded risk",
+      "RED-SCALAR withheld weak risk",
+      "RED-SCALAR withheld strict risk",
+      "RED-SCALAR withheld exact correction",
+      "RED-SCALAR withheld no-tie affine",
+      "RED-SCALAR reverse canonical",
+      "RED-SCALAR reverse bounded risk",
+      "RED-SCALAR reverse weak risk",
+      "RED-SCALAR reverse strict risk",
+      "RED-SCALAR reverse exact correction",
+      "RED-SCALAR reverse no-tie affine",
+      "RED-SCALAR nonempty feasible family",
+      "RED-SCALAR feasible minimizers",
+      "RED-SCALAR feasible actions",
+      "RED-SCALAR unconstrained weak minimizers",
+      "RED-SCALAR strict minimizers",
+      "RED-COMMON proper masses",
+      "RED-COMMON loss weights",
+      "RED-COMMON positive admissible costs",
+      "RED-COMMON state dimensions",
+      "RED-COMMON all-withheld feasible",
+      "RED-COMMON all-withheld risk",
+      "RED-COMMON canonical diagonal",
+      "RED-COMMON count once",
+      "RED-COMMON common_tau exact risk",
+      "RED-COMMON common_tau matched P1",
+      "RED-COMMON domain_specific_tau exact risk",
+      "RED-COMMON domain_specific_tau matched P1",
+      "RED-COMMON unmatched tau changes risk",
+      "RED-EQUALITY proper masses",
+      "RED-EQUALITY loss weights",
+      "RED-EQUALITY positive admissible costs",
+      "RED-EQUALITY state dimensions",
+      "RED-EQUALITY all-withheld feasible",
+      "RED-EQUALITY all-withheld risk",
+      "RED-EQUALITY forward canonical",
+      "RED-EQUALITY forward bounded risk",
+      "RED-EQUALITY forward weak risk",
+      "RED-EQUALITY forward strict risk",
+      "RED-EQUALITY forward exact correction",
+      "RED-EQUALITY withheld canonical",
+      "RED-EQUALITY withheld bounded risk",
+      "RED-EQUALITY withheld weak risk",
+      "RED-EQUALITY withheld strict risk",
+      "RED-EQUALITY withheld exact correction",
+      "RED-EQUALITY reverse canonical",
+      "RED-EQUALITY reverse bounded risk",
+      "RED-EQUALITY reverse weak risk",
+      "RED-EQUALITY reverse strict risk",
+      "RED-EQUALITY reverse exact correction",
+      "RED-EQUALITY nonempty feasible family",
+      "RED-EQUALITY feasible minimizers",
+      "RED-EQUALITY strict minimizers",
+      "RED-EQUALITY unconditional bridge fails",
+      "RED-ZERO-WEIGHT proper masses",
+      "RED-ZERO-WEIGHT loss weights",
+      "RED-ZERO-WEIGHT positive admissible costs",
+      "RED-ZERO-WEIGHT state dimensions",
+      "RED-ZERO-WEIGHT all-withheld feasible",
+      "RED-ZERO-WEIGHT all-withheld risk",
+      "RED-ZERO-WEIGHT forward|forward canonical",
+      "RED-ZERO-WEIGHT forward|forward bounded risk",
+      "RED-ZERO-WEIGHT forward|withheld canonical",
+      "RED-ZERO-WEIGHT forward|withheld bounded risk",
+      "RED-ZERO-WEIGHT forward|reverse canonical",
+      "RED-ZERO-WEIGHT forward|reverse bounded risk",
+      "RED-ZERO-WEIGHT withheld|forward canonical",
+      "RED-ZERO-WEIGHT withheld|forward bounded risk",
+      "RED-ZERO-WEIGHT withheld|withheld canonical",
+      "RED-ZERO-WEIGHT withheld|withheld bounded risk",
+      "RED-ZERO-WEIGHT withheld|reverse canonical",
+      "RED-ZERO-WEIGHT withheld|reverse bounded risk",
+      "RED-ZERO-WEIGHT reverse|forward canonical",
+      "RED-ZERO-WEIGHT reverse|forward bounded risk",
+      "RED-ZERO-WEIGHT reverse|withheld canonical",
+      "RED-ZERO-WEIGHT reverse|withheld bounded risk",
+      "RED-ZERO-WEIGHT reverse|reverse canonical",
+      "RED-ZERO-WEIGHT reverse|reverse bounded risk",
+      "RED-ZERO-WEIGHT nonempty feasible family",
+      "RED-ZERO-WEIGHT feasible minimizers",
+      "RED-ZERO-WEIGHT feasible actions",
+      "RED-ZERO-WEIGHT zero-weight wrong direction infeasible",
+      "RED-ZERO-WEIGHT risk minimizer not unique",
+      "RED-ZERO-WEIGHT auxiliary solution set differs"
+    ],
+    "case_summaries": {
+      "RED-SCALAR": {
+        "feasible_actions": [
+          "withheld"
+        ],
+        "risk_minimizers": [
+          "withheld"
+        ],
+        "disclosure_maximizers": [
+          "withheld"
+        ],
+        "minimum_risk": "1/3",
+        "maximum_disclosures": 0
+      },
+      "RED-COMMON": {
+        "counted_disclosures": [
+          2,
+          2
+        ],
+        "counted_errors": [
+          0,
+          1
+        ]
+      },
+      "RED-EQUALITY": {
+        "feasible_actions": [
+          "forward",
+          "reverse",
+          "withheld"
+        ],
+        "risk_minimizers": [
+          "withheld"
+        ],
+        "disclosure_maximizers": [
+          "forward",
+          "reverse"
+        ],
+        "minimum_risk": "1/3",
+        "maximum_disclosures": 1
+      },
+      "RED-ZERO-WEIGHT": {
+        "feasible_actions": [
+          "forward|forward",
+          "forward|withheld",
+          "withheld|forward",
+          "withheld|withheld"
+        ],
+        "risk_minimizers": [
+          "forward|forward",
+          "forward|withheld"
+        ],
+        "disclosure_maximizers": [
+          "forward|forward"
+        ],
+        "minimum_risk": "0",
+        "maximum_disclosures": 2
+      }
+    },
+    "executed_at_utc": "2026-11-05T20:01:51.621289+00:00"
+  }
+}

@@ -1,0 +1,58 @@
+---
+title: "Monte Carlo selection contract for a fixed finite iid universe"
+lang: en
+execute:
+  enabled: false
+---
+
+## Status and supported guarantee {#sec-mc-selection-status}
+
+This implementation-facing contract records the assumptions of [N01](../proofs/N01-iid-uniform-bound.qmd); it does not implement the later held-out or MCMC procedures. The scientific joint event and posterior budgets remain those of [decision contract v1](decision-contract-v1.qmd). A returned empirical risk or event probability becomes a numerical assurance statement only after the applicable sampling and selection conditions are recorded and justified.
+
+N01 controls the probability, over a genuine iid Monte Carlo batch conditional on observed $y$, of certifying a selected report whose **supplied-law** joint violation probability exceeds $\alpha$. That error probability is at most the declared numerical budget $\beta$. This is not posterior probability $1-\beta$ for the selected report, conditional coverage given that certification occurred, a frequentist guarantee over new datasets, or a model-validation statement. It certifies no mean constraint, expected-loss optimum, bundle target or scope-specific numerical bound unless separately covered.
+
+## Required record before the assurance batch {#sec-mc-selection-record}
+
+| Record | Required meaning |
+|---|---|
+| `target_law` | Proper $\Pi_s(\cdot\mid y)$, observed-data identity, producer/version, transformations, approximation status, and how complete target states are drawn from this law. |
+| `iid_mechanism` | Justification for independent whole-state rows with the same target distribution, including any scientifically justified product adapter. Matching marginal row labels or an iid declaration inferred from array shape is insufficient. |
+| `fixed_universe` | Candidate/evaluation-specification identifiers and a reproducible generator or enumeration, fixed conditional on $y$ before this batch. Include all masks, thresholds, protected sets and other event-defining alternatives that the selection procedure may use. |
+| `cardinality_bound` | Finite integer $K\ge|\mathcal U_y|\ge1$ and its derivation. Count complete canonical reports under shared metadata, or complete evaluation specifications when metadata vary. A post-search surviving-bank count is not this bound. |
+| `sample_plan` | Fixed integer $S\ge1$, state identities/order, source and transformation hashes, and retention rules that preserve the asserted iid mechanism. |
+| `numerical_budget` | Fixed $0<\beta<1$ and the exact margin formula; distinguish it from $\alpha$, $q$ and $t$. |
+| `decision_metadata` | Scientific budgets, equality policy, action restrictions, loss/utility branch and the selected specification's complete event definition. |
+| `selection_provenance` | Which fields may depend on the batch, how selected specifications remain in the fixed universe, and the identity of any independent exploratory or validation samples. |
+
+Metadata are evidence and declared assumptions, not a substitute for verifying the sampling procedure. If draws actually come iid from an approximate law $Q$ rather than the named $\Pi_s$, the concentration theorem concerns $Q$. It supplies no approximation-error bound between the two laws.
+
+## Computation and decision rule {#sec-mc-selection-rule}
+
+Evaluate each candidate's exact scientific indicator on the genuine state rows. In particular preserve strict $F>tN$ comparisons, canonical IDs, equality failures and the correct scope masks. Use the unweighted mean of the $S$ Bernoulli indicators, then
+$$
+\varepsilon=\sqrt{\log(K/\beta)/(2S)},\qquad
+U_a=\min\{1,\widehat J_a+\varepsilon\}.
+$$
+The selected specification may be chosen using these same rows because the bound is simultaneous over the declared universe. A certificate requires $U_a\le\alpha$ (or the stronger untruncated inequality). Record $\widehat J_a$, the count of violations, $S,K,\beta,\varepsilon,U_a,\alpha$, the selected ID, and actual arithmetic qualifications. Approximate event evaluation or a downward-rounded upper bound is not justified by the probability theorem; a certifying implementation must handle its numerical errors separately.
+
+If $\varepsilon\ge1$, the clipped upper bound is one. For $\alpha<1$ it gives no acceptance. At $\alpha=0$, a positive stochastic margin cannot certify even a zero-error batch. Analytically known zero events can use a separately recorded exact argument. A failure to obtain this sufficient certificate is **inconclusive**, not a proof that the report violates its posterior budget. All-withheld must retain its independent analytic treatment and no-disclosure display semantics.
+
+The certificate only addresses joint protection. To claim complete primary-problem feasibility, retain valid evaluation or separate coverage for every optional mean constraint and verify action-family/guard membership. To claim optimality, additionally justify the optimizer and true objective comparison. Uniform joint assurance alone establishes neither.
+
+## Adaptation and validation reuse {#sec-mc-selection-adaptation}
+
+Three cases must remain distinct:
+
+1. **Observed-data-dependent universe:** fixing $y$ also fixes the finite universe. N01 applies conditionally if the subsequent numerical batch satisfies its iid assumptions.
+2. **Same-batch candidate construction:** a resulting bank may be a random subset of a genuinely fixed finite universe, but use a size bound for that covering universe, including every adaptive event definition. The selected bank's smaller size cannot replace it merely because only those candidates were evaluated.
+3. **Independent validation after selection:** freeze the specification using exploration information; then condition on that information. A fresh batch that remains iid from the target law under this conditioning permits a pointwise argument with $K=1$. Merely splitting a dependent chain does not establish this condition. The held-out implementation and its sharper binomial bound belong to the next step.
+
+An arbitrary final report becomes fixed for posterior integration once chosen, but this does not retroactively make its choice independent of the Monte Carlo errors used to choose it. Reusing validation outcomes to select another report, change masks or thresholds, or decide when to stop needs a new valid coverage argument. The present fixed-$S$ result is not an anytime-valid stopping rule.
+
+If several assurance claims are combined, declare their coverage targets and valid numerical failure allocations. A predeclared finite collection with valid budgets $\beta_r$ has aggregate failure probability at most $\sum_r\beta_r$ by the union bound; reporting one overall budget requires that sum not exceed it. Repeating a nominal $\beta$ certificate across several searches does not preserve an overall $\beta$ guarantee automatically.
+
+## Explicit exclusions and handoff {#sec-mc-selection-exclusions}
+
+This contract supplies no finite-sample certificate for MCMC, importance weighting, estimated effective sample sizes, unrecorded product couplings, or sample-adaptive target fitting. Equal computational weights do not establish iid states. Exact arithmetic on a saved empirical measure is distinct from the sampling bound connecting that measure to its target law.
+
+The finite formula illustration in [N01](../proofs/N01-iid-uniform-bound.qmd#sec-n01-illustration) checks margin arithmetic only. It performs no simulation, certification implementation or coverage experiment. Future held-out and MCMC modules must preserve the distinctions above and retain their own assumptions, outputs and qualification labels.

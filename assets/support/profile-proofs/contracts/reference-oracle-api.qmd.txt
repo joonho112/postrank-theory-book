@@ -1,0 +1,156 @@
+---
+title: "Small complete-family oracle: implementation interface"
+lang: en
+execute:
+  enabled: false
+---
+
+## Exports and family construction {#sec-oracle-exports}
+
+Step 6.6 implements two functions in [oracle.R](../R/profile/oracle.R):
+
+```r
+p2_enumerate_columns(n, equality_classes = NULL, grade_cap = n)
+p2_oracle(input, decision = NULL, objective = "A", family = "product",
+          protection = "direct_joint", grade_caps = NULL,
+          utility = NULL, max_actions = 100000L)
+```
+
+Source the input, action, decision, expected and joint modules first; constructing
+summary inputs additionally needs the summary validator. The oracle consumes
+validated objects under their existing contracts. It supports $2\le n\le4$,
+with arbitrary positive $D$ subject to the explicit action-count limit.
+
+`p2_enumerate_columns()` returns an integer matrix whose rows are canonical
+ordered partitions, sorted lexicographically in unit order. Columns are
+positional units, labeled `unit-1`, etc.; rows are `column-001`, etc.
+Its optional class vector is positional: names carry no additional mapping.
+All vectors in $\{1,\ldots,n\}^n$ are considered, retaining precisely those
+whose occupied labels are $1,\ldots,K$, whose $K$ respects the cap, and which
+do not split an equality class. Therefore every admissible ordered partition
+appears exactly once. Unguarded counts are **3, 13 and 75** for $n=2,3,4$.
+No target mean, fixed order or adjacent-merge restriction is used.
+
+The full oracle checks actual unit/domain IDs and guards through the action and
+evaluation APIs. Grade caps require one value per domain, with any names in the
+exact declared order. `family = "product"` enumerates every product of allowed
+domain columns. `family = "common"` intersects the allowed column sets across
+all domains and repeats each remaining column. This enforces every guard and
+cap, including crossing identities, on the diagonal family. All-withheld is
+present in either family. The exact integer family size is compared to
+`max_actions` before allocating or evaluating its product. Exceeding the cap
+raises an error; it does not trigger truncation, sampling or a partial-search
+claim. The scalar limit must be a positive R-range integer.
+
+## Objectives, utility and protection {#sec-oracle-decision}
+
+The oracle uses [the declared decision](profile-risk-spec.qmd) without modifying
+its loss weights, withholding costs, scopes, mean constraints or thresholds.
+Objective `"A"` minimizes additive expected risk. Objective `"B"` maximizes the
+separately declared
+$I_v=\sum_{d,i<j}v_{ij}^d\mathbf1\{g_{id}\ne g_{jd}\}$ on the same feasible
+set. B introduces no secondary risk objective or additional risk cap.
+
+`utility = NULL` supplies unit weights. Otherwise, utility is a nonnegative
+numeric or rational-text $M\times D$ matrix with finite numeric projections.
+Rows follow `selected_action$pair_index`; any row names must be `pair-1`, etc.,
+and any column names must exactly match domain IDs. Numeric entries denote
+their stored binary rational values; text such as `"1/3"` denotes that exact
+fraction. Utility is evaluated with exact rational arithmetic and is distinct
+from grade counts, occupied cells and loss weights. The returned `utility`
+list retains numeric `values`, canonical-text `exact`, `encoding` and
+`pair_index`. All numeric outputs are projections; exact fields remain
+authoritative when a value cannot be represented exactly as a double.
+
+`protection` selects one of three matched rules. Let $H$ be the **configured**
+number of protection rows and $p_h$ each corresponding strict-exceedance
+probability:
+
+| Selector | Constraint | Returned `protection_value` |
+|---|---|---|
+| `direct_joint` | $J\le\alpha$ | Union probability $J$ |
+| `bonferroni` | $\sum_h p_h\le\alpha$ | $\sum_h p_h$ |
+| `equal_bonferroni` | Every $p_h\le\alpha/H$ | $H\max_h p_h$ |
+
+All three also enforce every optional mean constraint, including those on
+zero-loss-weight domains. $H=0$ is explicitly disabled and vacuous protection,
+with protection value zero. Inactive rows remain in the configured $H$ for
+equal allocation. Bounds are not clipped to one. Bonferroni values are not
+reported as actual joint probabilities.
+
+Direct evaluation invokes the [joint evaluator](reference-joint-api.qmd) on
+the complete event table. The two conservative alternatives invoke that same
+evaluator separately for each event, preserving exact thresholds and parameters.
+Consequently they can use criterionwise full-vector states without pairing
+rows across payloads. A summary supports only the analytic-event cases already
+supported by the evaluator. If any candidate cannot be evaluated under the
+requested rule, the oracle rejects the entire search with its candidate ID and
+reason. Missing information is never labeled infeasibility or used to discard
+a candidate silently.
+
+## Complete results and tie-breaking {#sec-oracle-return}
+
+The `p2_oracle_result` contains:
+
+- `candidate_table`: one row for every candidate, keyed by `action_id`;
+- `actions`: named canonical $G$ matrices keyed by the same IDs;
+- `event_tables`: matching per-candidate protection-row tables;
+- `optimizer_ids`, `selected_id`, and normalized `selected_action`;
+- unchanged `decision`, declared `utility`, `family`, `objective` and `protection`;
+- `receipts` describing the full family and qualification of the result.
+
+Candidate IDs are `action-000001`, etc., in lexicographic canonical-$G$ order:
+first domain, its units in declared order, then subsequent domains. This order
+is also the declared deterministic tie-break. The complete optimizer set is
+computed **before** selecting its first ID; no other objective breaks ties.
+The all-withheld ID is retained explicitly in the receipt.
+
+`candidate_table` includes numeric `risk`, `J`, `protection_value`, `Iv`, `I`
+and `C`, with canonical-text counterparts `risk_exact`, `J_exact`,
+`protection_value_exact` and `Iv_exact`. `I` is the unweighted disclosure count.
+List columns `K` and `N` retain named per-domain grade and disclosure counts.
+Logical columns are `mean_feasible`, `protection_feasible`,
+`feasible_for_represented_measure`, `optimal` and `selected`; `status` records
+exact versus approximate represented-measure arithmetic. For conservative
+comparators, `J` and `J_exact` are `NA`, even if a separate direct calculation
+could be performed. Unavailable exact table entries are `NA_character_`.
+Empty conservative event tables retain the empty decision table; nonempty
+tables preserve configured row order and sequential `joint-1`, etc., IDs.
+
+Receipts include family size and column counts, caps and equality classes,
+the explicit limit, globality and tie-break statements, protection meaning and
+configured event count, arithmetic and objective-comparison status, original
+input/selection receipts, the decision configuration hash, UTC start/end times
+and elapsed seconds. Original selection metadata describes the producer's
+input; it is not a claim that this optimizer was chosen without inspecting
+that measure. The oracle selects using the evaluated measure and performs no
+held-out validation.
+
+## Arithmetic, assurance and verification {#sec-oracle-validation}
+
+Rational finite and equal-weight empirical inputs retain exact risks and event
+probabilities, so feasibility and objective comparisons use `bigq` values.
+Floating masses and numeric summaries carry approximate labels. Approximate
+risk comparisons use their floating values without a tie tolerance; their
+returned optimizer set is conditional on those computed values. A finite
+enumeration of that approximate objective does not establish exact posterior
+optimality. Exact empirical optimization likewise supplies no intended-posterior,
+Monte Carlo, iid, mixing or sample-adaptive confidence certificate.
+
+Globality means only completion of the stated guarded/capped ordered-partition
+family at $n\le4$. It excludes free-comparison actions, unimplemented candidate
+families and large-scale optimization. The [bundle evaluator](reference-bundle-api.qmd)
+can be called separately on a selected action; the oracle enables no bundle
+objective or constraint.
+
+The focused command `Rscript scripts/p2_test_profile.R oracle` passed **7 test
+blocks and 73 expectations** on 2026-11-05 at 21:33:07 UTC, with no failures,
+errors, warnings or skips. Its [receipt](../results/p2-v1/tests/reference-tests-oracle.json)
+records actual source hashes. Tests cover enumeration counts, deterministic
+crossing and guarded family differences, T03's complete optimizer sets, A/B
+divergence, exact utility encoding, matched Bonferroni rules, fixed $H$,
+scope means, explicit limits, unsupported-information errors, and empty,
+summary, floating and empirical cases. During author checking, one synthetic
+fixture initially placed equality classes outside `target_spec`; correcting
+that declaration restored the intended guarded family sizes. This was a
+fixture repair, not evidence of an additional inferred equality policy.

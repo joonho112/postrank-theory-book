@@ -1,0 +1,51 @@
+---
+title: "Core error–withholding loss"
+lang: en
+execute:
+  enabled: false
+---
+
+## Decision and truth conventions {#sec-p2-core-loss}
+
+The primary loss evaluates the strict directions defined in [reporting semantics](reporting-semantics.qmd). It penalizes a false issued direction by one and a withheld pair by a declared cost $\tau_d$. There is no latent equality claim in a grade tie. The canonical definitions are in [elementary loss](../proofs/definitions/elementary-loss.qmd). This is a decision specification adapted from the P1 error–withholding formulation. Formal reduction and sufficiency results are reserved for Phase 4.
+
+The baseline uses **weak direction error**: an issued statement $\theta_{id}>\theta_{jd}$ fails when $\theta_{id}\leq\theta_{jd}$. This includes equality, not just strict reversal. For one unordered pair the statewise costs are:
+
+| Report in domain $d$ | $\theta_{id}>\theta_{jd}$ | $\theta_{id}=\theta_{jd}$ | $\theta_{id}<\theta_{jd}$ |
+|---|---:|---:|---:|
+| $g_{id}<g_{jd}$ | 0 | 1 | 1 |
+| $g_{id}=g_{jd}$ | $\tau_d$ | $\tau_d$ | $\tau_d$ |
+| $g_{id}>g_{jd}$ | 1 | 1 | 0 |
+
+Both possible strict directions therefore fail at latent equality. Equal target values in one posterior state do not retroactively change the disclosure count or the grade action. An equality-neutral rule is a different loss and will receive its own event/denominator contract.
+
+## Count once, then normalize {#sec-p2-loss-counting}
+
+Let $M=\binom n2>0$. There are $M$ possible unordered unit pairs in each domain, not $n(n-1)$ independent comparisons. Summing over ordered indices is safe only because at most one of $x_{ij}^d$ and $x_{ji}^d$ can be one. Define $N_d$ as the number of disclosed pairs and $F_d$ as the number of their false directions. Then $0\leq F_d\leq N_d\leq M$, and $M-N_d$ pairs are withheld.
+
+The domain loss divides $F_d+\tau_d(M-N_d)$ by **all** possible pairs. It is not the fraction of errors among disclosed pairs. Dividing the latter by $N_d$ gives a different functional and requires an empty-case convention. Counts for protected scopes are introduced separately in Step 3.5; they do not replace $M$ in this core objective.
+
+Loss weights satisfy $w_d\geq0$ and $\sum_dw_d=1$; withholding costs satisfy $0<\tau_d\leq1/2$. All are declared and fixed in the posterior evaluation. A zero loss weight removes that domain's contribution to the objective, but does not remove any separately declared protection in that domain. If several actions are optimal, a solver must record its tie-breaking rule; these definitions do not grant a unique optimum or a maximum-disclosure solution.
+
+## Expected loss and what it requires {#sec-p2-loss-expectation}
+
+The primary risk is the expectation of the weighted domain loss under the supplied law. Boundedness ensures that this expectation exists even when target means do not. An all-withheld matrix has risk $\sum_dw_d\tau_d$. This remains true when a structural guard forces some pairs to be withheld: the baseline counts their constant withholding cost. Removing those pairs or renormalizing changes the declared objective unless the omitted constant and weights are handled explicitly.
+
+Write $e_{ij}^d=\Pi_s(\theta_{id}\leq\theta_{jd}\mid y)$. For a fixed matrix,
+
+$$
+R_{\mathrm{sep}}(G)
+=\frac1M\sum_{d=1}^D w_d
+\left[\sum_{i\ne j}x_{ij}^d(G)e_{ij}^d+
+\tau_d\{M-N_d(G)\}\right].
+$$
+
+This identity uses finite linearity of expectation, not independence. If equality has positive probability, $e_{ij}^d+e_{ji}^d=1+\Pi_s(\theta_{id}=\theta_{jd}\mid y)$, so the two weak-error probabilities need not be complements. Marginal quantities sufficient to evaluate this additive expectation do not in general identify the later joint violation event.
+
+Domain weights price reporting consequences. They never multiply target magnitudes to create a composite need score. Withholding cost prices incomplete reporting; it is not an error-rate cap. Optional expected-FDP budgets, realized-FDP thresholds and posterior joint-error probability budgets will have different symbols and roles.
+
+## Fixed specification and boundedness {#sec-p2-loss-boundaries}
+
+With $0<\tau_d\leq1/2$, each pair cost lies in $[0,1]$, hence $0\leq L_{\mathrm{sep}}\leq1$ and $0\leq R_{\mathrm{sep}}\leq1$. The upper bound does not describe frequentist calibration or Monte Carlo error. Numerical estimates, exact finite-law evaluations and intended-posterior risks must retain their distinct statuses.
+
+The core has no practical superiority margin, random denominator, magnitude-dependent loss, or randomized report averaging. Such alternatives are meaningful only with an explicit revised contract. In particular, replacing $\leq$ by a floating-point tolerance changes the scientific error event; a tolerance for checking numerical feasibility is not permission to do so.

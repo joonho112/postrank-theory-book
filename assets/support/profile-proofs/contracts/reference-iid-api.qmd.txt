@@ -1,0 +1,73 @@
+---
+title: "Reference independent iid validation API"
+lang: en
+execute:
+  enabled: false
+---
+
+## Entry points and scope {#sec-reference-iid-entry}
+
+Step 7.6 implements [N02](../proofs/N02-heldout-certification.qmd) in [validate-iid.R](../R/profile/validate-iid.R). Source the existing reference modules and this additional file. No production package or shared scientific contract changes are made.
+
+```r
+p2_iid_count_bound(v, S, alpha = "1/10", beta = "1/20",
+                   max_S = 10000L, max_bits = 1000000L,
+                   max_work = 50000000)
+p2_iid_spec_hashes(input, action, decision = NULL)
+p2_validate_iid(input, action, decision = NULL, validation = NULL,
+                beta = "1/20", max_S = 10000L,
+                max_bits = 1000000L, max_work = 50000000,
+                keep_traces = TRUE)
+```
+
+The count helper supplies a mathematical count rule, not a sampling certificate. The wrapper evaluates the frozen report's actual joint-event trace and can issue a **conditional** supplied-law certificate under the recorded assumptions. It does not verify independence, validate the posterior model, certify optional mean constraints, or establish optimality. The proper law, observed data, report, scientific configuration, numerical budget and fixed sample size must be fixed before this independent validation batch is inspected.
+
+## Exact count rule {#sec-reference-iid-count}
+
+Require integer $S\ge1$, $0\le v\le S$, $\alpha\in[0,1]$ and $\beta\in(0,1)$. Parameter encodings follow the decision API: rational strings and `bigq` retain exact fractions, while numeric values mean their exact stored binary rationals. No tolerance changes a tail comparison.
+
+For $v<S$ and $0<\alpha<1$, `accept` is the exact comparison $\Pr_{\mathrm{Bin}(S,\alpha)}(V\le v)\le\beta$. `binomial_lower_tail_exact` stores canonical rational text. The all-count case $v=S$ has upper bound one; zero cap never passes a finite-count rule; cap one passes trivially. `upper_display` is a separately labeled approximate CP upper bound, calculated from the smaller exact rational tail or its logarithm. For zero counts the implementation uses stable log/exponential arithmetic; for interior counts it uses a beta quantile or its small-quantile expansion near binary64 underflow. Check `upper_display_status`: `approximate` denotes an interior projection, `exact_endpoint` the all-count endpoint, and `rounded_to_one` an interior bound displayed as one. A positive bound projected to zero is returned as `NA` with `positive_bound_rounded_to_zero`. These display values never decide acceptance. Read `beta_exact` rather than the rounded numeric beta when the input is close to one.
+
+The result has class `p2_iid_count_bound` and retains `v`, `S`, numeric/exact `alpha` and `beta`, `accept`, exact tail where computed, `method`, approximate upper display, and arithmetic/workload receipts. `count_rule_only_not_a_sampling_certificate` is `TRUE`, and `assumptions_verified` is `FALSE`.
+
+Before integer powers, the implementation checks `S <= max_S`, a conservative integer-size envelope against `max_bits`, and that envelope times the number of recurrence terms against `max_work`. Caps are explicit resource safeguards, not confidence parameters or precise runtime guarantees. The caller may deliberately increase them; rejection never triggers approximate acceptance. Numeric scientific probabilities with large binary denominators can need more work than simple rational text.
+
+## Frozen independent-validation record {#sec-reference-iid-record}
+
+`p2_iid_spec_hashes()` returns a named list `report`, `decision`, `target_law`. It canonicalizes and revalidates the action under the input guards, and reconstructs the decision from its exact cost/threshold values and scopes before hashing. The decision hash therefore does not trust a stale cached receipt. The target-law hash includes law/target metadata, conditioning-data identity/hash and transformation hash. These bindings exclude saved target-row values, source sample hashes and validation state IDs, so the same frozen specification can be evaluated on a new batch. The hashes are deterministic R-serialization receipts, not proof of scientific equivalence or a timestamp service.
+
+For a nontrivial stochastic certificate, `validation` must contain:
+
+| Field | Meaning and check |
+|---|---|
+| `spec_hashes` | Exact named list matching the revalidated frozen specification. |
+| `beta_exact` | Canonical rational text matching the requested numerical budget, frozen with the sample plan. |
+| `fixed_S` | Predetermined size, equal to the actual relevant event-trace length. |
+| `iid_whole_states`, `independent_of_exploration` | Both `TRUE`; complete relevant target-state rows remain iid from the supplied law conditional on exploration. |
+| `frozen_before_validation`, `fixed_sample_size`, `no_validation_reuse`, `no_optional_stopping` | All `TRUE`, covering the report, event definition, scientific cap, numerical budget and sample plan. |
+| `iid_mechanism`, `independence_justification` | Nonempty substantive descriptions; content remains an external scientific obligation. |
+| `exploration_history_id`, `frozen_record_id`, `validation_batch_id` | Nonempty identifiers for the retained provenance artifacts. |
+| `exploration_state_ids` | Unique character vector, possibly empty, disjoint from validation labels. |
+| `validation_state_ids` | Exactly the actual relevant trace's state IDs in original order. |
+
+Matching hashes establishes consistency with the supplied record, not that freezing occurred earlier. Disjoint IDs are necessary consistency evidence under this reference protocol, not proof of independent random generation. Known producer selection IDs may not overlap this trace; known producer validation IDs must match it. The original records are retained. Repeated **target values** across distinct iid trials are valid, especially for discrete laws, and are never deduplicated.
+
+## Evaluation, statuses and limits {#sec-reference-iid-status}
+
+The wrapper accepts only normalized `iid_equal_weight_draws` input. Exact finite laws should use the existing exact evaluator; MCMC and scalar-summary inputs are rejected here. The joint evaluator supplies strict integer-cutoff indicators on one actual relevant state basis. A single active domain can use its own criterionwise payload; multiple active domains need actual joint capability. Irrelevant marginal row IDs do not determine the validation size or get aligned into new joint states.
+
+Returns class `p2_iid_validation` with `status`, `joint_certificate`, `joint_protection_enabled`, the complete joint evaluation, `count_bound`, frozen hashes, original validation record, and qualification receipts:
+
+| Status | Meaning |
+|---|---|
+| `certified_conditional_on_declared_iid_independence` | Exact count rule passes under the supplied frozen iid/independence assumptions. |
+| `inconclusive` | Count rule does not pass; this is not evidence of infeasibility. |
+| `analytic_zero_event` | Nonempty configured union is identically false by deterministic event structure; no stochastic record or count bound is needed. |
+| `trivial_alpha_one` | Enabled protection has cap one; every probability satisfies it without stochastic assurance. |
+| `joint_protection_disabled` | No joint rows were configured; `joint_certificate = FALSE` prevents a disabled check being promoted to a report-correctness certificate. |
+
+Analytic/trivial branches are still restricted to this module's declared iid input interface, but their conclusions do not depend on iid sampling. Their `count_bound` is `NULL`. The nested joint evaluator continues to label its empirical calculations as empirical, even when the outer module adds a particular conditional assurance result. No outer certificate upgrades its expected-risk or mean-feasibility calculations.
+
+With `keep_traces = FALSE`, stored joint/expected state traces are hidden while the validation record, hashes, counts and exact acceptance remain. With traces retained, original state order, history, payload identity and union indicators are available. Every result states `assumptions_verified = FALSE` and preserves the distinction between target-law and input-sample hashes. The [focused tests](../tests/profile/test-iid-validation.R) and [actual receipt](../results/p2-v1/tests/reference-tests-iid-validation.json) record bounded author validation; deterministic regression fixtures do not themselves establish sampling assumptions.
+
+Actual author validation: `Rscript scripts/p2_test_profile.R iid-validation` completed on 2026-11-05 22:16:21 UTC with **7 test blocks and 84 passed expectations**, zero failures, errors, warnings or skips. Both QMD documents passed Pandoc parsing; document anchors were unique and local links resolved. This is author validation, not an external review.

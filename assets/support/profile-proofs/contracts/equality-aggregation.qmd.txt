@@ -1,0 +1,22 @@
+---
+title: "Equality quotient implementation contract"
+lang: en
+execute:
+  enabled: false
+---
+
+## Population and retained objects {#sec-equality-aggregation-contract}
+
+Use the [T10 correspondence](../proofs/T10-equality-quotient.qmd) only after the input's domain-specific scientific identity and law-compatibility checks pass. Preserve original unit IDs, domain IDs, $n$, $M$, each domain class map and representative IDs, class sizes, within-class pair counts, joint class-target law and its source hash. Preserve each original scope's identity and cross-class integer multiplicity array. All original masks and reconstruction maps remain accessible.
+
+Compression represents an institution-level decision if the original units are institutions. It does not convert it to a community-level estimand. Retain every domain-specific identity even when a domain has zero objective weight. Do not infer identity from rounded targets or equal saved draws.
+
+## Evaluation and reconstruction {#sec-equality-aggregation-evaluation}
+
+Retain the original all-pair normalizer and constant within-class withholding loss. Transport the exact candidate family, all optional restrictions, costs, thresholds and utility weights. Evaluate scoped counts using multiplicities, rather than thresholding multiplicities to one. Reconstruct original grade rows before reporting occupied cells or unit-specific profiles. A one-class domain has no disclosures and full withholding cost; it must not trigger a zero-pair normalization.
+
+The compressed array is generally ragged across domains. Preserve joint state alignment supported by the producer's law. An optimizer on class columns must be mapped back to the original guarded family; if it instead permits only a narrower class bank, disclose that bank restriction. Preserve the original tie-break when an identical chosen representative is claimed.
+
+## Limits and required checks {#sec-equality-aggregation-limits}
+
+Validate count and loss equality on original versus compressed states, including unequal class sizes, crossing identities, arbitrary scopes, zero weights and one-class domains. Keep the source equality evidence separate from this arithmetic check. No automatic global deduplication, no unguarded optimality theorem, and no replacement of core weak error with neutral reversal loss is supplied by this contract.

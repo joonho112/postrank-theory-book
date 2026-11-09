@@ -1,0 +1,374 @@
+# Worked exact examples {#sec-worked-examples}
+
+<!-- ch25-a integration start -->
+The examples show how target choice, the available reports and the protected event affect a decision under a stipulated finite law. Complete enumeration makes the calculations transparent, but does not establish calibration for a fitted posterior. We first work through two common-grade examples, then allow domain-specific columns to examine the additional role of dependence.
+<!-- ch25-a integration end -->
+
+## Common grades under an exact joint target law {#sec-exact-common-grade}
+
+We examine target construction, uncertainty and reporting using four synthetic units on two criteria, with larger values denoting higher reporting priority. A specified two-state conditional law lets us calculate all relevant probabilities and evaluate every feasible report exactly, without estimating an institutional posterior or assessing calibration.
+
+The joint law is the one used in the computational and frontier examples. Here we derive pair probabilities from the target values and compare the reports selected for the composite and criterion-direction targets. The scalar target and withholding cost are specified below independently of the earlier optimization result.
+
+### Targets and feasible reports {#state-the-targets-and-the-decision}
+
+The target arrays in @tbl-exact-common-states have one row per unit and one column per criterion. Each probability belongs to an entire array: $3/4$ to the first state and $1/4$ to the second. Drawing columns or unit rows independently would therefore change the model.
+
+| Unit | State 1: criterion 1 | State 1: criterion 2 | State 2: criterion 1 | State 2: criterion 2 |
+|---|---:|---:|---:|---:|
+| A | 4 | 4 | 3 | 1 |
+| B | 3 | 2 | 4 | 2 |
+| C | 2 | 3 | 2 | 3 |
+| D | 1 | 1 | 1 | 4 |
+
+: Synthetic target arrays for the two states of the supplied conditional law. State probabilities are $3/4$ and $1/4$, respectively. Both criteria use the higher-priority orientation. {#tbl-exact-common-states}
+
+For criterion-direction errors, choose $w=(3/5,2/5)$. For the scalar-composite target, choose
+
+$$
+c_i=\frac34\theta_{i1}+\frac14\theta_{i2}.
+$$
+
+Here $a=(3/4,1/4)$ specifies tradeoffs between target magnitudes and $w$ values errors in criterion directions. The coefficients differ in this illustration, and the assumed target scales permit the composite. These choices illustrate the two objectives without recommending institutional settings. As shown in @sec-two-estimands, equal numerical coefficients need not make the estimands agree.
+
+The composite values are $(4,11/4,9/4,1)$ in state 1 and $(5/2,7/2,9/4,7/4)$ in state 2. Consequently its strict order is ABCD in the first state and BACD in the second. There are no latent ties on either criterion or on the composite in this particular example. Under the weak-error convention used here, a disclosed strict direction would count as wrong at latent equality, although neither state contains such an equality.
+
+The feasible reports are all canonical ordered partitions of the four units. Grade 1 is highest; a shared grade withholds a comparison. There is no imposed order, grade cap, criterion protection, or allocation budget. Write a report as its four grade labels in unit order ABCD. For example, 1223 reports A above B and C, with B and C tied, and both above D. It makes five of the six possible pair comparisons. Fix the withholding cost at $\tau=1/5$ for both objectives.
+
+### Pair probabilities {#compute-the-pair-probabilities-before-choosing-a-report}
+
+Let $e_{ij,k}$ be the supplied probability that a disclosed $i>j$ would be wrong on criterion $k$, and let $e^{(a)}_{ij}$ be its composite error probability. The criterion-weighted coefficient is $\bar e_{ij}=(3/5)e_{ij,1}+(2/5)e_{ij,2}$. The supplied-law superscript is suppressed throughout this example because only one conditional law is used.
+
+| Disclosed direction | $\Pr(\theta_{i1}>\theta_{j1})$ | $\Pr(\theta_{i2}>\theta_{j2})$ | $\bar e_{ij}$ | $e^{(a)}_{ij}$ |
+|---|---:|---:|---:|---:|
+| A $>$ B | $3/4$ | $3/4$ | $1/4$ | $1/4$ |
+| A $>$ C | $1$ | $3/4$ | $1/10$ | $0$ |
+| A $>$ D | $1$ | $3/4$ | $1/10$ | $0$ |
+| B $>$ C | $1$ | $0$ | $2/5$ | $0$ |
+| B $>$ D | $1$ | $3/4$ | $1/10$ | $0$ |
+| C $>$ D | $1$ | $3/4$ | $1/10$ | $0$ |
+
+: Exact conditional probabilities and error coefficients for the six forward directions. Reverse errors equal one minus the displayed error in this tie-free example. {#tbl-exact-common-pairs}
+
+For A versus C, criterion 1 always favors A, while criterion 2 favors C only in state 2. The weighted error coefficient is consequently $(3/5)0+(2/5)(1/4)=1/10$. The composite places A above C in both states and has zero error probability for that direction. For B versus C, criterion 1 always favors B and criterion 2 always favors C. The directional error cost is therefore $2/5$ despite certainty about the criterion orderings, whereas the composite places B above C in both states. In this comparison, disagreement between objectives persists without uncertainty about either criterion.
+
+If the pairs were considered separately under weighted loss, A–B would be withheld because $1/5<1/4$, B–C would be withheld because $1/5<2/5$, and A–C would be disclosed because $1/10<1/5$. These decisions are incompatible with an ordered partition: tying A with B and B with C also ties A with C. At least one individually preferred pair decision must therefore change to obtain a coherent report.
+
+### Report risks under the two estimands {#evaluate-complete-reports-under-both-estimands}
+
+For a fixed report, denote the conditional expected weighted criterion count by $A_w(g)$ and the composite wrong count by $A_a(g)$. Both are expected counts; neither is an observed number of mistakes. With $M=6$,
+
+$$
+R_{w,1/5}(g)=\frac{A_w(g)+(6-N(g))/5}{6},
+\qquad
+R^{(a)}_{1/5}(g)=\frac{A_a(g)+(6-N(g))/5}{6}.
+$$
+
+The risks assign the same cost to withholding but count errors against different targets. We therefore evaluate each report under both objectives; the relative risk magnitudes cannot determine which target is substantively appropriate.
+
+| Report | $N$ | $A_w$ | $R_{w,1/5}$ | $A_a$ | $R^{(a)}_{1/5}$ |
+|---|---:|---:|---:|---:|---:|
+| 1111 | 0 | $0$ | $1/5$ | $0$ | $1/5$ |
+| 1234 | 6 | $21/20$ | $7/40$ | $1/4$ | $1/24$ |
+| 1123 | 5 | $4/5$ | $1/6$ | $0$ | $1/30$ |
+| 1223 | 5 | $13/20$ | $17/120$ | $1/4$ | $3/40$ |
+| 1112 | 3 | $3/10$ | $3/20$ | $0$ | $1/10$ |
+
+: Exact risks and expected error counts for selected reports from the complete enumeration of 75 canonical ordered partitions. Every entry is an exact rational expectation under the same two-state law, with the same feasible family and withholding cost. {#tbl-exact-common-risks}
+
+Enumerating the entire family gives the unique weighted-risk optimum 1223 with risk $17/120$, and the unique composite-risk optimum 1123 with risk $1/30$. This search includes reversed and noncontiguous orders as well as the displayed reports, so it is not restricted to partitions along ABCD. The resulting optima are exact for this finite example; the preceding chapters establish the general results under their stated assumptions.
+
+The weighted optimum keeps the uncertain A–B comparison and withholds the more costly criterion conflict B–C. Its expected wrong count is
+
+$$
+A_w(1223)=\frac14+4\left(\frac1{10}\right)=\frac{13}{20},
+\qquad
+R_{w,1/5}(1223)=\frac{13/20+1/5}{6}=\frac{17}{120}.
+$$
+
+Report 1123 instead withholds A–B and retains B–C, giving a larger weighted expected count of $4/5$. Tying A, B and C avoids both directions but withholds three comparisons, with risk $3/20$. Thus an optimal partition can disclose a pair with error probability above the withholding cost: altering that pair also changes other comparisons.
+
+For the composite, A–B is the only forward comparison with positive error probability. Withholding it while retaining the other forward directions yields the coherent report 1123. Both optima have three grades and disclose five comparisons, so their difference concerns which direction is disclosed and which event is counted as wrong, at the same disclosure level.
+
+@fig-vis-f19a shows how the same joint target arrays give the error coefficients and the two selected reports. Because their disclosure is matched, we can compare the consequences of the two objectives while retaining both target definitions.
+
+::: {#fig-vis-f19a .reader-figure .reader-has-narrow style="--reader-figure-width:690px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-f19a-narrow.svg">
+<img src="../assets/figures/reader-f19a-normal.svg" class="img-fluid" alt="Two joint target arrays with masses 3/4 and 1/4 produce separate weighted-direction and composite error coefficients. A six-pair matrix highlights AB with error 1/4 under both targets and BC with weighted error 2/5 but composite error 0. Grade ribbons show 1223 tying B,C and 1123 tying A,B. Each mask discloses five pairs. The risk table gives 1223 weighted risk 17/120 and composite risk 3/40, and 1123 weighted risk 1/6 and composite risk 1/30; minima are identified within their own objective columns.">
+</picture>
+
+Error coefficients and optimal reports for two declared targets under a single exact joint law. Criterion weights w=(3/5,2/5) average directional mistakes, while a=(3/4,1/4) defines the scalar composite. At tau=1/5, the weighted-direction optimum 1223 withholds BC, whereas the composite optimum 1123 withholds AB. Both reports have three grades and disclose five of six pairs. Their weighted risks are 17/120 and 1/6, respectively; their composite risks are 3/40 and 1/30. The reports therefore differ even at matched disclosure, but their loss magnitudes concern different targets and cannot determine which target is substantively appropriate. All values are exact expectations under the same stipulated law; no fitted data or simulation is used.
+:::
+
+[Reading-size PDF](../assets/figures/reader-f19a-normal.pdf).
+
+### Error fractions and joint uncertainty {#read-the-denominators-and-the-uncertainty-correctly}
+
+For positive disclosure, the conditional error fractions of the two selected reports are
+
+| Report | Criterion 1 fraction | Criterion 2 fraction | Weighted fraction $A_w/N$ | Composite fraction $A_a/N$ |
+|---|---:|---:|---:|---:|
+| 1123 | $0$ | $2/5$ | $4/25$ | $0$ |
+| 1223 | $1/20$ | $1/4$ | $13/100$ | $1/20$ |
+
+: Conditional expected error fractions among the five disclosed comparisons. The criterion fractions retain the same report and denominator; neither row imposes a criterion protection. {#tbl-exact-common-fractions}
+
+For 1223, the weighted fraction $13/100$ averages criterion fractions $1/20$ and $1/4$. It is neither a probability $87\%$ that every comparison is correct nor a bound of $13\%$ on each criterion's error. In state 1 all disclosed directions are correct on both criteria. In state 2, one is wrong on criterion 1 and all five are wrong on criterion 2. The probability of any criterion error is consequently $1/4$, while the expected weighted fraction is $13/100$. These summaries answer different questions because they retain different aspects of the joint dependence.
+
+All-tie has zero expected wrong count because no comparisons are disclosed. Its disclosed-error fraction is undefined and its total risk is $1/5$, so zero wrong count supplies no statement about disclosed accuracy. Similarly, the zero composite fraction for 1123 refers only to this composite under the specified finite law. Criterion directions and performance under another law require separate evaluation.
+
+For all 75 canonical reports, exact rational statewise integration and pair-coefficient calculation agree on every expected count. This calculation requires no posterior simulation, model fit, optimization backend or package. It establishes the consequences of target conflict and coherence under the specified law, while empirical performance and the institutional suitability of the coefficients and cost remain unassessed.
+
+<!-- ch25-a bridge start -->
+The report 1223 can also be embedded in the profile family by using that same grade column in both domains. This preserves the criterion-weighted risk under the matched loss and denominator; it does not introduce joint protection into the original optimization. For this fixed report, the zero-tolerance union event occurs precisely in state 2, so its probability is $1/4$. If one additionally imposed a joint cap $\alpha=1/5$, this common report would be infeasible even though it minimizes the original unprotected weighted risk. The added cap changes feasibility while leaving the report's loss unchanged. @sec-profile-scope-protection states the profile conditions, while @sec-profile-exact-laws below shows how enlarging the action family and changing the coupling affect the solution.
+<!-- ch25-a bridge end -->
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: disclosed-errors -->
+
+::: {#box-explorer-disclosed-errors .explorer-box}
+
+![](../assets/explorer-boxes/disclosed-errors.png){fig-alt="Screenshot of Expected and realized errors among stated directions, illustrating Average errors and all-correct probability differ." .explorer-screenshot}
+
+Compare an expected wrong share with the probability that every stated direction is correct, then change the coupling in the finite three-unit example. The same marginal error summary can accompany different joint outcomes. This companion uses its own teaching law; the six-site mode estimates joint probabilities from draws, while withholding every pair leaves the error share undefined.
+
+::: {.explorer-link}
+[Open Expected and realized errors among stated directions in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/disclosed-errors.html)
+:::
+
+Average errors and all-correct probability differ
+
+:::
+<!-- END EXPLORER EXPANSION: disclosed-errors -->
+
+## Target uncertainty, directional reporting, and allocation with one place {#sec-objective-precision-contrast}
+
+We next consider a law without criterion conflict to show why the largest expected target value need not belong to the unit most likely to be best. An order appropriate for maximizing expected selected value can then restrict directional reporting at a cost. We obtain the example by adding a fixed unit to the two-unit construction in @sec-selection-objective-example; no parameter grid is searched.
+
+Retain the higher-priority orientation and coefficients $a=(3/4,1/4)$ and $w=(3/5,2/5)$. There are now three units. With probability $3/10$, their two-criterion target rows are $(20,20)$, $(4,4)$ and $(3,3)$. With probability $7/10$, the rows are $(0,0)$, $(4,4)$ and $(3,3)$. The criteria coincide within each state and are perfectly dependent. Every pair has the same strict direction on both criteria and on the composite. Thus the two co-primary error counts agree for every report in this example, as predicted by @prp-estimand-agreement.
+
+The units differ in their conditional target uncertainty. Unit A has composite mean 6 and variance 84, while B and C have means 4 and 3 and zero variances. This distribution is specified directly, without manipulating standard errors or fitting an empirical Bayes prior at different sample sizes. Holding B and C fixed isolates the role of target uncertainty. Relating this example to models that use precision requires the additional assumptions discussed in @sec-misspecification-calibration and @sec-krw-precision-target.
+
+### Posterior mean order and directional reporting order {#a-mean-ordering-and-a-reporting-ordering-need-not-agree}
+
+The posterior-mean order is ABC. Yet A exceeds either B or C only in the less probable state. The forward wrong-direction coefficients are
+
+$$
+e_{AB}=e_{AC}=\frac7{10},\qquad e_{BC}=0.
+$$
+
+Their reverse coefficients are complementary because the states have no latent ties. The strict order BCA makes two errors in the high-A state and none in the other state, producing expected count $3/5$. The strict mean order ABC makes two errors in the low-A state and none in the other, producing count $7/5$. A's occasional large magnitude drives its mean without making its top position probable.
+
+Set $\tau=1/4$ and $M=3$. We enumerate the thirteen canonical ordered partitions, then evaluate the four whose blocks are contiguous in the fixed mean order ABC. The latter restriction is imposed for comparison; it is not the output of an expected-rank algorithm. The construction consequently establishes no general inadequacy of posterior-mean orders.
+
+| Report, in ABC unit order | Family role | $N$ | Expected wrong count | Risk at $\tau=1/4$ | Disclosed-error fraction |
+|---|---|---:|---:|---:|---:|
+| 111 | Withhold all; fixed-mean-order optimum | 0 | $0$ | $1/4$ | Undefined |
+| 112 | Best mean-order report at $N=2$ | 2 | $7/10$ | $19/60$ | $7/20$ |
+| 212 | Unrestricted optimum; best at $N=2$ | 2 | $3/10$ | $11/60$ | $3/20$ |
+| 312 | Strict BCA order | 3 | $3/5$ | $1/5$ | $1/5$ |
+| 123 | Strict mean order ABC | 3 | $7/5$ | $7/15$ | $7/15$ |
+
+: Report risks and error fractions under one exact synthetic conditional law. Both co-primary losses coincide; each family uses the same law and cost. Report 112 is a matched-disclosure comparator, not the fixed family's optimum at the displayed cost. {#tbl-objective-contrast-reports}
+
+The unrestricted optimum 212 places B above A and C and withholds A–C. Its expected wrong count is $3/10$: B–C is certain, while B–A is wrong with probability $3/10$. The resulting risk is $(3/10+1/4)/3=11/60$. Within the mean-order family, all-tie minimizes risk at this cost because even the best nontrivial report incurs too much reporting loss. This finding leaves the suitability of posterior means for other objectives open.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: order-misses -->
+
+::: {#box-explorer-order-misses .explorer-box}
+
+![](../assets/explorer-boxes/order-misses.png){fig-alt="Screenshot of Restrictions imposed by a fixed order, illustrating A fixed order can exclude the preferred report." .explorer-screenshot}
+
+Switch the imposed order while retaining the same finite target law, grade cap and withholding cost. The report table shows which actions disappear when the posterior-mean order is required, and why a less restricted search can select a different grade. Changing the cost also reveals settings where the restriction is harmless; this example does not establish a universal ranking of order heuristics.
+
+::: {.explorer-link}
+[Open Restrictions imposed by a fixed order in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/rules/order-misses.html)
+:::
+
+A fixed order can exclude the preferred report
+
+:::
+<!-- END EXPLORER EXPANSION: order-misses -->
+
+### Comparison at matched disclosure {#match-disclosure-before-comparing-reported-errors}
+
+The two cost-optimal reports disclose different amounts. To compare errors at matched disclosure, fix $N=2$. The unrestricted report B $>$ (A,C), or 212, and the mean-order report (A,B) $>$ C, or 112, both disclose two pairs. The former has expected wrong count $3/10$, the latter $7/10$. Their disclosed fractions are therefore $3/20$ and $7/20$, respectively.
+
+The complete-action hulls give the same comparison at every feasible expected disclosure. Their lower vertices are
+
+$$
+\begin{aligned}
+H_{\mathrm{all}} &: (0,0),\ (2,3/10),\ (3,3/5),\\
+H_{\mathrm{mean}} &: (0,0),\ (2,7/10),\ (3,7/5).
+\end{aligned}
+$$
+
+The coordinates give mean disclosure and expected wrong count, with intermediate points obtained by mixing whole reports. A deterministic three-unit ordered partition cannot disclose just one pair, since withholding the other two ties all three units. Mean disclosure one is nevertheless obtained by mixing all-tie with a report disclosing two pairs. Randomization thus permits matched expected disclosure where deterministic matching is unavailable.
+
+The mean-order hull has final slope $7/10$, outside the primary withholding-cost interval $(0,1/2]$. The geometric frontier still describes attainable matched disclosure, although its endpoint transition cannot be induced by a cost in that interval. Thus the full frontier need not be traced by the specified policy range.
+
+::: {#fig-objective-contrast .reader-figure .reader-has-narrow style="--reader-figure-width:660px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-f19b-narrow.svg">
+<img src="../assets/figures/reader-f19b-normal.svg" class="img-fluid" alt="Two panels show a lower disclosure-error frontier for unrestricted reports than for mean-order reports, and a selection tradeoff: A has greater expected value while B has greater probability of being best.">
+</picture>
+
+Exact reporting frontiers and selection contrasts under the three-unit synthetic law. The first panel shows lower hulls of conditional expected wrong counts over complete reports; connecting segments represent randomized reports and do not assert deterministic attainability at every horizontal coordinate. The second panel evaluates selection with a budget of one by expected selected target value and probability of selecting the highest target. The gray point adds an explicit uniform A–B lottery to report 112. No outcome is a causal intervention effect.
+:::
+
+[Reading-size PDF](../assets/figures/reader-f19b-normal.pdf).
+
+### Allocation objectives {#return-to-the-native-allocation-objective}
+
+Suppose a separate decision must select exactly one unit, and its utility is the selected composite target value. The exact-budget result in @sec-selection-benchmarks selects A, with expected value 6, rather than B with value 4 or C with value 3. If instead the goal is to select the true highest target, the membership probabilities are $3/10$, $7/10$ and zero. That objective selects B. The statewise criterion agreement ensures that the highest unit is the same under either criterion and the composite, so there is no hidden target conflict in this allocation comparison.
+
+Under report 212, B alone occupies the highest grade. Selecting from that grade maximizes the probability of choosing the best unit but forgoes two units of expected selected value relative to A. Which allocation is preferable depends on the objective. Directional reporting and top-membership selection coincide here, without implying that they coincide generally.
+
+Report 112 places A and B together in its highest grade. If an institution adds a uniform lottery over that grade, its expected selected value is 5 and its probability of selecting the best unit is $1/2$. The lottery is independent of the latent state conditional on the available information and adds a selection rule that the shared grade itself does not specify. Although the report respects the mean order, this rule differs from selecting A to maximize expected value.
+
+The example shows how uncertain magnitudes and probable directions can favor different reporting and allocation decisions. The numerical differences follow exactly from the specified law and actions; Monte Carlo error, optimization gaps and fitted-model discrepancy play no role in these calculations. Their practical importance depends on the targets, information and institution. The historical illustration in @sec-krw-illustration evaluates reconstructed reporting actions and leaves these broader empirical questions for further study.
+
+
+## Structural ties under equality-neutral loss {#sec-worked-tie-aware-bridge}
+
+The equality-neutral four-unit construction in @sec-tie-aware-frontier provides a further example under a different loss convention. Its complete guarded at-most-two-grade table shows that increasing the withholding penalty can reduce raw disclosure while increasing disclosed distinct mass. The source and exact finite checks in @sec-tie-aware-reproduction concern stipulated target states rather than empirical data.
+
+<!-- ch25-b profile extension start -->
+## Exact profile laws, protection, and search scope {#sec-profile-exact-laws}
+
+[]{#sec-p2-11-exact-examples}
+
+[]{#five-baseline-laws}
+
+### Five laws and a common-grade restriction
+
+The stored four-unit examples compare 75 ordered partitions per domain, hence 5,625 two-domain profiles per law. A common grade requires identical columns. Each domain has weight $1/2$, withholding cost $1/10$, and mean error cap $q=1/20$ over issued comparisons. Both scopes contain all six original pairs. With $t=0$ and $\alpha=1/20$, the union probability of any issued error must be at most $1/20$.
+
+| Finite law | Minimum profile risk | Minimum common-grade risk |
+|:--|--:|--:|
+| Low noise | $1/600$ | $11/600$ |
+| Moderate coincident | $1/150$ | $7/300$ |
+| Moderate disjoint | $7/600$ | $4/75$ |
+| High noise | $1/60$ | $1/10$ |
+| Domain 2 uninformative | $4/75$ | $1/10$ |
+
+: Historical exact minima under the same loss and direct joint protection within each law. The common family is a subset of the profile family. {#tbl-profile-exact-baselines}
+
+The [complete finite state supports](../assets/cases/exact/source-support/exact-baseline-state-support.json) specify each matrix and rational mass. The [stored baseline comparison](../assets/cases/exact/source-support/baseline-replay.csv) records agreement with 34 historical objective/action rows. These are preserved calculations, not a new execution of all 28,125 baseline profiles in this chapter.
+
+[]{#two-objectives-at-matched-budgets}
+
+### Coupling and the objective being optimized
+
+The two moderate laws share each domain's entire marginal distribution. At joint budget $1/20$, coincident errors yield minimum risk $1/60$ under equal budget allocation, $7/600$ under optimized allocations summing to the budget, and $1/150$ under direct union protection. For disjoint errors, optimized allocation and direct protection both give $7/600$. Overlap makes the direct union less restrictive in the coincident case, as @sec-joint-protection explains.
+
+::: {#fig-p2-risk-grid .reader-figure .reader-has-narrow style="--reader-figure-width:660px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-exact-risk-narrow.svg">
+<img src="../assets/figures/reader-exact-risk-normal.svg" class="img-fluid" alt="Two moderate finite laws show minimum risk under direct and allocated protection at five joint budgets.">
+</picture>
+
+Stored minimum-risk comparisons across five joint budgets for the two moderate laws. Direct and allocated protection differ according to the error-event coupling.
+:::
+
+[Reading-size PDF](../assets/figures/reader-exact-risk-normal.pdf).
+
+[Complete original figure](../assets/cases/exact/figures/01-risk-budget-grid.svg).
+
+Maximizing disclosure is a separate optimization. At that same budget, equal allocation, optimized allocation, and direct protection permit respectively 10, 11, and 12 of the 12 domain-pair directions for coincident errors, and 10, 11, and 11 for disjoint errors. Across budgets $0,1/40,1/20,2/25,1/10$, minimum risk cannot increase and maximum disclosure cannot decrease. The finite grid does not locate transitions between its evaluated budgets. [Matched objective results](../assets/cases/exact/source-support/comparator-frontiers.csv) preserve the separate optimizations.
+
+::: {#fig-p2-disclosure-grid .reader-figure .reader-has-narrow style="--reader-figure-width:660px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-exact-disclosure-narrow.svg">
+<img src="../assets/figures/reader-exact-disclosure-normal.svg" class="img-fluid" alt="Two finite laws compare maximum unweighted disclosure at five budgets. These are separate objective-B optimizations.">
+</picture>
+
+Stored maximum unweighted disclosure under the same budgets, obtained by separate disclosure maximizations. Individual risk-minimizing reports need not attain these disclosure values.
+:::
+
+[Reading-size PDF](../assets/figures/reader-exact-disclosure-normal.pdf).
+
+[Complete original figure](../assets/cases/exact/figures/02-disclosure-budget-grid.svg).
+
+Giving each domain the full budget changes the guarantee. Under the moderate-disjoint law, the fully disclosed report has domain error probabilities $1/25$ and $1/25$, each below $1/20$, but union probability $2/25$. It fails the joint cap, as the [guarantee comparison](../assets/cases/exact/source-support/comparator-guarantee-comparators.csv) shows.
+
+[]{#coarsening-can-turn-a-pass-into-a-violation}
+
+### Thresholds and the family of reports
+
+For targets $(4,2,3,1)$ in a single state, report $(1,2,3,4)$ makes one error. Coarsening it to $(1,1,2,2)$ retains that error while withholding two correct pairs. The issued-error fraction rises from $1/6$ to $1/4$, so strict exceedance of $t=1/5$ changes from probability zero to one. The loss denominator remains the original six pairs. Protecting only the correct pair $(1,3)$ instead gives zero exceedance. [Fixed-action and scope calculations](../assets/cases/exact/source-support/t-scope-dimension.csv) show why coarsening is not automatically protective.
+
+::: {#fig-p2-positive-t-coarsening .reader-figure .reader-has-narrow style="--reader-figure-width:600px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/S20-mobile.svg">
+<img src="../assets/figures/S20.svg" class="img-fluid" alt="One false direction among 6 issued pairs becomes one among 4. The fraction rises from 1/6 to 1/4 and crosses 1/5, so exact J changes from 0 to 1.">
+</picture>
+
+The same single error crosses a positive fraction threshold after two correct comparisons are withheld. The complete one-state law makes the strict exceedance probability zero before coarsening and one after it. The original loss denominator remains six.
+:::
+
+[Full-size SVG](../assets/figures/S20.svg) · [PDF](../assets/figures/S20.pdf)
+
+<!-- postrank-exhibit:W10:begin -->
+::: {.postrank-widget-host data-postrank-widget="W10" data-widget-src="../assets/widgets/W10/index.html" data-widget-title="Issued comparisons and strict exceedance" data-widget-height="1800"}
+<details><summary>Explore issued comparisons and strict exceedance</summary>
+<p>Select one of three reports under the complete one-state law, then change its exact fraction threshold.</p>
+<button type="button" data-widget-load disabled>Open interactive example</button>
+<div data-widget-frame></div>
+<noscript><p>The controls require JavaScript; the static comparison below remains available.</p></noscript>
+</details>
+
+For the state $(4,2,3,1)$ at threshold $1/5$, grades $(1,2,3,4)$ give $F/N=1/6$ and $J=0$, whereas $(1,1,2,2)$ give $F/N=1/4$ and $J=1$. All-withheld has $N=F=0$: its fraction is undefined and its event is false. Equality with the threshold does not exceed it.
+:::
+
+<script defer src="../assets/widgets/shared/book-loader.js"></script>
+<!-- postrank-exhibit:W10:end -->
+
+[]{#a-coupling-with-three-domains}
+
+With two units and three domains, suppose each forward direction errs with probability $1/15$. Coincident reversals give union probability $1/15$; disjoint reversals give $1/5$. At $w_d=1/3$, $\tau_d=1/4$, $t_d=0$, $\alpha=1/10$, and no mean constraints, enumeration of all 27 profiles gives direct-protection minimum risks $1/15$ and $17/90$. The corresponding risk optimizers disclose three and one directions. Optimized allocation permits only one in either law; equal allocation withholds all at risk $1/4$.
+
+::: {#fig-p2-three-domain-coupling .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-exact-three-domain-mobile.svg">
+<img src="../assets/figures/reader-exact-three-domain.svg" class="img-fluid" alt="Direct protection and marginal allocations give different optimum risks when the three domain errors coincide.">
+</picture>
+
+Three-domain coupling changes the direct-protection optimum, while marginal allocation methods cannot exploit coincident errors.
+:::
+
+[Reading-size PDF](../assets/figures/reader-exact-three-domain.pdf).
+
+[Complete original figure](../assets/cases/exact/figures/04-three-domain-coupling.svg).
+
+[]{#a-feasible-cycle-and-the-limits-of-the-examples}
+
+A further example distinguishes grades from free pairwise decisions. Give states $(3,2,1)$, $(1,3,2)$, and $(2,1,3)$ equal probability. At $\tau=1/2$, $q=1$, $t=1/3$, and $\alpha=0$, the cycle $1>2>3>1$ has exactly one error in every state. Its fraction equals the threshold, so strict exceedance is zero. It uniquely minimizes risk over 27 free pairwise reports at $1/3$. Among 13 ordered partitions, only all-withheld passes, at risk $1/2$. The [free-pair enumeration](../assets/cases/exact/source-support/comparator-free-candidates.csv) concerns a different family, not an inconsistency in grade optimization.
+
+::: {#fig-p2-free-cycle .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
+<picture>
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-exact-free-cycle-mobile.svg">
+<img src="../assets/figures/reader-exact-free-cycle.svg" class="img-fluid" alt="A feasible comparison cycle cannot be represented by ordered grades; equality at the tolerated fraction is not strict exceedance.">
+</picture>
+
+A feasible cycle cannot be represented by ordered grades. Equality with the tolerated error fraction is not strict exceedance.
+:::
+
+[Reading-size PDF](../assets/figures/reader-exact-free-cycle.pdf).
+
+[Complete original figure](../assets/cases/exact/figures/05-free-cycle-vs-grade.svg).
+
+The [equality and invariance calculations](../assets/cases/exact/source-support/equality-invariance.csv) preserve nine guarded actions under an original-pair weighted quotient, including the original denominator, within-class withholding, and scope multiplicities. Equal class weights instead change one positive-threshold violation probability from zero to one. Tested relabelings and increasing affine transformations preserve mapped optimizer sets.
+
+A [stored runtime check](../assets/cases/exact/source-support/runtime-probe.csv) attained the complete four-unit minimum $1/150$, whereas a five-unit bank of 49 profiles attained $1/50$ with possible global improvement bounded by $1/50$, leaving the actual global gap unresolved.
+
+### The smaller current software replay
+
+A smaller saved software replay checks five finite laws under six decision specifications, comparing 374 candidate rows with rational arithmetic. Its two- and three-unit examples form a different family from the four-unit baseline above. The coincident and disjoint two-unit cases have minimum risks $1/10$ and $7/40$, with one and two minimizers, respectively. Those different values arise from different laws and settings; they do not revise the historical table.
+
+The replay also contrasts a strict threshold exactly equal to $1/3$ with a rational value just below it: 36 versus 16 of 169 profiles are feasible, while the common zero-error optimum is unchanged. A half-strict, half-equal law verifies that weak error counts latent equality as a false strict assertion; it is not an almost-sure structural identity declaration. A symmetric final fixture retains all nine minimum-risk profiles at risk $1/2$, distinguishing the entire argmin from a selected representative. These checks and their [saved comparison receipt](../assets/reproduction/software/finite-oracle-parity.json) support the software examples in @sec-computing-grades. They are not a new full-suite run, empirical validation, or an equality-neutral calculation.
+<!-- ch25-b profile extension end -->

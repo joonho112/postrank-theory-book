@@ -1,0 +1,11 @@
+report_role,case_id,category,distinct_pairs,domain_assertions
+primary,main-alpha-1_20,neither,280,0
+primary,main-alpha-1_20,S_only,0,0
+primary,main-alpha-1_20,C_only,500,500
+primary,main-alpha-1_20,both_concordant,0,0
+primary,main-alpha-1_20,both_crossing,0,0
+secondary_sensitivity,sensitivity-t-wide,neither,232,0
+secondary_sensitivity,sensitivity-t-wide,S_only,48,48
+secondary_sensitivity,sensitivity-t-wide,C_only,248,248
+secondary_sensitivity,sensitivity-t-wide,both_concordant,236,472
+secondary_sensitivity,sensitivity-t-wide,both_crossing,16,32

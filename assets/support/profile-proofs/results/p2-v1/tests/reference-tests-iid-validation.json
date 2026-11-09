@@ -1,0 +1,257 @@
+{
+  "summary": {
+    "status": "PASS",
+    "filter": "iid-validation",
+    "test_blocks": 8,
+    "expectations": 99,
+    "passed": 99,
+    "failed": 0,
+    "errors": 0,
+    "warnings": 0,
+    "skipped": 0,
+    "started_at_utc": "2026-11-06 01:15:42 UTC",
+    "finished_at_utc": "2026-11-06 01:15:43 UTC",
+    "R": "R version 4.6.0 (2026-04-24)",
+    "platform": "aarch64-apple-darwin23"
+  },
+  "tests": [
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "CP boundary decisions use exact tails, including zero and all counts",
+      "nb": 14,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.088,
+      "system": 0.01,
+      "real": 0.146,
+      "passed": 14
+    },
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "extreme beta displays retain the exact small tail and flag underflow",
+      "nb": 15,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.012,
+      "system": 0.003,
+      "real": 0.02,
+      "passed": 15
+    },
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "small binomial coverage is checked by exact independent finite sums",
+      "nb": 22,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.031,
+      "system": 0.009,
+      "real": 0.077,
+      "passed": 22
+    },
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "numeric encodings and workloads never silently change acceptance",
+      "nb": 10,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.016,
+      "system": 0.001,
+      "real": 0.02,
+      "passed": 10
+    },
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "wrapper binds actual trace and retains conditional status and duplicate values",
+      "nb": 11,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.23,
+      "system": 0.004,
+      "real": 0.249,
+      "passed": 11
+    },
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "stale configurations and deficient independent-validation records fail",
+      "nb": 12,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.137,
+      "system": 0.001,
+      "real": 0.139,
+      "passed": 12
+    },
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "analytic, disabled and alpha endpoint statuses remain distinct",
+      "nb": 10,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.017,
+      "system": 0.002,
+      "real": 0.028,
+      "passed": 10
+    },
+    {
+      "file": "test-iid-validation.R",
+      "context": "iid-validation",
+      "test": "one active marginal uses only its actual held-out trace",
+      "nb": 5,
+      "failed": 0,
+      "skipped": false,
+      "error": false,
+      "warning": 0,
+      "user": 0.016,
+      "system": 0.002,
+      "real": 0.021,
+      "passed": 5
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "R/profile/action.R",
+      "sha256": "4756089f07ad510928547262bc8c42b50e069877e4a94970a261fe537a9907c9"
+    },
+    {
+      "path": "R/profile/bounds.R",
+      "sha256": "22f5fb6a3aa1988e3d35a9540893657b8945a3126accbd40c9d4cf9d1af330aa"
+    },
+    {
+      "path": "R/profile/candidates.R",
+      "sha256": "490bbe8b9138379d69602f05d96c9df2f1ef20d28849e14300c2fd6d4739f8d9"
+    },
+    {
+      "path": "R/profile/decision.R",
+      "sha256": "22de8de0f30fea24a81d0ea186c1b4b060246617e69fb0cc58d262e5d4a80b1e"
+    },
+    {
+      "path": "R/profile/diagnose-mcmc.R",
+      "sha256": "a9eb169f2d4ad117f0278e5fa255271185e7aa78e8a545b3b9e3e13a474ff491"
+    },
+    {
+      "path": "R/profile/evaluate-bundle.R",
+      "sha256": "7e7cc37212b8b998502f095fd3cd5d66e828b5dc30a4633c8734c665468911d6"
+    },
+    {
+      "path": "R/profile/evaluate-expected.R",
+      "sha256": "cec3009a45038ba0e50424cd6e542d6c1e1bcff195c40e5d02273651b765760d"
+    },
+    {
+      "path": "R/profile/evaluate-joint.R",
+      "sha256": "6db5d18cba010dab670182c5d42bf5f74f9ddd3036d193b40fed6e6d47af2593"
+    },
+    {
+      "path": "R/profile/input-summary.R",
+      "sha256": "5548d8693ab95ed045987d79b9c17d2f8b6fbd508bff2ebc314ec300fa16c7b5"
+    },
+    {
+      "path": "R/profile/input.R",
+      "sha256": "1ad2538a3e768af633910720fe5fa01b33693e5cd2e1ea28bb16a7795d8705c3"
+    },
+    {
+      "path": "R/profile/load.R",
+      "sha256": "83870160c7199cbd14227003bf06ab82d31246faa3855e7c15ae4ab0e9af5d93"
+    },
+    {
+      "path": "R/profile/oracle.R",
+      "sha256": "d7174a56a60d3d9131a5cb0f075c7bdbcdd23b6c4245f8148c61bb6d3c22e985"
+    },
+    {
+      "path": "R/profile/solve-candidates.R",
+      "sha256": "ab132bf32f582e5586667b5e0bed25caf149ddcc1ca251d9a5db7cc86989830a"
+    },
+    {
+      "path": "R/profile/validate-iid.R",
+      "sha256": "4e1b6a3548b68a50967b89d7eb9bd6c3551da7846aa61a676dfebf7bae4df720"
+    },
+    {
+      "path": "tests/profile/helper-evaluator-fixtures.R",
+      "sha256": "8270932bafa89770cc95429b8fd0e066bebde13b2be708d4acc4c3ca28db637c"
+    },
+    {
+      "path": "tests/profile/helper-input-fixtures.R",
+      "sha256": "34ccfa2305015c72673c8459e5a92f0ec63f4fe378b733dbb79e8b9bd40a44ed"
+    },
+    {
+      "path": "tests/profile/test-action.R",
+      "sha256": "23ca8c265aa243e3a8a8ea5d59c54a12debfd36b115e0a795e347748b26d57eb"
+    },
+    {
+      "path": "tests/profile/test-bounds.R",
+      "sha256": "523741253cfaea49f71204ace23209ee7cd421814f09619110389a5ba1ad5eb2"
+    },
+    {
+      "path": "tests/profile/test-bundle.R",
+      "sha256": "f477de68c0a39b8e38c558ca351fcc59da66eb7ff0dc65b0911e253e1baa77fd"
+    },
+    {
+      "path": "tests/profile/test-candidate-solver.R",
+      "sha256": "5e9c9317bb45eeea5d8c87d38111e7bfd987023457083cc9751673942be21c6a"
+    },
+    {
+      "path": "tests/profile/test-candidates.R",
+      "sha256": "85bfd82e24faffd437cc975963a770673635265a591273edb63daaf4cf9b2ffd"
+    },
+    {
+      "path": "tests/profile/test-decision.R",
+      "sha256": "e3c74e75cd76187094b274a8d367cfe22e5cbdac1dbec083040c584dec252138"
+    },
+    {
+      "path": "tests/profile/test-expected.R",
+      "sha256": "3110cf65c4f676f333e43de6791950ba95207e04364d8f5c1ab08d8735319473"
+    },
+    {
+      "path": "tests/profile/test-iid-validation.R",
+      "sha256": "4f4b11553ab830c1728a85d3cef826a8b56be384917c963b814d55f229011eb6"
+    },
+    {
+      "path": "tests/profile/test-input-summary.R",
+      "sha256": "48e37358208bd96874b31fe901c5785e24bc1523c2159080d86bbaf1aca428c1"
+    },
+    {
+      "path": "tests/profile/test-input.R",
+      "sha256": "297d88473b9b2163262caade859a11028b3a29faf92b5990c77c5cd4dc94ec6b"
+    },
+    {
+      "path": "tests/profile/test-invariants.R",
+      "sha256": "6c9ad73eb10a2be38b4fc0a7d68d0ee052cd9d0e8ed9183651ffb35f8775f405"
+    },
+    {
+      "path": "tests/profile/test-joint.R",
+      "sha256": "8f65565d4c864a98a76d0a15f912ef65a58dcf81af5188eb97aac5e67e1b722a"
+    },
+    {
+      "path": "tests/profile/test-loader.R",
+      "sha256": "b61b42c4239ffc8adceb2a56d038ff7ea3a0f7b1f7d1d78e247a112d794932d6"
+    },
+    {
+      "path": "tests/profile/test-mcmc-diagnostics.R",
+      "sha256": "f85b284318021d6e46ad3821d74df517c2ad1ad4530c16d722401fd618d1df6a"
+    },
+    {
+      "path": "tests/profile/test-oracle.R",
+      "sha256": "633f5bc7c9a623128c0c1883fe2c4b366ac1f59ed69814d964c4794e3f4a6560"
+    }
+  ]
+}

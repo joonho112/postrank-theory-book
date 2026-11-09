@@ -1,0 +1,9 @@
+report_role,case_id,site_i,site_j,cell_i,cell_j,S_sign,C_sign,S_reported_higher,C_reported_higher,S_shared_target,C_shared_target,category,domain_assertions
+primary,main-alpha-1_20,S01,S02,S1-C3,S1-C3,0,0,withheld,withheld,0,0,neither,0
+primary,main-alpha-1_20,S01,S11,S1-C3,S1-C2,0,-1,withheld,S11,0,0,C_only,1
+primary,main-alpha-1_20,S05,S06,S1-C3,S1-C3,0,0,withheld,withheld,0,1,neither,0
+primary,main-alpha-1_20,S11,S15,S1-C2,S1-C3,0,1,withheld,S11,0,0,C_only,1
+secondary_sensitivity,sensitivity-t-wide,S01,S11,S2-C3,S1-C2,-1,-1,S11,S11,0,0,both_concordant,2
+secondary_sensitivity,sensitivity-t-wide,S11,S18,S1-C2,S2-C1,1,-1,S11,S18,0,0,both_crossing,2
+secondary_sensitivity,sensitivity-t-wide,S11,S23,S1-C2,S2-C2,1,0,S11,withheld,0,0,S_only,1
+secondary_sensitivity,sensitivity-t-wide,S18,S24,S2-C1,S1-C2,-1,1,S24,S18,0,0,both_crossing,2

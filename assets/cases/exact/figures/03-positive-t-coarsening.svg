@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='648.00pt' height='417.60pt' viewBox='0 0 648.00 417.60'>
+<g class='svglite'>
+<defs>
+  <style type='text/css'><![CDATA[
+    .svglite line, .svglite polyline, .svglite polygon, .svglite path, .svglite rect, .svglite circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+    .svglite text {
+      white-space: pre;
+    }
+    .svglite g.glyphgroup path {
+      fill: inherit;
+      stroke: none;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<defs>
+  <clipPath id='cpMC4wMHw2NDguMDB8MC4wMHw0MTcuNjA='>
+    <rect x='0.00' y='0.00' width='648.00' height='417.60' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpMC4wMHw2NDguMDB8MC4wMHw0MTcuNjA=)'>
+<rect x='-0.000000000000064' y='0.000000000000057' width='648.00' height='417.60' style='stroke-width: 1.21; stroke: none; fill: #FFFFFF;' />
+</g>
+<defs>
+  <clipPath id='cpNTIuMTN8NjI2LjA4fDY1LjE4fDM0My45Nw=='>
+    <rect x='52.13' y='65.18' width='573.95' height='278.79' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTIuMTN8NjI2LjA4fDY1LjE4fDM0My45Nw==)'>
+<polyline points='52.13,331.30 626.08,331.30 ' style='stroke-width: 1.21; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='52.13,205.21 626.08,205.21 ' style='stroke-width: 1.21; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='52.13,179.99 626.08,179.99 ' style='stroke-width: 1.21; stroke: #EBEBEB; stroke-linecap: butt;' />
+<polyline points='52.13,142.16 626.08,142.16 ' style='stroke-width: 1.21; stroke: #EBEBEB; stroke-linecap: butt;' />
+<rect x='136.92' y='205.21' width='143.49' height='126.09' style='stroke-width: 1.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #0072B2;' />
+<rect x='397.81' y='142.16' width='143.49' height='189.14' style='stroke-width: 1.21; stroke: none; stroke-linecap: butt; stroke-linejoin: miter; fill: #D55E00;' />
+<text x='208.67' y='175.66' text-anchor='middle' style='font-size: 11.67px; font-family: "Arial";' textLength='61.55px' lengthAdjust='spacingAndGlyphs'>F = 1, N = 6</text>
+<text x='208.67' y='191.76' text-anchor='middle' style='font-size: 11.67px; font-family: "Arial";' textLength='84.67px' lengthAdjust='spacingAndGlyphs'>FDP = 1/6; J = 0</text>
+<text x='469.55' y='112.62' text-anchor='middle' style='font-size: 11.67px; font-family: "Arial";' textLength='61.55px' lengthAdjust='spacingAndGlyphs'>F = 1, N = 4</text>
+<text x='469.55' y='128.72' text-anchor='middle' style='font-size: 11.67px; font-family: "Arial";' textLength='84.67px' lengthAdjust='spacingAndGlyphs'>FDP = 1/4; J = 1</text>
+<line x1='52.13' y1='179.99' x2='626.08' y2='179.99' style='stroke-width: 1.39; stroke: #202A35; stroke-dasharray: 7.40,7.40; stroke-linecap: butt;' />
+<text x='339.11' y='177.25' text-anchor='middle' style='font-size: 11.38px; font-family: "Arial";' textLength='31.92px' lengthAdjust='spacingAndGlyphs'>t = 1/5</text>
+</g>
+<g clip-path='url(#cpMC4wMHw2NDguMDB8MC4wMHw0MTcuNjA=)'>
+<text x='46.53' y='334.88' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='5.56px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='46.53' y='208.79' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='13.91px' lengthAdjust='spacingAndGlyphs'>1/6</text>
+<text x='46.53' y='183.57' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='13.91px' lengthAdjust='spacingAndGlyphs'>1/5</text>
+<text x='46.53' y='145.74' text-anchor='end' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='13.91px' lengthAdjust='spacingAndGlyphs'>1/4</text>
+<text x='208.67' y='356.74' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='42.23px' lengthAdjust='spacingAndGlyphs'>Full order</text>
+<text x='208.67' y='367.54' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='56.44px' lengthAdjust='spacingAndGlyphs'>G = (1,2,3,4)</text>
+<text x='469.55' y='356.74' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='75.05px' lengthAdjust='spacingAndGlyphs'>Coarsened order</text>
+<text x='469.55' y='367.54' text-anchor='middle' style='font-size: 10.00px;fill: #4D4D4D; font-family: "Arial";' textLength='56.44px' lengthAdjust='spacingAndGlyphs'>G = (1,1,2,2)</text>
+<text transform='translate(26.88,204.57) rotate(-90)' text-anchor='middle' style='font-size: 12.50px; font-family: "Arial";' textLength='177.83px' lengthAdjust='spacingAndGlyphs'>False-discovery proportion F / N</text>
+<text x='52.13' y='49.82' style='font-size: 11.50px;fill: #424B57; font-family: "Arial";' textLength='368.58px' lengthAdjust='spacingAndGlyphs'>Fixed deterministic actions, n = 4 and D = 1; the same one error remains</text>
+<text x='52.13' y='30.82' style='font-size: 18.00px; font-weight: bold; font-family: "Arial";' textLength='411.27px' lengthAdjust='spacingAndGlyphs'>Coarsening can increase positive-threshold risk</text>
+<text x='52.13' y='388.76' style='font-size: 10.00px;fill: #424B57; font-family: "Arial";' textLength='410.59px' lengthAdjust='spacingAndGlyphs'>J = P(F/N &gt; 1/5): 0 before coarsening, 1 after. Original loss denominator M = 6 is unchanged.</text>
+<text x='52.13' y='399.56' style='font-size: 10.00px;fill: #424B57; font-family: "Arial";' textLength='378.92px' lengthAdjust='spacingAndGlyphs'>The FDP denominator is the number N of issued comparisons, which falls from 6 to 4.</text>
+</g>
+</g>
+</svg>

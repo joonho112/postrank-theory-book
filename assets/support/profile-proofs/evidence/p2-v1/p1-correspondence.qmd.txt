@@ -1,0 +1,100 @@
+---
+title: "P1 inheritance and the P2 decision boundary"
+lang: en
+execute:
+  enabled: false
+---
+
+## Status and inspection boundary {#sec-inheritance-status}
+
+This Step 1.3 packet records what can be inherited from the current local P1 monograph and what requires a separate P2 definition or argument. It is an inheritance audit, not a new proof packet or an independent audit of every P1 theorem. The proposed P2 specification is taken from the preserved feasibility review; Phase 3 will freeze its formal contract. The machine-readable crosswalk is `contracts/p1-inheritance.csv`. Source versions, SHA-256 hashes, exact locators, and bounded reading ranges are recorded in `evidence/p2-v1/p1-inheritance-sources.json`.
+
+The inspection covered relevant passages of P1 Chapters 9–15, both P2 feasibility framework/theory chapters, and a limited package interface check. It did not recheck the external papers cited by P1; that is Phase 2 work. It did not run a solver, certify current package behavior, or modify the external projects. All mathematical claims attributed here to P1 refer to the local monograph, not an assertion that the same statement appears verbatim in KRW.
+
+## Three independent design axes {#sec-inheritance-axes}
+
+**Targets** determine what a comparison means. P1 distinguishes a scalar composite target from criterion-specific oriented targets. Its directional weights penalize mistakes on criteria; they do not combine the target magnitudes. P2 retains domain-specific targets and makes their reporting actions distinct. Changing the action does not resolve or eliminate the substantive choice of targets and loss weights (P1 Chapter 12, `sec-two-estimands`).
+
+**Actions** determine what is communicated. P1 uses one canonical ordered partition, with grade 1 highest, and evaluates its directions on all criteria. P2 proposes one such partition per domain. A row of the resulting matrix is a reported profile; a column is an ordered grade vector. Equal reported grades withhold a direction and do not assert latent equality. Crossing profiles can express different directions across domains without defining a single overall rank. The existing ordered-partition representation and disclosed-pair counts apply to each column (P1 Chapter 9, `def-canonical-grade-action`, `prp-grade-representation-counts`).
+
+**Risk and protection** determine the cost of a report and what errors are controlled. Both common-grade and profile actions can be assessed using additive expected loss; either can also be subjected to a separately defined joint-event constraint. A product action is not, by itself, a simultaneous probability guarantee. Conversely, adding a joint constraint to a common-grade problem does not create domain-specific grades.
+
+These axes prevent “P1 versus P2” from becoming shorthand for several simultaneous changes. A comparison should declare which target, action family, loss, law, and constraints changed.
+
+## What is inherited exactly {#sec-inheritance-exact}
+
+Fix observed information $y$, a proper supplied law $\Pi_s(\cdot\mid y)$, the same oriented target array, and $M=\binom n2$. A deterministic chosen action is fixed when taking its posterior expectation. Model provenance remains part of the result: a hierarchical posterior, an empirical Bayes plug-in belief, and an approximate posterior are not made interchangeable by the postprocessor. The selection law is not automatically the conditional law of a separate evaluation experiment (P1 Chapter 9, `sec-posterior-risk-laws`).
+
+For a common grade $g$, P1 uses $x_{ij}(g)=\mathbf1\{g_i<g_j\}$, $N(g)=\sum_{i\ne j}x_{ij}(g)$ and weak wrong-direction counts
+
+$$
+D_d(g,\Theta)=\sum_{i\ne j}x_{ij}(g)\mathbf1\{\theta_{id}\le\theta_{jd}\}.
+$$
+
+With $w_d\ge0$, $\sum_dw_d=1$, and $0<\tau\le1/2$, its loss is
+
+$$
+L_{w,\tau}(g,\Theta)=\frac{\sum_dw_dD_d(g,\Theta)+\tau\{M-N(g)\}}M.
+$$
+
+The proposed P2 additive loss evaluates each domain's own column:
+
+$$
+L_{\rm sep}(G,\Theta)=\frac1M\sum_dw_d
+\left[F_d(G,\Theta)+\tau_d\{M-N_d(G)\}\right].
+$$
+
+On the diagonal $G=(g,\ldots,g)$, with every $\tau_d=\tau$, the P2 loss equals the displayed P1 loss **pointwise**, using the same weak-error convention. No latent tie-free assumption is needed for this particular P1 identity. A one-domain P2 problem likewise has the scalar weak-error loss. Equality of complete optimization problems additionally requires the same feasible family and constraints. A new P2 joint-tail restriction generally prevents that complete-problem equivalence even when the loss is unchanged.
+
+This correspondence is an algebraic adaptation of P1, not a new principle of Bayesian decision theory. P1 itself distinguishes its weak-error loss from KRW's strict-discordance formulation. Its KRW affine correspondence uses $\lambda=\tau/(1-\tau)$ and the specified equality conditions, including the sufficient pairwise tie-free condition. At positive equality mass, a correction term can depend on the action. Therefore “P2 reduces to KRW” must carry the target, law, normalization, equality, and common-domain qualifications (P1 Chapter 10, `prp-scalar-krw-affine`).
+
+P1 also represents the common-grade weighted loss by selecting one criterion index, independently of the target array conditional on the data, and taking that criterion's **entire unit vector**. This mixture of vector laws is not a scalar average of magnitudes; the common report is fixed before the auxiliary criterion is selected. Its expectation reproduces the weighted loss, but the mixture does not preserve the original array's cross-domain joint events. P2 therefore inherits this interpretation only for the matched common-action average, not as a replacement for its joint-state law (P1 Chapter 11, `prp-criterion-mixture`).
+
+P1's expected-risk representation also transfers column by column: the additive loss depends on $e_{ij,d}=\Pi_s(\theta_{id}\le\theta_{jd}\mid y)$ through finite-sum linearity. No pair independence is required. Unit marginals alone need not identify these coefficients. Once the coefficients are fixed, cross-domain dependence does not further affect this additive expectation. It can still affect a joint-tail probability, and it can affect the coefficients themselves when a different posterior producer changes the marginal comparison laws (P1 Chapter 11, `prp-weighted-directional-risk`, `exactly-which-probabilities-suffice`).
+
+## Primary optimization is not disclosure maximization {#sec-inheritance-objective}
+
+P1 retains risk minimization after adding criterion-specific expected-error constraints. Its explicit statement is at Chapter 13, `sec-criterion-protections`. The proposed P2 primary problem follows that principle:
+
+$$
+\min_G R_{\rm sep}(G)
+\quad\text{subject to declared joint-tail and optional expected-error protections.}
+$$
+
+A separate maximum-disclosure frontier instead maximizes $\sum_dN_d(G)$, or a declared weighted disclosure utility, over a matched feasible set. The two problems need not select the same action. Neither the withholding cost $\tau_d$ nor the number of displayed grades is an error-rate guarantee. A claim that the profile family weakly improves an optimum over the common-grade subfamily requires the **same objective and protections** on both sides. It says nothing by itself about a different P1 problem, a selected grade count, or downstream policy welfare.
+
+The preserved P2 feasibility review labels these problems specification A and specification B. Subsequent contracts should retain that distinction. In particular, a numerical example produced by a disclosure-maximizing oracle cannot silently be described as an optimum of the primary risk objective.
+
+## What changes at joint protection {#sec-inheritance-joint}
+
+P1's expected-count constraint $E_\Pi D_d\le q_dN$ equals an expected wrong fraction bound when $N>0$, because the action fixes the denominator. At $N=0$ the count constraint is valid but the displayed fraction is undefined. Domain-specific columns replace $N$ with $N_d$; protected pair masks further give domain-and-scope counts. Their exact definitions and overlaps belong to the P2 contract.
+
+The proposed joint event is
+
+$$
+J(G)=\Pi_s\{\exists(d,h):F_{dh}(G,\Theta)>t_{dh}N_{dh}(G)\mid y\}.
+$$
+
+Its bound $J(G)\le\alpha$ is not inherited from expected-error protection. A fixed-action union event usually requires dependence information across the protected errors, including dependence across pairs within a domain. A same-state posterior array can provide that information; pairing rows of independently fitted marginal chains cannot establish it. The tail threshold $t_{dh}$, mean-error budget $q_{dh}$, posterior event bound $\alpha$, and numerical failure budget must have distinct roles.
+
+An all-withheld report satisfies count-form protections and the proposed strict tail event when it belongs to the action family. Requiring more than one grade can remove it. Nonemptiness, rather than usefulness, is what this observation supports. Constraint validity must be checked anew for every candidate; P1 already warns that grade merging can increase risk or violate an expected protection, and P2's positive-threshold FDP tail has a further changing-denominator problem (P1 Chapter 14, `sparse-candidates-and-merged-reports`; P2 feasibility theory).
+
+## Equality and denominator contracts {#sec-inheritance-equality}
+
+P1 has two distinct losses. Under weak error, disclosing strict superiority at latent equality is an error and withholding has constant cost. Under equality-neutral loss, only a strict reversal is charged and withholding costs $\tau$ only on the distinct-target event. The latter all-withheld baseline depends on posterior distinct mass, rather than always equalling $\tau$. P2 must not combine these conventions under one unnamed risk.
+
+The feasibility proposal uses domain-specific structural-equality guards with the weak-error baseline. That is a declared P2 action restriction. It is not justified by simply invoking P1's equality-neutral guard theorem. P1's theorem concerns full equality on all positive-weight criteria, the full at-most-grade family, and no additional restrictions. It proves existence of a guarded minimizer for that particular problem. A guard imposed on each P2 domain, with joint-tail constraints, requires its own statement and cannot inherit the unrestricted preservation claim (P1 Chapter 11, `prp-tie-aware-guard`).
+
+P1 also separates a raw disclosed-pair denominator from expected disclosed distinct mass. The ratio of expected strict errors to expected distinct comparisons is not generally the expectation of a draw-specific random ratio. A zero displayed denominator remains undefined. Equality-neutral P2 tails would therefore need their own count, denominator, event, and empty-case definitions; they are not obtained by changing one comparison operator in the weak-error code (P1 Chapter 13, `sec-tie-aware-protections`).
+
+## Numerical and implementation inheritance {#sec-inheritance-numerical}
+
+P1 distinguishes approximation to a supplied posterior, optimization error for a declared action family, and calibration under an evaluation law. That separation is reusable. Its iid simultaneous coefficient bound covers action selection using the same coefficient estimates under fixed sampling assumptions. It does not certify a newly introduced joint-tail functional solely from pairwise marginal accuracy. P2 must provide an appropriate event-level or uniform candidate-level argument. An estimated effective sample size cannot simply replace the iid sample size in a finite-sample inequality. Split-chain stability is diagnostic without additional assumptions (P1 Chapter 15, `prp-iid-coefficient-envelope`, `sec-dependent-monte-carlo`, `sec-mcmc-output-analysis`).
+
+A best action in a finite candidate list certifies a minimum only within that list. A feasible incumbent and a valid lower bound have different roles, and any reported absolute gap must use the stated normalized risk units. P1's scalar fixed-order dynamic program does not automatically solve a joint-constrained product problem; P1 already limits the scalar recurrence when criterion protections require additional state (P1 Chapter 14, `sec-fixed-order-dp`, `sec-solver-qualifications`).
+
+The local P1 book refers to package `postrank/` version **0.9.0**. A separate local `postrank-v1.1.0/` identifies itself as **1.1.0**. These are versioned inputs, not interchangeable paths. The inspected 1.1.0 `postrank_evaluate()` still evaluates one common grade vector. Its `get_profile()` and `postrank_plot_profile()` expose criterion-level error/loss summaries of that common grading; these names do not denote the proposed entity-by-domain grade matrix. The inspected `postrank_tie_evaluate()` supplies a distinct equality-neutral evaluator. This bounded interface reading supports a naming and compatibility warning, not a certification of all 1.1.0 capabilities or a production integration decision. The later integration phase must assess the selected version explicitly.
+
+## Acceptance result {#sec-inheritance-acceptance}
+
+The crosswalk separates exact reuse, conditional adaptation, new P2 specification, and unsupported transfer. The main inherited objects are ordered-partition columns, fixed-law conditional risk, additive pair coefficients, count-form expected protections, and the distinctions among posterior, Monte Carlo, optimization, and evaluation uncertainty. The main changes are the product action, column-specific disclosure, joint error event, scoped denominators, and a candidate evaluator capable of retaining joint states. No future Phase result is marked proved or implemented in this packet.

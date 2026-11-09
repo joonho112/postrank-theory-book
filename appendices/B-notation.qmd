@@ -1,8 +1,16 @@
 # Notation and glossary {#sec-notation}
 
+```{=html}
+<span id="sec-p2-b-contracts" class="legacy-anchor" aria-hidden="true"></span>
+```
+
 The notation used in the main chapters is collected below. The linked definitions, propositions and examples specify the target, action family, equality convention and probability law, together with any further assumptions. Calibration of the supplied probabilities requires a separate assessment.
 
 ## Targets, information, and reports {#sec-notation-targets-actions}
+
+```{=html}
+<span id="reading-a-decision-specification" class="legacy-anchor" aria-hidden="true"></span>
+```
 
 Target values are oriented so that larger values indicate greater reporting priority. This may represent performance, need or another quantity, depending on the purpose of the report, without necessarily indicating greater intervention benefit. Targets are defined in @sec-target-definitions, and reports and their counts in @sec-grade-actions.
 
@@ -21,7 +29,24 @@ Target values are oriented so that larger values indicate greater reporting prio
 
 The weak relation $z$ describes the report rather than an inequality among latent targets; its use in computation is developed in @sec-ordered-partition-formulation. Disclosure $N$ depends on grade sizes as well as the number of grades.
 
+The profile chapters replace one common vector by a matrix whose columns are separately coherent reports (@sec-profile-report-action). The following notation is local to that formulation.
+
+| Notation | Profile meaning and qualification |
+|---|---|
+| $D$, $d$, $G=(g_{id})$ | Number of domains, domain index, and $n\times D$ grade matrix. Each column uses consecutive occupied labels, with grade 1 highest. Here $D$ is a domain count, not a realized wrong-count. |
+| $K_d$, $x^d_{ij}(G)$ | Number of occupied grades in domain $d$ and indicator $\mathbf1\{g_{id}<g_{jd}\}$. Identical grades withhold that domain's direction. |
+| $\Delta(g)$ | Diagonal embedding $(g,\ldots,g)$ of a common report. A reduction to common-grade optimization requires the same law, targets, loss settings, identity guards and actual feasible family. |
+| $a^h_{ij}$ | Fixed symmetric binary scope mask with zero diagonal. It selects pairs for an assessment; it does not remove other assertions or their loss. |
+| $N_{dh}(G)$, $F_{dh}(G,\Theta)$ | Scoped disclosed count and realized weak wrong-count. The former is fixed once the report is fixed; the latter uses $\theta_{id}\le\theta_{jd}$ for an issued direction. Full-domain versions are $N_d,F_d$. |
+
+Structural identity is declared separately in each domain with its substantive basis and almost-sure meaning. It constrains that domain's grades even when its objective weight is zero. It is distinct from a reported tie or numerical coincidence across finitely many draws. Original units and their pair multiplicities are retained. The full active-profile identity used by the equality-neutral common-report branch below is a different guard.
+
+
 ## Loss, risk, and probability laws {#sec-notation-loss-laws}
+
+```{=html}
+<span id="which-data-suffice" class="legacy-anchor" aria-hidden="true"></span>
+```
 
 Following @sec-posterior-risk-laws, we use loss for realized consequences and risk for their expectation under a specified law. That law is identified by a superscript unless it has been fixed by a local convention.
 
@@ -42,6 +67,16 @@ $$
 L_{w,\tau}(g,\Theta)=\frac{\sum_k w_kD_k(g,\Theta)+\tau\{M-N(g)\}}{M}.
 $$
 The withholding cost is charged once for each withheld pair, irrespective of the number of criteria. Risk is the expectation of loss under the stated law. It differs both from the realized mistake count and from the probability that every published direction is correct (@sec-weighted-directional-risk).
+
+For a profile, each domain can withhold a different set of pairs. With $w_d\ge0$, $\sum_dw_d=1$ and $0<\tau_d\le1/2$, the primary loss is
+$$
+L_{\rm sep}(G,\Theta)=\frac1M\sum_{d=1}^{D}w_d\{F_d(G,\Theta)+\tau_d[M-N_d(G)]\},
+\qquad R_{\rm sep}=E_{\Pi_s}L_{\rm sep}.
+$$
+This additive expectation does not assume independent domains. Its denominator is the original $M$ pairs in each domain, not the number of issued assertions. It also differs from the optional pair-bundle loss, which counts each pair once when any domain issues a direction (@sec-profile-protected-choice).
+
+Pairwise weak-error probabilities suffice for this additive risk and the expected scoped counts. Separate full unit-vector laws additionally determine within-domain tails. A direct union across domains requires their joint law: each state must specify the relevant units and domains together. Coincident and disjoint errors can have the same marginal probabilities and different unions. Row numbers assigned to separately generated arrays do not establish a coupling. Record the proper-law provenance, target transformations, conditioning information, producer and payload identities, and any chain/iteration structure (@sec-profile-reproduction).
+
 
 ## Denominators and randomized reports {#sec-notation-counts-randomization}
 
@@ -74,6 +109,15 @@ For a fixed report with positive disclosure, the count protection $E^s_k(g)\le q
 
 The assumptions for numerical envelopes and solver bounds are given in @sec-coefficient-error and @sec-monte-carlo-coefficients. A bound for a fixed number of independent draws, a result under specified dependence conditions and an asymptotic output diagnostic each require their own assumptions. Substitution of an effective sample size for the independent sample size in a finite-sample bound therefore needs further justification.
 
+For profile protection (@sec-profile-scope-protection), $\mathcal P$ lists mean constraints $E_{\Pi_s}F_{dh}\le q_{dh}N_{dh}$. A separate list $\mathcal H$ defines
+$$
+J(G)=\Pi_s\!\left(\bigcup_{(d,h)\in\mathcal H}\{F_{dh}>t_{dh}N_{dh}\}\right)\le\alpha.
+$$
+The exceedance is strict and the probability cap inclusive. The integer failure cutoff is $\lfloor t_{dh}N_{dh}\rfloor+1$. At $N_{dh}=0$, the count condition holds and that event is false, while its displayed error fraction remains undefined. An empty $\mathcal H$ disables joint protection; an enabled list whose events are all inactive is a different specification. Zero objective weight does not disable a configured guard or protection.
+
+The profile chapters use $\alpha$ for this posterior probability budget and $\beta$ for numerical failure under an explicitly stated certification procedure. Some earlier common-report numerical results use $\alpha$ locally for numerical failure instead. Neither notation makes numerical uncertainty equivalent to posterior uncertainty. Exact arithmetic on a stored chain's empirical law does not establish independent posterior sampling. The uniform-universe and fresh-validation routes in @sec-numerical-uncertainty have distinct conditioning and report-selection assumptions; their guarantees do not automatically cover mean constraints or optimality.
+
+
 ## Scalar correspondence and locally reused notation {#sec-notation-local-reuse}
 
 | Notation | Meaning and local distinction |
@@ -95,6 +139,10 @@ Scalar scores, covariance matrices and symbols used only in particular examples 
 **Withholding.** A decision to make no strict comparison within a grade. It differs from latent equality, practical equivalence, structural incomparability, and a lottery allocating a resource.
 
 **Coherence.** The requirement that a report form an ordered partition, which restricts the collections of disclosed and withheld directions that can coexist.
+
+**Profile.** One coherent ordered partition per domain. Crossings between columns are permitted; the profile does not itself define an overall ranking or a resource-allocation rule.
+
+**Joint protection.** A probability bound for the union of the declared scoped failures in one joint state. Mean error bounds, marginal tail bounds and a direct union bound answer different questions.
 
 **Feasible family.** The reports allowed by the declared constraints. Exact optimization is always relative to this family; a fixed-order optimum need not be unrestricted.
 
@@ -124,12 +172,18 @@ Raw disclosure $N/M$, distinct-mass disclosure $Q_w^s/T_w^s$, and strict-error r
 
 @fig-vis-fb relates the events to their expectations under a specified law and to ratios defined when the corresponding denominators are positive. The package aliases are listed separately.
 
-::: {#fig-vis-fb}
+::: {#fig-vis-fb .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
 <picture>
-<source media="(max-width: 720px)" srcset="../assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk-mobile.svg">
-<img src="../assets/figures/fb-counts-laws-denominators-and-the-api-crosswalk.svg" class="img-fluid" alt="Semantic lanes separate the raw report count N, realized weak wrong-count D_k, expected weak error E_k, expected strict error E_k^b and expected distinct masses Q_k and Q_w. Named expectation arrows carry law s or P; rate chips show denominator conditions N&gt;0,Q_k&gt;0 or T_w&gt;0. A separate inspected-API box maps field D to Q_w under the supplied law and field T to total T_w, without identifying D with D_k. Bottom notes preserve undefined zero-denominator rates and distinguish expected ratios from ratios of expected counts.">
+<source media="(max-width: 720px)" srcset="../assets/figures/reader-fb-counts-laws-mobile.svg">
+<img src="../assets/figures/reader-fb-counts-laws.svg" class="img-fluid" alt="Counts and named-law expectations lead to distinct rates. The API crosswalk separates field D from the realized wrong-count. Complete zero-denominator and varying-report qualifications follow the figure.">
 </picture>
 
 Counts, expectations and rates, with their defining events, averaging laws and denominators. For a fixed report, the realized weak wrong-count $D_k$ becomes $E_k^\nu$ after averaging under the named law $\nu$; strict reversal and distinct opportunity use different indicators and expectations. Raw $N$ counts issued comparisons, while $Q_k^\nu$ and $Q_w^\nu$ measure expected distinct opportunity. In the inspected tie-aware API, the field `D` names supplied-law $Q_w^s$, and field `T` names $T_w^s$; neither renames the book's realized wrong-count. Each rate label identifies its denominator as $N$, $Q_k$ or $T_w$. Zero denominators remain undefined. Changing the averaging law or randomizing the report changes the question. A ratio of expected counts therefore cannot in general be replaced by an expected ratio.
 :::
+
+[Reading-size PDF](../assets/figures/reader-fb-counts-laws.pdf).
+
+For a fixed report, zero denominators remain undefined. If $N=0$, all disclosed counts are zero, rates with denominator $N$ are undefined, and raw disclosure is $N/M=0$; $Q_w^\nu/T_w^\nu=0$ only when $T_w^\nu>0$. If $Q_k^\nu=0$, the ratio $E_k^{b,\nu}/Q_k^\nu$ is undefined and no conditional-distinct accuracy is assigned. If $T_w^\nu=0$, the ratio $Q_w^\nu/T_w^\nu$ is undefined, while equality-neutral risk and $R_0^\nu$ are zero. Raw $N$ can nevertheless be positive outside a guarded family.
+
+When reports or datasets vary, let $A=\sum_k w_kD_k$. The summaries $\mathbb{E}[A]/\mathbb{E}[N]$ and $\mathbb{E}[A/N\mid N>0]$ generally differ. Their interpretation requires the averaging law and a positive denominator to be named. Quantities of different types can have equal numerical values.
 

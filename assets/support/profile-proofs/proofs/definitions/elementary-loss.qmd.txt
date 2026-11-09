@@ -1,0 +1,53 @@
+---
+title: "Definitions: elementary weak-error loss and posterior risk"
+lang: en
+execute:
+  enabled: false
+---
+
+## Standing objects {#sec-p2-elementary-loss-status}
+
+Fix $y$, the supplied proper law, and an admissible $G$ as in the action-space definitions. This packet is a canonical definition sheet, not a new optimality theorem. Let $M=\binom n2$ and retain $x_{ij}^d(G)=\mathbf1\{g_{id}<g_{jd}\}$ for $i\ne j$.
+
+::: {#def-p2-domain-counts name="Disclosed and erroneous domain comparisons"}
+Define
+$$
+N_d(G)=\sum_{i\ne j}x_{ij}^d(G)
+=\sum_{i<j}\mathbf1\{g_{id}\ne g_{jd}\},
+\qquad
+F_d(G,\Theta)=
+\sum_{i\ne j}x_{ij}^d(G)\mathbf1\{\theta_{id}\leq\theta_{jd}\}.
+$$
+Each unordered pair contributes at most once in one domain. The disclosure count is fixed during posterior integration; the error count is state-dependent. The withheld count is $M-N_d(G)$. Cross-domain disclosures are separate statements.
+:::
+
+::: {#def-p2-error-withholding-loss name="Core additive state loss"}
+For fixed $w_d\geq0$, $\sum_dw_d=1$, and $0<\tau_d\leq1/2$, define
+$$
+L_{\mathrm{sep}}(G,\Theta)
+=\sum_{d=1}^D w_d L_d(G,\Theta),
+\qquad
+L_d(G,\Theta)=
+\frac{F_d(G,\Theta)+\tau_d\{M-N_d(G)\}}{M}.
+$$
+The weights are loss weights, not coefficients of a scalar composite target. These losses are bounded measurable functions on the target state space.
+:::
+
+::: {#def-p2-additive-posterior-risk name="Core posterior risk"}
+The fixed-action posterior risk is
+$$
+R_{\mathrm{sep}}(G)
+=\int L_{\mathrm{sep}}(G,\Theta)\,\Pi_s(d\Theta\mid y).
+$$
+No moment of the target coordinates is required because $0\leq L_{\mathrm{sep}}\leq1$. For the all-withheld matrix, $F_d=N_d=0$ and $R_{\mathrm{sep}}=\sum_dw_d\tau_d$.
+:::
+
+::: {#def-p2-disclosure-utilities name="Separate disclosure summaries"}
+Define $I(G)=\sum_dN_d(G)$, the number of disclosed pair-domain statements. A separately declared weighted utility can be
+$$
+I_v(G)=\sum_{d=1}^D\sum_{i<j}v_{ij}^d
+\mathbf1\{g_{id}\ne g_{jd}\},
+\qquad v_{ij}^d\geq0,
+$$
+with fixed finite weights. $I_v$, $I$, $K_d$ and $C(G)$ are different reporting summaries. Maximizing one of them is not the definition of minimizing $R_{\mathrm{sep}}$.
+:::

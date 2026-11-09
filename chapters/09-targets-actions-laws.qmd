@@ -2,9 +2,11 @@
 
 We define the reports a procedure may issue for the targets in @sec-measurement-values and the probability laws used to assess those reports. Defining a report requires no statistical model; averaging its consequences requires a probability law.
 
+We begin with a single grade column. A common-grade report applies this column to several targets, whereas a profile report in @sec-profile-actions permits a separate column for each domain. The definitions and counts apply to each column, without imposing an overall order on the profile rows or making every combination of columns feasible. Here $G(g)$ counts occupied grades; in the profile chapters, $G$ denotes a complete card and $K_d$ counts its occupied grades in domain $d$.
+
 ## Grade actions and disclosed comparisons {#sec-grade-actions}
 
-A report assigns every unit to one nonempty grade and orders the grades. Different grades disclose a direction, whereas a common grade withholds one. Report-card grading and ordered-bucket ranking use this action [@kline_discrimination_2024, pp. 2477–2482; @fagin2006partial, pp. 630–631]. We establish its representations and counts before introducing the loss that determines which report is optimal.
+A report assigns every unit to one nonempty grade and orders the grades. Different grades disclose a direction, whereas a common grade withholds one. Report-card grading and ordered-bucket ranking use this action [@kline_discrimination_2024; @fagin2006partial].
 
 ::: {#def-canonical-grade-action}
 ### Canonical grade action
@@ -51,7 +53,7 @@ The corresponding disclosure fractions are $1/2$ and $2/3$, illustrating why the
 
 @fig-vis-f09a shows these two reports and their disclosed pairs.
 
-::: {#fig-vis-f09a}
+::: {#fig-vis-f09a .reader-figure .reader-has-narrow style="--reader-figure-width:640px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f09a-an-ordered-partition-as-disclosed-pairs-mobile.svg">
 <img src="../assets/figures/f09a-an-ordered-partition-as-disclosed-pairs.svg" class="img-fluid" alt="The report {A}&gt;{B,C,D} issues AB, AC, AD and withholds BC, BD, CD, giving N=3. The report {A,B}&gt;{C,D} issues AC, AD, BC, BD and withholds AB, CD, giving N=4. Both use two grades (G=2) among the same six unordered pairs (M=6).">
@@ -97,6 +99,25 @@ $$
 
 The all-tie action $(1,\ldots,1)$ is feasible under every admissible at-most cap, including when the order is fixed. It is the unique exact-one-grade action, but every exact-$G$ requirement with $G>1$ excludes it. Thus exact and at-most specifications give different feasible sets, irrespective of the loss.
 
+
+
+<!-- BEGIN EXPLORER EXPANSION: how-many-reports -->
+
+::: {#box-explorer-how-many-reports .explorer-box}
+
+![](../assets/explorer-boxes/how-many-reports.png){fig-alt="Screenshot of The number of ordered grade reports, illustrating A smaller family changes the search." .explorer-screenshot}
+
+Compare all ordered grade reports with capped, exact-grade and fixed-order families as the number of units changes. Observe how a grade cap and a prescribed order restrict the available reports in different ways. The counts describe the sizes of these families; posterior risk and the runtime of an optimization method require separate calculations.
+
+::: {.explorer-link}
+[Open The number of ordered grade reports in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/how-many-reports.html)
+:::
+
+A smaller family changes the search
+
+:::
+<!-- END EXPLORER EXPANSION: how-many-reports -->
+
 ### Different meanings of a tie
 
 | Object | Meaning |
@@ -114,23 +135,67 @@ Criterionwise tie-freeness and composite tie-freeness are distinct assumptions, 
 
 Structural equality can arise in the joint target when, for example, two providers inherit the same area-level contextual target in every state but have different provider-specific targets. The providers are then equal on one criterion while their complete profiles may differ. The equality-neutral loss in @sec-tie-aware-loss accommodates these events. Under the conditions in @prp-tie-aware-guard, equality of the full active profile permits a same-grade restriction without losing an optimum. This assumption is stronger than equality of rounded observations or posterior means. It justifies imposing a guard; the shared grade itself continues to withhold a direction.
 
+Preserving an optimum in this way depends on the stated equality-neutral common-grade problem. The later weak-error profile problem instead assumes a declared domainwise structural identity: the targets are equal almost surely under the law, and the feasible reports enforce the associated same-grade guard. A displayed tie establishes neither assumption. The equality-neutral result therefore cannot by itself justify the corresponding claim for weak-error profiles.
+
 Exhaustive deterministic checks for $n=2,3,4$ give respectively $3,13,75$ canonical actions and $2,4,8$ actions per fixed order. At these sizes we checked the representation maps, disclosure identities and exact/capped counts for every action and fixed permutation. These calculations verify the implementation and arithmetic for the enumerated cases; the proofs above establish the results for arbitrary $n\ge2$.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: report-builder -->
+
+::: {#box-explorer-report-builder .explorer-box}
+
+![](../assets/explorer-boxes/report-builder.png){fig-alt="Screenshot of Grade reports as pairwise decisions, illustrating Grades determine which comparisons are stated." .explorer-screenshot}
+
+Move a unit between ordered grades and watch the corresponding pairwise statements change. Compare reports with the same number of grades to see how block sizes determine disclosure, and remember that grade numbers express order rather than distance. This construction counts the statements in a report; it does not assess their posterior accuracy or establish an allocation rule.
+
+::: {.explorer-link}
+[Open Grade reports as pairwise decisions in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/report-builder.html)
+:::
+
+Grades determine which comparisons are stated
+
+:::
+<!-- END EXPLORER EXPANSION: report-builder -->
 
 ## Information, selection beliefs, and evaluation laws {#sec-posterior-risk-laws}
 
-We distinguish the posterior distribution used to choose a grade from the grade that is issued. The same reporting rule can then be applied with different statistical models, and fitted-model probabilities can be compared with error rates under a data-generating process. Related distinctions occur in Bayesian ranking, rank confidence sets and selective decisions [@laird1989ranking, pp. 32–35, 41; @MogstadEtAl2024, pp. 484–486; @BansalMiescke2013, p. 207]. We introduce notation that will be used throughout.
+We distinguish the posterior distribution used to choose a grade from the grade that is issued. The same reporting rule can then be applied with different statistical models, and fitted-model probabilities can be compared with error rates under a data-generating process. Related distinctions occur in Bayesian ranking, rank confidence sets and selective decisions [@laird1989ranking; @MogstadEtAl2024; @BansalMiescke2013].
 
 ### Information and supplied selection beliefs {#the-information-supplied-to-a-decision}
 
 Let $\Theta=(\theta_{ik})\in\mathbb R^{n\times K}$ contain the unit-by-criterion targets. Write $Y$ for all information available to the reporting procedure. Besides measured indicators, $Y$ can include precision estimates, covariates, sample sizes, design variables, and information used to estimate a prior. Differences in the information available to competing methods form part of their comparison. Whether a design variable is fixed or random also depends on the experiment, rather than on its inclusion in $Y$.
 
-A posterior producer supplies a probability kernel $\Pi_s(d\vartheta\mid y)$ on the target array, measurable in the observed information $y$. The subscript $s$ indicates that it is used to select the action. It may be a posterior under a fully specified model, a posterior integrating uncertain hyperparameters, or an empirical Bayes belief obtained after estimating them. We call these *selection beliefs* according to their role in the decision; their uncertainty properties can differ. The general-belief formulation of report-card grading similarly distinguishes beliefs from the empirical Bayes procedure used in its application [@kline_discrimination_2024, pp. 2477–2479].
+Here $K$ indexes target criteria. The profile chapters use $D$ for domains and reserve $K_d$ for the number of occupied grades in a domain. The criterion index can be translated when the targets agree, but a grade count must not be substituted for the number of targets.
 
-The supplied distribution depends on the target definition, sampling model, prior, treatment of design information, and computation. Substituting an estimated hyperparameter generally differs from averaging over its posterior distribution. An empirical Bayes procedure can include a specified correction for estimation uncertainty; a hierarchical Bayesian analysis propagates the uncertainty represented by its hierarchy and priors. Calibration under a different evaluation law requires further justification in either case. Laird and Louis identify estimation of the prior as a source of ranking uncertainty [@laird1989ranking, p. 41].
+Let $\Pi_s(d\vartheta\mid y)$ be the supplied probability kernel on the target array, measurable in the observed information $y$. The subscript $s$ denotes its use in selecting the action. It may be a posterior under a fully specified model, a posterior integrating uncertain hyperparameters, or an empirical Bayes belief obtained after estimating them. We call these *selection beliefs* according to their role in the decision; their uncertainty properties can differ. The general-belief formulation of report-card grading similarly distinguishes beliefs from the empirical Bayes procedure used in its application [@kline_discrimination_2024].
+
+The supplied distribution depends on the target definition, sampling model, prior, treatment of design information, and computation. Substituting an estimated hyperparameter generally differs from averaging over its posterior distribution. An empirical Bayes procedure can include a specified correction for estimation uncertainty; a hierarchical Bayesian analysis propagates the uncertainty represented by its hierarchy and priors. Calibration under a different evaluation law requires further justification in either case. Laird and Louis identify estimation of the prior as a source of ranking uncertainty [@laird1989ranking].
+
+The PISA analysis in @sec-pisa-comparisons illustrates this distinction by constructing a working law for system-level gender gaps from supplied uncertainty summaries. Its calibration step concerns the centering and covariance scaling of generated coefficient vectors, before the gap-target transformation; it does not establish repeated-sampling calibration of the resulting pairwise ordering probabilities. Selecting a report conditional on that working law and assessing its behavior under a different data-generating process therefore remain separate questions.
 
 Given the measurement evidence and fitted sampling model, we choose a grade from the feasible reports using the supplied beliefs and loss. If the action definition is held fixed while the procedure producing the beliefs changes, differences in grades can be attributed to the beliefs, the decision settings, or both.
 
-The inspected local postrank source, version 0.9.0, accepts posterior draws or comparison inputs and postprocesses them without fitting the underlying statistical model. Its structural input checks do not establish that the inputs represent the intended joint law, that the model is identified, or that the computation has converged; these must be assessed in the analysis producing the inputs. Criterionwise inputs contain no additional information about the joint state across criteria. @sec-package-correspondence gives the detailed correspondence for this version.
+The statistical analysis supplying the beliefs must assess whether they represent the intended joint law, whether the model is identified, and whether the computation is adequate. Checking their representation cannot settle these questions; in particular, separate criterionwise inputs leave the coupling across criteria unidentified. We develop the computational correspondence in @sec-package-correspondence. Here the decision is defined by the declared law, independently of its input format or software version.
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: posterior-pipeline -->
+
+::: {#box-explorer-posterior-pipeline .explorer-box}
+
+![](../assets/explorer-boxes/posterior-pipeline.png){fig-alt="Screenshot of From data to posterior decisions, illustrating A supplied posterior is not the reporting decision." .explorer-screenshot}
+
+Follow the same two units from estimates and a chosen prior to a posterior and a reporting action. Change the withholding cost while leaving the posterior fixed, then change the prior to distinguish a decision preference from a change in beliefs. The example separates model production from report selection; a valid input representation alone does not establish model adequacy.
+
+::: {.explorer-link}
+[Open From data to posterior decisions in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/uncertainty/posterior-pipeline.html)
+:::
+
+A supplied posterior is not the reporting decision
+
+:::
+<!-- END EXPLORER EXPANSION: posterior-pipeline -->
 
 ### Dependence and pairwise comparison probabilities {#a-joint-distribution-cannot-be-replaced-by-unrelated-marginals}
 
@@ -147,11 +212,13 @@ The laws have the same two marginals and no ties, yet the more probable directio
 
 The required dependence information also depends on the objective. Comparing a composite such as $c_i=\sum_k a_k\theta_{ik}$ requires the joint law of its components, and the probability that all disclosed directions are correct requires their joint event law. For an additive sum of criterion-specific wrong-direction indicators, linearity of expectation uses only the relevant within-criterion pair laws. Additional cross-criterion dependence information is unnecessary for this first moment. Unit marginals still need not identify the pair probabilities, and the first moment leaves the distribution of the total error count undetermined. We use this property in constructing the directional loss.
 
-Joint posterior draws retain the entire array $\Theta$, with unit and criterion identities aligned in each draw. Independently shuffling columns or drawing units from their marginals generally alters the joint law. Analytic pair probabilities can instead suffice for a particular additive objective if they are calculated from the intended joint model. In either case, the analysis must assess model adequacy, approximation error and Monte Carlo dependence, as well as whether the reduced input contains the information required by the objective. BLiP also distinguishes supplied group probabilities from their accuracy, although it uses a different action space [@SpectorJanson2025, pp. 463–466, 470].
+Joint posterior draws retain the entire array $\Theta$, with unit and criterion identities aligned in each draw. Independently shuffling columns or drawing units from their marginals generally alters the joint law. Analytic pair probabilities can instead suffice for a particular additive objective if they are calculated from the intended joint model. In either case, the analysis must assess model adequacy, approximation error and Monte Carlo dependence, as well as whether the reduced input contains the information required by the objective. BLiP also distinguishes supplied group probabilities from their accuracy, although it uses a different action space [@SpectorJanson2025].
+
+For a profile, a complete within-domain vector marginal supplies the law for events involving that domain's units. A union of error events across domains additionally depends on their coupling, as formalized in @sec-profile-scope-protection. Assigning matching row numbers to separately fitted draws does not establish that coupling. Thus marginal information sufficient for additive risk need not be sufficient for the protection constraint used to choose the report.
 
 @fig-vis-f09b displays the two couplings on the same target axes and marginal scales.
 
-::: {#fig-vis-f09b}
+::: {#fig-vis-f09b .reader-figure .reader-has-narrow style="--reader-figure-width:700px;"}
 <picture>
 <source media="(max-width: 720px)" srcset="../assets/figures/f09b-equal-marginals-different-comparisons-mobile.svg">
 <img src="../assets/figures/f09b-equal-marginals-different-comparisons.svg" class="img-fluid" alt="Q1 has three equally weighted support cells (A,B)=(0,1),(1,2),(2,0); only (2,0) satisfies A&gt;B. Q2 has (0,2),(1,0),(2,1); the last two satisfy A&gt;B. Both coordinate marginals put mass 1/3 at each of 0, 1 and 2.">
@@ -160,9 +227,41 @@ Joint posterior draws retain the entire array $\Theta$, with unit and criterion 
 Comparison probabilities under two stipulated joint laws with the same uniform marginals on {0,1,2}: P(A>B) is 1/3 under Q1 and 2/3 under Q2. Each occupied cell has probability 1/3; all other cells have probability 0. With A horizontal and B vertical, A>B lies below the diagonal. The change comes from the coupling, not from a change in either marginal.
 :::
 
+<!-- postrank-exhibit:W01:begin -->
+<details class="widget-exhibit" data-postrank-widget="W01" data-widget-src="../assets/widgets/W01/index.html" data-widget-title="The same mean gap can support different directions" data-widget-height="1000">
+<summary>Explore: How does uncertainty change a direction probability when the mean gap is held fixed?</summary>
+<div class="widget-fallback"><table><caption>One mean gap, two uncertainty levels</caption><thead><tr><th scope="col">Mean gap</th><th scope="col">SD of B</th><th scope="col">Pr(A &gt; B)</th></tr></thead><tbody><tr><td>0.20</td><td>0.20</td><td>0.760</td></tr><tr><td>0.20</td><td>0.60</td><td>0.624</td></tr></tbody></table></div>
+<button type="button" data-widget-load disabled>Open interactive example</button>
+<div data-widget-frame></div>
+<noscript><p>Both the fixed comparison above and the chapter explanation remain available without JavaScript.</p></noscript>
+</details>
+<script defer src="../assets/widgets/shared/book-loader.js"></script>
+<!-- postrank-exhibit:W01:end -->
+
+
+
+<!-- BEGIN EXPLORER EXPANSION: beyond-normal -->
+
+::: {#box-explorer-beyond-normal .explorer-box}
+
+![](../assets/explorer-boxes/beyond-normal.png){fig-alt="Screenshot of Marginal summaries and joint direction probabilities, illustrating Marginals leave the coupling unresolved." .explorer-screenshot}
+
+Switch between the two finite laws while checking that each unit's marginal distribution stays the same. The preferred direction can reverse because the joint pairing changes; the independent and always-equal presets make the role of latent equality visible as well. These stipulated laws show why marginal summaries cannot generally recover comparison probabilities, rather than diagnosing dependence in an observed dataset.
+
+::: {.explorer-link}
+[Open Marginal summaries and joint direction probabilities in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/uncertainty/beyond-normal.html)
+:::
+
+Marginals leave the coupling unresolved
+
+:::
+<!-- END EXPLORER EXPANSION: beyond-normal -->
+
 ### Action loss and law-specific risk {#loss-for-an-action-and-risk-under-a-law}
 
 Before observing the data, fix the targets, loss settings, loss function $L(g,\vartheta)$, and a nonempty finite feasible action set $\mathcal A\subseteq\mathcal A_n$. The loss records the consequence of issuing $g$ at target state $\vartheta$, as distinct from the probability of that consequence. We assume that the loss is measurable and integrable under each law considered; finiteness of the action set alone does not supply these properties. A deterministic rule is a measurable map $\delta:Y\mapsto g\in\mathcal A$. Data-dependent restrictions require a correspondingly data-dependent feasible set.
+
+For posterior protection, the feasible set can depend on the data: the same constraints can admit different reports under different supplied laws. Conditional on the observed information, the law, thresholds and resulting feasible family are fixed. In a repeated-sampling comparison, we apply the declared selection and feasibility procedure to each dataset; holding the observed feasible family fixed would define a different comparison and must be stated explicitly. For common-versus-profile comparisons under one law, @sec-profile-diagonal-reduction uses the diagonal intersection of the same feasible family.
 
 For data-dependent standardization or preferences, retain the underlying scientific state $\Theta$ and write $L_y(g,\Theta)$ when the transformation or loss settings depend on $y$. In the expectations below, replace $L(g,\Theta)$ by $L_Y(g,\Theta)$; conditioning on $Y=y$ then fixes $L_y$. The same measurability and integrability assumptions apply. An estimated scale is fixed in the conditional calculation and re-estimated across datasets; freezing it across repetitions evaluates a different procedure. This formulation includes the standardization choices in @sec-measurement-values and their sampling variation.
 
@@ -172,7 +271,7 @@ $$
 R^s(g\mid y)=\int L(g,\vartheta)\,\Pi_s(d\vartheta\mid y).
 $$
 
-A Bayes action minimizes this conditional expected loss over the specified feasible set; the minimization is specific to that loss and law [@kline_discrimination_2024, p. 2480, eq. (3)]. The realized loss $L(\delta(y),\vartheta)$ concerns a particular state and dataset and can differ from its posterior expectation. In an empirical application, the latent state may be unavailable for direct evaluation.
+A Bayes action minimizes this conditional expected loss over the specified feasible set; the minimization is specific to that loss and law [@kline_discrimination_2024]. The realized loss $L(\delta(y),\vartheta)$ concerns a particular state and dataset and can differ from its posterior expectation. In an empirical application, the latent state may be unavailable for direct evaluation.
 
 To define a true conditional risk, additionally specify a joint evaluation law $P$ for $(\Theta,Y)$, on spaces admitting the required conditional distributions. Then
 
@@ -183,16 +282,16 @@ $$
 
 The conditional law and risk are defined $P_Y$-almost surely; their values at impossible data have no further guaranteed interpretation. Here *true* refers to the conditional law in the specified data-generating model, whether or not an empirical analyst knows that law. The equality $\Pi_s(\cdot\mid y)=P(\cdot\mid y)$ requires a substantive assumption or an oracle experiment. A fixed-parameter sampling family alone provides neither a random-$\Theta$ evaluation distribution nor its posterior.
 
-::: {#fig-information-beliefs-laws}
+::: {#fig-information-beliefs-laws .reader-figure .reader-has-narrow style="--reader-figure-width:560px;"}
 <picture>
-<source media="(max-width: 720px)" srcset="../assets/figures/information-beliefs-laws-mobile.svg">
-<img src="../assets/figures/information-beliefs-laws.svg" class="img-fluid" alt="Information and producer model/computation point to selection beliefs. Beliefs and targets/loss/constraints point to a feasible grade. The grade and target state point to realized loss, then to conditional risk. A dashed arrow from the declared evaluation law specifies averaging. The mobile layout stacks the same dependencies.">
+<source media="(max-width: 720px)" srcset="../assets/figures/S01-mobile.svg">
+<img src="../assets/figures/S01.svg" class="img-fluid" alt="Information and producer model/computation point to selection beliefs. Beliefs and targets/loss/constraints point to a feasible grade. The grade and target state point to realized loss, then to conditional risk. A dashed arrow from the declared evaluation law specifies averaging. The mobile layout stacks the same dependencies.">
 </picture>
 
 Analytical dependencies among information, selection beliefs, grade actions and evaluation risk. Information and a producer supply selection beliefs; these beliefs and the targets, loss and constraints enter a feasible grade choice. The action and target state determine realized loss. Averaging under the declared conditional law gives risk, with nu indexing that law. Arrows describe analytical dependencies, not causal effects.
 :::
 
-The beliefs used to select a grade do not themselves determine its evaluation law.
+The evaluation law may coincide with the selection beliefs, but choosing those beliefs does not by itself justify that identification.
 
 ### Randomized rules and risk expectations {#randomized-rules-and-the-different-expectations}
 
@@ -223,6 +322,24 @@ $$
 =\int\overline R^P(\delta\mid y)\,P_Y(dy).
 $$
 
-If that joint model factors as $P(d\vartheta,dy)=\pi(d\vartheta)P_\vartheta(dy)$, the same risk also equals $\int\mathcal R(\vartheta,\delta)\pi(d\vartheta)$. The distribution $\pi$ may be a declared prior or a distribution of states in a simulation design. An integrated bound under it does not by itself establish a bound at every fixed $\vartheta$. Nor can $\overline R^P$ be replaced by $\overline R^s$ in the tower identity without an equality or other justification linking their conditional risks. These distinctions underlie the multiple-decision and compound-decision comparisons [@BansalMiescke2013, p. 207; @mogstad2023comment, pp. 54–57; @gu2023reply, pp. 61–63].
+If that joint model factors as $P(d\vartheta,dy)=\pi(d\vartheta)P_\vartheta(dy)$, the same risk also equals $\int\mathcal R(\vartheta,\delta)\pi(d\vartheta)$. The distribution $\pi$ may be a declared prior or a distribution of states in a simulation design. An integrated bound under it does not by itself establish a bound at every fixed $\vartheta$. Nor can $\overline R^P$ be replaced by $\overline R^s$ in the tower identity without an equality or other justification linking their conditional risks. These distinctions underlie the multiple-decision and compound-decision comparisons [@BansalMiescke2013; @mogstad2023comment; @gu2023reply].
 
 A fixed-parameter frequentist experiment repeats sampling at a fixed state without requiring a prior distribution on $\Theta$. It evaluates the complete data-dependent rule, which may use a selection posterior. The resulting sampling risk and a posterior average generally differ, so a bound for one cannot be applied to the other without justification. With the report, loss and averaging law specified, we can formulate the scalar report-card decision in @sec-krw-foundation and then the criterion-weighted directional risk in @sec-multicriteria-loss.
+
+
+<!-- BEGIN EXPLORER EXPANSION: frontier-mixtures -->
+
+::: {#box-explorer-frontier-mixtures .explorer-box}
+
+![](../assets/explorer-boxes/frontier-mixtures.png){fig-alt="Screenshot of Mixtures of frontier reports, illustrating Randomize whole reports, not individual pairs." .explorer-screenshot}
+
+Choose a desired mean disclosure and inspect the lottery between two complete grade reports that attains it. Every realized report remains coherent, although the average point need not correspond to any single report. Compare its expected wrong count with a deterministic alternative only at the same disclosure and within the same family; restricted families need not satisfy the unrestricted endpoint conclusion.
+
+::: {.explorer-link}
+[Open Mixtures of frontier reports in postrank Explorer](https://joonho112.github.io/postrank-explorer/pages/grades/frontier-mixtures.html)
+:::
+
+Randomize whole reports, not individual pairs
+
+:::
+<!-- END EXPLORER EXPANSION: frontier-mixtures -->

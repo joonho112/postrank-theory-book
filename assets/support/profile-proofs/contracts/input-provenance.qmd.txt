@@ -1,0 +1,57 @@
+---
+title: "Posterior input and dependence provenance"
+lang: en
+execute:
+  enabled: false
+---
+
+## Status and three independent descriptions {#sec-p2-input-contract}
+
+This Step 3.6 contract specifies admissible input representations for the [primary problem](profile-risk-spec.qmd). The companion [JSON](posterior-input.json) is a formal field/rule specification, not a fitted input, executable JSON Schema, or implemented validator. Phase 6 will implement validation; Phase 7 will supply assumption-qualified numerical guarantees. Passing structural checks alone proves none of those guarantees.
+
+Record three axes separately: **representation** (exact finite law, equal-weight iid draws, equal-weight MCMC draws, or pairwise probability summaries); **layout** (joint arrays, criterionwise arrays, or summaries); and **coupling status** (a supplied joint producer, scientifically declared product factorization, or unknown cross-domain coupling). Criterionwise storage does not assert independence. Unknown coupling is a limitation of information about the intended multidomain law, not a newly identified joint law.
+
+## Intended law and numerical representation {#sec-p2-input-law-status}
+
+An exact finite law is specified by complete states and masses,
+$$
+\Pi_s(\cdot\mid y)=\sum_{s=1}^{S}p_s\delta_{\Theta^{(s)}}(\cdot),
+\qquad p_s\ge0,\quad\sum_sp_s=1.
+$$
+Record why the finite specification is the supplied target law: for example, a designed finite decision experiment or complete enumeration. Duplicate state values are allowed with distinct identifiers; aggregation requires a recorded mass-preserving transformation. Zero masses are allowed. Exactness of the law specification is separate from floating-point evaluation accuracy.
+
+For rational-text masses, exact nonnegative parsing and an exact sum of one are required. For float64 masses, this contract explicitly defines the probabilities as the stored nonnegative values divided by their mathematical total. Accept that encoding only when a compensated sum differs from one by at most the declared absolute tolerance, default $10^{-12}$. Record the original values/hash, total, residual, tolerance and normalization rule. Excess residual, a nonpositive total or any negative/nonfinite mass is rejected; do not clip or silently repair. The resulting law is the explicitly normalized finite law. Arithmetic results still carry their numerical status, including near-boundary event calculations.
+
+For iid or MCMC output, all retained states have equal computational weights $1/S$ within their payload. They approximate the declared intended law; a finite saved sample is not an exact version of that posterior. Unequal importance weights, particle weights or survey weights have no certification path in this core contract. Such output must not be relabeled as an exact finite posterior to bypass that limitation. Arbitrary reweighting or autocorrelation-based weights are unsupported.
+
+## States, identities and transformations {#sec-p2-input-state-provenance}
+
+A joint payload has shape $S\times n\times D$, $S\ge1$, in the declared state/unit/domain order. All target entries are finite real values. Unit and domain IDs are unique and stable across states; state IDs are unique even when values repeat. Criterionwise payloads contain full unit-vector states with shape $S_d\times n\times1$ and their own state IDs; $S_d$ may differ by domain. No row matching is inferred across them.
+
+Record the source artifact/hash, conditioning-data identifier/hash, producer/model/version, approximation status, target transformations and their order, final orientation, retained-state indices, warmup/thinning rules, seed and chain/original-iteration IDs. Unavailable provenance uses an explicit reason, never an invented seed or chain. Preserve known original iteration identities; a new sequential row number is not a replacement. Missing chain information limits diagnostics; it does not prevent a clearly labeled empirical calculation.
+
+Oriented targets and transformed structural identities must agree with the [equality policy](equality-policy.qmd). Check every declared $E_d$ identity on positive-mass finite support and every retained Monte Carlo row. A violation fails compatibility; do not average values, drop offending states or introduce a tolerance-based identity. Passing a finite-draw check does not establish scientific structural equality or probability-one equality under the intended posterior. Zero-mass rows do not establish or refute support compatibility; they remain finite-valued and identified.
+
+## What the available dependence permits {#sec-p2-input-capabilities}
+
+| Available information | Supported conditional target calculations |
+|---|---|
+| Proper joint states/law | Additive risk, expected counts, within-domain events, direct $J(G)$ and explicitly defined cross-domain bundle events |
+| Full unit-vector marginal states for each domain | Additive risk, expected counts and each domain's scope events; cross-domain direct $J$ is unidentified without coupling |
+| Pairwise strict-direction probabilities, with equality convention documented | Core additive risk and expected error counts; generally insufficient for within-domain tail events |
+
+The first row describes information sufficiency, not accuracy of its numerical estimate. The second can also evaluate a union of scopes within one domain. Degenerate events, including an empty protected family, need no unavailable coupling. When only one domain is involved, its full unit-vector law supplies all relevant dependence.
+
+Pairwise summaries used as posterior-risk inputs require provenance as marginals of a declared proper law. Range and reciprocity checks are necessary, but do not establish global realizability: probability-one strict directions forming a cycle cannot arise from a real-valued ranking. Without that provenance, the numbers supply unvalidated coefficient scores, not posterior assurance. This contract implements no global coherence algorithm.
+
+For every declared identity $iE_dj$, a pairwise summary must encode both strict-direction probabilities as zero and equality mass as one. Derive the missing probability from the documented encoding: two strict probabilities determine equality mass, or one strict probability and equality mass determine the opposite strict probability. A contrary summary fails compatibility even when $w_d=0$. Approximation or a tolerance is not permission to set these probabilities to zero/one. If the provided approximate summary cannot assert exact compatibility, mark compatibility unresolved and exclude it from the core guarded posterior calculation until producer evidence and a compatible representation resolve the issue. Never repair probabilities or remove the guard silently. Passing this check verifies consistency with a declared identity; it establishes neither scientific identity nor global joint-law realizability.
+
+Aligning rows from separate fits does not create joint posterior draws. A product coupling is permitted only when factorization of the **conditional target law** is scientifically declared and justified, including treatment of shared latent quantities. The numerical construction must then record valid product enumeration or sampling; scientifically justified independence alone does not validate a particular row pairing. Such construction is an explicit adapter, not an automatic storage conversion.
+
+With unknown cross-domain coupling, direct multidomain $J$ is unavailable. An explicitly conservative alternative bounds the union using valid marginal event bounds and a declared Bonferroni allocation whose sum is at most $\alpha$. It remains valid across compatible couplings under its assumptions; it is not a direct-joint estimate or a claim of optimality. Pairwise summaries alone do not provide the required marginal tail probabilities without an additional conservative argument.
+
+## Selection and assurance {#sec-p2-input-selection-assurance}
+
+IID is an assumption about the sampling mechanism and intended law, not an array property. Retaining MCMC states, thinning them or reporting estimated ESS does not establish iid sampling. MCMC convergence diagnostics and chain stability do not supply a finite-sample posterior-risk certificate.
+
+Record whether actions, candidate banks, masks, thresholds or other decision settings were selected using the numerical sample, and identify selection/validation state sets and their relationship. Once selected, the report's exact target remains evaluation under the intended supplied law. Reuse of selection draws for evaluation, sample-adaptive settings and dependent validation require the later numerical contract. Splitting a chain does not establish independent validation. Neither $\widehat J\le\alpha$ nor a valid input shape establishes $J\le\alpha$.

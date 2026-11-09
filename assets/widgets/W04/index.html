@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Common grades and crossing domain profiles</title><link rel="stylesheet" href="../shared/style.css"><script defer src="model.js"></script><script defer src="../shared/runtime.js"></script><script defer src="app.js"></script></head>
+<body><main class="postrank-widget">
+<h1>What changes when domains may differ?</h1>
+<p>Compare the best feasible common card with the best feasible profile under one fixed finite law. Smaller grade numbers mean higher reported priority.</p>
+<div class="controls"><div class="control"><label for="representation">Report form</label><select id="representation" aria-describedby="fixed-settings" disabled><option value="common">Common grades</option><option value="profile">Domain profiles</option></select></div><button id="widget-reset" type="button" disabled>Reset</button></div>
+<noscript><p>The selector requires JavaScript. Both exact results and the complete law remain below.</p></noscript>
+<section class="readout" aria-labelledby="card-title"><h2 id="card-title">Common grades</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Selected grades"><table><caption>Grades for the same two units</caption><thead><tr><th scope="col">Unit</th><th scope="col">Domain 1</th><th scope="col">Domain 2</th></tr></thead><tbody><tr><th scope="row">Alder</th><td id="g00">1</td><td id="g01">1</td></tr><tr><th scope="row">Birch</th><td id="g10">1</td><td id="g11">1</td></tr></tbody></table></div>
+<div class="metrics"><div class="metric">Expected loss<strong id="risk">1/3</strong></div><div class="metric">Joint error probability<strong id="joint">0</strong></div><div class="metric">Issued comparisons<strong id="issued">0</strong></div></div>
+<p id="meaning">Both comparisons are withheld. The report asserts no direction in either domain.</p>
+<p>Candidate family size: <strong id="family-size">3</strong>. Both displayed cards satisfy the fixed joint cap of 1/4.</p></section>
+<p id="widget-status" class="status sr-only" role="status" aria-live="polite" aria-atomic="true">Common grades: loss 1/3, joint error probability 0, no issued comparisons.</p>
+<p id="fixed-settings" class="assumptions">Fixed: domain weights 1/2, withholding costs 1/3, exceedance thresholds 0 and joint probability cap 1/4. The three common cards are the identical-column subset of the same nine profiles. The stated optima are unique in their respective families.</p>
+<section class="fallback" aria-labelledby="static-title"><h2 id="static-title">Both results and their complete law</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Static exact results"><table><caption>Stored exact optimum in each declared family</caption><thead><tr><th scope="col">Form</th><th scope="col">Alder / Birch grades</th><th scope="col">Loss</th><th scope="col">Joint error</th></tr></thead><tbody><tr><th scope="row">Common (3 cards)</th><td>(1,1) / (1,1)</td><td>1/3</td><td>0</td></tr><tr><th scope="row">Profile (9 cards)</th><td>(1,2) / (2,1)</td><td>1/5</td><td>1/5</td></tr></tbody></table></div>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Complete finite law"><table><caption>Two complete target states; larger targets mean higher priority</caption><thead><tr><th scope="col">Probability</th><th scope="col">Alder targets (D1,D2)</th><th scope="col">Birch targets (D1,D2)</th></tr></thead><tbody><tr><th scope="row">4/5</th><td>(1,−1)</td><td>(0,0)</td></tr><tr><th scope="row">1/5</th><td>(−1,1)</td><td>(0,0)</td></tr></tbody></table></div>
+<p class="note">This selector reads stored, verified results. It does not fit a posterior or run an optimization. Loss uses the original pair denominator, not the number of issued comparisons. An unresolved grade does not assert equal targets; a zero-disclosure error fraction is undefined.</p></section>
+</main></body></html>

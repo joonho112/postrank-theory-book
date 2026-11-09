@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="490" height="302" preserveAspectRatio="xMinYMin meet" viewBox="0 0 490 302" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="490" height="302"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-302)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="490" height="302" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="137.123" y="285" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,570) scale(1,-1)">Same joint law for both reporting formats</text>
+			<text x="100.5" y="268" style="font-family: Helvetica; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,536) scale(1,-1)">Probability 4/5: Alder leads in Domain 1; Birch leads in Domain 2.</text>
+			<text x="158.575" y="253" style="font-family: Helvetica; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,506) scale(1,-1)">Probability 1/5: both directions reverse.</text>
+			<path d="M 12,242 L 478,242 Z" style="stroke: rgb(73%,76%,80%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="58.988" y="222" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,444) scale(1,-1)">(a) Best common card</text>
+			<text x="66.985" y="205" style="font-family: Helvetica; font-size: 10px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,410) scale(1,-1)">Identical columns: W / W</text>
+			<text x="22" y="172" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,344) scale(1,-1)">Unit</text>
+			<text x="109.495" y="172" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,344) scale(1,-1)">Domain 1</text>
+			<text x="172.495" y="172" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,344) scale(1,-1)">Domain 2</text>
+			<path d="M 18,165 L 228,165 Z" style="stroke: rgb(73%,76%,80%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="22" y="145.9" style="font-family: Helvetica; font-size: 11px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,291) scale(1,-1)">Alder</text>
+			<rect x="107" y="138.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,95%); fill-rule: evenodd;"/>
+			<text x="128.664" y="145.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,291) scale(1,-1)">1</text>
+			<rect x="170" y="138.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,95%); fill-rule: evenodd;"/>
+			<text x="191.664" y="145.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,291) scale(1,-1)">1</text>
+			<text x="22" y="120.9" style="font-family: Helvetica; font-size: 11px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,241) scale(1,-1)">Birch</text>
+			<rect x="107" y="113.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,95%); fill-rule: evenodd;"/>
+			<text x="128.664" y="120.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,241) scale(1,-1)">1</text>
+			<rect x="170" y="113.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,95%); fill-rule: evenodd;"/>
+			<text x="191.664" y="120.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,241) scale(1,-1)">1</text>
+			<text x="63.4499" y="97" style="font-family: Helvetica; font-size: 9.8px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,194) scale(1,-1)">Both comparisons withheld</text>
+			<text x="42.198599999999985" y="83" style="font-family: Helvetica; font-size: 9.8px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,166) scale(1,-1)">Same grade does not assert equality</text>
+			<path d="M 18,73 L 228,73 Z" style="stroke: rgb(73%,76%,80%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="47.403499999999994" y="55" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,110) scale(1,-1)">Risk = 1/3     Joint error J = 0</text>
+			<text x="311.324" y="222" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,444) scale(1,-1)">(b) Best profile card</text>
+			<text x="309.09000000000003" y="205" style="font-family: Helvetica; font-size: 10px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,410) scale(1,-1)">Crossed columns: AB / BA</text>
+			<text x="268" y="172" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,344) scale(1,-1)">Unit</text>
+			<text x="355.495" y="172" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,344) scale(1,-1)">Domain 1</text>
+			<text x="418.495" y="172" style="font-family: Helvetica-Bold; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,344) scale(1,-1)">Domain 2</text>
+			<path d="M 264,165 L 474,165 Z" style="stroke: rgb(73%,76%,80%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="268" y="145.9" style="font-family: Helvetica; font-size: 11px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,291) scale(1,-1)">Alder</text>
+			<rect x="353" y="138.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,95%); fill-rule: evenodd;"/>
+			<text x="374.664" y="145.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,291) scale(1,-1)">1</text>
+			<rect x="416" y="138.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,96%); fill-rule: evenodd;"/>
+			<text x="437.664" y="145.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,291) scale(1,-1)">2</text>
+			<text x="268" y="120.9" style="font-family: Helvetica; font-size: 11px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,241) scale(1,-1)">Birch</text>
+			<rect x="353" y="113.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(96%,96%,96%); fill-rule: evenodd;"/>
+			<text x="374.664" y="120.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,241) scale(1,-1)">2</text>
+			<rect x="416" y="113.5" width="50" height="22.0" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,95%); fill-rule: evenodd;"/>
+			<text x="437.664" y="120.5" style="font-family: Helvetica-Bold; font-size: 12px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,241) scale(1,-1)">1</text>
+			<text x="319.7987" y="97" style="font-family: Helvetica; font-size: 9.8px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,194) scale(1,-1)">Domain 1: Alder leads</text>
+			<text x="320.0731" y="83" style="font-family: Helvetica; font-size: 9.8px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,166) scale(1,-1)">Domain 2: Birch leads</text>
+			<path d="M 264,73 L 474,73 Z" style="stroke: rgb(73%,76%,80%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="288.8165" y="55" style="font-family: Helvetica-Bold; font-size: 11px;fill: rgb(7%,38%,45%); stroke:none;" transform="translate(0,110) scale(1,-1)">Risk = 1/5     Joint error J = 1/5</text>
+			<path d="M 245,47 L 245,230 Z" style="stroke: rgb(83%,85%,87%); stroke-linecap: butt; stroke-width: 0.6;"/>
+			<text x="156.495" y="31" style="font-family: Helvetica; font-size: 10px;fill: rgb(12%,16%,20%); stroke:none;" transform="translate(0,62) scale(1,-1)">Smaller grade = higher reported priority.</text>
+			<text x="89.78680000000003" y="14" style="font-family: Helvetica; font-size: 9.2px;fill: rgb(29%,33%,38%); stroke:none;" transform="translate(0,28) scale(1,-1)">Cap = 1/4; threshold t = 0; withholding cost = 1/3; domain weights = 1/2, 1/2.</text>
+		</g>
+	</g>
+</svg>

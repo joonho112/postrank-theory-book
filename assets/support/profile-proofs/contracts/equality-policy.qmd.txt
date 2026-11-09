@@ -1,0 +1,99 @@
+---
+title: "Structural equality and the equality-neutral alternative"
+lang: en
+execute:
+  enabled: false
+---
+
+## Status and structural identity {#sec-p2-equality-policy}
+
+This Step 3.4 contract supplements [reporting semantics](reporting-semantics.qmd) and [core loss](loss-core.qmd). The weak-error loss remains primary. The neutral branch below is an explicitly different decision specification, adapted from P1's tie-aware loss; it is not a changed interpretation of the core risk. The [P1 correspondence](../evidence/p2-v1/p1-correspondence.qmd#sec-inheritance-equality) records the inheritance boundary.
+
+For each domain, declare an equivalence relation $E_d$ on the units, with scientific or model provenance for each equality class. Its meaning is a target identity: whenever $iE_dj$, the two domain targets are the same quantity throughout the declared target/model state space. For example, sites sharing a community can inherit an identical community target while retaining distinct site-composition targets. Require compatibility of the supplied law:
+
+$$
+\Pi_s\{\Theta:\theta_{id}=\theta_{jd}\text{ for every }d\text{ and }iE_dj\mid y\}=1.
+$$
+
+Restrict admissible reports by
+
+$$
+iE_dj\quad\Longrightarrow\quad g_{id}=g_{jd}.
+$$
+
+These are hard reporting guards, including in zero-loss-weight domains. Incompatible law/guard metadata must be resolved before evaluation; do not silently average unequal targets, delete states, or discard a declared guard. The all-withheld action respects every guard. Under the core loss, within-class withheld pairs still incur their constant $\tau_d/M$ domain contribution; later compression must preserve multiplicities and constants.
+
+The guard is a declared restriction. No claim is made that imposing it preserves an optimum of an unguarded problem with joint constraints, grade caps, or other restrictions. P1's equality-neutral guard theorem has narrower assumptions and does not supply that claim.
+
+## Equality evidence and domain specificity {#sec-p2-equality-evidence}
+
+Distinguish three situations. A declared structural identity supplies the preceding guard. Positive posterior equality mass without such an identity remains ordinary uncertainty: a disclosed strict assertion fails at equality under the core loss. Equal values in all saved Monte Carlo states do not establish probability-one equality under the intended posterior, much less scientific structural identity. Rounding and numerical tolerances do not change these statements.
+
+If a finite support and its weights define the **exact supplied law**, equality at every positive-mass support point does establish probability-one equality under that law. This mathematical fact should be recorded as such. It is not automatically scientific provenance for a structural target identity under another intended model; adopting a guard still requires the declared identity and its scope. Approximate finite support must remain labeled approximate.
+
+Relations belong to domains. For three units, let $E_1$ have classes $\{1,2\},\{3\}$ and $E_2$ have $\{1\},\{2,3\}$. The compatible state and guarded report
+
+$$
+\Theta=\begin{pmatrix}3&2\\3&1\\1&1\end{pmatrix},
+\qquad G=\begin{pmatrix}1&1\\1&2\\2&2\end{pmatrix}
+$$
+
+retain two grades in each domain and three occupied profiles. Intersecting the relations globally would miss the required within-domain ties. Imposing their union's transitive closure in every domain would suppress permissible distinctions. A common-grade diagonal must, however, satisfy both guards on its one shared column; in this example that forces all three units into one grade. This follows from the specified shared action, not from replacing the domain relations in the product family.
+
+## Neutral loss and its interpretation {#sec-p2-neutral-loss}
+
+Retain $x_{ij}^d$, $N_d$ and $M$ from the core definitions. Define strict-reversal and distinct-target counts
+
+$$
+F_d^{\mathrm{rev}}=\sum_{i\ne j}x_{ij}^d\mathbf1\{\theta_{id}<\theta_{jd}\},
+\qquad
+N_d^{\ne}=\sum_{i\ne j}x_{ij}^d\mathbf1\{\theta_{id}\ne\theta_{jd}\},
+$$
+
+$$
+W_d^{\ne}=\sum_{i<j}\mathbf1\{g_{id}=g_{jd}\}\mathbf1\{\theta_{id}\ne\theta_{jd}\}.
+$$
+
+The optional neutral loss is
+
+$$
+L_d^{\mathrm{neu}}=\frac{F_d^{\mathrm{rev}}+\tau_d W_d^{\ne}}{M},
+\quad L_{\mathrm{neu}}=\sum_dw_dL_d^{\mathrm{neu}},
+\quad R_{\mathrm{neu}}=E_{\Pi_s}[L_{\mathrm{neu}}\mid y].
+$$
+
+All possible pairs still form the loss denominator. At latent equality **all three actions cost zero**, including withholding. At distinct targets the neutral and core pair costs agree. The all-withheld neutral risk is
+
+$$
+\frac1M\sum_dw_d\tau_d\sum_{i<j}\Pi_s(\theta_{id}\ne\theta_{jd}\mid y),
+$$
+
+which need not equal the core baseline $\sum_dw_d\tau_d$.
+
+A neutral error guarantee concerns **no strict reversal**, not strict correctness. Equality makes an issued strict assertion false under the reporting semantics even when its neutral cost is zero. A display must name the weaker guarantee; zero neutral loss is not evidence that all displayed strict inequalities hold. This branch does not introduce an equality assertion or practical-equivalence margin.
+
+## Three denominator choices {#sec-p2-neutral-denominators}
+
+For fixed $G$, $N_d$ is deterministic, whereas $N_d^{\ne}$ depends on the target state. Always $0\le F_d^{\mathrm{rev}}\le N_d^{\ne}\le N_d$. The following summaries are different:
+
+1. $E[F_d^{\mathrm{rev}}\mid y]/N_d$, for $N_d>0$, counts reversals among all reported pairs, retaining equal-target reports in the denominator.
+2. $E[F_d^{\mathrm{rev}}\mid y]/E[N_d^{\ne}\mid y]$, for positive expected distinct mass, is a ratio of expectations.
+3. $E[\widetilde Q_d^{\ne}\mid y]$, where $\widetilde Q_d^{\ne}=F_d^{\mathrm{rev}}/N_d^{\ne}$ if $N_d^{\ne}>0$ and zero otherwise, averages a statewise active-pair fraction.
+
+Zero denominators display as unavailable/no active comparisons. The zero extension in item 3 is computational, not perfect accuracy. Conditioning item 3 on $N_d^{\ne}>0$ produces yet another quantity. If $E[N_d^{\ne}]=0$, nonnegativity forces both active and reversal counts to vanish almost surely, but item 2 remains undefined.
+
+For $t\in[0,1]$, tail events likewise require a denominator choice: $\{F_d^{\mathrm{rev}}>tN_d\}$ and $\{F_d^{\mathrm{rev}}>tN_d^{\ne}\}$ are distinct. The latter uses a statewise random denominator and has no exceedance in its empty state. Neither event becomes a core weak-error guarantee by renaming it. Scoped or joint versions require their own declared masks, thresholds and union event; none is silently activated here.
+
+## Exact denominator fixture {#sec-p2-equality-fixtures}
+
+Take $n=3$, one domain and $g=(1,2,2)$, so $N=2$. The exact supplied law is:
+
+| Target state | Mass | $F^{\mathrm{rev}}$ | $N^{\ne}$ | $\widetilde Q^{\ne}$ |
+|---|---:|---:|---:|---:|
+| $(1,2,1)$ | $1/3$ | 1 | 1 | 1 |
+| $(3,1,2)$ | $1/2$ | 0 | 2 | 0 |
+| $(0,0,0)$ | $1/6$ | 0 | 0 | 0 |
+
+Thus $E[F^{\mathrm{rev}}]=1/3$, $E[N^{\ne}]=4/3$ and the three summaries are respectively $1/6$, $1/4$ and $1/3$. Conditional on positive active count, the last becomes $2/5$. These differences are exact, not Monte Carlo error.
+
+[The fixtures](../fixtures/p2-v1/equality-cases.json) also check all nine core/neutral pair costs, positive equality mass, and crossing domain identities. They include hand-readable expected values and an embedded executable Python checker using exact rational arithmetic. This validates the examples, not a reference evaluator, optimizer, or preservation theorem.

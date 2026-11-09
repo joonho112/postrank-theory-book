@@ -1,0 +1,51 @@
+---
+title: "KRW and Bayesian ranking: source-level inheritance"
+lang: en
+execute:
+  enabled: false
+---
+
+## Scope and verified editions {#sec-src-krw-ranking-scope}
+
+This Step 2.1 packet verifies two originals within a bounded reading scope. Source identity was checked on 5 November 2026 against the [American Economic Association article page](https://www.aeaweb.org/articles?id=10.1257/aer.20230700) and the [SAGE publisher record](https://journals.sagepub.com/doi/10.3102/10769986014001029). The substantive reading used the locally supplied PDFs, with equations and key qualifications checked in rendered pages. The companion `krw-ranking-source-records.json` records their hashes, paths, inspected pages, primary links, claim locators, and bibliography suggestions. Original PDFs remain in the read-only reference directories.
+
+Kline, Rose, and Walters (2024), *A Discrimination Report Card*, is the published *American Economic Review* article, 114(8), 2472–2525, DOI `10.1257/aer.20230700`. The local 88-page file contains additional material after the article. The author-hosted [published article](https://ekrose.github.io/files/report_cards.pdf) has a different total PDF page count; printed article page numbers identify the passages below. Laird and Louis (1989), *Empirical Bayes Ranking Methods*, appeared in *Journal of Educational Statistics*, 14(1), 29–46, DOI `10.3102/10769986014001029`. SAGE now presents it under the successor journal's website; the original title-page journal name is retained in the bibliography.
+
+## KRW: the decision problem precedes the EB producer {#sec-src-krw-beliefs}
+
+Section II begins on printed p. 2477 (local PDF p. 6). The target is one scalar discrimination quantity per firm. The grade vector orders the firms, with larger source grade values indicating more discrimination. Beliefs are specified by a joint distribution function $B$ on the entire scalar target vector. The text first develops the decision given $B$ and then identifies empirical Bayes as the producer used in its application. It also allows the analyst to supply beliefs directly. General-belief posterior decision making is therefore part of the original formulation; it should not be attributed to P2 as though KRW required its particular EB estimator at the decision-definition stage.
+
+Section III, opening on p. 2483 and continuing through pp. 2484–2485 (local PDF pp. 12–14), introduces the empirical model: normal observation noise, conditional independence across observations, and a random-effects mixing distribution. Section III.B substitutes an estimate of that distribution into posterior calculations and uses the resulting pair probabilities in the earlier optimization. These assumptions concern this EB construction. They are not prerequisites for defining a posterior risk under an otherwise supplied proper joint law.
+
+A P2 producer integrating model and hyperparameter uncertainty can change the beliefs and their uncertainty representation. That is a meaningful producer extension, but it does not make posterior expected-loss minimization itself new. Calibration under a different evaluation law remains separate from mathematical optimization under the supplied beliefs.
+
+## KRW: strict pair losses, coherent grades, and denominator {#sec-src-krw-loss}
+
+The pair decision on pp. 2477–2478 offers a reward $\lambda\in[0,1]$ for a correct direction, cost one for a reversed direction, and zero payoff for a reported tie. The source explicitly treats latent ties as probability-zero on p. 2478. Its stated complementary pair probabilities must be read with that assumption. P2 must state any extension to positive equality mass separately; continuity of individual marginal distributions is not an adequate substitute for a no-equality condition on the joint comparison law.
+
+Equation (1), p. 2479 (local PDF p. 8), sums strict discordances minus $\lambda$ times strict concordances and divides by all $M=\binom n2$ pairs. In notation chosen here for clarity, this is $(D_{<}-\lambda C)/M$. It is not a loss normalized by the number of disclosed pairs. A report tie contributes neither strict count and withholds a comparison; it does not establish equal latent performance.
+
+Equations (2)–(3), p. 2480 (local PDF p. 9), define the posterior expected discordance proportion and minimize expected loss. Equations (4)–(5) impose coherence through joint binary optimization. The isolated-pair posterior threshold on p. 2478 is therefore not a prescription to threshold every pair independently and assume the result forms valid grades. The all-pair discordance rate also differs from an expected false fraction among disclosed comparisons. Section II.D separately reports rates between specified grade pairs; that does not turn the all-pair denominator in equation (2) into a disclosed-pair denominator.
+
+The source parameter $\lambda$ expresses a reward–cost tradeoff. The primary decision is expected-loss minimization, not maximum disclosure subject to a predetermined error budget. P1's withholding-cost reexpression and P2's proposed constrained problem must be labeled as reexpressions or extensions with their own assumptions. A zero-error whole-card probability, domainwise expected FDP, and joint FDP-tail event are different risk objects from KRW's displayed expected all-pair discordance measure.
+
+### Formula-transcription caveat {#sec-src-krw-caveat}
+
+The inspected published pages contain apparent orientation inconsistencies in the unnumbered expected-Kendall expression on p. 2479 and the grade-recovery line below equation (5) on p. 2480, when read against the source definitions of $\pi_{ij}$ and $d_{ij}$. For example, at a certainly concordant direction $d_i>d_j$, $\pi_{ij}=1$, the displayed expected-Kendall contribution has the opposite sign from the preceding concordance definition. These are recorded as local source checks, not a comprehensive erratum claim. The P2 exposition should reconstruct signs from the event definitions, pair payoff, and equation (1), and use its canonical ordered-partition mapping. It should not copy the suspect ancillary formulas. No source PDF was altered.
+
+## Laird–Louis: posterior ranks and the reporting objective {#sec-src-laird-ranking}
+
+The original pp. 31–33 (local PDF pp. 3–5) distinguish ranking posterior means of target quantities from summarizing the posterior distribution of ranks. Their working derivation begins with independent Gaussian posterior quantities and no latent ties. Equation (2), p. 32, defines ranks with the largest target ranked first; p. 33 obtains expected ranks by summing pairwise ordering probabilities. Posterior expected ranks need not be integer permutations, and ranking those expectations defines another reported object. These are useful antecedents for separating an estimand, its posterior, and the action used to summarize it.
+
+The lower part of p. 32 discusses different losses and explicitly presents the permutation-constrained squared-rank optimality claim as a **conjecture**. This packet does not promote that sentence to a proved theorem in the cited paper. It also does not use squared-rank loss as though it were KRW's pairwise error–withholding loss. The two target/action/loss specifications answer different questions.
+
+The discussion on p. 33 and the concluding discussion on p. 41 acknowledge posterior dependence and uncertainty introduced by estimating prior parameters. Their Gaussian independence formulas do not justify independent recoupling of arbitrary P2 marginal posterior files. The reusable lesson is that posterior variability, the ranking functional, and the reported summary can matter beyond a ranking of fitted means. Neither the inspected expected-rank construction nor its loss discussion supplies P2's joint profile-error protection.
+
+## Attribution decisions and remaining work {#sec-src-krw-ranking-disposition}
+
+- **Confirmed source content:** KRW's general-belief scalar report-card decision, strict error/reward convention under its no-tie assumption, coherent expected-loss optimization, and all-pair discordance denominator.
+- **Confirmed source content:** Laird–Louis's posterior-rank summaries, distinction from ranked posterior means, and explicit qualification of the permutation-loss claim.
+- **P1/P2 adaptation:** a normalized withholding-cost representation, criterion-weighted directional losses, explicit equality branches, product ordered partitions, and the proposed joint-tail protected action. Attribution must keep these changes visible.
+- **Unverified in this packet:** KRW's dominance proofs, all appendix algorithms, numerical replication, full EB uncertainty properties, and Laird–Louis's full appendices and confidence procedures. The two sources were not reviewed as an exhaustive Bayesian ranking bibliography.
+
+This packet supports a conservative positioning statement: P2 builds on established posterior reporting and ranking decisions. Its research burden is the explicitly defined profile action, joint error object, associated structural results, and validated computation, rather than the general ability to rank using posterior beliefs.
